@@ -1,0 +1,15 @@
+{
+  "name": "Tensor Street Newsroom",
+  "short_name": "TS Newsroom",
+  "description": "Post, write and manage Tensor Street",
+  "id": "/admin",
+  "start_url": "/admin#/instagram",
+  "scope": "/admin",
+  "display": "standalone",
+  "background_color": "#070a12",
+  "theme_color": "#070a12",
+  "icons": [
+    { "src": "/assets/brand/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/brand/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

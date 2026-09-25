@@ -189,7 +189,7 @@ Models · Markets · Main Street AI
   'admin.html': {
     title: 'Newsroom · Tensor Street',
     script: 'admin',
-    extraHead: '<meta name="robots" content="noindex, nofollow"><link rel="stylesheet" href="/assets/css/admin.css">',
+    extraHead: '<meta name="robots" content="noindex, nofollow"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="TS Newsroom"><link rel="stylesheet" href="/assets/css/admin.css">',
     main: `<div id="admin-root"></div>`,
   },
 };
@@ -197,7 +197,11 @@ Models · Markets · Main Street AI
 for (const [file, cfg] of Object.entries(pages)) {
   let html = shell(cfg);
   html = html.replaceAll('<div id="subscribe">SIGNUP</div>', '<div id="subscribe" data-signup-slot></div>').replace('<div id="subscribe" style="margin-top:40px">SIGNUP</div>', '<div id="subscribe" style="margin-top:40px" data-signup-slot></div>');
-  if (file === 'admin.html') html = html.replace('<div id="site-top"></div>\n', '').replace('<div id="site-foot"></div>\n', '');
+  if (file === 'admin.html') {
+    html = html.replace('<div id="site-top"></div>\n', '').replace('<div id="site-foot"></div>\n', '');
+    // The newsroom is its own home-screen app: separate name, opens on the Instagram page.
+    html = html.replace('<link rel="manifest" href="/site.webmanifest">', '<link rel="manifest" href="/admin.webmanifest">').replace('<meta name="theme-color" content="#0a0e1a">', '<meta name="theme-color" content="#070a12">');
+  }
   await fs.writeFile(path.join(ROOT, 'public', file), html);
 }
 console.log(`Wrote ${Object.keys(pages).length} pages.`);

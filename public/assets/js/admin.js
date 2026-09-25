@@ -14,7 +14,42 @@ const I = {
   gear: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>',
   out: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>',
   site: ICON.ext,
+  image: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>',
 };
+
+// ── Sharing images (iPhone share sheet → Save Image / Instagram) ─────────
+const isIOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+const canShareFiles = () => {
+  try {
+    return !!navigator.canShare?.({ files: [new File([''], 'x.jpg', { type: 'image/jpeg' })] });
+  } catch {
+    return false;
+  }
+};
+const SHARE_LABEL = canShareFiles() ? (isIOS ? 'Save / Share' : 'Share') : 'Download';
+
+/** Must be called straight from a tap, with the file already prepared (iOS rule). */
+async function shareOrSave(file, caption) {
+  if (caption) navigator.clipboard?.writeText(caption).catch(() => {});
+  if (canShareFiles()) {
+    try {
+      await navigator.share({ files: [file] });
+      if (caption) toast('Caption copied: paste it in Instagram');
+      return;
+    } catch (e) {
+      if (e?.name === 'AbortError') return;
+    }
+  }
+  const url = URL.createObjectURL(file);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = file.name;
+  document.body.append(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 15000);
+  toast(caption ? 'Image downloaded, caption copied' : 'Image downloaded');
+}
 
 const post = (path, body, method = 'POST') => api(path, { method, headers: { 'content-type': 'application/json' }, body: JSON.stringify(body), timeout: 60000 });
 const spinner = '<span class="spin"></span>';
@@ -74,12 +109,25 @@ function renderShell() {
       <div class="foot"><a href="/" target="_blank">${I.site}View site</a><button class="lnk" id="logout">${I.out}Sign out</button></div>
     </aside>
     <div class="adm-main"><div class="adm-top"><div style="display:flex;align-items:center;gap:10px"><button class="icon-btn adm-menu" id="menu">${ICON.menu}</button><h1 id="title"></h1></div><div class="acts" id="top-acts"></div></div><div class="adm-body" id="view"></div></div>
+    <nav class="tabbar" aria-label="Newsroom">
+      <a href="#/dashboard" data-t="dashboard">${I.dash}<span>Home</span></a>
+      <a href="#/instagram" data-t="instagram">${ICON.instagram}<span>Posts</span></a>
+      <a href="#/studio" data-t="studio">${I.image}<span>Studio</span></a>
+      <a href="#/new" data-t="new">${I.pen}<span>Write</span></a>
+      <button type="button" id="tab-more">${ICON.menu}<span>More</span></button>
+    </nav>
   </div>`;
   $('#logout').onclick = async () => {
     await post('/api/admin/logout', {});
     location.reload();
   };
   $('#menu').onclick = () => $('#side').classList.toggle('open');
+  $('#tab-more').onclick = () => $('#side').classList.toggle('open');
+  // Tap outside the slide-out menu to close it.
+  document.addEventListener('click', (e) => {
+    const side = $('#side');
+    if (side?.classList.contains('open') && !e.target.closest('#side, #menu, #tab-more')) side.classList.remove('open');
+  });
 }
 
 function setHeader(title, acts = '') {
@@ -91,6 +139,8 @@ function setHeader(title, acts = '') {
 function route() {
   const [, k = 'dashboard', arg] = location.hash.split('/');
   $$('.adm-side a[data-k]').forEach((a) => (a.dataset.k === k ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current')));
+  $$('.tabbar a[data-t]').forEach((a) => (a.dataset.t === (k === 'edit' ? 'new' : k) ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current')));
+  document.body.dataset.view = k;
   $('#side').classList.remove('open');
   window.scrollTo(0, 0);
   const view = $('#view');
@@ -440,7 +490,7 @@ async function newsroom(view) {
 // ── Social studio (Instagram posts) ──────────────────────────────────────
 
 async function studio(view) {
-  setHeader('Social studio', `<button class="btn btn-sm" id="copy-cap">Copy caption</button><button class="btn btn-sm" id="dl">Download PNG</button><button class="btn btn-sm btn-brand" id="post-ig">${ICON.instagram.replace('<svg', '<svg width="15" height="15"')} Post to Instagram</button>`);
+  setHeader('Social studio', `<button class="btn btn-sm" id="copy-cap">Copy caption</button><button class="btn btn-sm" id="dl">${SHARE_LABEL === 'Download' ? 'Download' : SHARE_LABEL}</button><button class="btn btn-sm btn-brand" id="post-ig">${ICON.instagram.replace('<svg', '<svg width="15" height="15"')} Post to Instagram</button>`);
   const [news, postsRes] = await Promise.all([api('/api/news?limit=60'), api('/api/admin/posts')]);
   const items = [
     ...postsRes.posts.filter((p) => p.status === 'published').map((p) => ({ kind: 'post', id: 'p:' + p.slug, title: p.title, summary: p.dek, image: p.cover?.url, section: p.section, source: 'From the Desk' })),
@@ -448,7 +498,7 @@ async function studio(view) {
   ];
   const want = sessionStorage.getItem('ts-social');
   sessionStorage.removeItem('ts-social');
-  const state = { item: items.find((i) => i.id === want) || items[0], fmt: 'post', style: 'photo', headline: '', kicker: '', customImg: null, focus: 'center' };
+  const state = { item: items.find((i) => i.id === want) || items.find((i) => i.kind === 'wire' && i.image) || items[0], fmt: 'post', style: 'photo', headline: '', kicker: '', customImg: null, focus: 'center' };
   if (!state.item) {
     view.innerHTML = '<div class="empty">No stories available yet.</div>';
     return;
@@ -470,10 +520,15 @@ async function studio(view) {
       </div>
       <div class="panel panel-pad"><div class="field"><label>Pick a story</label><div class="pick-list" id="pick">${items.map((i) => `<button data-id="${esc(i.id)}">${esc(i.title)}<small>${esc(i.source)} · ${esc(sectionById(i.section).name)}</small></button>`).join('')}</div></div></div>
     </div>
-    <div class="stack" style="gap:16px"><canvas id="cv"></canvas>
+    <div class="stack studio-preview" style="gap:16px"><canvas id="cv"></canvas>
       <div class="panel panel-pad"><div class="field"><label>Caption</label><textarea class="ta" id="cap" rows="9"></textarea></div></div></div>
   </div>`;
 
+  view.insertAdjacentHTML('beforeend', `<div class="studio-bar"><button class="btn btn-brand" data-sb="dl">${SHARE_LABEL}</button><button class="btn" data-sb="copy-cap">Copy caption</button><button class="btn" data-sb="post-ig">Post</button></div>`);
+  view.querySelector('.studio-bar').onclick = (e) => {
+    const b = e.target.closest('[data-sb]');
+    if (b) $('#' + b.dataset.sb).click();
+  };
   const cv = $('#cv');
   const sync = () => {
     $$('#fmt button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.v === state.fmt));
@@ -516,15 +571,9 @@ async function studio(view) {
   $('#reset-photo').onclick = () => ((state.customImg = null), sync());
   $('#hl').oninput = (e) => ((state.headline = e.target.value), draw(cv, state));
   $('#kick').oninput = (e) => ((state.kicker = e.target.value), draw(cv, state));
-  $('#dl').onclick = () => {
-    try {
-      const a = document.createElement('a');
-      a.download = `tensorstreet-${state.fmt}-${Date.now()}.png`;
-      a.href = cv.toDataURL('image/png');
-      a.click();
-    } catch {
-      toast('This photo can’t be exported. Pick another story or style.');
-    }
+  $('#dl').onclick = async () => {
+    if (!state.file) return toast('Still drawing the image… tap again in a second');
+    await shareOrSave(state.file, $('#cap').value);
   };
   $('#post-ig').onclick = async (e) => {
     if (state.fmt === 'story') return toast('Instagram feed posts must be 4:5 or square. Switch the format first.');
@@ -601,6 +650,15 @@ async function draw(cv, st) {
   cv.width = W;
   cv.height = H;
   renderCard(cv.getContext('2d'), { ...st, img });
+  // Keep a ready-to-share file so the share sheet can open instantly on tap.
+  st.file = null;
+  try {
+    cv.toBlob((b) => {
+      if (b && token === drawToken) st.file = new File([b], `tensorstreet-${st.fmt}-${Date.now()}.jpg`, { type: 'image/jpeg' });
+    }, 'image/jpeg', 0.92);
+  } catch {
+    /* photo couldn't be exported (blocked by its host) */
+  }
 }
 
 // ── Instagram autopilot ──────────────────────────────────────────────────
@@ -613,14 +671,14 @@ function packHtml(pack, connected) {
     done = JSON.parse(localStorage.getItem('ts-pack-' + today) || '{}');
   } catch {}
   return `<div class="panel panel-pad"><div class="sec-head"><h2>Today’s post pack</h2><span class="meta">${pack.filter((p) => done[p.id]).length}/${pack.length} posted</span></div>
-    <p style="margin:0 0 16px;font-size:14px;color:var(--ink-2)">${connected ? 'Autopilot posts these for you. You can also share any of them yourself.' : 'Your posts for today, ready to go. On your phone: tap <b>Share to Instagram</b> (the caption is copied for you, so just paste it). Or post them all at once with Instagram’s <b>Schedule</b> option (Advanced settings) at the suggested times.'}</p>
+    <p style="margin:0 0 16px;font-size:14px;color:var(--ink-2)">${connected ? 'Autopilot posts these for you. You can also share any of them yourself.' : `Tap <b>${SHARE_LABEL}</b> → <b>Instagram</b> (or <b>Save Image</b>). The caption copies automatically: just paste it. Tip: use Instagram’s <b>Schedule</b> option to line up all ${pack.length} at once.`}</p>
     <div class="cards-3" id="pack">${pack
       .map(
         (p, i) => `<div class="story" data-i="${i}" style="${done[p.id] ? 'opacity:.45' : ''}">
         <div class="media" style="aspect-ratio:4/5"><img src="${esc(p.card)}" alt="" loading="lazy"></div>
         <div class="meta"><span class="src">Post at ${esc(p.time)}</span><span class="sep"></span><span>${esc(p.source)}</span></div>
         <h3 style="font-size:14.5px">${esc(p.title)}</h3>
-        <div style="display:flex;flex-wrap:wrap;gap:6px"><button class="btn btn-sm btn-brand" data-pk="share">Share to Instagram</button><button class="btn btn-sm" data-pk="save">Save image</button><button class="btn btn-sm" data-pk="copy">Copy caption</button><button class="btn btn-sm btn-ghost" data-pk="done">${done[p.id] ? 'Undo' : 'Mark posted'}</button></div>
+        <div class="pack-acts"><button class="btn btn-brand" data-pk="share">${SHARE_LABEL}</button><button class="btn" data-pk="copy">Copy caption</button><button class="btn btn-ghost" data-pk="done">${done[p.id] ? '↺ Undo' : '✓ Posted'}</button></div>
       </div>`,
       )
       .join('')}</div></div>`;
@@ -630,32 +688,27 @@ function wirePack(pack, rerender) {
   const box = $('#pack');
   if (!box) return;
   const today = new Date().toISOString().slice(0, 10);
-  const blobFor = async (p) => (await fetch(p.card)).blob();
+  // Get every image ready now, so tapping Share opens the share sheet instantly.
+  for (const p of pack) {
+    p._file ||= fetch(p.card)
+      .then((r) => r.blob())
+      .then((b) => (p._ready = new File([b], `tensorstreet-${today}-${p.id}.jpg`, { type: 'image/jpeg' })));
+  }
   box.onclick = async (e) => {
     const b = e.target.closest('[data-pk]');
     if (!b) return;
     const p = pack[+b.closest('[data-i]').dataset.i];
-    const name = `tensorstreet-${today}-${p.id}.jpg`;
     try {
       if (b.dataset.pk === 'copy') {
         await navigator.clipboard.writeText(p.caption);
         toast('Caption copied');
-      } else if (b.dataset.pk === 'save') {
-        const url = URL.createObjectURL(await blobFor(p));
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = name;
-        a.click();
-        setTimeout(() => URL.revokeObjectURL(url), 5000);
       } else if (b.dataset.pk === 'share') {
-        await navigator.clipboard.writeText(p.caption).catch(() => {});
-        const file = new File([await blobFor(p)], name, { type: 'image/jpeg' });
-        if (navigator.canShare?.({ files: [file] })) {
-          await navigator.share({ files: [file] });
-          toast('Caption copied: paste it in Instagram');
-        } else {
-          toast('Sharing works on your phone. On a computer, use Save image + Copy caption.');
+        if (!p._ready) {
+          toast('Getting the image ready… tap again in a second');
+          await p._file;
+          return;
         }
+        await shareOrSave(p._ready, p.caption);
       } else if (b.dataset.pk === 'done') {
         let done = {};
         try {
