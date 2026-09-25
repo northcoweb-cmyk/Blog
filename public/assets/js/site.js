@@ -130,16 +130,30 @@ export function coverSvg(key, section = 'ai', label = '') {
   return `<svg class="cover" viewBox="0 0 ${W} ${Hh}" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(label || sectionById(section).name)}"><defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient><pattern id="${id}p" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".06"/></pattern></defs><rect width="${W}" height="${Hh}" fill="url(#${id})"/><rect width="${W}" height="${Hh}" fill="url(#${id}p)"/>${art}<text x="72" y="${Hh - 64}" font-family="Geist Mono, monospace" font-size="30" letter-spacing="4" fill="#fff" fill-opacity=".75">TENSOR STREET · ${esc(sectionById(section).name.toUpperCase())}</text></svg>`;
 }
 
-/** Image with automatic fallback to generated cover art. */
+/** Image with automatic fallbacks: publisher photo → topic photo → generated cover art. */
 export function mediaHtml(item, { cls = '', badge = '' } = {}) {
   const section = item.section || 'ai';
   const src = item.cover?.url || item.image || '';
   const cover = coverSvg(item.id || item.slug || item.title || 'x', section, item.title);
-  const img = src
-    ? `<img src="${esc(src)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.replaceWith(document.createRange().createContextualFragment(this.parentNode.dataset.cover));">`
-    : '';
-  return `<div class="media ${cls}" data-cover="${esc(cover)}">${img || cover}${badge}</div>`;
+  const logo = !item.cover?.url && item.imageKind === 'logo' ? ' logo' : '';
+  const fb = item.fallbackImage ? ` data-fb="${esc(item.fallbackImage)}" data-fbkind="${esc(item.fallbackKind || '')}"` : '';
+  const img = src ? `<img src="${esc(src)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"${fb} onerror="tsImgFail(this)">` : '';
+  return `<div class="media ${cls}${logo}" data-cover="${esc(cover)}">${img || cover}${badge}</div>`;
 }
+
+// Called by <img onerror>. Tries the topic photo once, then falls back to cover art.
+globalThis.tsImgFail = (img) => {
+  const box = img.parentNode;
+  if (img.dataset.fb) {
+    const fb = img.dataset.fb;
+    box.classList.toggle('logo', img.dataset.fbkind === 'logo');
+    delete img.dataset.fb;
+    img.src = fb;
+    return;
+  }
+  box.classList.remove('logo');
+  img.replaceWith(document.createRange().createContextualFragment(box.dataset.cover));
+};
 
 // ── Cards ────────────────────────────────────────────────────────────────
 

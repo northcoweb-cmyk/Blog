@@ -769,6 +769,14 @@ a:hover .media img,
 a:hover .media svg.cover {
   transform: scale(1.035);
 }
+.media.logo {
+  background: #fff;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.media.logo img {
+  object-fit: contain;
+  padding: 12% 16%;
+}
 .media.r43 { aspect-ratio: 4 / 3; }
 .media.r11 { aspect-ratio: 1; }
 .media.r32 { aspect-ratio: 3 / 2; }
