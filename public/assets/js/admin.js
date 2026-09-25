@@ -61,7 +61,7 @@ const NAV = [
   ['new', 'Write', I.pen],
   ['newsroom', 'Newsroom wire', I.wire],
   ['studio', 'Social studio', I.ig],
-  ['instagram', 'Instagram autopilot', ICON.spark],
+  ['instagram', 'Instagram', ICON.spark],
   ['newsletter', 'Newsletter', I.mail],
   ['setup', 'Setup & status', I.gear],
 ];
@@ -604,8 +604,77 @@ async function draw(cv, st) {
 }
 
 // ── Instagram autopilot ──────────────────────────────────────────────────
+// Today's ready-made posts, for posting by hand until Meta is connected.
+function packHtml(pack, connected) {
+  if (!pack?.length) return '';
+  const today = new Date().toISOString().slice(0, 10);
+  let done = {};
+  try {
+    done = JSON.parse(localStorage.getItem('ts-pack-' + today) || '{}');
+  } catch {}
+  return `<div class="panel panel-pad"><div class="sec-head"><h2>Today’s post pack</h2><span class="meta">${pack.filter((p) => done[p.id]).length}/${pack.length} posted</span></div>
+    <p style="margin:0 0 16px;font-size:14px;color:var(--ink-2)">${connected ? 'Autopilot posts these for you. You can also share any of them yourself.' : 'Your posts for today, ready to go. On your phone: tap <b>Share to Instagram</b> (the caption is copied for you, so just paste it). Or post them all at once with Instagram’s <b>Schedule</b> option (Advanced settings) at the suggested times.'}</p>
+    <div class="cards-3" id="pack">${pack
+      .map(
+        (p, i) => `<div class="story" data-i="${i}" style="${done[p.id] ? 'opacity:.45' : ''}">
+        <div class="media" style="aspect-ratio:4/5"><img src="${esc(p.card)}" alt="" loading="lazy"></div>
+        <div class="meta"><span class="src">Post at ${esc(p.time)}</span><span class="sep"></span><span>${esc(p.source)}</span></div>
+        <h3 style="font-size:14.5px">${esc(p.title)}</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:6px"><button class="btn btn-sm btn-brand" data-pk="share">Share to Instagram</button><button class="btn btn-sm" data-pk="save">Save image</button><button class="btn btn-sm" data-pk="copy">Copy caption</button><button class="btn btn-sm btn-ghost" data-pk="done">${done[p.id] ? 'Undo' : 'Mark posted'}</button></div>
+      </div>`,
+      )
+      .join('')}</div></div>`;
+}
+
+function wirePack(pack, rerender) {
+  const box = $('#pack');
+  if (!box) return;
+  const today = new Date().toISOString().slice(0, 10);
+  const blobFor = async (p) => (await fetch(p.card)).blob();
+  box.onclick = async (e) => {
+    const b = e.target.closest('[data-pk]');
+    if (!b) return;
+    const p = pack[+b.closest('[data-i]').dataset.i];
+    const name = `tensorstreet-${today}-${p.id}.jpg`;
+    try {
+      if (b.dataset.pk === 'copy') {
+        await navigator.clipboard.writeText(p.caption);
+        toast('Caption copied');
+      } else if (b.dataset.pk === 'save') {
+        const url = URL.createObjectURL(await blobFor(p));
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = name;
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(url), 5000);
+      } else if (b.dataset.pk === 'share') {
+        await navigator.clipboard.writeText(p.caption).catch(() => {});
+        const file = new File([await blobFor(p)], name, { type: 'image/jpeg' });
+        if (navigator.canShare?.({ files: [file] })) {
+          await navigator.share({ files: [file] });
+          toast('Caption copied: paste it in Instagram');
+        } else {
+          toast('Sharing works on your phone. On a computer, use Save image + Copy caption.');
+        }
+      } else if (b.dataset.pk === 'done') {
+        let done = {};
+        try {
+          done = JSON.parse(localStorage.getItem('ts-pack-' + today) || '{}');
+        } catch {}
+        done[p.id] ? delete done[p.id] : (done[p.id] = 1);
+        try {
+          localStorage.setItem('ts-pack-' + today, JSON.stringify(done));
+        } catch {}
+        rerender();
+      }
+    } catch (err) {
+      if (err?.name !== 'AbortError') toast(err.message || 'Something went wrong');
+    }
+  };
+}
+
 async function instagram(view) {
-  setHeader('Instagram autopilot');
+  setHeader('Instagram');
   const st = await api('/api/admin/instagram', { timeout: 60000 });
   const hours = (sel) => Array.from({ length: 24 }, (_, h) => `<option value="${h}"${h === sel ? ' selected' : ''}>${((h + 11) % 12) + 1}:00 ${h < 12 ? 'AM' : 'PM'}</option>`).join('');
   const steps = `<ol style="margin:0;padding-left:18px;display:grid;gap:8px;font-size:14px;color:var(--ink-2)">
@@ -615,13 +684,14 @@ async function instagram(view) {
       <li>Click <b>Generate token</b> next to @tensorstreet, copy it (it starts with <code>IG</code>) and paste it below.</li>
     </ol>`;
   if (!st.connected) {
-    view.innerHTML = `<div class="grid"><div class="col-8 stack">
+    view.innerHTML = `<div class="stack">${packHtml(st.pack, false)}<div class="grid"><div class="col-8 stack">
       ${st.error ? `<div class="note warn">The saved token didn’t work: ${esc(st.error)}. Paste a fresh one below.</div>` : ''}
-      <div class="panel panel-pad"><div class="sec-head"><h2>Connect @tensorstreet</h2></div>${steps}
+      <div class="panel panel-pad"><div class="sec-head"><h2>Go fully automatic (when Meta is ready)</h2></div>${steps}
         <div class="field" style="margin-top:18px"><label>Instagram access token</label><input class="in" id="ig-token" placeholder="IGAA…" autocomplete="off"></div>
         <button class="btn btn-brand" id="ig-save" style="margin-top:12px">Connect Instagram</button>
         ${st.canSave ? '' : '<p class="meta" style="margin-top:10px">Saving needs GitHub connected (GITHUB_TOKEN). You can also add the token in Vercel as <code>INSTAGRAM_ACCESS_TOKEN</code>.</p>'}</div>
-    </div><div class="col-4"><div class="panel panel-pad"><div class="sec-head"><h2>What it does</h2></div><p style="margin:0;font-size:14px;color:var(--ink-2)">Posts the day’s biggest AI stories to Instagram automatically, using the same designs as the Social studio, with the article photo, headline and a caption crediting the source. It never posts the same story twice, and spreads posts evenly through the day.</p></div></div></div>`;
+    </div><div class="col-4"><div class="panel panel-pad"><div class="sec-head"><h2>What it does</h2></div><p style="margin:0;font-size:14px;color:var(--ink-2)">Posts the day’s biggest AI stories to Instagram automatically, using the same designs as the Social studio, with the article photo, headline and a caption crediting the source. It never posts the same story twice, and spreads posts evenly through the day.</p></div></div></div></div>`;
+    wirePack(st.pack, () => instagram(view));
     $('#ig-save').onclick = async (e) => {
       const b = e.currentTarget;
       b.disabled = true;
@@ -639,7 +709,7 @@ async function instagram(view) {
     return;
   }
   const s = st.settings;
-  view.innerHTML = `<div class="grid">
+  view.innerHTML = `<div class="stack">${packHtml(st.pack, true)}<div class="grid">
     <div class="col-8 stack">
       ${st.cronSecret ? '' : '<div class="note warn">Add a <code>CRON_SECRET</code> variable in Vercel so the hourly timer can run the autopilot.</div>'}
       <div class="panel panel-pad"><div class="sec-head"><h2>Next up</h2><span class="meta">What the autopilot will post next</span></div>
@@ -660,7 +730,8 @@ async function instagram(view) {
       </div>
       <div class="panel panel-pad" style="font-size:13.5px;color:var(--ink-2)">${st.tokenExpires ? `Token renews itself automatically (next expiry ${fmtDate(st.tokenExpires)}).` : 'Token is set in Vercel (INSTAGRAM_ACCESS_TOKEN). It lasts 60 days: paste it here instead so it renews itself automatically.'}
         <div style="margin-top:10px"><button class="btn btn-sm btn-ghost" id="ig-disc" style="color:var(--down)">Disconnect</button></div></div>
-    </div></div>`;
+    </div></div></div>`;
+  wirePack(st.pack, () => instagram(view));
   $('#ig-settings').onclick = async (e) => {
     const b = e.currentTarget;
     b.disabled = true;
