@@ -90,7 +90,8 @@ const server = http.createServer(async (req, res) => {
       const q = { ...query, ...Object.fromEntries(d.searchParams) };
       const fn = d.pathname.match(/^\/api\/(public|admin|cron)$/);
       if (fn) return await runFunction(fn[1], req, res, q);
-      const f = await fileFor(d.pathname);
+      // Like Vercel: with cleanUrls, .html files can't be targeted by name.
+      const f = vercel.cleanUrls && d.pathname.endsWith('.html') ? null : await fileFor(d.pathname);
       if (f) {
         res.writeHead(200, { 'content-type': TYPES[path.extname(f)] || 'text/html' });
         return res.end(await fs.readFile(f));

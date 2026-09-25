@@ -47,19 +47,19 @@
     },
     {
       "source": "/section/:id",
-      "destination": "/section.html"
+      "destination": "/section"
     },
     {
       "source": "/story/:id",
-      "destination": "/story.html"
+      "destination": "/story"
     },
     {
       "source": "/archive/:date",
-      "destination": "/archive.html"
+      "destination": "/archive"
     },
     {
       "source": "/admin/:path*",
-      "destination": "/admin.html"
+      "destination": "/admin"
     }
   ],
   "headers": [
