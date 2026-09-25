@@ -4,7 +4,9 @@
   "private": true,
   "description": "Tensor Street — the daily briefing on the AI economy. Auto-updating AI news, markets and analysis.",
   "type": "module",
-  "engines": { "node": "22.x" },
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "node dev/server.js",
     "dev:mock": "node dev/server.js --mock",
@@ -13,6 +15,7 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.128.0",
+    "@napi-rs/canvas": "^1.0.9",
     "fast-xml-parser": "^5.2.0"
   }
 }

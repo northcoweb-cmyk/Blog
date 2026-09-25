@@ -58,6 +58,21 @@ Vercel → **Project → Settings → Domains → Add** your domain, then follow
 
 ---
 
+## Instagram autopilot (free)
+
+Posts 5–8 of the day's top stories to Instagram automatically, using the Social studio designs with each article's photo.
+
+1. **Make @tensorstreet a professional account:** Instagram app → Settings → Account type and tools → Switch to professional → Creator.
+2. **Get a token:** [developers.facebook.com → Create app](https://developers.facebook.com/apps/creation/) → use case *Manage messaging & content on Instagram* → Instagram → *API setup with Instagram login* → Add account (log in as @tensorstreet) → **Generate token** → copy it.
+3. **Connect:** Admin → **Instagram autopilot** → paste the token → Connect. Turn Autopilot on, pick posts per day and hours → Save. The token is stored encrypted and renews itself.
+4. **Turn on the hourly timer:** GitHub repo → Settings → Secrets and variables → Actions → New repository secret:
+   - `SITE_URL` = your site address (e.g. `https://tensorstreet.com`)
+   - `CRON_SECRET` = the same value as in Vercel
+
+That's it. Every hour GitHub pings the site; the site posts when it's time, never repeats a story, and stays inside your posting hours. You can also post any design by hand with **Post to Instagram** in the Social studio.
+
+---
+
 ## Your daily routine (about 20 minutes)
 
 1. **Morning:** open `/admin`. Review the AI drafts the daily job wrote (Articles → drafts), fact-check them against the source link, then publish or delete.
@@ -99,6 +114,8 @@ The site keeps updating itself all day whether you log in or not.
 | `SITE_URL` | optional | Your domain, for RSS and email links |
 | `INSTAGRAM_HANDLE` | optional | Defaults to `tensorstreet` |
 | `FINNHUB_API_KEY` | optional | Backup source for stock prices |
+| `INSTAGRAM_ACCESS_TOKEN` | optional | Instagram token (easier: paste it in Admin → Instagram autopilot) |
+| `INSTAGRAM_HANDLE` | optional | Defaults to `tensorstreet` |
 | `SITE_TIMEZONE` | optional | Edition times (default `America/New_York`) |
 
 ---

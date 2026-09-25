@@ -4,7 +4,7 @@
 //   node dev/check-live.js
 import { getNews } from '../lib/news.js';
 import { getMarkets } from '../lib/markets.js';
-import { fetchImage } from '../lib/handlers/public.js';
+import { fetchImage } from '../lib/http.js';
 
 const news = await getNews({ force: true });
 const ok = news.sources.filter((s) => s.ok);
