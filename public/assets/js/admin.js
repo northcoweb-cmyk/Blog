@@ -445,11 +445,11 @@ async function studio(view) {
   const [news, postsRes] = await Promise.all([api('/api/news?limit=60'), api('/api/admin/posts')]);
   const items = [
     ...postsRes.posts.filter((p) => p.status === 'published').map((p) => ({ kind: 'post', id: 'p:' + p.slug, title: p.title, summary: p.dek, image: p.cover?.url, section: p.section, source: 'From the Desk' })),
-    ...news.stories.map((s) => ({ kind: 'wire', id: s.id, title: s.title, summary: s.summary, image: s.image, section: s.section, source: s.source })),
+    ...news.stories.map((s) => ({ kind: 'wire', id: s.id, title: s.title, summary: s.summary, image: s.image, fallbackImage: s.fallbackImage, section: s.section, source: s.source })),
   ];
   const want = sessionStorage.getItem('ts-social');
   sessionStorage.removeItem('ts-social');
-  const state = { item: items.find((i) => i.id === want) || items[0], fmt: 'post', style: 'photo', headline: '', kicker: '' };
+  const state = { item: items.find((i) => i.id === want) || items[0], fmt: 'post', style: 'photo', headline: '', kicker: '', customImg: null, focus: 'center' };
   if (!state.item) {
     view.innerHTML = '<div class="empty">No stories available yet.</div>';
     return;
@@ -463,6 +463,12 @@ async function studio(view) {
         <div class="field"><label>Headline on the image</label><textarea class="ta" id="hl" rows="3">${esc(state.headline)}</textarea><span class="hint">Shorter is stronger: aim for under 12 words.</span></div>
         <div class="field"><label>Kicker</label><input class="in" id="kick" placeholder="e.g. JUST IN, BY THE NUMBERS" value=""></div>
       </div>
+      <div class="panel panel-pad" style="display:grid;gap:12px">
+        <div class="field"><label>Photo</label><div class="hint" id="photo-status" style="font-size:13px">Loading the article photo…</div></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-sm" id="up-photo">Upload my own photo</button><button class="btn btn-sm btn-ghost" id="reset-photo" hidden>Use the article photo</button></div>
+        <input type="file" id="photo-file" accept="image/*" hidden>
+        <div class="field"><label>Photo position</label><div class="swatches" id="focus"><button data-v="top">Top</button><button data-v="center">Center</button><button data-v="bottom">Bottom</button></div><span class="hint">Move the photo up or down so faces and logos aren’t cut off.</span></div>
+      </div>
       <div class="panel panel-pad"><div class="field"><label>Pick a story</label><div class="pick-list" id="pick">${items.map((i) => `<button data-id="${esc(i.id)}">${esc(i.title)}<small>${esc(i.source)} · ${esc(sectionById(i.section).name)}</small></button>`).join('')}</div></div></div>
     </div>
     <div class="stack" style="gap:16px"><canvas id="cv"></canvas>
@@ -474,6 +480,8 @@ async function studio(view) {
     $$('#fmt button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.v === state.fmt));
     $$('#sty button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.v === state.style));
     $$('#pick button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.id === state.item.id));
+    $$('#focus button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.v === state.focus));
+    $('#reset-photo').hidden = !state.customImg;
     $('#cap').value = caption(state.item, state.headline);
     draw(cv, state);
   };
@@ -484,9 +492,29 @@ async function studio(view) {
     if (!b) return;
     state.item = items.find((i) => i.id === b.dataset.id);
     state.headline = state.item.title;
+    state.customImg = null;
     $('#hl').value = state.headline;
     sync();
   };
+  $('#focus').onclick = (e) => e.target.closest('button') && ((state.focus = e.target.closest('button').dataset.v), sync());
+  $('#up-photo').onclick = () => $('#photo-file').click();
+  $('#photo-file').onchange = async (e) => {
+    const f = e.target.files[0];
+    if (!f) return;
+    // Local file → data URL, so the canvas can always export it.
+    const url = await new Promise((r) => { const fr = new FileReader(); fr.onload = () => r(fr.result); fr.readAsDataURL(f); });
+    const img = new Image();
+    img.src = url;
+    try {
+      await img.decode();
+      state.customImg = img;
+      sync();
+    } catch {
+      toast('That file isn’t an image we can read. Try a JPG or PNG.');
+    }
+    e.target.value = '';
+  };
+  $('#reset-photo').onclick = () => ((state.customImg = null), sync());
   $('#hl').oninput = (e) => ((state.headline = e.target.value), draw(cv, state));
   $('#kick').oninput = (e) => ((state.kicker = e.target.value), draw(cv, state));
   $('#dl').onclick = () => {
@@ -536,8 +564,21 @@ async function draw(cv, st) {
   const token = ++drawToken;
   const [W, H] = FORMATS[st.fmt];
   await Promise.all([document.fonts.load('700 80px Geist'), document.fonts.load('500 30px "Geist Mono"'), document.fonts.load('italic 400 60px Newsreader')]).catch(() => {});
-  const img = st.style === 'ink' || st.style === 'paper' || st.style === 'photo' || st.style === 'breaking' ? await loadCanvasImage(st.item.image) : null;
+  // Photo: your upload → the article's photo → the topic photo → none.
+  let img = st.customImg;
+  let from = 'your photo';
+  if (!img) {
+    img = await loadCanvasImage(st.item.image);
+    from = st.item.kind === 'post' ? 'the article’s cover photo' : `the article photo (${st.item.source})`;
+  }
+  if (!img && st.item.fallbackImage) {
+    img = await loadCanvasImage(st.item.fallbackImage);
+    from = 'a topic photo (the article’s own photo couldn’t be loaded)';
+  }
   if (token !== drawToken) return;
+  const status = $('#photo-status');
+  if (status) status.textContent = img ? `Using ${from}.` : 'No photo available for this story. Upload your own, or try the Ink style.';
+  const focus = { top: 0, center: 0.5, bottom: 1 }[st.focus] ?? 0.5;
   cv.width = W;
   cv.height = H;
   const x = cv.getContext('2d');
@@ -548,7 +589,7 @@ async function draw(cv, st) {
 
   // Background
   if ((st.style === 'photo' || st.style === 'breaking') && img) {
-    cover(x, img, 0, 0, W, H);
+    cover(x, img, 0, 0, W, H, focus);
     const g = x.createLinearGradient(0, H * 0.25, 0, H);
     g.addColorStop(0, 'rgba(5,8,15,0)');
     g.addColorStop(0.55, 'rgba(5,8,15,.78)');
@@ -577,7 +618,7 @@ async function draw(cv, st) {
       x.save();
       roundRect(x, P, 190, W - P * 2, ih, 28);
       x.clip();
-      cover(x, img, P, 190, W - P * 2, ih);
+      cover(x, img, P, 190, W - P * 2, ih, focus);
       x.restore();
     }
   }
@@ -655,11 +696,11 @@ function wrap(x, text, maxW) {
   if (line) lines.push(line);
   return lines;
 }
-function cover(x, img, dx, dy, dw, dh) {
+function cover(x, img, dx, dy, dw, dh, focus = 0.5) {
   const s = Math.max(dw / img.width, dh / img.height);
   const w = img.width * s;
   const h = img.height * s;
-  x.drawImage(img, dx + (dw - w) / 2, dy + (dh - h) / 2, w, h);
+  x.drawImage(img, dx + (dw - w) / 2, dy + (dh - h) * focus, w, h);
 }
 function roundRect(x, rx, ry, w, h, r) {
   x.beginPath();

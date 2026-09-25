@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 // Offline sample data for local design work (`npm run dev:mock`) and tests.
 // NOT used in production — headlines here are made-up placeholders.
 import { SOURCES } from '../lib/sources.js';
@@ -77,6 +78,13 @@ const QUOTES = { '^GSPC': [6512, 0.004], '^IXIC': [21840, 0.009], '^SOX': [5980,
 
 export function mockResponse(url) {
   const u = String(url);
+  // Sample photos for local testing: MOCK_IMAGE_DIR=/path/with/mock-1.jpg …
+  const im = u.match(/^https:\/\/mock-images\.test\/(\d+)\.jpg$/);
+  if (im && process.env.MOCK_IMAGE_DIR) {
+    try {
+      return new Response(readFileSync(`${process.env.MOCK_IMAGE_DIR}/mock-${im[1]}.jpg`), { headers: { 'content-type': 'application/octet-stream' } });
+    } catch {}
+  }
   if (u.includes('finance.yahoo.com/v8/finance/spark')) {
     const syms = decodeURIComponent(u.match(/symbols=([^&]+)/)[1]).split(',');
     const body = {};
