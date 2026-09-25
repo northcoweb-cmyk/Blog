@@ -1585,6 +1585,9 @@ a:hover .media svg.cover {
   height: 100%;
   border: 0;
 }
+.prose > p:first-child {
+  display: flow-root;
+}
 .prose > p:first-child::first-letter {
   font-family: var(--serif);
   float: left;
@@ -1594,6 +1597,33 @@ a:hover .media svg.cover {
   color: var(--ink);
 }
 
+.credit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 13.5px;
+  color: var(--muted);
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--brand);
+  border-radius: 10px;
+  background: var(--surface);
+  margin: -12px 0 28px;
+}
+.credit a {
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.credit a svg {
+  width: 13px;
+  height: 13px;
+}
+.credit a:hover {
+  color: var(--brand);
+}
 .takebox {
   border: 1px solid var(--line);
   background: var(--surface);

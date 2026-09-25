@@ -95,6 +95,11 @@ export function mockResponse(url) {
     }
     return new Response(JSON.stringify(body), { headers: { 'content-type': 'application/json' } });
   }
+  // Fake AI (dev only) so the AI features can be previewed offline.
+  if (u.startsWith('https://api.openai.com/')) {
+    const article = { headline: 'OpenAI’s new reasoning model trades a little power for a lot of speed', dek: 'Developers get a cheaper option for high-volume work, according to OpenAI.', body: 'OpenAI has released a faster reasoning model aimed at developers, according to OpenAI. The company says it costs less for customers who send large volumes of requests, and it can take in more text at once.\n\nThe model is available through the API first. Pricing for everyday ChatGPT users was not part of the announcement.\n\n## Why it matters\n\nCheaper, faster models change what is practical to build. Features that were too expensive to run on every customer request start to make sense.\n\n## What to watch\n\nWhether rivals cut prices in response, and how the model performs outside the company’s own tests.', keyPoints: ['New model is faster and cheaper for high-volume API users', 'Available to developers first', 'Handles more text in a single request'] };
+    return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(article) }, finish_reason: 'stop' }] }), { headers: { 'content-type': 'application/json' } });
+  }
   const src = SOURCES.find((s) => s.url === u);
   if (src) {
     const items = ITEMS.filter((i) => i[0] === src.id);
