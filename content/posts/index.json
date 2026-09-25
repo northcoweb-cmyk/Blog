@@ -1,0 +1,58 @@
+[
+  {
+    "slug": "welcome-to-tensor-street",
+    "title": "Welcome to Tensor Street",
+    "dek": "A free daily briefing on the AI economy: what launched, what moved, what it means for your business.",
+    "section": "ai",
+    "tags": [
+      "Tensor Street"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": null,
+    "featured": true,
+    "status": "published",
+    "aiAssisted": false,
+    "createdAt": "2026-09-25T02:31:16.604Z",
+    "updatedAt": "2026-09-25T02:31:16.604Z",
+    "publishedAt": "2026-09-25T00:30:00.000Z",
+    "readingTime": 1
+  },
+  {
+    "slug": "how-ai-companies-actually-make-money",
+    "title": "How AI companies actually make money",
+    "dek": "Subscriptions, API fees, cloud contracts and chips: a plain-English map of where the AI money flows.",
+    "section": "markets",
+    "tags": [
+      "Business",
+      "Explainer"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": null,
+    "featured": false,
+    "status": "published",
+    "aiAssisted": false,
+    "createdAt": "2026-09-25T02:31:16.612Z",
+    "updatedAt": "2026-09-25T02:31:16.612Z",
+    "publishedAt": "2026-09-24T14:00:00.000Z",
+    "readingTime": 1
+  },
+  {
+    "slug": "five-ways-small-businesses-are-using-ai-right-now-and-where-to-be-careful",
+    "title": "Five ways small businesses are using AI right now, and where to be careful",
+    "dek": "You don’t need a data science team. Here’s where AI is saving owners real hours, and the mistakes to avoid.",
+    "section": "mainstreet",
+    "tags": [
+      "Small business",
+      "How-to"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": null,
+    "featured": false,
+    "status": "published",
+    "aiAssisted": false,
+    "createdAt": "2026-09-25T02:31:16.614Z",
+    "updatedAt": "2026-09-25T02:31:16.614Z",
+    "publishedAt": "2026-09-23T13:00:00.000Z",
+    "readingTime": 1
+  }
+]

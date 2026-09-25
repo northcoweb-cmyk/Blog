@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0e1a">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/brand/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="Tensor Street" href="/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..800&family=Geist+Mono:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/app.css">
+<script>try{var t=localStorage.getItem('ts-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<title>Tensor Street · The daily briefing on the AI economy</title>
+<meta name="description" content="Tensor Street is a free daily briefing on artificial intelligence: model launches, AI stocks and markets, policy, startups, and how small businesses are putting AI to work. Updated all day.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tensor Street">
+<meta property="og:title" content="Tensor Street · The daily briefing on the AI economy">
+<meta property="og:description" content="Tensor Street is a free daily briefing on artificial intelligence: model launches, AI stocks and markets, policy, startups, and how small businesses are putting AI to work. Updated all day.">
+<meta property="og:image" content="/assets/brand/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body data-page="home">
+<div id="site-top"></div>
+<div class="dateline"><div class="wrap dateline-row"><span id="dateline-left"><b>&nbsp;</b></span><span class="dl-right"><span class="live" id="updated"><span class="dot"></span>Live</span><a class="hide-sm" href="/archive">Archive</a><a class="hide-sm" href="/learn">New to AI? Start here</a></span></div></div>
+<main id="main"><div class="wrap">
+  <h1 class="sr-only">Tensor Street: today's AI news</h1>
+  <section class="grid" id="top-grid" aria-label="Top stories">
+    <div class="col-6" id="lead"><div class="media sk" style="border-radius:14px"></div><div class="sk sk-title" style="width:85%;height:34px;margin-top:18px"></div><div class="sk sk-line"></div><div class="sk sk-line" style="width:60%"></div></div>
+    <div class="col-3 stack" id="second"></div>
+    <aside class="col-3" id="markets-panel" aria-label="AI markets"></aside>
+  </section>
+  <section id="brief" style="margin-top:40px" aria-label="The Brief"></section>
+  <section class="grid" style="margin-top:40px">
+    <div class="col-8">
+      <div class="sec-head"><h2><span class="bar"></span>Latest</h2><div class="tabs" role="tablist" id="latest-tabs"></div></div>
+      <div class="panel panel-pad" id="latest"></div>
+    </div>
+    <aside class="col-4 stack" id="rail" aria-label="More">
+      <div class="panel panel-pad"><div class="sec-head"><h2><span class="bar" style="--sec:var(--live)"></span>Trending now</h2></div><ol class="hl-list" id="trending"></ol></div>
+      <div id="subscribe" data-signup-slot></div>
+      <div class="panel panel-pad" id="desk-rail"></div>
+      <a class="promo" href="/learn"><span class="chip" data-sec="research">Learn AI</span><h3>AI, explained in plain English</h3><p>The glossary for everything you'll read on this site, from LLMs to inference to agents.</p><div class="terms"><span>LLM</span><span>Agent</span><span>Inference</span><span>GPU</span><span>Tokens</span><span>RAG</span></div></a>
+    </aside>
+  </section>
+  <div id="desk-feature"></div>
+  <div id="sections"></div>
+</div></main>
+<div id="site-foot"></div>
+<script type="module" src="/assets/js/home.js"></script>
+</body>
+</html>

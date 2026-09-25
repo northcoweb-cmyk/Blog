@@ -1,0 +1,97 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "outputDirectory": "public",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "functions": {
+    "api/*.js": {
+      "maxDuration": 60,
+      "includeFiles": "content/**"
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/cron/daily",
+      "schedule": "0 10 * * *"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/admin/:action",
+      "destination": "/api/admin?action=:action"
+    },
+    {
+      "source": "/api/cron/:job",
+      "destination": "/api/cron?job=:job"
+    },
+    {
+      "source": "/api/:action",
+      "destination": "/api/public?action=:action"
+    },
+    {
+      "source": "/media/:path*",
+      "destination": "/api/public?action=media&path=:path*"
+    },
+    {
+      "source": "/p/:slug",
+      "destination": "/api/public?action=p&slug=:slug"
+    },
+    {
+      "source": "/rss.xml",
+      "destination": "/api/public?action=rss"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/api/public?action=sitemap"
+    },
+    {
+      "source": "/section/:id",
+      "destination": "/section.html"
+    },
+    {
+      "source": "/story/:id",
+      "destination": "/story.html"
+    },
+    {
+      "source": "/archive/:date",
+      "destination": "/archive.html"
+    },
+    {
+      "source": "/admin/:path*",
+      "destination": "/admin.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "how-ai-companies-actually-make-money",
+  "title": "How AI companies actually make money",
+  "dek": "Subscriptions, API fees, cloud contracts and chips: a plain-English map of where the AI money flows.",
+  "body": "Every week brings another headline about billions spent on AI. It helps to know where that money goes, and where companies hope to earn it back. The AI business has four main layers.\n\n## 1. Chips and hardware\n\nAt the bottom are the companies that make the chips AI runs on. Graphics processors (GPUs) turned out to be ideal for the math behind modern AI, and Nvidia dominates that market. Other chipmakers, and the factories that manufacture chips, sit in this layer too.\n\n**How they earn:** selling hardware, often to a small number of very large customers.\n\n## 2. Cloud and data centers\n\nNext are the \"hyperscalers,\" the big cloud providers that buy chips by the hundreds of thousands, build data centers and rent out computing power.\n\n**How they earn:** renting compute by the hour, and selling AI services on top of it. When you read about \"AI capex\" in earnings season, this is the layer doing most of the spending.\n\n## 3. Model makers\n\nAI labs train the large models and sell access in two main ways:\n\n- **Subscriptions** for people and teams using chat apps directly.\n- **API fees** charged per token (roughly per word) when other companies build the model into their own products.\n\nTraining frontier models is extremely expensive, so the big question for this layer is whether revenue grows faster than costs.\n\n## 4. Applications\n\nAt the top are the products people actually use: coding assistants, customer-service agents, writing tools, and AI features inside software you already pay for.\n\n**How they earn:** mostly subscriptions, sometimes priced per seat, increasingly priced per task completed.\n\n## Why it matters\n\nWhen AI stocks swing, it's usually a debate about this stack. Investors are asking whether spending at the bottom (chips and data centers) will be matched by revenue at the top (apps and subscriptions). Watch the earnings calls of companies in each layer and you'll see the whole argument play out in real time.",
+  "section": "markets",
+  "tags": [
+    "Business",
+    "Explainer"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": null,
+  "featured": false,
+  "status": "published",
+  "aiAssisted": false,
+  "createdAt": "2026-09-25T02:31:16.612Z",
+  "updatedAt": "2026-09-25T02:31:16.612Z",
+  "publishedAt": "2026-09-24T14:00:00.000Z"
+}
