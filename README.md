@@ -88,8 +88,9 @@ The site keeps updating itself all day whether you log in or not.
 | `GITHUB_REPO` / `GITHUB_BRANCH` | rarely | Auto-detected on Vercel. Set to `owner/repo` and the branch if needed |
 | `GEMINI_API_KEY` | optional | Free AI writing (Google AI Studio). `GEMINI_MODEL` overrides the model |
 | `GROQ_API_KEY` | optional | Alternative free AI provider |
+| `OPENAI_API_KEY` | optional | OpenAI (paid per use, pennies per article). `OPENAI_MODEL` overrides the model (default `gpt-5-mini`) |
 | `ANTHROPIC_API_KEY` | optional | Claude (paid). `ANTHROPIC_MODEL` overrides the model |
-| `LLM_PROVIDER` | optional | Force `gemini`, `groq` or `anthropic` |
+| `LLM_PROVIDER` | optional | Force `gemini`, `groq`, `openai` or `anthropic` |
 | `BUTTONDOWN_API_KEY` | optional | Newsletter signups and daily email |
 | `NEWSLETTER_AUTOSEND` | optional | `true` sends the daily email instead of drafting it |
 | `CRON_SECRET` | recommended | Protects the daily job |
@@ -116,7 +117,7 @@ lib/               the engine
   classify.js      keyword rules for desks, tags and "is this about AI"
   markets.js       stock tape (Yahoo Finance, Finnhub backup)
   brief.js         The Brief, "Why it matters", AI article drafts
-  llm.js           Gemini / Groq / Claude + the house writing style
+  llm.js           Gemini / Groq / OpenAI / Claude + the house writing style
   content.js       your articles, images and archive (GitHub or local files)
 content/           your articles (posts/), images (uploads/), daily archive (editions/)
 vercel.json        routes, caching and the 6am ET daily cron job

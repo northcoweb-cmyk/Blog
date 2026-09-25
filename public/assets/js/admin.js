@@ -393,7 +393,7 @@ async function newsroom(view) {
   let filter = 'all';
   const draw = () => {
     const list = news.stories.filter((s) => filter === 'all' || s.section === filter);
-    view.innerHTML = `${ai ? '' : `<div class="note" style="margin-bottom:16px">Tip: add a free <code>GEMINI_API_KEY</code> and the “Draft with AI” button will write a first draft of any story for you. <a href="#/setup" style="text-decoration:underline">How</a></div>`}
+    view.innerHTML = `${ai ? '' : `<div class="note" style="margin-bottom:16px">Tip: add a free <code>GEMINI_API_KEY</code> (or an <code>OPENAI_API_KEY</code>) and the “Draft with AI” button will write a first draft of any story for you. <a href="#/setup" style="text-decoration:underline">How</a></div>`}
       <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px"><div class="tabs">${[{ id: 'all', name: 'All' }, ...SECTIONS].map((s) => `<button aria-selected="${s.id === filter}" data-f="${s.id}">${esc(s.name)}</button>`).join('')}</div><span class="meta">${list.length} stories · updated ${timeAgo(news.generatedAt).toLowerCase()}</span></div>
       <div class="panel panel-pad">${list
         .map(
@@ -745,7 +745,7 @@ function setupChecks(st) {
       state: st.ai.provider ? 'ok' : 'no',
       body: st.ai.provider
         ? `Using <strong>${esc(st.ai.provider)}</strong>. Stories get “Why it matters” notes, The Brief is AI-written, and you can draft articles from any headline.`
-        : `Optional but recommended. <ol><li>Get a free key at <a href="https://aistudio.google.com/apikey" target="_blank">Google AI Studio</a>.</li><li>Add <code>GEMINI_API_KEY</code> in Vercel → Environment Variables and redeploy.</li></ol>Prefer another provider? <code>GROQ_API_KEY</code> (free) or <code>ANTHROPIC_API_KEY</code> (paid) also work.`,
+        : `Optional but recommended. <ol><li>Get a free key at <a href="https://aistudio.google.com/apikey" target="_blank">Google AI Studio</a>.</li><li>Add <code>GEMINI_API_KEY</code> in Vercel → Environment Variables and redeploy.</li></ol>Prefer another provider? <code>GROQ_API_KEY</code> (free), <code>OPENAI_API_KEY</code> (paid per use) or <code>ANTHROPIC_API_KEY</code> (paid) also work.`,
     },
     {
       title: 'Email newsletter',
