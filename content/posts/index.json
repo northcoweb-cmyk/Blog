@@ -1,5 +1,25 @@
 [
   {
+    "slug": "trygtm-ai-powered-outreach-that-turns-prospects-into-meetings",
+    "title": "TryGTM: AI-Powered Outreach That Turns Prospects Into Meetings",
+    "dek": "An automated approach to finding leads, starting conversations, and booking sales calls.",
+    "section": "startups",
+    "tags": [],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "/media/2026/09/mulw4ycc-2fmb5x.webp",
+      "alt": "",
+      "credit": "https://trygtm.com/"
+    },
+    "featured": true,
+    "status": "published",
+    "aiAssisted": false,
+    "createdAt": "2026-09-28T23:40:48.732Z",
+    "updatedAt": "2026-09-28T23:40:48.732Z",
+    "publishedAt": "2026-09-28T23:40:00.000Z",
+    "readingTime": 1
+  },
+  {
     "slug": "welcome-to-tensor-street",
     "title": "Welcome to Tensor Street",
     "dek": "A free daily briefing on the AI economy: what launched, what moved, what it means for your business.",
