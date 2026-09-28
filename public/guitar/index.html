@@ -1,0 +1,3026 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Strum Coach</title>
+<meta name="description" content="Learn guitar with a coach that listens to every string and watches your hands.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%B8%3C/text%3E%3C/svg%3E">
+<style>
+:root {
+  --bg: #14110f;
+  --bg2: #1c1815;
+  --card: #231e1a;
+  --card2: #2b2520;
+  --line: #3a322b;
+  --text: #f4ede6;
+  --muted: #b3a597;
+  --dim: #7d7064;
+  --accent: #f5a524;
+  --accent2: #ffcb6b;
+  --ok: #3ecf8e;
+  --bad: #ff6b5b;
+  --warn: #ffd166;
+  --up: #6fb6ff;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: radial-gradient(1200px 600px at 80% -10%, #2a1f14 0%, var(--bg) 55%) fixed, var(--bg);
+  color: var(--text);
+  font: 16px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  min-height: 100vh;
+}
+a { color: var(--accent2); }
+button { font: inherit; color: inherit; }
+h1, h2, h3 { line-height: 1.2; margin: 0 0 0.5em; }
+h1 { font-size: 1.9rem; letter-spacing: -0.02em; }
+h2 { font-size: 1.35rem; }
+h3 { font-size: 1.05rem; }
+p { margin: 0 0 0.8em; }
+.muted { color: var(--muted); }
+.dim { color: var(--dim); }
+.small { font-size: 0.87rem; }
+.big { font-size: 1.25rem; }
+.center { text-align: center; }
+.row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.row.between { justify-content: space-between; }
+.stack > * + * { margin-top: 14px; }
+.grow { flex: 1; }
+.hidden { display: none !important; }
+
+/* ---------- Top bar ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; gap: 16px;
+  padding: 10px 20px;
+  background: rgba(20, 17, 15, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.15rem; text-decoration: none; color: var(--text); }
+.brand .logo { width: 34px; height: 34px; border-radius: 10px; background: linear-gradient(135deg, var(--accent), #e0661f); display: grid; place-items: center; font-size: 1.2rem; }
+.nav { display: flex; gap: 4px; flex: 1; justify-content: center; }
+.nav a {
+  text-decoration: none; color: var(--muted); padding: 8px 14px; border-radius: 999px; font-weight: 600; font-size: 0.95rem;
+}
+.nav a:hover { color: var(--text); background: var(--card); }
+.nav a.active { color: #1b1206; background: var(--accent); }
+.pills { display: flex; gap: 8px; }
+.pill {
+  display: flex; align-items: center; gap: 8px;
+  border: 1px solid var(--line); background: var(--card); border-radius: 999px;
+  padding: 6px 12px; cursor: pointer; font-size: 0.88rem; font-weight: 600; color: var(--muted);
+}
+.pill:hover { border-color: var(--accent); }
+.pill .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--dim); }
+.pill.on { color: var(--text); }
+.pill.on .dot { background: var(--ok); box-shadow: 0 0 8px var(--ok); }
+.meter { width: 44px; height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.meter > i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--ok), var(--warn), var(--bad)); transition: width 60ms linear; }
+
+/* ---------- Layout ---------- */
+main { max-width: 1100px; margin: 0 auto; padding: 28px 20px 140px; }
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 22px; box-shadow: var(--shadow);
+}
+.card.flat { box-shadow: none; }
+.card.hero { background: linear-gradient(135deg, #3a2410, #231e1a 60%); border-color: #5a3a17; }
+.grid { display: grid; gap: 16px; }
+.grid.two { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+.grid.three { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+.grid.four { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+.section-title { display: flex; align-items: baseline; justify-content: space-between; margin: 34px 0 14px; }
+.section-title h2 { margin: 0; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  border: 1px solid var(--line); background: var(--card2); color: var(--text);
+  padding: 11px 18px; border-radius: 12px; cursor: pointer; font-weight: 700; text-decoration: none;
+  transition: transform 0.06s, background 0.15s, border-color 0.15s;
+}
+.btn:hover { border-color: var(--accent); }
+.btn:active { transform: scale(0.98); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #1b1206; }
+.btn.primary:hover { background: var(--accent2); }
+.btn.big { padding: 15px 26px; font-size: 1.1rem; border-radius: 14px; }
+.btn.small { padding: 7px 12px; font-size: 0.88rem; border-radius: 10px; }
+.btn.ghost { background: transparent; }
+.btn.danger { border-color: #6b2b24; color: var(--bad); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.seg { display: inline-flex; background: var(--bg2); border: 1px solid var(--line); border-radius: 12px; padding: 3px; }
+.seg button { border: 0; background: transparent; padding: 8px 14px; border-radius: 9px; cursor: pointer; font-weight: 700; color: var(--muted); }
+.seg button.on { background: var(--card2); color: var(--text); box-shadow: 0 1px 0 var(--line); }
+
+/* ---------- Stats / progress ---------- */
+.stat { background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+.stat b { display: block; font-size: 1.6rem; letter-spacing: -0.02em; }
+.stat span { color: var(--muted); font-size: 0.86rem; }
+.bar { height: 10px; background: var(--bg2); border-radius: 6px; overflow: hidden; border: 1px solid var(--line); }
+.bar > i { display: block; height: 100%; background: linear-gradient(90deg, var(--accent), #ff7a2f); border-radius: 6px; transition: width 0.4s; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; background: var(--bg2); border: 1px solid var(--line); font-size: 0.82rem; font-weight: 700; color: var(--muted); }
+.chip.ok { color: var(--ok); border-color: #1f5a41; }
+.chip.accent { color: var(--accent2); border-color: #5a3a17; }
+.stars { color: var(--accent); letter-spacing: 1px; }
+
+/* ---------- Coach tips ---------- */
+.tip { display: flex; gap: 14px; align-items: flex-start; padding: 14px 16px; border-radius: 14px; background: var(--bg2); border: 1px solid var(--line); }
+.tip .ico { font-size: 1.4rem; line-height: 1; }
+.tip .grow p { margin: 0; }
+.tip + .tip { margin-top: 10px; }
+
+/* ---------- Lessons ---------- */
+.module { margin-bottom: 28px; }
+.module h2 { display: flex; gap: 10px; align-items: center; }
+.module h2 .num { width: 30px; height: 30px; border-radius: 9px; background: var(--card2); border: 1px solid var(--line); display: grid; place-items: center; font-size: 0.95rem; }
+.lesson-list { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.lesson {
+  display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 14px;
+  background: var(--card); border: 1px solid var(--line); cursor: pointer; text-decoration: none; color: var(--text);
+}
+.lesson:hover { border-color: var(--accent); }
+.lesson .check { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--line); display: grid; place-items: center; flex: none; font-size: 0.9rem; }
+.lesson.done .check { background: var(--ok); border-color: var(--ok); color: #06281a; font-weight: 900; }
+.lesson.next { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(245, 165, 36, 0.15); }
+.lesson .t { font-weight: 700; }
+.lesson .m { color: var(--dim); font-size: 0.82rem; }
+
+.steps-dots { display: flex; gap: 6px; }
+.steps-dots i { width: 28px; height: 6px; border-radius: 3px; background: var(--line); }
+.steps-dots i.done { background: var(--ok); }
+.steps-dots i.cur { background: var(--accent); }
+.lesson-body { min-height: 360px; }
+.lesson-body .prose p { font-size: 1.08rem; }
+.lesson-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 22px; gap: 10px; flex-wrap: wrap; }
+
+/* ---------- Chords ---------- */
+.chord-card { text-align: center; cursor: pointer; padding: 16px 10px; text-decoration: none; color: var(--text); display: block; }
+.chord-card:hover { border-color: var(--accent); }
+.chord-card .name { font-weight: 800; font-size: 1.3rem; }
+svg.diagram { display: block; margin: 0 auto; overflow: visible; }
+.diagram-wrap { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.diagram-wrap .label { font-weight: 900; font-size: 2.2rem; letter-spacing: -0.03em; }
+.diagram-wrap.next { opacity: 0.6; }
+.diagram-wrap.next .label { font-size: 1.4rem; }
+
+/* ---------- Exercise ---------- */
+.ex { display: grid; grid-template-columns: minmax(220px, 300px) 1fr; gap: 24px; align-items: start; }
+@media (max-width: 760px) { .ex { grid-template-columns: 1fr; } }
+.prompt { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 6px; }
+.feedback {
+  border-radius: 14px; padding: 14px 16px; background: var(--bg2); border: 1px solid var(--line); min-height: 58px;
+  font-size: 1.05rem; transition: background 0.2s, border-color 0.2s;
+}
+.feedback.ok { border-color: #1f5a41; background: #11261d; }
+.feedback.bad { border-color: #6b2b24; background: #2a1512; }
+.feedback.warn { border-color: #6b5a24; background: #29230f; }
+.feedback > b:first-child { display: block; font-size: 1.1rem; margin-bottom: 2px; }
+.listen { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-weight: 600; font-size: 0.92rem; }
+.listen .wave { display: inline-flex; gap: 3px; align-items: flex-end; height: 16px; }
+.listen .wave i { width: 3px; background: var(--accent); border-radius: 2px; height: 20%; transition: height 80ms; }
+.string-list { display: grid; gap: 6px; }
+.string-row { display: flex; align-items: center; gap: 12px; padding: 9px 12px; border-radius: 10px; background: var(--bg2); border: 1px solid var(--line); }
+.string-row.cur { border-color: var(--accent); }
+.string-row.ok { border-color: #1f5a41; }
+.string-row.bad { border-color: #6b2b24; }
+.string-row .n { width: 26px; height: 26px; border-radius: 50%; background: var(--card2); display: grid; place-items: center; font-weight: 800; font-size: 0.85rem; flex: none; }
+.string-row.ok .n { background: var(--ok); color: #06281a; }
+.string-row.bad .n { background: var(--bad); color: #2a0703; }
+.string-row.cur .n { background: var(--accent); color: #1b1206; }
+.string-row .what { flex: 1; }
+.string-row .res { font-size: 0.88rem; color: var(--muted); text-align: right; }
+.counter { font-size: 4rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1; }
+.timer { font-size: 1.4rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.dots { display: flex; gap: 8px; }
+.dots i { width: 18px; height: 18px; border-radius: 50%; background: var(--line); }
+.dots i.ok { background: var(--ok); }
+
+/* ---------- Tuner ---------- */
+.tuner { text-align: center; }
+.tuner .note { font-size: 6rem; font-weight: 900; line-height: 1; letter-spacing: -0.04em; }
+.tuner .cents { font-size: 1.1rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.gauge { position: relative; height: 70px; max-width: 520px; margin: 18px auto; }
+.gauge .scale { position: absolute; left: 0; right: 0; top: 30px; height: 4px; background: linear-gradient(90deg, var(--bad), var(--warn) 35%, var(--ok) 45%, var(--ok) 55%, var(--warn) 65%, var(--bad)); border-radius: 2px; }
+.gauge .zero { position: absolute; left: 50%; top: 10px; width: 2px; height: 44px; background: var(--text); opacity: 0.4; }
+.gauge .needle { position: absolute; top: 4px; left: 50%; width: 6px; height: 56px; margin-left: -3px; border-radius: 3px; background: var(--accent); transition: left 90ms linear, background 0.2s; }
+.gauge .needle.in { background: var(--ok); box-shadow: 0 0 14px var(--ok); }
+.tune-strings { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.tune-strings button { width: 64px; padding: 10px 0; border-radius: 12px; border: 1px solid var(--line); background: var(--bg2); cursor: pointer; font-weight: 800; font-size: 1.15rem; }
+.tune-strings button small { display: block; font-size: 0.7rem; color: var(--dim); font-weight: 600; }
+.tune-strings button.cur { border-color: var(--accent); }
+.tune-strings button.done { border-color: var(--ok); color: var(--ok); }
+
+/* ---------- Rhythm ---------- */
+.rgrid { display: grid; gap: 10px; }
+.rbar { display: grid; gap: 5px; padding: 8px; border-radius: 12px; background: var(--bg2); border: 1px solid var(--line); position: relative; }
+.rbar .cname { position: absolute; top: -10px; left: 10px; font-size: 0.78rem; font-weight: 800; color: var(--accent2); background: var(--bg); padding: 0 6px; border-radius: 6px; }
+.slot { height: 48px; border-radius: 8px; display: grid; place-items: center; background: var(--card2); font-size: 1.35rem; font-weight: 900; color: var(--muted); border: 2px solid transparent; }
+.slot.rest { background: transparent; color: var(--dim); font-size: 1rem; }
+.slot.up { color: var(--up); }
+.slot.now { border-color: var(--accent); }
+.slot.hit { background: #174a33; color: #d4ffe9; }
+.slot.near { background: #4a3f17; color: #fff3cc; }
+.slot.miss { background: #4a1d17; color: #ffd7d1; }
+.slot.extra { background: #4a1d17; }
+.slot .cnt { display: block; font-size: 0.62rem; font-weight: 700; color: var(--dim); line-height: 1; }
+.beat-light { width: 22px; height: 22px; border-radius: 50%; background: var(--line); transition: background 60ms; }
+.beat-light.on { background: var(--accent); box-shadow: 0 0 14px var(--accent); }
+.beat-light.accent.on { background: var(--ok); box-shadow: 0 0 14px var(--ok); }
+
+/* ---------- Tab (riffs) ---------- */
+.tab { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; overflow-x: auto; padding: 10px 0; }
+.tab .line { display: flex; align-items: center; height: 30px; position: relative; }
+.tab .line::before { content: ""; position: absolute; left: 30px; right: 0; top: 50%; height: 1px; background: var(--line); }
+.tab .sname { width: 30px; color: var(--dim); font-weight: 700; flex: none; }
+.tab .cell { width: 42px; flex: none; text-align: center; position: relative; z-index: 1; }
+.tab .cell b { display: inline-block; min-width: 28px; padding: 2px 4px; border-radius: 7px; background: var(--card2); border: 1px solid var(--line); font-weight: 800; }
+.tab .cell.cur b { background: var(--accent); color: #1b1206; border-color: var(--accent); transform: scale(1.15); }
+.tab .cell.ok b { background: var(--ok); color: #06281a; border-color: var(--ok); }
+.tab .cell.bad b { background: var(--bad); color: #2a0703; border-color: var(--bad); }
+
+/* ---------- Songs ---------- */
+.song-card { display: block; text-decoration: none; color: var(--text); cursor: pointer; }
+.song-card:hover { border-color: var(--accent); }
+.song-card .title { font-weight: 800; font-size: 1.1rem; }
+.song-card .chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+.chart { display: grid; gap: 16px; }
+.chart .sec h3 { color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.bars { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 6px; }
+.barbox { display: flex; gap: 2px; border: 1px solid var(--line); background: var(--bg2); border-radius: 10px; padding: 8px 6px; min-height: 48px; }
+.barbox .c { flex: 1; text-align: center; font-weight: 800; border-radius: 6px; padding: 4px 0; }
+.barbox .c.now { background: var(--accent); color: #1b1206; }
+.barbox .c.hit { color: var(--ok); }
+.barbox .c.miss { color: var(--bad); }
+.player { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center; }
+@media (max-width: 760px) { .player { grid-template-columns: 1fr; } }
+.beats { display: flex; gap: 10px; justify-content: center; margin: 12px 0; }
+.countdown { font-size: 5rem; font-weight: 900; text-align: center; color: var(--accent); }
+input[type=range] { accent-color: var(--accent); width: 100%; }
+select, input[type=text], input[type=number] {
+  background: var(--bg2); color: var(--text); border: 1px solid var(--line); border-radius: 10px; padding: 9px 12px; font: inherit; max-width: 100%;
+}
+label.toggle { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+label.toggle input { width: 20px; height: 20px; accent-color: var(--accent); }
+.setting { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.setting:last-child { border-bottom: 0; }
+.setting .d { max-width: 560px; }
+
+/* ---------- Camera panel ---------- */
+.campanel {
+  position: fixed; right: 18px; bottom: 18px; z-index: 30; width: 340px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden;
+}
+.campanel .head { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; font-weight: 700; font-size: 0.9rem; border-bottom: 1px solid var(--line); }
+.campanel canvas { display: block; width: 100%; background: #000; aspect-ratio: 4 / 3; }
+.campanel .coach { padding: 10px 12px; font-size: 0.9rem; display: grid; gap: 6px; }
+.campanel.min canvas, .campanel.min .coach { display: none; }
+@media (min-width: 1000px) {
+  body.cam-on main { max-width: 1470px; padding-right: 380px; }
+  body.cam-on.cam-min main { max-width: 1100px; padding-right: 20px; }
+}
+.campanel .fingers { display: flex; gap: 6px; flex-wrap: wrap; }
+.status { display: flex; gap: 8px; align-items: flex-start; }
+.status .s-ico { flex: none; }
+.status.ok { color: var(--ok); }
+.status.bad { color: var(--bad); }
+.status.warn { color: var(--warn); }
+
+/* ---------- Toast / modal ---------- */
+.toast {
+  position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%) translateY(20px); z-index: 50;
+  background: var(--card2); border: 1px solid var(--line); padding: 12px 18px; border-radius: 12px; box-shadow: var(--shadow);
+  opacity: 0; transition: opacity 0.2s, transform 0.2s; pointer-events: none; font-weight: 600;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.modal-bg { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6); z-index: 40; display: grid; place-items: center; padding: 20px; }
+.modal { max-width: 900px; width: 100%; max-height: 90vh; overflow: auto; }
+.celebrate { text-align: center; padding: 30px 10px; }
+.celebrate .emoji { font-size: 4rem; }
+
+@media (max-width: 860px) {
+  .topbar { flex-wrap: wrap; gap: 8px; padding: 8px 12px; }
+  .nav { order: 3; width: 100%; overflow-x: auto; justify-content: flex-start; }
+  .campanel { width: 240px; right: 10px; bottom: 10px; }
+  main { padding: 18px 14px 140px; }
+  .counter { font-size: 3rem; }
+}
+
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#/"><span class="logo">🎸</span>Strum Coach</a>
+  <nav class="nav">
+    <a href="#/" data-tab="">Home</a>
+    <a href="#/lessons" data-tab="lessons">Lessons</a>
+    <a href="#/chords" data-tab="chords">Chords</a>
+    <a href="#/songs" data-tab="songs">Songs</a>
+    <a href="#/tuner" data-tab="tuner">Tuner</a>
+    <a href="#/settings" data-tab="settings">Settings</a>
+  </nav>
+  <div class="pills">
+    <button class="pill" id="micpill" title="Microphone on/off"><span class="dot"></span>Mic<span class="meter"><i></i></span></button>
+    <button class="pill" id="campill" title="Camera on/off"><span class="dot"></span><span class="lbl">Camera</span></button>
+  </div>
+</header>
+<main id="main"></main>
+<aside class="campanel hidden" id="campanel">
+  <div class="head"><span>👀 Coach camera</span><span class="row" style="gap:4px"><button class="btn small ghost" data-swap title="Swap which hand is which">⇄</button><button class="btn small ghost" data-min title="Minimize">–</button><button class="btn small ghost" data-off title="Turn camera off">✕</button></span></div>
+  <canvas width="640" height="480"></canvas>
+  <div class="coach"></div>
+</aside>
+<div class="toast" id="toast"></div>
+<script>
+// Strum Coach — audio analysis ("the ears").
+// Pure functions only: every function takes raw samples and returns numbers,
+// so the whole thing can be tested in Node with synthesized guitar sounds.
+
+const DSP = (() => {
+  const STD_TUNING = [40, 45, 50, 55, 59, 64]; // MIDI, string 6 (low E) -> string 1 (high e)
+  const NOTE_NAMES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+
+  const mtof = (m) => 440 * Math.pow(2, (m - 69) / 12);
+  const ftom = (f) => 69 + 12 * Math.log2(f / 440);
+  const noteName = (m) => NOTE_NAMES[((Math.round(m) % 12) + 12) % 12];
+  const noteNameOct = (m) => noteName(m) + (Math.floor(Math.round(m) / 12) - 1);
+
+  // ---------- FFT ----------
+  const hannCache = new Map();
+  function hann(n) {
+    if (!hannCache.has(n)) {
+      const w = new Float64Array(n);
+      for (let i = 0; i < n; i++) w[i] = 0.5 - 0.5 * Math.cos((2 * Math.PI * i) / (n - 1));
+      hannCache.set(n, w);
+    }
+    return hannCache.get(n);
+  }
+
+  function fft(re, im) {
+    const n = re.length;
+    for (let i = 1, j = 0; i < n; i++) {
+      let bit = n >> 1;
+      for (; j & bit; bit >>= 1) j ^= bit;
+      j ^= bit;
+      if (i < j) {
+        let t = re[i]; re[i] = re[j]; re[j] = t;
+        t = im[i]; im[i] = im[j]; im[j] = t;
+      }
+    }
+    for (let len = 2; len <= n; len <<= 1) {
+      const ang = (-2 * Math.PI) / len;
+      const half = len >> 1;
+      for (let k = 0; k < half; k++) {
+        const cr = Math.cos(ang * k), ci = Math.sin(ang * k);
+        for (let i = k; i < n; i += len) {
+          const b = i + half;
+          const tr = re[b] * cr - im[b] * ci;
+          const ti = re[b] * ci + im[b] * cr;
+          re[b] = re[i] - tr; im[b] = im[i] - ti;
+          re[i] += tr; im[i] += ti;
+        }
+      }
+    }
+  }
+
+  // Magnitude spectrum (length n/2) of a Hann-windowed frame.
+  function magSpectrum(samples) {
+    const n = samples.length;
+    const w = hann(n);
+    const re = new Float64Array(n), im = new Float64Array(n);
+    for (let i = 0; i < n; i++) re[i] = samples[i] * w[i];
+    fft(re, im);
+    const mag = new Float64Array(n >> 1);
+    for (let i = 0; i < mag.length; i++) mag[i] = Math.hypot(re[i], im[i]) / n;
+    return mag;
+  }
+
+  function rms(samples, start = 0, end = samples.length) {
+    let s = 0;
+    for (let i = start; i < end; i++) s += samples[i] * samples[i];
+    return Math.sqrt(s / Math.max(1, end - start));
+  }
+
+  // ---------- Spectral peaks ----------
+  // Local maxima above a local floor, with parabolic interpolation for accurate frequency.
+  function peaks(mag, sr, n, fmin = 65, fmax = 1600) {
+    const binHz = sr / n;
+    const k0 = Math.max(2, Math.floor(fmin / binHz));
+    const k1 = Math.min(mag.length - 3, Math.ceil(fmax / binHz));
+    const out = [];
+    let max = 0;
+    for (let k = k0; k <= k1; k++) if (mag[k] > max) max = mag[k];
+    if (max <= 0) return out;
+    const floorWin = Math.max(4, Math.round(40 / binHz)); // ~±40 Hz neighbourhood
+    for (let k = k0; k <= k1; k++) {
+      const b = mag[k];
+      if (!(b > mag[k - 1] && b >= mag[k + 1])) continue;
+      if (b < max * 0.02) continue;
+      let sum = 0, cnt = 0;
+      for (let j = Math.max(1, k - floorWin); j <= Math.min(mag.length - 1, k + floorWin); j++) {
+        if (Math.abs(j - k) <= 2) continue;
+        sum += mag[j]; cnt++;
+      }
+      const floor = cnt ? sum / cnt : 0;
+      if (b < floor * 2.5) continue;
+      const a = mag[k - 1], g = mag[k + 1];
+      const den = a - 2 * b + g;
+      const p = den !== 0 ? (0.5 * (a - g)) / den : 0;
+      const f = (k + p) * binHz;
+      out.push({ f, midi: ftom(f), amp: b - floor });
+    }
+    return out;
+  }
+
+  // ---------- Chroma (which of the 12 notes are sounding) ----------
+  function chromaFromPeaks(pk) {
+    const c = new Float64Array(12);
+    for (const p of pk) {
+      const n = Math.round(p.midi);
+      const dev = Math.abs(p.midi - n);
+      if (dev > 0.4) continue;
+      c[((n % 12) + 12) % 12] += Math.sqrt(p.amp) * (1 - dev);
+    }
+    return normalize(c);
+  }
+
+  function normalize(v) {
+    let s = 0;
+    for (let i = 0; i < v.length; i++) s += v[i] * v[i];
+    s = Math.sqrt(s) || 1;
+    for (let i = 0; i < v.length; i++) v[i] /= s;
+    return v;
+  }
+
+  function cosine(a, b) {
+    let s = 0;
+    for (let i = 0; i < 12; i++) s += a[i] * b[i];
+    return s;
+  }
+
+  const HARM_W = [1, 0.8, 0.6, 0.45, 0.35, 0.3, 0.25, 0.2];
+  // Expected chroma for a set of sounding MIDI notes, including overtones.
+  function templateFromMidis(midis) {
+    const c = new Float64Array(12);
+    for (const m of midis) {
+      for (let h = 1; h <= HARM_W.length; h++) {
+        if (mtof(m) * h > 1600) break;
+        const pc = (((m + Math.round(12 * Math.log2(h))) % 12) + 12) % 12;
+        c[pc] += Math.sqrt(HARM_W[h - 1]);
+      }
+    }
+    return normalize(c);
+  }
+
+  function chordMidis(frets, tuning = STD_TUNING) {
+    const out = [];
+    frets.forEach((f, i) => { if (f >= 0) out.push(tuning[i] + f); });
+    return out;
+  }
+
+  // Rank candidate chords ({id, frets}) against a chroma vector.
+  function rankChords(chroma, chords) {
+    return chords
+      .map((c) => ({ id: c.id, score: cosine(chroma, c._tpl || (c._tpl = templateFromMidis(chordMidis(c.frets)))) }))
+      .sort((a, b) => b.score - a.score);
+  }
+
+  // Figure out *which string* is the problem when a chord sounds wrong.
+  // Each string is checked at the exact frequencies only it produces (its fundamental and
+  // overtones that no other string in the chord shares). A string with no energy there is
+  // muted; a should-be-silent string with energy there is ringing when it shouldn't.
+  function diagnoseChord(an, frets, snrMissing = 8) {
+    const { mag, sr, n } = an;
+    const binHz = sr / n;
+    const sounding = [];
+    frets.forEach((f, i) => { if (f >= 0) sounding.push({ string: 6 - i, midi: STD_TUNING[i] + f }); });
+    const harmonicsOf = (m) => [1, 2, 3, 4, 5].map((h) => mtof(m) * h).filter((f) => f < 1600);
+    // Peak-to-floor ratio right at one frequency: ~1 = nothing there, big = a note is ringing.
+    const snrAt = (f) => {
+      const c = f / binHz, w = Math.max(1, Math.round(c * 0.012)); // ±~0.2 semitone
+      let pkv = 0;
+      for (let k = Math.round(c) - w; k <= Math.round(c) + w; k++) {
+        // Only a real peak counts, not the slope of a neighbouring note.
+        if ((mag[k] || 0) > pkv && mag[k] >= (mag[k - 1] || 0) && mag[k] >= (mag[k + 1] || 0)) pkv = mag[k];
+      }
+      const lo = Math.max(1, Math.round(c * 0.9)), hi = Math.round(c * 1.1);
+      const around = [];
+      for (let k = lo; k <= hi; k++) if (Math.abs(k - c) > w + 1) around.push(mag[k] || 0);
+      around.sort((a, b) => a - b);
+      const floor = around[Math.floor(around.length * 0.3)] || 1e-9;
+      return pkv ? pkv / Math.max(floor, 1e-9) : 1;
+    };
+    const uniqueEvidence = (m, others) => {
+      const otherH = others.flatMap((o) => [1, 2, 3, 4, 5, 6].map((h) => ftom(mtof(o) * h)));
+      const mine = harmonicsOf(m).filter((f) => f > 125 && !otherH.some((o) => Math.abs(o - ftom(f)) < 0.6));
+      // Need two separate overtones to judge: one alone can vanish depending on where you pick.
+      if (mine.length < 2) return null;
+      return Math.max(...mine.map(snrAt));
+    };
+    const ev = sounding.map((s) => ({ ...s, e: uniqueEvidence(s.midi, sounding.filter((o) => o !== s).map((o) => o.midi)) }));
+    const issues = [];
+    for (const x of ev) if (x.e !== null && x.e < snrMissing) issues.push({ type: 'missing', string: x.string, snr: x.e });
+    frets.forEach((f, i) => {
+      if (f >= 0) return;
+      const e = uniqueEvidence(STD_TUNING[i], sounding.map((o) => o.midi));
+      if (e !== null && e > 12) issues.push({ type: 'extra', string: 6 - i, snr: e });
+    });
+    issues.sort((a, b) => (a.type === 'missing' ? a.snr : 100 / a.snr) - (b.type === 'missing' ? b.snr : 100 / b.snr));
+    return { issues, checked: ev.filter((x) => x.e !== null).map((x) => x.string), evidence: ev };
+  }
+
+  // Count distinct notes clearly present (to tell a strum from a single plucked string).
+  function distinctNotes(chroma) {
+    let n = 0;
+    for (let i = 0; i < 12; i++) if (chroma[i] > 0.3) n++;
+    return n;
+  }
+
+  // Full chord analysis of a frame of samples (use ~8192–16384 samples, starting just after the strum).
+  // Pass `pre` (samples from just before the strum) to ignore whatever was still ringing
+  // from the previous chord.
+  function analyzeChord(samples, sr, pre = null) {
+    const mag = magSpectrum(samples);
+    if (pre && pre.length === samples.length) {
+      const mp = magSpectrum(pre);
+      for (let i = 0; i < mag.length; i++) mag[i] = Math.max(0, mag[i] - mp[i] * 0.9);
+    }
+    const pk = peaks(mag, sr, samples.length);
+    const chroma = chromaFromPeaks(pk);
+    return { chroma, peaks: pk, notes: distinctNotes(chroma), mag, sr, n: samples.length };
+  }
+
+  // ---------- Single-string check (was the right note played on this string?) ----------
+  // post: samples after the pluck, pre: samples just before it (so strings still ringing
+  // from earlier plucks are subtracted out). Returns the most likely fret on that string.
+  function checkString(post, pre, sr, openMidi, maxFret = 12) {
+    const n = post.length;
+    const mPost = magSpectrum(post);
+    const mPre = pre ? magSpectrum(pre) : null;
+    const diff = new Float64Array(mPost.length);
+    for (let i = 0; i < diff.length; i++) diff[i] = Math.max(0, mPost[i] - (mPre ? mPre[i] * 1.05 : 0));
+    const pk = peaks(diff, sr, n, 60, 2500);
+    let total = 0;
+    for (const p of pk) total += p.amp;
+    if (!pk.length || total <= 0) return { fret: null, confidence: 0, pitched: 0, energy: rms(post) };
+
+    const scoreFor = (m) => {
+      let s = 0;
+      for (let h = 1; h <= 6; h++) {
+        const target = ftom(mtof(m) * h);
+        let bestAmp = 0, bestIdx = -1;
+        pk.forEach((p, idx) => {
+          if (Math.abs(p.midi - target) < 0.35 && p.amp > bestAmp) { bestAmp = p.amp; bestIdx = idx; }
+        });
+        if (bestIdx >= 0) s += Math.sqrt(HARM_W[h - 1]) * Math.sqrt(bestAmp);
+      }
+      // How much of the new sound is explained by this note's harmonic series.
+      const f0 = mtof(m);
+      let explained = 0;
+      for (const p of pk) {
+        const h = Math.round(p.f / f0);
+        if (h >= 1 && Math.abs(ftom(p.f) - ftom(f0 * h)) < 0.35) explained += p.amp;
+      }
+      // Peaks halfway between harmonics mean the real note is an octave lower
+      // (laptop mics barely pick up the low E's fundamental, so this matters).
+      let sub = 0;
+      for (let h = 1; h <= 3; h++) {
+        const target = ftom(mtof(m) * (h + 0.5));
+        for (const p of pk) if (Math.abs(p.midi - target) < 0.35) sub = Math.max(sub, Math.sqrt(p.amp));
+      }
+      return { s: s - sub * 1.2, explained };
+    };
+
+    let best = null, second = null;
+    for (let fret = 0; fret <= maxFret; fret++) {
+      const r = scoreFor(openMidi + fret);
+      const cand = { fret, ...r };
+      if (!best || cand.s > best.s) { second = best; best = cand; }
+      else if (!second || cand.s > second.s) second = cand;
+    }
+    const pitched = best.explained / total; // how much of the new sound is a clean note
+    const confidence = second && best.s > 0 ? 1 - second.s / best.s : 1;
+    return { fret: best.fret, midi: openMidi + best.fret, confidence, pitched, energy: rms(post) };
+  }
+
+  // ---------- Pitch (tuner / single notes): YIN ----------
+  function yin(buf, sr, fmin = 70, fmax = 1100, threshold = 0.12) {
+    const maxTau = Math.min(Math.floor(sr / fmin), buf.length >> 1);
+    const minTau = Math.max(2, Math.floor(sr / fmax));
+    const W = buf.length - maxTau;
+    const d = new Float64Array(maxTau + 1);
+    for (let tau = 1; tau <= maxTau; tau++) {
+      let s = 0;
+      for (let i = 0; i < W; i++) {
+        const x = buf[i] - buf[i + tau];
+        s += x * x;
+      }
+      d[tau] = s;
+    }
+    const cmnd = new Float64Array(maxTau + 1);
+    cmnd[0] = 1;
+    let run = 0;
+    for (let tau = 1; tau <= maxTau; tau++) {
+      run += d[tau];
+      cmnd[tau] = run > 0 ? (d[tau] * tau) / run : 1;
+    }
+    let tau = -1;
+    for (let t = minTau; t < maxTau; t++) {
+      if (cmnd[t] < threshold) {
+        while (t + 1 < maxTau && cmnd[t + 1] < cmnd[t]) t++;
+        tau = t;
+        break;
+      }
+    }
+    if (tau < 0) {
+      let minV = Infinity;
+      for (let t = minTau; t < maxTau; t++) if (cmnd[t] < minV) { minV = cmnd[t]; tau = t; }
+      if (minV > 0.35) return null;
+    }
+    const a = cmnd[tau - 1] ?? cmnd[tau], b = cmnd[tau], c = cmnd[tau + 1] ?? cmnd[tau];
+    const den = a - 2 * b + c;
+    const shift = den !== 0 ? (0.5 * (a - c)) / den : 0;
+    const f = sr / (tau + shift);
+    return { freq: f, midi: ftom(f), clarity: 1 - b };
+  }
+
+  // ---------- Onsets (a string was plucked / strummed) ----------
+  // Feed hops of 512 samples; returns true when a new attack starts.
+  class OnsetDetector {
+    constructor(sr) {
+      this.sr = sr;
+      this.n = 1024;
+      this.prev = null;
+      this.hist = [];
+      this.lastOnset = -Infinity;
+      this.hopIndex = 0;
+      this.noise = 0.002;
+      this.sensitivity = 1;
+      this.frames = [];
+      this.rmsWin = [];
+    }
+    // frame: last 1024 samples ending at this hop. Returns strength (>0) on onset, else 0.
+    push(frame) {
+      this.hopIndex++;
+      const r = rms(frame);
+      // Background noise: follows quiet moments down instantly, creeps up slowly (~15 s to
+      // double), so continuous playing doesn't get mistaken for background noise.
+      this.noise = Math.max(0.0003, Math.min(this.noise * 1.0005, r));
+      const mag = magSpectrum(frame);
+      const binHz = this.sr / this.n;
+      const k0 = Math.floor(70 / binHz), k1 = Math.ceil(3000 / binHz);
+      const lm = new Float64Array(k1 - k0 + 1);
+      for (let k = k0; k <= k1; k++) lm[k - k0] = Math.log1p(1000 * mag[k]);
+      // SuperFlux: compare with a frequency-max-filtered frame from 2 hops ago, so the
+      // wobble of strings that are already ringing doesn't look like a new strum.
+      this.frames.push(lm);
+      if (this.frames.length > 3) this.frames.shift();
+      let flux = 0;
+      if (this.frames.length === 3) {
+        const ref = this.frames[0];
+        for (let i = 0; i < lm.length; i++) {
+          const r = Math.max(ref[i], ref[i - 1] ?? 0, ref[i + 1] ?? 0);
+          flux += Math.max(0, lm[i] - r);
+        }
+      }
+      // Loudness jump versus ~50 ms ago also counts (helps soft upstrokes).
+      this.rmsWin.push(r);
+      if (this.rmsWin.length > 6) this.rmsWin.shift();
+      const jump = this.rmsWin.length === 6 ? r / Math.max(1e-6, this.rmsWin[0]) : 1;
+      const h = this.hist;
+      const sorted = h.slice().sort((a, b) => a - b);
+      const med = sorted.length ? sorted[sorted.length >> 1] : 0;
+      h.push(flux);
+      if (h.length > 24) h.shift();
+      const thr = med * 1.4 + 4.5 / this.sensitivity;
+      const gate = Math.max(0.003, this.noise * 4) / this.sensitivity;
+      const minGapHops = Math.round((0.12 * this.sr) / 512);
+      const hit = flux > thr || (jump > 1.7 && flux > thr * 0.5);
+      if (hit && r > gate && this.hopIndex - this.lastOnset >= minGapHops) {
+        this.lastOnset = this.hopIndex;
+        return flux;
+      }
+      return 0;
+    }
+  }
+
+  return {
+    STD_TUNING, NOTE_NAMES, mtof, ftom, noteName, noteNameOct,
+    fft, magSpectrum, rms, peaks, chromaFromPeaks, templateFromMidis, chordMidis,
+    rankChords, diagnoseChord, analyzeChord, checkString, yin, cosine, distinctNotes, OnsetDetector,
+  };
+})();
+
+// Strum Coach — built-in chords, songs, riffs and the 4-hour lesson path.
+// Frets are listed low E (string 6) -> high e (string 1). -1 = don't play that string.
+// Fingers: 1 index, 2 middle, 3 ring, 4 pinky, 0 = open / not used.
+
+const CHORDS = [
+  { id: 'Em', name: 'E minor', frets: [0, 2, 2, 0, 0, 0], fingers: [0, 2, 3, 0, 0, 0], level: 1,
+    tip: 'The easiest chord there is. Middle and ring fingers side by side on fret 2. Strum all six strings.' },
+  { id: 'E', name: 'E major', frets: [0, 2, 2, 1, 0, 0], fingers: [0, 2, 3, 1, 0, 0], level: 1,
+    tip: 'Em plus your index finger on the G string, fret 1.' },
+  { id: 'Am', name: 'A minor', frets: [-1, 0, 2, 2, 1, 0], fingers: [0, 0, 2, 3, 1, 0], level: 1,
+    tip: 'Same shape as E major, moved over one string. Skip the low E string.' },
+  { id: 'A', name: 'A major', frets: [-1, 0, 2, 2, 2, 0], fingers: [0, 0, 1, 2, 3, 0], level: 2,
+    tip: 'Three fingers squeezed on fret 2. Tilt them so the high e string still rings.' },
+  { id: 'C', name: 'C major', frets: [-1, 3, 2, 0, 1, 0], fingers: [0, 3, 2, 0, 1, 0], level: 2,
+    tip: 'A staircase: ring on 3, middle on 2, index on 1. Keep your middle finger off the open G string.' },
+  { id: 'G', name: 'G major', frets: [3, 2, 0, 0, 0, 3], fingers: [2, 1, 0, 0, 0, 3], level: 2,
+    tip: 'Big and bright. Middle on the low E, index on the A, ring on the high e. Strum all six.' },
+  { id: 'D', name: 'D major', frets: [-1, -1, 0, 2, 3, 2], fingers: [0, 0, 0, 1, 3, 2], level: 2,
+    tip: 'A little triangle on the thin strings. Only strum the top four strings (start from the D string).' },
+  { id: 'Dm', name: 'D minor', frets: [-1, -1, 0, 2, 3, 1], fingers: [0, 0, 0, 2, 3, 1], level: 2,
+    tip: 'Like D, but the high e drops to fret 1 with your index finger.' },
+  { id: 'E7', name: 'E seven', frets: [0, 2, 0, 1, 0, 0], fingers: [0, 2, 0, 1, 0, 0], level: 1,
+    tip: 'E major with the ring finger lifted off.' },
+  { id: 'A7', name: 'A seven', frets: [-1, 0, 2, 0, 2, 0], fingers: [0, 0, 2, 0, 3, 0], level: 1,
+    tip: 'Two fingers on fret 2 with the G string ringing open between them.' },
+  { id: 'D7', name: 'D seven', frets: [-1, -1, 0, 2, 1, 2], fingers: [0, 0, 0, 2, 1, 3], level: 2,
+    tip: 'A flipped D shape. Strum from the D string.' },
+  { id: 'F', name: 'F (easy)', frets: [-1, -1, 3, 2, 1, 0], fingers: [0, 0, 3, 2, 1, 0], level: 3,
+    tip: 'The beginner-friendly F (Fmaj7). No barre needed. Strum the top four strings only.' },
+  { id: 'Em7', name: 'E minor 7', frets: [0, 2, 2, 0, 3, 3], fingers: [0, 1, 2, 0, 3, 4], level: 2,
+    tip: 'Wonderwall shape: ring and pinky stay anchored on fret 3 of the two thinnest strings.' },
+  { id: 'G*', name: 'G (Wonderwall)', frets: [3, 2, 0, 0, 3, 3], fingers: [2, 1, 0, 0, 3, 4], level: 2,
+    tip: 'G with ring and pinky anchored on fret 3 of the B and e strings.' },
+  { id: 'Dsus4', name: 'D sus4', frets: [-1, -1, 0, 2, 3, 3], fingers: [0, 0, 0, 1, 3, 4], level: 2,
+    tip: 'Ring and pinky stay put. Index on the G string, fret 2.' },
+  { id: 'A7sus4', name: 'A7 sus4', frets: [-1, 0, 2, 0, 3, 3], fingers: [0, 0, 2, 0, 3, 4], level: 2,
+    tip: 'Ring and pinky stay put. Middle finger on the D string, fret 2.' },
+  { id: 'Cadd9', name: 'C add9', frets: [-1, 3, 2, 0, 3, 3], fingers: [0, 2, 1, 0, 3, 4], level: 2,
+    tip: 'Ring and pinky stay put. Middle on the A string (fret 3), index on the D string (fret 2).' },
+];
+const CHORD = Object.fromEntries(CHORDS.map((c) => [c.id, c]));
+
+// Near-identical voicings. When you're asked for one, sounding like its sibling still counts.
+const SIBLINGS = { C: ['Cadd9'], Cadd9: ['C'], G: ['G*'], 'G*': ['G'], Em: ['Em7'], Em7: ['Em'], D: ['Dsus4'], Dsus4: ['D'], A7: ['A7sus4'], A7sus4: ['A7'], E: ['E7'], E7: ['E'] };
+const judgePool = (expectedId, ids) => ids.filter((id) => id === expectedId || !(SIBLINGS[expectedId] || []).includes(id));
+
+const STRING_NAMES = { 6: 'low E', 5: 'A', 4: 'D', 3: 'G', 2: 'B', 1: 'high e' };
+const FINGER_NAMES = { 1: 'index', 2: 'middle', 3: 'ring', 4: 'pinky' };
+
+// Strumming patterns: 8 slots per 4/4 bar (1 & 2 & 3 & 4 &). D = down, U = up, - = skip.
+const PATTERNS = {
+  quarters: { name: 'Four downs', slots: 'D-D-D-D-', count: '1 2 3 4' },
+  eighths: { name: 'Down-up', slots: 'DUDUDUDU', count: '1 & 2 & 3 & 4 &' },
+  campfire: { name: 'Campfire (D, DU, UDU)', slots: 'D-DU-UDU', count: '1 2& &4&' },
+  halves: { name: 'Two downs', slots: 'D---D---', count: '1 3' },
+  waltz: { name: 'Waltz (3/4)', slots: 'D-D-D-', count: '1 2 3' },
+};
+
+// Songs: chord progressions only (no lyrics). "C:2" = C for 2 beats; plain "C" = a whole bar.
+const SONGS = [
+  {
+    id: 'knockin', title: "Knockin' on Heaven's Door", artist: 'Bob Dylan', difficulty: 1, bpm: 68, beats: 4,
+    pattern: 'quarters', note: 'Four chords, slow tempo. The perfect first song.',
+    sections: [
+      { name: 'Verse', prog: 'G D Am Am G D C C', repeat: 2 },
+      { name: 'Chorus', prog: 'G D Am Am G D C C', repeat: 2 },
+    ],
+  },
+  {
+    id: 'standbyme', title: 'Stand By Me', artist: 'Ben E. King', difficulty: 1, bpm: 118, beats: 4,
+    pattern: 'quarters', note: 'Played in G here. Same four chords the whole song.',
+    sections: [
+      { name: 'Verse', prog: 'G G Em Em C D G G', repeat: 2 },
+      { name: 'Chorus', prog: 'G G Em Em C D G G', repeat: 1 },
+    ],
+  },
+  {
+    id: 'zombie', title: 'Zombie', artist: 'The Cranberries', difficulty: 1, bpm: 84, beats: 4,
+    pattern: 'quarters', note: 'Simplified: Em, C, G, D, over and over. Hit it hard.',
+    sections: [
+      { name: 'Verse', prog: 'Em C G D', repeat: 4 },
+      { name: 'Chorus', prog: 'Em C G D', repeat: 4 },
+    ],
+  },
+  {
+    id: 'birthday', title: 'Happy Birthday', artist: 'Traditional', difficulty: 1, bpm: 100, beats: 3,
+    pattern: 'waltz', note: 'In 3/4 time: count 1-2-3. Everyone can sing along.',
+    sections: [{ name: 'Song', prog: 'G G D D D D G G G G C C G D G G', repeat: 1 }],
+  },
+  {
+    id: 'jetplane', title: 'Leaving on a Jet Plane', artist: 'John Denver', difficulty: 1, bpm: 96, beats: 4,
+    pattern: 'campfire', note: 'Three friendly chords: G, C and D.',
+    sections: [
+      { name: 'Verse', prog: 'G C G C G C D D', repeat: 2 },
+      { name: 'Chorus', prog: 'G C G C G C D D', repeat: 1 },
+    ],
+  },
+  {
+    id: 'alabama', title: 'Sweet Home Alabama', artist: 'Lynyrd Skynyrd', difficulty: 2, bpm: 98, beats: 4,
+    pattern: 'eighths', note: 'D and C for two beats each, then G for a whole bar.',
+    sections: [{ name: 'Main riff', prog: 'D:2 C:2 G D:2 C:2 G', repeat: 4 }],
+  },
+  {
+    id: 'badmoon', title: 'Bad Moon Rising', artist: 'Creedence Clearwater Revival', difficulty: 2, bpm: 90, beats: 4,
+    pattern: 'quarters', note: 'Counted at half speed. D, A and G.',
+    sections: [
+      { name: 'Verse', prog: 'D A:2 G:2 D D', repeat: 2 },
+      { name: 'Chorus', prog: 'G G D D A G D D', repeat: 1 },
+    ],
+  },
+  {
+    id: 'brownEyed', title: 'Brown Eyed Girl', artist: 'Van Morrison', difficulty: 2, bpm: 150, beats: 4,
+    pattern: 'quarters', note: 'Fast. Start at 60% speed and build up.',
+    sections: [
+      { name: 'Verse', prog: 'G C G D', repeat: 4 },
+      { name: 'Pre-chorus', prog: 'C D G Em C D', repeat: 1 },
+    ],
+  },
+  {
+    id: 'birds', title: 'Three Little Birds', artist: 'Bob Marley', difficulty: 2, bpm: 76, beats: 4,
+    pattern: 'eighths', note: 'Simplified to A, D and E. Relaxed reggae feel.',
+    sections: [
+      { name: 'Chorus', prog: 'A A D A A A D A', repeat: 1 },
+      { name: 'Verse', prog: 'A E A D A E D A', repeat: 2 },
+    ],
+  },
+  {
+    id: 'letitbe', title: 'Let It Be', artist: 'The Beatles', difficulty: 2, bpm: 72, beats: 4,
+    pattern: 'quarters', note: 'Uses the easy F. Chords change every two beats.',
+    sections: [
+      { name: 'Verse', prog: 'C:2 G:2 Am:2 F:2 C:2 G:2 F:2 C:2', repeat: 2 },
+      { name: 'Chorus', prog: 'Am:2 G:2 F:2 C:2 C:2 G:2 F:2 C:2', repeat: 1 },
+    ],
+  },
+  {
+    id: 'wonderwall', title: 'Wonderwall', artist: 'Oasis', difficulty: 3, bpm: 87, beats: 4,
+    pattern: 'eighths', note: 'Ring and pinky stay anchored the whole song. (Original uses a capo on fret 2.)',
+    sections: [
+      { name: 'Verse', prog: 'Em7 G* Dsus4 A7sus4', repeat: 4 },
+      { name: 'Pre-chorus', prog: 'Cadd9 Dsus4 Em7 Em7 Cadd9 Dsus4 Em7 Em7 Cadd9 Dsus4 A7sus4 A7sus4', repeat: 1 },
+      { name: 'Chorus', prog: 'Cadd9 Em7 G* Em7', repeat: 4 },
+    ],
+  },
+];
+
+// Single-note riffs. Each note: s = string (6 low E .. 1 high e), f = fret, b = beats.
+const RIFFS = [
+  {
+    id: 'smoke', title: 'Smoke on the Water', artist: 'Deep Purple', bpm: 112, difficulty: 1,
+    note: 'Easy one-string version on the D string (4th string). Open, 3, 5.',
+    notes: [
+      { s: 4, f: 0, b: 1 }, { s: 4, f: 3, b: 1 }, { s: 4, f: 5, b: 1.5 },
+      { s: 4, f: 0, b: 1 }, { s: 4, f: 3, b: 1 }, { s: 4, f: 6, b: 0.5 }, { s: 4, f: 5, b: 2 },
+      { s: 4, f: 0, b: 1 }, { s: 4, f: 3, b: 1 }, { s: 4, f: 5, b: 1.5 },
+      { s: 4, f: 3, b: 1 }, { s: 4, f: 0, b: 3 },
+    ],
+  },
+  {
+    id: 'sevennation', title: 'Seven Nation Army', artist: 'The White Stripes', bpm: 120, difficulty: 1,
+    note: 'All on the A string (5th string): 7, 7, 10, 7, 5, 3, 2.',
+    notes: [
+      { s: 5, f: 7, b: 1.5 }, { s: 5, f: 7, b: 0.5 }, { s: 5, f: 10, b: 0.75 }, { s: 5, f: 7, b: 0.75 },
+      { s: 5, f: 5, b: 0.5 }, { s: 5, f: 3, b: 2 }, { s: 5, f: 2, b: 2 },
+    ],
+  },
+  {
+    id: 'firstnotes', title: 'First fretted notes', artist: 'Warm-up', bpm: 70, difficulty: 1, hidden: true,
+    note: 'Fingertip right behind the fret wire. Press just hard enough for a clean note.',
+    notes: [
+      { s: 5, f: 2, b: 1 }, { s: 5, f: 3, b: 1 }, { s: 4, f: 2, b: 1 }, { s: 4, f: 3, b: 1 },
+      { s: 3, f: 2, b: 1 }, { s: 2, f: 1, b: 1 }, { s: 2, f: 3, b: 1 }, { s: 1, f: 3, b: 1 },
+    ],
+  },
+];
+
+// The Quickstart path: about 4 hours from "never played" to strumming real songs.
+const OPEN_STRINGS = { id: 'open', name: 'Open strings', frets: [0, 0, 0, 0, 0, 0], fingers: [0, 0, 0, 0, 0, 0] };
+
+const MODULES = [
+  {
+    id: 'm1', title: 'Get set up', lessons: [
+      {
+        id: 'welcome', title: 'How this works', mins: 5, steps: [
+          { type: 'read', title: 'Your coach has ears and eyes', html: `
+            <p><b>Ears (microphone):</b> this is the strict part. It listens to every note and strum and tells you exactly which string is wrong: muted, buzzing, wrong fret, or ringing when it shouldn't.</p>
+            <p><b>Eyes (camera):</b> it watches your hands. It checks that your fretting fingers are curled (not flat) and which way your strumming hand moves. It can't read exact fret positions off a webcam, so the microphone is the final judge.</p>
+            <p><b>Tips for best results:</b> a quiet room, the laptop about an arm's length away, a light in front of you (not behind), and headphones if you have them so the metronome doesn't get mixed up with your guitar.</p>
+            <p>Everything is saved automatically on this computer. No accounts, no keys.</p>` },
+          { type: 'mic', title: 'Turn on the microphone' },
+          { type: 'camera', title: 'Turn on the camera (optional)' },
+        ],
+      },
+      {
+        id: 'tune', title: 'Tune your guitar', mins: 8, steps: [
+          { type: 'read', title: 'The six strings', html: `
+            <p>Hold the guitar normally. The <b>thickest</b> string (closest to your face) is <b>string 6, low E</b>. The thinnest (closest to the floor) is <b>string 1, high e</b>.</p>
+            <p>From thick to thin: <b>E A D G B E</b>. An easy way to remember it: <i>"Eddie Ate Dynamite, Good Bye Eddie."</i></p>
+            <p><b>Tuning:</b> pluck one string and turn its peg slowly. Tightening raises the pitch, loosening lowers it. If you're way off, go slow: strings snap when over-tightened.</p>` },
+          { type: 'tuner', title: 'Tune all six strings', requireAll: true },
+        ],
+      },
+      {
+        id: 'hold', title: 'Hold the guitar & pick', mins: 7, steps: [
+          { type: 'read', title: 'Posture', html: `
+            <p><b>Sit</b> on a chair without arms. The guitar's waist rests on your right leg (left leg if you're left-handed). Neck points slightly up.</p>
+            <p><b>Fretting hand thumb</b> goes behind the neck, roughly behind your middle finger. Don't grip like a baseball bat. Keep a little gap between your palm and the neck.</p>
+            <p><b>Fingers:</b> press with the very tips, curled like a claw. Flat fingers touch the strings next to them and mute them, which is the #1 beginner problem.</p>
+            <p><b>Pick:</b> hold it between your thumb and the side of your index finger, with just a little tip showing. No pick? Use the side of your thumb.</p>
+            <p><b>Sore fingertips are normal</b> for the first 2–3 weeks. Practice in 15–20 minute chunks and take breaks. They toughen up fast.</p>` },
+          { type: 'camera-check', title: 'Let the camera see you', optional: true },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'm2', title: 'First sounds', lessons: [
+      {
+        id: 'open-strings', title: 'Pick each string', mins: 8, steps: [
+          { type: 'read', title: 'One string at a time', html: `
+            <p>Pluck each string by itself, from thick to thin. Let each one ring. The coach checks that it sounds clean and in tune.</p>
+            <p>Aim the pick at <b>one</b> string and move just a little. Small motions = accuracy.</p>` },
+          { type: 'strings', title: 'Pluck strings 6 → 1', chord: 'open' },
+        ],
+      },
+      {
+        id: 'first-notes', title: 'Fret your first notes', mins: 10, steps: [
+          { type: 'read', title: 'How to press a string', html: `
+            <p>Put your fingertip <b>just behind</b> the metal fret wire (on the side closer to your body), not on top of it and not in the middle of the gap.</p>
+            <p>Press just hard enough for a clean note. If it buzzes: move closer to the fret wire or press a little harder. If it thuds: your finger is too far back or something is touching the string.</p>
+            <p>Fret numbers count from the head of the guitar: fret 1 is the first gap.</p>` },
+          { type: 'riff', title: 'Play each note', riff: 'firstnotes' },
+        ],
+      },
+      {
+        id: 'smoke', title: 'First riff: Smoke on the Water', mins: 12, steps: [
+          { type: 'riff', title: 'Smoke on the Water', riff: 'smoke', tempo: true },
+        ],
+      },
+      {
+        id: 'sevennation', title: 'Riff: Seven Nation Army', mins: 12, steps: [
+          { type: 'riff', title: 'Seven Nation Army', riff: 'sevennation', tempo: true },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'm3', title: 'Your first chords', lessons: [
+      {
+        id: 'em', title: 'E minor', mins: 12, steps: [
+          { type: 'read', title: 'Two fingers, six strings', html: `
+            <p>E minor is the easiest full chord. Middle finger on the <b>A string, fret 2</b>. Ring finger on the <b>D string, fret 2</b>.</p>
+            <p>First the coach checks every string one at a time. Then you strum the whole thing.</p>` },
+          { type: 'chord', chord: 'Em', strums: 3 },
+        ],
+      },
+      {
+        id: 'down-strums', title: 'Strumming on the beat', mins: 12, steps: [
+          { type: 'read', title: 'Strum from the wrist', html: `
+            <p>Strum with a loose wrist, like shaking water off your hand. Your arm moves a little; the wrist does most of the work.</p>
+            <p>Hit the strings <b>on</b> the click. Don't rush. It's better to be steady than fast.</p>` },
+          { type: 'latency', title: 'Sync the coach with your computer' },
+          { type: 'rhythm', title: 'Four downs on Em', pattern: 'quarters', chords: ['Em'], bpm: 60, bars: 4 },
+        ],
+      },
+      {
+        id: 'g', title: 'G major', mins: 12, steps: [{ type: 'chord', chord: 'G', strums: 3 }],
+      },
+      {
+        id: 'em-g', title: 'Change: Em ↔ G', mins: 8, steps: [
+          { type: 'read', title: 'Changes are the real skill', html: `
+            <p>Knowing a chord is one thing. Switching fast is what makes songs work.</p>
+            <p><b>Trick:</b> look for fingers that barely move. From Em to G, your middle finger slides from fret 2 on the A string over to fret 3 on the low E, and your index takes its old spot.</p>
+            <p>Switch back and forth for one minute. Each clean chord counts.</p>` },
+          { type: 'change', a: 'Em', b: 'G', goal: 10 },
+        ],
+      },
+      { id: 'd', title: 'D major', mins: 12, steps: [{ type: 'chord', chord: 'D', strums: 3 }] },
+      { id: 'g-d', title: 'Change: G ↔ D', mins: 8, steps: [{ type: 'change', a: 'G', b: 'D', goal: 10 }] },
+      { id: 'am', title: 'A minor', mins: 10, steps: [{ type: 'chord', chord: 'Am', strums: 3 }] },
+      { id: 'c', title: 'C major', mins: 12, steps: [{ type: 'chord', chord: 'C', strums: 3 }] },
+      {
+        id: 'am-c', title: 'Change: Am ↔ C', mins: 8, steps: [
+          { type: 'read', title: 'Anchor fingers', html: `<p>Am to C: your index and middle fingers <b>don't move at all</b>. Only the ring finger jumps from the G string (fret 2) to the A string (fret 3).</p>` },
+          { type: 'change', a: 'Am', b: 'C', goal: 12 },
+        ],
+      },
+      { id: 'c-g', title: 'Change: C ↔ G', mins: 8, steps: [{ type: 'change', a: 'C', b: 'G', goal: 8 }] },
+    ],
+  },
+  {
+    id: 'm4', title: 'Rhythm', lessons: [
+      {
+        id: 'down-up', title: 'Down-up strumming', mins: 10, steps: [
+          { type: 'read', title: 'Keep the hand moving', html: `
+            <p>Your strumming hand moves down on the numbers (1, 2, 3, 4) and up on the "ands" in between. It <b>never stops</b>, like a pendulum.</p>
+            <p>Upstrokes are lighter; you only need to catch the thinner strings.</p>` },
+          { type: 'rhythm', title: 'Down-up on G', pattern: 'eighths', chords: ['G'], bpm: 65, bars: 4 },
+        ],
+      },
+      {
+        id: 'campfire', title: 'The campfire strum', mins: 15, steps: [
+          { type: 'read', title: 'D — DU — UDU', html: `
+            <p>The most-used strumming pattern in pop and folk. Count <b>1, 2 &, (3) &, 4 &</b>.</p>
+            <p>Down, down-up, <b>skip</b>, up, down-up. On the skipped beat your hand still moves down; it just misses the strings.</p>` },
+          { type: 'rhythm', title: 'Campfire strum on G', pattern: 'campfire', chords: ['G'], bpm: 60, bars: 4 },
+          { type: 'rhythm', title: 'Campfire strum with changes', pattern: 'campfire', chords: ['G', 'G', 'D', 'D'], bpm: 60, bars: 4 },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'm5', title: 'Play real songs', lessons: [
+      { id: 'song-knockin', title: "Knockin' on Heaven's Door", mins: 20, steps: [{ type: 'song', song: 'knockin' }] },
+      { id: 'song-standbyme', title: 'Stand By Me', mins: 15, steps: [{ type: 'song', song: 'standbyme' }] },
+      { id: 'song-zombie', title: 'Zombie', mins: 15, steps: [{ type: 'song', song: 'zombie' }] },
+      {
+        id: 'next', title: "What's next", mins: 5, steps: [
+          { type: 'read', title: "You're a guitar player now", html: `
+            <p>You can tune, fret notes, play two riffs, five chords, and real songs. That's a big deal.</p>
+            <p><b>Every day, 20 minutes:</b> tune (1 min) → one-minute changes on your slowest pair (5 min) → a strumming pattern (4 min) → songs (10 min).</p>
+            <p><b>Next chords to learn:</b> E, A, Dm and the easy F. They're in the Chords tab. <b>Next songs:</b> Let It Be, Sweet Home Alabama, then Wonderwall.</p>
+            <p>The home screen always tells you what to practice based on what you've been struggling with.</p>` },
+        ],
+      },
+    ],
+  },
+];
+
+const LESSONS = MODULES.flatMap((m) => m.lessons.map((l) => ({ ...l, module: m.id, moduleTitle: m.title })));
+
+// Parse "G D:2 C:2" into [{chord, beats}]
+function parseProg(prog, beatsPerBar) {
+  return prog.trim().split(/\s+/).map((tok) => {
+    const [c, b] = tok.split(':');
+    return { chord: c, beats: b ? Number(b) : beatsPerBar };
+  });
+}
+
+function songTimeline(song) {
+  const segs = [];
+  let beat = 0;
+  for (const sec of song.sections) {
+    for (let r = 0; r < (sec.repeat || 1); r++) {
+      for (const p of parseProg(sec.prog, song.beats)) {
+        segs.push({ ...p, start: beat, section: sec.name });
+        beat += p.beats;
+      }
+    }
+  }
+  return { segs, totalBeats: beat };
+}
+
+function songChords(song) {
+  const set = new Set();
+  song.sections.forEach((s) => parseProg(s.prog, song.beats).forEach((p) => set.add(p.chord)));
+  return [...set];
+}
+
+// Strum Coach — live engine: microphone, metronome, camera, saved progress.
+
+// ---------- Saved progress (this browser only) ----------
+const Store = (() => {
+  const KEY = 'strumcoach.v1';
+  const blank = () => ({
+    v: 1,
+    lessons: {},
+    chords: {},
+    changes: {},
+    songs: {},
+    riffs: {},
+    rhythm: {},
+    practice: {},
+    tunedOn: null,
+    settings: { lefty: false, swapHands: false, latency: 0.04, sensitivity: 1, clickVol: 0.6, micId: '', camId: '' },
+  });
+  let data;
+  try {
+    data = Object.assign(blank(), JSON.parse(localStorage.getItem(KEY) || '{}'));
+    data.settings = Object.assign(blank().settings, data.settings);
+  } catch {
+    data = blank();
+  }
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(data)); } catch {} };
+  const today = () => new Date().toLocaleDateString('en-CA');
+  return {
+    get data() { return data; },
+    save,
+    today,
+    set(fn) { fn(data); save(); },
+    chord(id) { return (data.chords[id] ||= { tries: 0, clean: 0, issues: {}, strings: 0 }); },
+    addPractice(secs) {
+      const d = today();
+      data.practice[d] = (data.practice[d] || 0) + secs;
+      save();
+    },
+    practiceToday() { return data.practice[today()] || 0; },
+    streak() {
+      let n = 0;
+      const d = new Date();
+      if (!(data.practice[d.toLocaleDateString('en-CA')] >= 60)) d.setDate(d.getDate() - 1);
+      while ((data.practice[d.toLocaleDateString('en-CA')] || 0) >= 60) { n++; d.setDate(d.getDate() - 1); }
+      return n;
+    },
+    reset() { data = blank(); save(); },
+    import(json) {
+      const parsed = JSON.parse(json);
+      if (!parsed || parsed.v !== 1) throw new Error('Not a Strum Coach backup file');
+      data = Object.assign(blank(), parsed);
+      data.settings = Object.assign(blank().settings, parsed.settings);
+      save();
+    },
+  };
+})();
+
+// ---------- Tiny event helper ----------
+function Emitter() {
+  const map = {};
+  return {
+    on(evt, fn) { (map[evt] ||= new Set()).add(fn); return () => map[evt].delete(fn); },
+    emit(evt, arg) { map[evt]?.forEach((fn) => { try { fn(arg); } catch (e) { console.error(e); } }); },
+  };
+}
+
+// ---------- Microphone ----------
+const Mic = (() => {
+  const ev = Emitter();
+  const BUF = 2048;
+  const self = {
+    ...ev,
+    ctx: null, stream: null, running: false, sr: 48000,
+    ring: null, size: 0, total: 0, hopEnd: 1024, t0: 0,
+    det: null, level: 0, lastOnsetPerf: 0, waits: [], error: null,
+
+    ensureCtx() {
+      if (!self.ctx) self.ctx = new (window.AudioContext || window.webkitAudioContext)({ latencyHint: 'interactive' });
+      if (self.ctx.state === 'suspended') self.ctx.resume();
+      return self.ctx;
+    },
+
+    async start(deviceId) {
+      if (self.running) return true;
+      self.error = null;
+      try {
+        const ctx = self.ensureCtx();
+        const audio = { echoCancellation: false, noiseSuppression: false, autoGainControl: false };
+        if (deviceId) audio.deviceId = { exact: deviceId };
+        self.stream = await navigator.mediaDevices.getUserMedia({ audio });
+        self.sr = ctx.sampleRate;
+        self.size = Math.round(self.sr * 6);
+        self.ring = new Float32Array(self.size);
+        self.total = 0;
+        self.hopEnd = 1024;
+        self.det = new DSP.OnsetDetector(self.sr);
+        self.det.sensitivity = Store.data.settings.sensitivity;
+        self.src = ctx.createMediaStreamSource(self.stream);
+        self.proc = ctx.createScriptProcessor(BUF, 1, 1);
+        const mute = ctx.createGain();
+        mute.gain.value = 0;
+        self.src.connect(self.proc);
+        self.proc.connect(mute).connect(ctx.destination);
+        self.proc.onaudioprocess = (e) => self._chunk(e.inputBuffer.getChannelData(0), e.playbackTime);
+        self.running = true;
+        ev.emit('state', true);
+        return true;
+      } catch (e) {
+        self.error = e.name === 'NotAllowedError'
+          ? 'Microphone permission was blocked. Click the lock/camera icon in the address bar and allow the microphone, then try again.'
+          : e.name === 'NotFoundError' ? 'No microphone found. Plug one in or check your system sound settings.' : String(e.message || e);
+        ev.emit('state', false);
+        return false;
+      }
+    },
+
+    stop() {
+      if (!self.running) return;
+      self.proc.disconnect();
+      self.src.disconnect();
+      self.stream.getTracks().forEach((t) => t.stop());
+      self.running = false;
+      ev.emit('state', false);
+    },
+
+    _chunk(data, playbackTime) {
+      if (self.total === 0) {
+        // Input samples arrive roughly one buffer before their output slot.
+        self.t0 = playbackTime - (2 * BUF) / self.sr;
+      }
+      for (let i = 0; i < data.length; i++) self.ring[(self.total + i) % self.size] = data[i];
+      self.total += data.length;
+      self.level = DSP.rms(data);
+      while (self.hopEnd <= self.total) {
+        const frame = self.read(self.hopEnd - 1024, 1024);
+        const strength = self.det.push(frame);
+        if (strength) {
+          const abs = self.hopEnd - 768;
+          self.lastOnsetPerf = performance.now();
+          ev.emit('onset', { abs, time: self.timeOf(abs), strength });
+        }
+        self.hopEnd += 512;
+      }
+      if (self.waits.length) {
+        const due = self.waits.filter((w) => w.at <= self.total);
+        self.waits = self.waits.filter((w) => w.at > self.total);
+        due.forEach((w) => w.fn());
+      }
+      ev.emit('level', self.level);
+    },
+
+    read(absStart, len) {
+      const out = new Float32Array(len);
+      const oldest = self.total - self.size;
+      for (let i = 0; i < len; i++) {
+        const a = absStart + i;
+        out[i] = a < 0 || a < oldest || a >= self.total ? 0 : self.ring[a % self.size];
+      }
+      return out;
+    },
+    latest(len) { return self.read(self.total - len, len); },
+    timeOf(abs) { return self.t0 + abs / self.sr; },
+    // Resolve with `len` samples starting `delay` seconds after an onset, once they've arrived.
+    capture(abs, delay, len) {
+      const start = abs + Math.round(delay * self.sr);
+      return new Promise((res) => self.waits.push({ at: start + len, fn: () => res(self.read(start, len)) }));
+    },
+    setSensitivity(v) { if (self.det) self.det.sensitivity = v; },
+  };
+  return self;
+})();
+
+// ---------- Metronome ----------
+const Metro = (() => {
+  let timer = null, next = 0, beat = 0, opts = null;
+  const timeouts = [];
+  function click(time, accent) {
+    const ctx = Mic.ctx;
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    // High-pitched click, well above the guitar range the strum detector listens to.
+    o.frequency.value = accent ? 5200 : 4400;
+    const vol = Store.data.settings.clickVol;
+    g.gain.setValueAtTime(0, time);
+    g.gain.linearRampToValueAtTime(vol * (accent ? 0.5 : 0.32), time + 0.003);
+    g.gain.exponentialRampToValueAtTime(0.0001, time + 0.05);
+    o.connect(g).connect(ctx.destination);
+    o.start(time);
+    o.stop(time + 0.06);
+  }
+  function tick() {
+    const ctx = Mic.ctx;
+    while (next < ctx.currentTime + 0.15) {
+      const b = beat;
+      if (!opts.silent) click(next, b % opts.beatsPerBar === 0);
+      const delay = Math.max(0, (next - ctx.currentTime) * 1000);
+      const t = next;
+      timeouts.push(setTimeout(() => opts.onBeat?.(b, t), delay));
+      next += 60 / opts.bpm;
+      beat++;
+      if (opts.totalBeats && beat >= opts.totalBeats) {
+        const endAt = next;
+        timeouts.push(setTimeout(() => { stop(); opts.onEnd?.(endAt); }, Math.max(0, (endAt - ctx.currentTime) * 1000)));
+        clearInterval(timer);
+        timer = null;
+        return;
+      }
+    }
+  }
+  function start(o) {
+    stop();
+    const ctx = Mic.ensureCtx();
+    opts = o;
+    beat = 0;
+    next = ctx.currentTime + 0.25;
+    o.onStart?.(next);
+    timer = setInterval(tick, 25);
+    tick();
+    return next;
+  }
+  function stop() {
+    if (timer) clearInterval(timer);
+    timer = null;
+    timeouts.splice(0).forEach(clearTimeout);
+  }
+  return { start, stop, get running() { return !!timer; } };
+})();
+
+// ---------- Camera + hand tracking ----------
+const Camera = (() => {
+  const ev = Emitter();
+  const MP_VER = '0.10.14';
+  const self = {
+    ...ev,
+    active: false, loading: false, error: null, video: null, stream: null, landmarker: null,
+    fret: null, strum: null, trail: [], context: null, lastSeen: { fret: 0, strum: 0 },
+    arch: {},
+
+    async start(deviceId) {
+      if (self.active || self.loading) return true;
+      self.loading = true;
+      self.error = null;
+      ev.emit('state');
+      try {
+        const video = { width: { ideal: 640 }, height: { ideal: 480 }, facingMode: 'user' };
+        if (deviceId) video.deviceId = { exact: deviceId };
+        self.stream = await navigator.mediaDevices.getUserMedia({ video });
+        self.video = document.createElement('video');
+        self.video.muted = true;
+        self.video.playsInline = true;
+        self.video.srcObject = self.stream;
+        await self.video.play();
+        if (!self.landmarker) {
+          const vision = await import(`https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@${MP_VER}/vision_bundle.mjs`);
+          const files = await vision.FilesetResolver.forVisionTasks(`https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@${MP_VER}/wasm`);
+          const opts = (delegate) => ({
+            baseOptions: {
+              modelAssetPath: 'https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task',
+              delegate,
+            },
+            runningMode: 'VIDEO', numHands: 2,
+            minHandDetectionConfidence: 0.4, minHandPresenceConfidence: 0.4, minTrackingConfidence: 0.4,
+          });
+          try { self.landmarker = await vision.HandLandmarker.createFromOptions(files, opts('GPU')); }
+          catch { self.landmarker = await vision.HandLandmarker.createFromOptions(files, opts('CPU')); }
+        }
+        self.active = true;
+        self.loading = false;
+        ev.emit('state');
+        self._loop();
+        return true;
+      } catch (e) {
+        self.loading = false;
+        self.stream?.getTracks().forEach((t) => t.stop());
+        self.error = e.name === 'NotAllowedError'
+          ? 'Camera permission was blocked. Allow the camera in the address bar and try again.'
+          : e.name === 'NotFoundError' ? 'No camera found.'
+          : 'Could not start hand tracking (needs an internet connection the first time). ' + (e.message || e);
+        ev.emit('state');
+        return false;
+      }
+    },
+
+    stop() {
+      self.active = false;
+      self.stream?.getTracks().forEach((t) => t.stop());
+      self.fret = self.strum = null;
+      ev.emit('state');
+    },
+
+    _loop() {
+      let lastT = -1, lastRun = 0;
+      const step = () => {
+        if (!self.active) return;
+        const now = performance.now();
+        if (self.video.currentTime !== lastT && now - lastRun > 40) {
+          lastT = self.video.currentTime;
+          lastRun = now;
+          try {
+            const res = self.landmarker.detectForVideo(self.video, now);
+            self._process(res, now);
+          } catch (e) { console.warn(e); }
+        }
+        ev.emit('frame');
+        requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    },
+
+    _process(res, now) {
+      const s = Store.data.settings;
+      // MediaPipe labels hands as if the image were mirrored; a raw webcam frame isn't,
+      // so its "Left" is the player's right hand.
+      let strumLabel = s.lefty ? 'Right' : 'Left';
+      if (s.swapHands) strumLabel = strumLabel === 'Left' ? 'Right' : 'Left';
+      let fret = null, strum = null;
+      (res.landmarks || []).forEach((lm, i) => {
+        const label = res.handednesses?.[i]?.[0]?.categoryName || res.handedness?.[i]?.[0]?.categoryName;
+        const hand = { lm, world: res.worldLandmarks?.[i] };
+        if (label === strumLabel) strum = hand; else fret = hand;
+      });
+      self.fret = fret;
+      self.strum = strum;
+      if (fret) { self.lastSeen.fret = now; self._arch(fret); }
+      if (strum) {
+        self.lastSeen.strum = now;
+        const y = (strum.lm[0].y + strum.lm[9].y) / 2;
+        self.trail.push({ t: now, y });
+      }
+      while (self.trail.length && self.trail[0].t < now - 3000) self.trail.shift();
+    },
+
+    // How curled each fretting finger is (from 3D joint angles). Flat fingers mute strings.
+    _arch(hand) {
+      const w = hand.world || hand.lm;
+      const v = (a, b) => [w[b].x - w[a].x, w[b].y - w[a].y, w[b].z - w[a].z];
+      const ang = (p, q) => {
+        const d = p[0] * q[0] + p[1] * q[1] + p[2] * q[2];
+        const m = Math.hypot(...p) * Math.hypot(...q) || 1;
+        return (Math.acos(Math.max(-1, Math.min(1, d / m))) * 180) / Math.PI;
+      };
+      const F = { 1: [5, 6, 7, 8], 2: [9, 10, 11, 12], 3: [13, 14, 15, 16], 4: [17, 18, 19, 20] };
+      for (const [f, [a, b, c, d]] of Object.entries(F)) {
+        const bend = ang(v(a, b), v(b, c)) + ang(v(b, c), v(c, d));
+        const prev = self.arch[f] ?? bend;
+        self.arch[f] = prev * 0.7 + bend * 0.3;
+      }
+    },
+
+    seen(which, withinMs = 700) { return performance.now() - self.lastSeen[which] < withinMs; },
+
+    fingerState(f) {
+      const b = self.arch[f];
+      if (b == null) return null;
+      return b >= 55 ? 'curled' : b < 35 ? 'flat' : 'ok';
+    },
+
+    // Which way was the strumming hand moving when a strum was heard? ('D', 'U' or null)
+    directionAt(audioTime) {
+      if (!self.active || !self.seen('strum', 500) || !Mic.ctx) return null;
+      const perf = performance.now() + (audioTime - Mic.ctx.currentTime) * 1000;
+      const pts = self.trail.filter((p) => p.t >= perf - 140 && p.t <= perf + 60);
+      if (pts.length < 2) return null;
+      const dy = pts[pts.length - 1].y - pts[0].y;
+      if (Math.abs(dy) < 0.012) return null;
+      return dy > 0 ? 'D' : 'U';
+    },
+
+    // Is the strumming hand still moving (pendulum), or has it stopped?
+    strumMotion() {
+      const now = performance.now();
+      const pts = self.trail.filter((p) => p.t > now - 700);
+      if (pts.length < 4) return null;
+      const ys = pts.map((p) => p.y);
+      return Math.max(...ys) - Math.min(...ys);
+    },
+  };
+  return self;
+})();
+
+// Practice-time tracker: counts time while you're actually playing.
+setInterval(() => {
+  if (Mic.running && performance.now() - Mic.lastOnsetPerf < 20000) Store.addPractice(5);
+}, 5000);
+
+// Strum Coach — exercises. Each one renders into `root` and returns a cleanup function.
+
+// ---------- Small helpers ----------
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
+const fingerName = (f) => FINGER_NAMES[f] || 'a';
+const stringLabel = (s) => `string ${s} (${STRING_NAMES[s]})`;
+const openMidi = (s) => DSP.STD_TUNING[6 - s];
+
+function toast(msg, ms = 2200) {
+  let t = $('#toast');
+  t.innerHTML = msg;
+  t.classList.add('show');
+  clearTimeout(t._h);
+  t._h = setTimeout(() => t.classList.remove('show'), ms);
+}
+
+function chordSVG(chord, { w = 180, status = {}, fingers = true } = {}) {
+  const lefty = Store.data.settings.lefty;
+  const played = chord.frets.filter((f) => f > 0);
+  const maxF = Math.max(3, ...played);
+  const minF = played.length ? Math.min(...played) : 1;
+  const base = maxF > 4 ? minF : 1;
+  const rows = Math.max(4, maxF - base + 1);
+  const pad = w * 0.14, top = w * 0.2, sp = (w - pad * 2) / 5, fh = sp * 1.2;
+  const h = top + rows * fh + w * 0.06;
+  const X = (i) => pad + (lefty ? 5 - i : i) * sp;
+  const col = (s) => ({ ok: 'var(--ok)', bad: 'var(--bad)', cur: 'var(--accent)' })[status[s]];
+  let g = '';
+  for (let r = 0; r <= rows; r++) {
+    const y = top + r * fh;
+    const nut = r === 0 && base === 1;
+    g += `<line x1="${pad}" x2="${w - pad}" y1="${y}" y2="${y}" style="stroke:${nut ? 'var(--text)' : 'var(--line)'};stroke-width:${nut ? w * 0.03 : 2}" />`;
+  }
+  if (base > 1) g += `<text x="${pad - 8}" y="${top + fh * 0.62}" text-anchor="end" style="fill:var(--muted);font-size:${w * 0.09}px;font-weight:700">${base}fr</text>`;
+  chord.frets.forEach((f, i) => {
+    const s = 6 - i, x = X(i), c = col(s);
+    g += `<line x1="${x}" x2="${x}" y1="${top}" y2="${top + rows * fh}" style="stroke:${c || 'var(--muted)'};stroke-width:${c ? 3.5 : 1 + (5 - i) * 0.35}" />`;
+    const my = top - w * 0.08;
+    if (f < 0) g += `<text x="${x}" y="${my + w * 0.035}" text-anchor="middle" style="fill:${c || 'var(--dim)'};font-size:${w * 0.1}px;font-weight:800">×</text>`;
+    else if (f === 0) g += `<circle cx="${x}" cy="${my}" r="${w * 0.035}" style="fill:${c || 'none'};stroke:${c || 'var(--muted)'};stroke-width:2" />`;
+    else {
+      const y = top + (f - base + 0.5) * fh;
+      g += `<circle cx="${x}" cy="${y}" r="${sp * 0.38}" style="fill:${c || 'var(--accent)'}" />`;
+      if (fingers && chord.fingers?.[i]) g += `<text x="${x}" y="${y + sp * 0.14}" text-anchor="middle" style="fill:#1b1206;font-size:${sp * 0.42}px;font-weight:900">${chord.fingers[i]}</text>`;
+    }
+  });
+  return `<svg class="diagram" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(chord.name || chord.id)} chord diagram">${g}</svg>`;
+}
+
+function diagramBlock(chord, opts = {}) {
+  return `<div class="diagram-wrap ${opts.next ? 'next' : ''}"><div class="label">${esc(chord.id)}</div>${chordSVG(chord, opts)}${opts.caption ? `<div class="small muted">${opts.caption}</div>` : ''}</div>`;
+}
+
+// 6-line tab (high e on top). statuses: per note index 'ok' | 'bad'
+function tabHTML(notes, cur = -1, statuses = {}) {
+  let html = '<div class="tab">';
+  for (let s = 1; s <= 6; s++) {
+    html += `<div class="line"><span class="sname">${['e', 'B', 'G', 'D', 'A', 'E'][s - 1]}</span>`;
+    notes.forEach((n, i) => {
+      const cls = i === cur ? 'cur' : statuses[i] || '';
+      html += `<span class="cell ${n.s === s ? cls : ''}">${n.s === s ? `<b>${n.f}</b>` : ''}</span>`;
+    });
+    html += '</div>';
+  }
+  return html + '</div>';
+}
+
+// ---------- Judging what was heard ----------
+// Samples from just before a strum, so the previous chord's ringing can be subtracted.
+const preOnset = (o, len) => Mic.read(o.abs - len - Math.round(0.015 * Mic.sr), len);
+
+function judgeChord(samples, expectedId, poolIds, { strict = true, pre = null } = {}) {
+  if (DSP.rms(samples) < 0.002) return { quiet: true };
+  const an = DSP.analyzeChord(samples, Mic.sr, pre);
+  const pool = judgePool(expectedId, [...new Set([expectedId, ...poolIds])]).map((id) => CHORD[id]);
+  const ranked = DSP.rankChords(an.chroma, pool);
+  const mine = ranked.find((r) => r.id === expectedId);
+  const top = ranked[0];
+  const ok = mine.score >= (strict ? 0.8 : 0.74) && mine.score >= top.score - (strict ? 0.02 : 0.04);
+  const diag = DSP.diagnoseChord(an, CHORD[expectedId].frets);
+  return { ok, clean: ok && !diag.issues.length, score: mine.score, heard: top.id, issues: diag.issues, notes: an.notes };
+}
+
+function firstString(chord) { return 6 - chord.frets.findIndex((f) => f >= 0); }
+
+function mutedAdvice(chord, s) {
+  const i = 6 - s, f = chord.frets[i], fg = chord.fingers?.[i];
+  if (f > 0) return `Press your ${fingerName(fg)} finger down on its very tip, right behind fret ${f}. If it still thuds, another finger is touching this string.`;
+  const nb = [s + 1, s - 1].filter((n) => n >= 1 && n <= 6).map((n) => ({ n, fg: chord.fingers?.[6 - n] })).find((x) => x.fg > 0);
+  if (nb) return `It's an open string, so something is leaning on it. Probably your ${fingerName(nb.fg)} finger on string ${nb.n}: curl it so it comes straight down on its tip, like a claw.`;
+  return "It's an open string, so nothing should touch it. Check that your palm or a finger isn't resting on it.";
+}
+
+function issueText(chord, issue) {
+  if (issue.type === 'missing') return `<b>${cap(stringLabel(issue.string))} isn't ringing.</b> ${mutedAdvice(chord, issue.string)}`;
+  const fs = firstString(chord);
+  return `<b>Don't play string ${issue.string} (${STRING_NAMES[issue.string]}) on ${chord.id}.</b> Start your strum from ${stringLabel(fs)}.`;
+}
+
+function chordFeedback(chord, j) {
+  if (j.quiet) return { cls: 'warn', html: '<b>Too quiet.</b> Strum a bit harder or move closer to the computer.' };
+  if (j.clean) return { cls: 'ok', html: `<b>Clean ${esc(chord.id)}! ✓</b> Every string I can check rang out.` };
+  if (j.issues.length) return { cls: 'bad', html: issueText(chord, j.issues[0]) };
+  if (j.notes <= 1) return { cls: 'warn', html: '<b>That sounded like a single string.</b> Strum across all the strings in one smooth motion.' };
+  if (j.heard !== chord.id && j.score < 0.8) return { cls: 'bad', html: `<b>That sounded more like ${esc(j.heard)}.</b> Compare each finger with the diagram: right string, right fret?` };
+  return { cls: 'bad', html: "<b>Not quite clean.</b> Something's off. Try the string-by-string check to find exactly which string." };
+}
+
+// Verdict for a single plucked string (string check, riffs).
+function noteVerdict(s, expectedFret, r, chord) {
+  const expMidi = openMidi(s) + expectedFret;
+  if (r.energy < 0.0015) return { ok: false, cls: 'warn', html: `<b>Too quiet.</b> Pluck ${stringLabel(s)} a bit harder.` };
+  if (r.fret === null || r.pitched < 0.3) {
+    return { ok: false, cls: 'bad', html: `<b>${cap(stringLabel(s))} sounds muted.</b> ` + (chord ? mutedAdvice(chord, s) : 'Press firmly on your fingertip, right behind the fret wire.') };
+  }
+  if (r.fret === expectedFret) {
+    return { ok: true, cls: 'ok', html: `<b>Clean ${DSP.noteName(expMidi)}! ✓</b>` + (r.pitched < 0.5 ? ' Slightly buzzy: press a little closer to the fret wire.' : '') };
+  }
+  const fg = chord?.fingers?.[6 - s];
+  if (expectedFret > 0 && r.fret === 0) {
+    return { ok: false, cls: 'bad', html: `<b>That's the open string.</b> Your finger isn't holding it down. ${fg ? `Put your ${fingerName(fg)} finger` : 'Press'} on fret ${expectedFret}, right behind the fret wire.` };
+  }
+  const diff = r.fret - expectedFret;
+  if (Math.abs(diff) <= 2) {
+    return { ok: false, cls: 'bad', html: `<b>You're on fret ${r.fret}. It should be fret ${expectedFret}.</b> Move ${plural(Math.abs(diff), 'fret')} toward the ${diff > 0 ? 'headstock (away from the body)' : 'guitar body'}.` };
+  }
+  return { ok: false, cls: 'bad', html: `<b>I heard ${DSP.noteName(r.midi)}, but wanted ${DSP.noteName(expMidi)}.</b> Make sure you're plucking ${stringLabel(s)}, ${expectedFret ? `fretted at fret ${expectedFret}` : 'open (no finger)'}.` };
+}
+
+function listenBadge() {
+  return '<span class="listen"><span class="wave"><i></i><i></i><i></i><i></i></span>Listening…</span>';
+}
+function animateListen(root) {
+  return Mic.on('level', (l) => {
+    const bars = $$('.listen .wave i', root);
+    bars.forEach((b, i) => (b.style.height = Math.min(100, 20 + Math.sqrt(l) * 300 * (0.6 + ((i * 7) % 5) / 5)) + '%'));
+  });
+}
+
+// Wraps an exercise so it first asks for the microphone if needed.
+function needMic(root, start) {
+  let inner = null;
+  const go = () => { root.innerHTML = ''; inner = start(); };
+  if (Mic.running) { go(); return () => inner?.(); }
+  root.innerHTML = `<div class="card flat center stack">
+    <div style="font-size:3rem">🎤</div>
+    <h2>I need to hear you</h2>
+    <p class="muted">This exercise listens to your guitar. Turn on the microphone and allow it when your browser asks.</p>
+    <div><button class="btn primary big" data-go>Turn on microphone</button></div>
+    <div class="feedback bad hidden" data-err></div></div>`;
+  $('[data-go]', root).onclick = async () => {
+    if (await Mic.start(Store.data.settings.micId)) go();
+    else { const e = $('[data-err]', root); e.classList.remove('hidden'); e.textContent = Mic.error; }
+  };
+  return () => inner?.();
+}
+
+// ---------- Setup steps ----------
+function MicSetup(root, { onPass }) {
+  const offs = [];
+  root.innerHTML = `<div class="stack">
+    <p class="big">Click the button, then allow the microphone when your browser asks.</p>
+    <div><button class="btn primary big" data-go>🎤 Turn on microphone</button></div>
+    <div data-live class="hidden stack">
+      <div class="row"><div class="meter" style="width:260px;height:14px"><i></i></div><span class="muted">Input level</span></div>
+      <div class="feedback" data-fb>Now pluck any string on your guitar…</div>
+    </div>
+    <div class="feedback bad hidden" data-err></div></div>`;
+  const live = () => {
+    $('[data-go]', root).classList.add('hidden');
+    $('[data-live]', root).classList.remove('hidden');
+    offs.push(Mic.on('level', (l) => ($('.meter i', root).style.width = Math.min(100, Math.sqrt(l) * 260) + '%')));
+    offs.push(Mic.on('onset', () => {
+      const fb = $('[data-fb]', root);
+      fb.className = 'feedback ok';
+      fb.innerHTML = "<b>Heard you! ✓</b> The microphone works. If the level bar barely moves when you play, move the guitar closer to the computer.";
+      onPass?.();
+    }));
+  };
+  if (Mic.running) live();
+  $('[data-go]', root).onclick = async () => {
+    if (await Mic.start(Store.data.settings.micId)) live();
+    else { const e = $('[data-err]', root); e.classList.remove('hidden'); e.textContent = Mic.error; }
+  };
+  return () => offs.forEach((f) => f());
+}
+
+function CameraSetup(root, { onPass, needBoth = false }) {
+  root.innerHTML = `<div class="stack">
+    <p class="big">${needBoth ? 'Sit with your guitar like you are about to play.' : 'The camera watches your hands to catch flat fingers and check your strumming direction.'}</p>
+    <div class="tip"><div class="ico">💡</div><div class="grow"><p><b>Set it up like this:</b> laptop about an arm's length away, camera at chest height, a lamp or window <b>in front of</b> you (not behind). Both hands and the guitar neck should be in the picture. A basic webcam is fine.</p></div></div>
+    <div><button class="btn primary big" data-go>📷 Turn on camera</button></div>
+    <div class="feedback" data-fb>${Camera.active ? 'Camera is on. Look at the panel in the bottom-right corner.' : ''}</div>
+    <p class="small dim">The video never leaves your computer. Hand tracking runs right in your browser.</p></div>`;
+  const fb = $('[data-fb]', root);
+  let seenSince = 0;
+  const offs = [
+    Camera.on('frame', () => {
+      const fret = Camera.seen('fret', 400), strum = Camera.seen('strum', 400);
+      const good = needBoth ? fret && strum : fret || strum;
+      if (!good) {
+        seenSince = 0;
+        fb.className = 'feedback warn';
+        fb.innerHTML = needBoth
+          ? `<b>${fret ? "I see your fretting hand, but not your strumming hand." : strum ? "I see your strumming hand, but not your fretting hand." : "I can't see your hands yet."}</b> Shift until both hands are in the picture. The labels in the camera panel show which is which. If they're backwards, press ⇄ in the panel.`
+          : '<b>Looking for your hands…</b> Hold them up where the camera can see them.';
+        return;
+      }
+      if (!seenSince) seenSince = performance.now();
+      if (performance.now() - seenSince > 1500) {
+        fb.className = 'feedback ok';
+        fb.innerHTML = needBoth ? '<b>Got both hands ✓</b> Keep this position when you practice.' : '<b>I can see you ✓</b> Hand tracking works.';
+        onPass?.();
+      }
+    }),
+    Camera.on('state', () => {
+      if (Camera.error) { fb.className = 'feedback bad'; fb.textContent = Camera.error; }
+      else if (Camera.loading) { fb.className = 'feedback'; fb.textContent = 'Starting camera and loading hand tracking…'; }
+    }),
+  ];
+  const btn = $('[data-go]', root);
+  if (Camera.active) btn.classList.add('hidden');
+  btn.onclick = async () => { if (await Camera.start(Store.data.settings.camId)) btn.classList.add('hidden'); };
+  return () => offs.forEach((f) => f());
+}
+
+// ---------- Tuner ----------
+function Tuner(root, { onPass, requireAll = false } = {}) {
+  return needMic(root, () => {
+    const done = new Set();
+    let target = 6, manual = false, readings = [], inTune = 0, alive = true;
+    const names = { 6: 'E', 5: 'A', 4: 'D', 3: 'G', 2: 'B', 1: 'e' };
+    root.innerHTML = `<div class="card flat tuner">
+      <div class="tune-strings">${[6, 5, 4, 3, 2, 1].map((s) => `<button data-s="${s}">${names[s]}<small>string ${s}</small></button>`).join('')}</div>
+      <div style="height:18px"></div>
+      <div class="note" data-note>–</div>
+      <div class="cents" data-cents>Pluck ${stringLabel(target)}</div>
+      <div class="gauge"><div class="scale"></div><div class="zero"></div><div class="needle" data-needle></div></div>
+      <div class="feedback center" data-fb>Pluck one string and let it ring.</div>
+      <p class="small dim" style="margin-top:12px">Tip: tune <b>up</b> to the note. If you're too high, loosen below it and come back up; strings hold their tuning better that way.</p>
+    </div>`;
+    const paint = () => $$('[data-s]', root).forEach((b) => {
+      const s = +b.dataset.s;
+      b.classList.toggle('cur', s === target);
+      b.classList.toggle('done', done.has(s));
+    });
+    paint();
+    $$('[data-s]', root).forEach((b) => (b.onclick = () => { target = +b.dataset.s; manual = true; inTune = 0; readings = []; paint(); }));
+    const fb = $('[data-fb]', root), needle = $('[data-needle]', root);
+    const iv = setInterval(() => {
+      if (!alive) return;
+      if (Mic.level < 0.003) { readings = []; inTune = 0; return; }
+      const r = DSP.yin(Mic.latest(4096), Mic.sr, 70, 700);
+      if (!r || r.clarity < 0.85) return;
+      readings.push(r.midi);
+      if (readings.length > 5) readings.shift();
+      const midi = readings.slice().sort((a, b) => a - b)[readings.length >> 1];
+      if (!manual && !requireAll) {
+        // Free mode: follow whichever string is closest.
+        target = [6, 5, 4, 3, 2, 1].reduce((best, s) => (Math.abs(midi - openMidi(s)) < Math.abs(midi - openMidi(best)) ? s : best), 6);
+        paint();
+      }
+      const want = openMidi(target);
+      // Allow octave confusion (laptop mics often hear the low strings an octave up).
+      let cents = (midi - want) * 100;
+      for (const o of [-1200, 1200]) if (Math.abs(cents + o) < Math.abs(cents)) cents += o;
+      $('[data-note]', root).textContent = DSP.noteName(midi);
+      $('[data-cents]', root).textContent = `${cents > 0 ? '+' : ''}${cents.toFixed(0)} cents · target ${names[target]} (${stringLabel(target)})`;
+      needle.style.left = 50 + Math.max(-50, Math.min(50, cents)) + '%';
+      const ok = Math.abs(cents) <= 7;
+      needle.classList.toggle('in', ok);
+      if (Math.abs(cents) > 300) {
+        fb.className = 'feedback warn';
+        fb.innerHTML = `<b>That's ${DSP.noteName(midi)}, way off from ${names[target]}.</b> Are you plucking ${stringLabel(target)}? If yes, turn its peg slowly ${cents < 0 ? 'to tighten (raise the pitch)' : 'to loosen (lower the pitch)'}.`;
+      } else if (ok) {
+        fb.className = 'feedback ok';
+        fb.innerHTML = '<b>In tune ✓</b> Hold it…';
+      } else {
+        fb.className = 'feedback';
+        fb.innerHTML = cents < 0 ? '<b>Too low ↑</b> Tighten the peg a little (tune up).' : '<b>Too high ↓</b> Loosen the peg a little (tune down).';
+      }
+      inTune = ok ? inTune + 1 : 0;
+      if (inTune === 10 && !done.has(target)) {
+        done.add(target);
+        toast(`String ${target} (${STRING_NAMES[target]}) is in tune ✓`);
+        if (done.size === 6 || (!requireAll && done.size >= 1)) Store.set((d) => (d.tunedOn = Store.today()));
+        if (requireAll) {
+          const nextS = [6, 5, 4, 3, 2, 1].find((s) => !done.has(s));
+          if (nextS) { target = nextS; manual = true; readings = []; inTune = 0; $('[data-cents]', root).textContent = `Now pluck ${stringLabel(target)}`; }
+          else { fb.className = 'feedback ok'; fb.innerHTML = '<b>All six strings are in tune! ✓</b>'; onPass?.(); }
+        }
+        paint();
+      }
+    }, 50);
+    if (requireAll) manual = true;
+    return () => { alive = false; clearInterval(iv); };
+  });
+}
+
+// ---------- String-by-string check ----------
+function StringCheck(root, { chord, onPass, onStat }) {
+  return needMic(root, () => {
+    const strings = chord.frets.map((f, i) => ({ s: 6 - i, f })).filter((x) => x.f >= 0);
+    const skipped = chord.frets.map((f, i) => ({ s: 6 - i, f })).filter((x) => x.f < 0).map((x) => x.s);
+    const state = {};
+    let cur = 0, busy = false, alive = true;
+    const isOpen = chord.id === 'open';
+    root.innerHTML = `<div class="ex">
+      <div data-diag></div>
+      <div class="stack">
+        <div><div class="prompt" data-prompt></div><div class="muted" data-sub></div></div>
+        <div class="feedback" data-fb>${listenBadge()}</div>
+        <div class="string-list" data-list></div>
+        <div class="row"><button class="btn small ghost" data-skip>Skip this string</button><button class="btn small ghost" data-restart>Start over</button></div>
+        ${skipped.length ? `<p class="small muted">Don't play ${skipped.map((s) => `string ${s}`).join(' or ')} on this chord.</p>` : ''}
+      </div></div>`;
+    const render = () => {
+      const status = {};
+      strings.forEach((x, i) => (status[x.s] = state[x.s]?.ok ? 'ok' : state[x.s] ? 'bad' : i === cur ? 'cur' : undefined));
+      $('[data-diag]', root).innerHTML = isOpen
+        ? `<div class="diagram-wrap"><div class="label">E A D G B E</div>${chordSVG(chord, { status, w: 200 })}</div>`
+        : diagramBlock(chord, { status, w: 220 });
+      const x = strings[cur];
+      if (x) {
+        const fg = chord.fingers?.[6 - x.s];
+        $('[data-prompt]', root).textContent = `Pluck ${stringLabel(x.s)}`;
+        $('[data-sub]', root).innerHTML = x.f === 0
+          ? `Open string, no finger on it. Should sound <b>${DSP.noteName(openMidi(x.s))}</b>.`
+          : `Fret ${x.f} with your ${fingerName(fg)} finger. Should sound <b>${DSP.noteName(openMidi(x.s) + x.f)}</b>.`;
+      } else {
+        $('[data-prompt]', root).textContent = 'All strings checked';
+        $('[data-sub]', root).textContent = '';
+      }
+      $('[data-list]', root).innerHTML = strings.map((y, i) => {
+        const st = state[y.s];
+        const cls = st?.ok ? 'ok' : st ? 'bad' : i === cur ? 'cur' : '';
+        return `<div class="string-row ${cls}"><span class="n">${y.s}</span><span class="what">${esc(STRING_NAMES[y.s])} ${y.f ? `· fret ${y.f}` : '· open'}</span><span class="res">${st ? (st.ok ? 'clean' : esc(st.short)) : i === cur ? 'now' : ''}</span></div>`;
+      }).join('');
+    };
+    render();
+    const fb = $('[data-fb]', root);
+    const advance = () => {
+      cur = strings.findIndex((x) => !state[x.s]?.ok);
+      if (cur < 0) {
+        cur = strings.length;
+        render();
+        fb.className = 'feedback ok';
+        fb.innerHTML = `<b>Every string rings clean! ✓</b> ${isOpen ? '' : 'Your fingers are in the right spots.'}`;
+        Store.set((d) => { if (!isOpen) Store.chord(chord.id).strings++; });
+        onPass?.();
+        return;
+      }
+      render();
+    };
+    const offs = [animateListen(root), Mic.on('onset', async (o) => {
+      if (busy || cur >= strings.length) return;
+      busy = true;
+      const x = strings[cur];
+      const pre = Mic.read(o.abs - 16384 - Math.round(0.015 * Mic.sr), 16384);
+      const post = await Mic.capture(o.abs, 0.02, 16384);
+      if (!alive) return;
+      const r = DSP.checkString(post, pre, Mic.sr, openMidi(x.s), 12);
+      const v = noteVerdict(x.s, x.f, r, isOpen ? null : chord);
+      fb.className = 'feedback ' + v.cls;
+      fb.innerHTML = v.html;
+      if (v.cls === 'warn') { busy = false; return; }
+      state[x.s] = { ok: v.ok, short: v.ok ? 'clean' : r.fret === null || r.pitched < 0.3 ? 'muted' : `heard fret ${r.fret}` };
+      if (!v.ok && !isOpen) Store.set(() => { const c = Store.chord(chord.id); c.issues[x.s] = (c.issues[x.s] || 0) + 1; });
+      onStat?.(x.s, v.ok);
+      render();
+      if (v.ok) setTimeout(() => { if (alive) { advance(); busy = false; } }, 500);
+      else setTimeout(() => (busy = false), 400);
+    })];
+    $('[data-skip]', root).onclick = () => { if (strings[cur]) { state[strings[cur].s] = { ok: true, short: 'skipped' }; advance(); } };
+    $('[data-restart]', root).onclick = () => { Object.keys(state).forEach((k) => delete state[k]); cur = 0; fb.className = 'feedback'; fb.innerHTML = listenBadge(); render(); };
+    return () => { alive = false; offs.forEach((f) => f()); };
+  });
+}
+
+// ---------- Strum check ----------
+function StrumCheck(root, { chord, need = 3, onPass, onStuck }) {
+  return needMic(root, () => {
+    let clean = 0, fails = 0, busy = false, alive = true;
+    const fs = firstString(chord);
+    Camera.context = { type: 'chord', chord };
+    root.innerHTML = `<div class="ex">
+      <div>${diagramBlock(chord, { w: 220 })}</div>
+      <div class="stack">
+        <div><div class="prompt">Strum ${esc(chord.id)} ${need > 1 ? `${need} times clean` : ''}</div>
+        <div class="muted">${fs < 6 ? `Start your strum from ${stringLabel(fs)}. ` : 'Strum all six strings. '}One strum at a time, let it ring.</div></div>
+        <div class="dots" data-dots>${'<i></i>'.repeat(need)}</div>
+        <div class="feedback" data-fb>${listenBadge()}</div>
+        <div class="row"><button class="btn small ghost hidden" data-stuck>🔍 Check string by string</button></div>
+        <p class="small dim">${esc(chord.tip || '')}</p>
+      </div></div>`;
+    const fb = $('[data-fb]', root);
+    const offs = [animateListen(root), Mic.on('onset', async (o) => {
+      if (busy || clean >= need) return;
+      busy = true;
+      const pre = preOnset(o, 16384);
+      const samples = await Mic.capture(o.abs, 0.03, 16384);
+      if (!alive) return;
+      const j = judgeChord(samples, chord.id, CHORDS.map((c) => c.id), { pre });
+      const f = chordFeedback(chord, j);
+      fb.className = 'feedback ' + f.cls;
+      fb.innerHTML = f.html;
+      if (!j.quiet) {
+        Store.set(() => {
+          const c = Store.chord(chord.id);
+          c.tries++;
+          if (j.clean) c.clean++;
+          j.issues?.forEach((i) => { if (i.type === 'missing') c.issues[i.string] = (c.issues[i.string] || 0) + 1; });
+        });
+        if (j.clean) {
+          clean++;
+          $$('[data-dots] i', root).forEach((d, i) => d.classList.toggle('ok', i < clean));
+          if (clean >= need) {
+            fb.innerHTML = `<b>${need} clean ${esc(chord.id)} strums! ✓</b> You've got this chord.`;
+            onPass?.();
+          }
+        } else if (++fails >= 2) $('[data-stuck]', root).classList.remove('hidden');
+      }
+      setTimeout(() => (busy = false), 250);
+    })];
+    $('[data-stuck]', root).onclick = () => onStuck?.();
+    return () => { alive = false; Camera.context = null; offs.forEach((f) => f()); };
+  });
+}
+
+// ---------- Chord trainer: string check, then strums ----------
+function ChordTrainer(root, { chord, strums = 3, onPass, startWith = 'strings' }) {
+  let inner = null;
+  root.innerHTML = `<div class="stack">
+    <div class="row between"><div class="seg" data-seg><button data-p="strings">1 · Each string</button><button data-p="strum">2 · Strum it</button></div>
+    <span class="small muted" data-hint></span></div><div data-body></div></div>`;
+  const show = (phase) => {
+    inner?.();
+    $$('[data-p]', root).forEach((b) => b.classList.toggle('on', b.dataset.p === phase));
+    const body = $('[data-body]', root);
+    Camera.context = { type: 'chord', chord };
+    if (phase === 'strings') {
+      $('[data-hint]', root).textContent = 'Place your fingers, then pluck one string at a time.';
+      inner = StringCheck(body, { chord, onPass: () => setTimeout(() => show('strum'), 1400) });
+    } else {
+      $('[data-hint]', root).textContent = 'Now strum the whole chord.';
+      inner = StrumCheck(body, { chord, need: strums, onPass, onStuck: () => show('strings') });
+    }
+  };
+  $$('[data-p]', root).forEach((b) => (b.onclick = () => show(b.dataset.p)));
+  show(startWith);
+  return () => { inner?.(); Camera.context = null; };
+}
+
+// ---------- One-minute chord changes ----------
+function ChangeDrill(root, { a, b, goal = 10, secs = 60, onPass }) {
+  return needMic(root, () => {
+    const A = CHORD[a], B = CHORD[b];
+    const key = [a, b].sort().join('|');
+    let target = 0, count = 0, running = false, endAt = 0, busy = false, alive = true, iv = null;
+    const best = Store.data.changes[key]?.best || 0;
+    root.innerHTML = `<div class="stack">
+      <div class="row between">
+        <div><div class="prompt">${esc(a)} ↔ ${esc(b)}: one-minute changes</div>
+        <div class="muted">Strum ${esc(a)}, switch, strum ${esc(b)}, switch… Every clean chord counts. Goal: ${goal}. ${best ? `Your best: ${best}.` : ''}</div></div>
+      </div>
+      <div class="player">
+        <div class="row" style="justify-content:center;gap:30px" data-diags></div>
+        <div class="center stack">
+          <div class="counter" data-count>0</div>
+          <div class="timer" data-timer>${secs}s</div>
+          <div><button class="btn primary big" data-start>Start</button></div>
+        </div>
+      </div>
+      <div class="feedback" data-fb>Put your fingers on <b>${esc(a)}</b>, then press Start.</div>
+    </div>`;
+    const fb = $('[data-fb]', root);
+    const paint = () => {
+      $('[data-diags]', root).innerHTML = [A, B].map((c, i) => `<div style="opacity:${i === target ? 1 : 0.35};transform:scale(${i === target ? 1 : 0.9});transition:all .2s">${diagramBlock(c, { w: 170, caption: i === target ? 'play this' : 'next' })}</div>`).join('');
+      Camera.context = { type: 'chord', chord: target ? B : A };
+    };
+    paint();
+    const finish = () => {
+      running = false;
+      clearInterval(iv);
+      $('[data-start]', root).textContent = 'Go again';
+      $('[data-start]', root).disabled = false;
+      const prev = Store.data.changes[key];
+      Store.set((d) => {
+        const c = (d.changes[key] ||= { best: 0, history: [] });
+        c.best = Math.max(c.best, count);
+        c.history = [...(c.history || []), count].slice(-12);
+      });
+      const pb = !prev || count > prev.best;
+      fb.className = 'feedback ' + (count >= goal ? 'ok' : 'warn');
+      fb.innerHTML = count >= goal
+        ? `<b>${count} changes in a minute! ✓ ${pb && prev ? 'New personal best!' : ''}</b> Keep doing this daily. Players who can do 30 a minute play songs without stopping.`
+        : `<b>${count} changes.</b> Goal is ${goal}. Tip: lift all fingers together and land them as one shape. Don't place them one at a time. Speed comes from repetition, not from rushing.`;
+      if (count >= goal) onPass?.();
+    };
+    $('[data-start]', root).onclick = () => {
+      count = 0; target = 0; running = true;
+      $('[data-count]', root).textContent = '0';
+      $('[data-start]', root).disabled = true;
+      endAt = performance.now() + secs * 1000;
+      paint();
+      fb.className = 'feedback';
+      fb.innerHTML = `${listenBadge()} Go! Strum <b>${esc(a)}</b>.`;
+      iv = setInterval(() => {
+        const left = Math.max(0, Math.ceil((endAt - performance.now()) / 1000));
+        $('[data-timer]', root).textContent = left + 's';
+        if (left <= 0) finish();
+      }, 200);
+    };
+    const offs = [animateListen(root), Mic.on('onset', async (o) => {
+      if (!running || busy) return;
+      busy = true;
+      const want = target ? b : a;
+      const pre = preOnset(o, 8192);
+      const samples = await Mic.capture(o.abs, 0.03, 8192);
+      if (!alive || !running) { busy = false; return; }
+      const j = judgeChord(samples, want, CHORDS.map((c) => c.id), { strict: false, pre });
+      if (j.ok) {
+        count++;
+        target = 1 - target;
+        $('[data-count]', root).textContent = count;
+        paint();
+        fb.className = 'feedback ok';
+        fb.innerHTML = `<b>${esc(want)} ✓</b> Now ${esc(target ? b : a)}!`;
+        Store.set(() => { const c = Store.chord(want); c.tries++; if (j.clean) c.clean++; });
+      } else if (!j.quiet) {
+        const f = chordFeedback(CHORD[want], j);
+        fb.className = 'feedback bad';
+        fb.innerHTML = f.html;
+      }
+      setTimeout(() => (busy = false), 150);
+    })];
+    return () => { alive = false; clearInterval(iv); Camera.context = null; offs.forEach((f) => f()); };
+  });
+}
+
+// ---------- Latency calibration ----------
+function Latency(root, { onPass }) {
+  return needMic(root, () => {
+    let onsets = [], clicks = [], alive = true;
+    root.innerHTML = `<div class="stack">
+      <p class="big">Every computer has a small delay between sound and microphone. Let's measure yours so the coach judges your timing fairly.</p>
+      <p>Lay your fretting hand lightly across the strings to mute them. After 4 count-in clicks, <b>strum on each of the next 8 clicks</b>.</p>
+      <div class="row"><button class="btn primary big" data-go>Start</button><div class="beat-light" data-light></div></div>
+      <div class="feedback" data-fb>Current setting: ${Math.round(Store.data.settings.latency * 1000)} ms</div></div>`;
+    const fb = $('[data-fb]', root);
+    const off = Mic.on('onset', (o) => onsets.push(o.time));
+    $('[data-go]', root).onclick = () => {
+      onsets = []; clicks = [];
+      $('[data-go]', root).disabled = true;
+      fb.innerHTML = 'Count-in: 1… 2… 3… 4… then strum on every click.';
+      Metro.start({
+        bpm: 80, beatsPerBar: 4, totalBeats: 12,
+        onBeat: (b, t) => {
+          clicks.push(t);
+          const l = $('[data-light]', root);
+          if (l) { l.classList.add('on'); setTimeout(() => l.classList.remove('on'), 120); }
+          if (b === 4) fb.innerHTML = '<b>Strum now, on every click!</b>';
+        },
+        onEnd: () => {
+          if (!alive) return;
+          setTimeout(() => {
+            $('[data-go]', root).disabled = false;
+            const offsets = clicks.slice(4).map((c) => {
+              const near = onsets.filter((t) => Math.abs(t - c) < 0.3).sort((x, y) => Math.abs(x - c) - Math.abs(y - c))[0];
+              return near === undefined ? null : near - c;
+            }).filter((x) => x !== null).sort((x, y) => x - y);
+            if (offsets.length < 4) {
+              fb.className = 'feedback warn';
+              fb.innerHTML = `<b>Only heard ${offsets.length} strums.</b> Strum a bit harder, right on each click, and try again.`;
+              return;
+            }
+            const lat = Math.max(0, Math.min(0.35, offsets[offsets.length >> 1]));
+            Store.set((d) => (d.settings.latency = lat));
+            fb.className = 'feedback ok';
+            fb.innerHTML = `<b>Done ✓ Your delay is about ${Math.round(lat * 1000)} ms.</b> The coach will take that into account.`;
+            onPass?.();
+          }, 400);
+        },
+      });
+    };
+    return () => { alive = false; off(); Metro.stop(); };
+  });
+}
+
+// ---------- Rhythm / strumming patterns ----------
+function Rhythm(root, { pattern = 'quarters', chords = ['G'], bpm = 60, bars = 4, onPass }) {
+  return needMic(root, () => {
+    const P = PATTERNS[pattern];
+    const spb = P.slots.length; // slots per bar
+    const beatsPerBar = spb / 2;
+    let tempo = bpm, running = false, start = 0, events = [], extras = [], alive = true, raf = 0;
+    const key = pattern;
+    root.innerHTML = `<div class="stack">
+      <div class="row between">
+        <div><div class="prompt">${esc(P.name)}</div><div class="muted">Count: ${esc(P.count)} · ↓ = down, ↑ = up, · = skip (hand still moves)</div></div>
+        <div class="row">
+          <button class="btn small" data-slow>−</button><b data-bpm>${tempo} BPM</b><button class="btn small" data-fast>+</button>
+          <button class="btn primary" data-go>▶ Start</button>
+        </div>
+      </div>
+      <div class="row" data-lights>${Array.from({ length: beatsPerBar }, (_, i) => `<div class="beat-light ${i === 0 ? 'accent' : ''}"></div>`).join('')}<span class="muted small" data-state>Press start. You get one bar of clicks to count you in.</span></div>
+      <div class="rgrid" data-grid></div>
+      <div class="feedback" data-fb>Headphones help: then the microphone only hears your guitar.</div>
+    </div>`;
+    const grid = $('[data-grid]', root), fb = $('[data-fb]', root);
+    const drawGrid = () => {
+      grid.innerHTML = Array.from({ length: bars }, (_, b) => `<div class="rbar" style="grid-template-columns:repeat(${spb},1fr)"><span class="cname">${esc(chords[b % chords.length])}</span>${[...P.slots].map((c, j) =>
+        `<div class="slot ${c === '-' ? 'rest' : c === 'U' ? 'up' : ''}" data-i="${b * spb + j}">${c === 'D' ? '↓' : c === 'U' ? '↑' : '·'}<span class="cnt">${j % 2 ? '&' : j / 2 + 1}</span></div>`).join('')}</div>`).join('');
+    };
+    drawGrid();
+    const slotDur = () => 60 / tempo / 2;
+    const setTempo = (v) => { tempo = Math.max(40, Math.min(160, v)); $('[data-bpm]', root).textContent = tempo + ' BPM'; };
+    $('[data-slow]', root).onclick = () => setTempo(tempo - 5);
+    $('[data-fast]', root).onclick = () => setTempo(tempo + 5);
+    const slotEl = (i) => $(`[data-i="${i}"]`, grid);
+
+    const finish = () => {
+      running = false;
+      cancelAnimationFrame(raf);
+      $('[data-go]', root).textContent = '▶ Again';
+      const total = events.length;
+      const good = events.filter((e) => e.off !== null && Math.abs(e.off) <= 0.07).length;
+      const near = events.filter((e) => e.off !== null && Math.abs(e.off) > 0.07).length;
+      const missed = events.filter((e) => e.off === null);
+      const score = Math.round(((good + near * 0.5) / total) * 100);
+      const offs = events.filter((e) => e.off !== null).map((e) => e.off);
+      const mean = offs.length ? offs.reduce((a, b) => a + b, 0) / offs.length : 0;
+      const tips = [];
+      if (mean < -0.035) tips.push(`You're <b>rushing</b> (about ${Math.round(-mean * 1000)} ms early). Wait for the click; let it pull you.`);
+      if (mean > 0.045) tips.push(`You're <b>dragging</b> (about ${Math.round(mean * 1000)} ms late). Start each strum a hair sooner.`);
+      const upMiss = missed.filter((e) => e.type === 'U').length, upTotal = events.filter((e) => e.type === 'U').length;
+      if (upTotal && upMiss / upTotal > 0.4) tips.push('Your <b>upstrokes</b> are too light or missing. Catch the thinnest 3 strings on the way up.');
+      const restHits = extras.filter((x) => x.rest).length;
+      if (restHits >= 2) tips.push(`You hit the strings ${restHits} times on a <b>skip</b>. On "·" slots keep moving your hand but miss the strings.`);
+      const wrongDir = events.filter((e) => e.dir && e.dir !== e.type).length;
+      const dirKnown = events.filter((e) => e.dir).length;
+      if (dirKnown >= 4 && wrongDir / dirKnown > 0.3) tips.push(`The camera saw ${wrongDir} strums going the <b>wrong direction</b>. Down on the numbers, up on the "&".`);
+      if (!tips.length && score >= 85) tips.push('Rock solid. Bump the tempo up 5 BPM and go again.');
+      Store.set((d) => (d.rhythm[key] = Math.max(d.rhythm[key] || 0, score)));
+      fb.className = 'feedback ' + (score >= 70 ? 'ok' : 'warn');
+      fb.innerHTML = `<b>${score}% on the beat ${score >= 70 ? '✓' : ''}</b> ${good} right on, ${near} a bit off, ${missed.length} missed.<br>${tips.join('<br>')}`;
+      if (score >= 70) onPass?.();
+      Camera.context = null;
+    };
+
+    $('[data-go]', root).onclick = () => {
+      if (running) { Metro.stop(); finish(); return; }
+      drawGrid();
+      events = []; extras = [];
+      running = true;
+      $('[data-go]', root).textContent = '■ Stop';
+      fb.className = 'feedback';
+      fb.innerHTML = 'Count-in… get ready.';
+      Camera.context = { type: 'rhythm' };
+      const lights = $$('[data-lights] .beat-light', root);
+      Metro.start({
+        bpm: tempo, beatsPerBar, totalBeats: beatsPerBar * (bars + 1),
+        onStart: (t0) => {
+          start = t0 + beatsPerBar * (60 / tempo);
+          for (let i = 0; i < bars * spb; i++) {
+            const c = P.slots[i % spb];
+            if (c !== '-') events.push({ i, type: c, t: start + i * slotDur(), off: null, dir: null });
+          }
+        },
+        onBeat: (b) => {
+          lights.forEach((l, i) => l.classList.toggle('on', i === b % beatsPerBar));
+          $('[data-state]', root).textContent = b < beatsPerBar ? `Count-in: ${b + 1}` : `Bar ${Math.floor(b / beatsPerBar)} of ${bars}`;
+          if (b === beatsPerBar) fb.innerHTML = `${listenBadge()} Play!`;
+        },
+        onEnd: () => setTimeout(() => alive && running && finish(), 300),
+      });
+      const loop = () => {
+        if (!running) return;
+        const now = Mic.ctx.currentTime;
+        const idx = Math.floor((now - start) / slotDur());
+        $$('.slot.now', grid).forEach((s) => s.classList.remove('now'));
+        if (idx >= 0) slotEl(idx)?.classList.add('now');
+        events.forEach((e) => {
+          if (e.off === null && !e.marked && now - e.t > slotDur() * 0.5 + Store.data.settings.latency + 0.05) {
+            e.marked = true;
+            slotEl(e.i)?.classList.add('miss');
+          }
+        });
+        raf = requestAnimationFrame(loop);
+      };
+      raf = requestAnimationFrame(loop);
+    };
+
+    const offs = [animateListen(root), Mic.on('onset', (o) => {
+      if (!running) return;
+      const t = o.time - Store.data.settings.latency;
+      const sd = slotDur();
+      if (t < start - sd * 0.5) return;
+      let best = null;
+      for (const e of events) if (e.off === null && Math.abs(t - e.t) < sd * 0.5 && (!best || Math.abs(t - e.t) < Math.abs(t - best.t))) best = e;
+      if (best) {
+        best.off = t - best.t;
+        best.dir = Camera.directionAt(o.time);
+        const el = slotEl(best.i);
+        el?.classList.remove('miss');
+        el?.classList.add(Math.abs(best.off) <= 0.07 ? 'hit' : 'near');
+        if (Camera.context) Camera.context.last = { want: best.type, got: best.dir };
+      } else {
+        const i = Math.round((t - start) / sd);
+        if (i >= 0 && i < bars * spb) {
+          const rest = P.slots[i % spb] === '-';
+          extras.push({ i, rest });
+          if (rest) slotEl(i)?.classList.add('extra');
+        }
+      }
+    })];
+    return () => { alive = false; running = false; Metro.stop(); cancelAnimationFrame(raf); Camera.context = null; offs.forEach((f) => f()); };
+  });
+}
+
+// ---------- Riffs (single notes) ----------
+function Riff(root, { riff, tempo = false, onPass }) {
+  return needMic(root, () => {
+    let cur = 0, busy = false, alive = true, mode = 'step', statuses = {}, mistakes = 0;
+    let playing = false, notesT = [], speed = 0.7, raf = 0;
+    root.innerHTML = `<div class="stack">
+      <div class="row between"><div><div class="prompt">${esc(riff.title)}</div><div class="muted">${esc(riff.note)}</div></div>
+      ${tempo ? `<div class="seg" data-mode><button data-m="step" class="on">Note by note</button><button data-m="time">In time</button></div>` : ''}</div>
+      <div class="card flat" data-tab></div>
+      <div data-controls></div>
+      <div class="feedback" data-fb>${listenBadge()}</div>
+      <p class="small dim">How to read tab: each line is a string (thin high e on top, thick low E on the bottom). The number is the fret. 0 = open string.</p>
+    </div>`;
+    const fb = $('[data-fb]', root);
+    const drawTab = () => ($('[data-tab]', root).innerHTML = tabHTML(riff.notes, mode === 'step' ? cur : -1, statuses));
+    const prompt = () => {
+      if (mode !== 'step') return;
+      const n = riff.notes[cur];
+      $('[data-controls]', root).innerHTML = n
+        ? `<div class="row"><span class="big">Next: <b>${stringLabel(n.s)}</b>, ${n.f ? `<b>fret ${n.f}</b>` : '<b>open</b>'} → ${DSP.noteName(openMidi(n.s) + n.f)}</span><span class="grow"></span><button class="btn small ghost" data-restart>Start over</button></div>`
+        : '';
+      const r = $('[data-restart]', root);
+      if (r) r.onclick = () => { cur = 0; statuses = {}; mistakes = 0; drawTab(); prompt(); };
+    };
+    drawTab();
+    prompt();
+
+    const stepDone = () => {
+      fb.className = 'feedback ok';
+      fb.innerHTML = `<b>You played the whole riff! ✓</b> ${mistakes ? `${plural(mistakes, 'wrong note')} along the way. ` : 'No mistakes! '}${tempo ? 'Now try it <b>in time</b> with the metronome (top right).' : ''}`;
+      Store.set((d) => { (d.riffs[riff.id] ||= {}).done = true; });
+      onPass?.();
+    };
+
+    const startTime = () => {
+      statuses = {};
+      drawTab();
+      playing = true;
+      const bpm = riff.bpm * speed;
+      const spbeat = 60 / bpm;
+      let beat = 0;
+      const offsets = riff.notes.map((n) => { const b = beat; beat += n.b; return b; });
+      const totalBeats = Math.ceil(beat) + 4;
+      fb.className = 'feedback';
+      fb.innerHTML = 'Count-in: 4 clicks, then play.';
+      Metro.start({
+        bpm, beatsPerBar: 4, totalBeats,
+        onStart: (t0) => { notesT = offsets.map((b, i) => ({ i, t: t0 + (4 + b) * spbeat, got: null })); },
+        onBeat: (b) => { if (b === 4) fb.innerHTML = `${listenBadge()} Play!`; },
+        onEnd: () => setTimeout(() => {
+          if (!alive) return;
+          playing = false;
+          cancelAnimationFrame(raf);
+          const hits = notesT.filter((n) => n.got === 'ok').length;
+          const pct = Math.round((hits / notesT.length) * 100);
+          Store.set((d) => { const r = (d.riffs[riff.id] ||= {}); r.best = Math.max(r.best || 0, pct); });
+          fb.className = 'feedback ' + (pct >= 70 ? 'ok' : 'warn');
+          fb.innerHTML = `<b>${pct}% of notes right and on time.</b> ${pct >= 85 ? 'Try a faster speed!' : pct >= 50 ? 'Getting there. Go again.' : 'Try "Note by note" a few more times, or slow it down.'}`;
+          drawTab();
+        }, 400),
+      });
+      const loop = () => {
+        if (!playing) return;
+        const now = Mic.ctx.currentTime - Store.data.settings.latency;
+        notesT.forEach((n) => { if (!n.got && now - n.t > 0.35) { n.got = 'miss'; statuses[n.i] = 'bad'; drawTab(); } });
+        const next = notesT.find((n) => n.t > now - 0.1);
+        $$('.tab .cell.cur', root).forEach((c) => c.classList.remove('cur'));
+        if (next) $$(`.tab .line`, root).forEach((line) => line.children[next.i + 1]?.classList.add('cur'));
+        raf = requestAnimationFrame(loop);
+      };
+      raf = requestAnimationFrame(loop);
+    };
+
+    if (tempo) {
+      $$('[data-m]', root).forEach((b) => (b.onclick = () => {
+        mode = b.dataset.m;
+        $$('[data-m]', root).forEach((x) => x.classList.toggle('on', x === b));
+        Metro.stop(); playing = false; statuses = {}; cur = 0;
+        drawTab();
+        if (mode === 'step') { prompt(); fb.className = 'feedback'; fb.innerHTML = listenBadge(); }
+        else {
+          $('[data-controls]', root).innerHTML = `<div class="row"><span class="muted">Speed</span><div class="seg" data-speed>${[0.5, 0.7, 0.85, 1].map((s) => `<button data-v="${s}" class="${s === speed ? 'on' : ''}">${Math.round(s * 100)}%</button>`).join('')}</div><button class="btn primary" data-play>▶ Play along</button></div>`;
+          $$('[data-v]', root).forEach((x) => (x.onclick = () => { speed = +x.dataset.v; $$('[data-v]', root).forEach((y) => y.classList.toggle('on', y === x)); }));
+          $('[data-play]', root).onclick = startTime;
+          fb.className = 'feedback';
+          fb.innerHTML = 'Press play. You get 4 clicks, then the highlighted note moves with the beat.';
+        }
+      }));
+    }
+
+    const offs = [animateListen(root), Mic.on('onset', async (o) => {
+      if (busy) return;
+      if (mode === 'step') {
+        const n = riff.notes[cur];
+        if (!n) return;
+        busy = true;
+        const pre = Mic.read(o.abs - 8192 - Math.round(0.01 * Mic.sr), 8192);
+        const post = await Mic.capture(o.abs, 0.015, 8192);
+        if (!alive) return;
+        const r = DSP.checkString(post, pre, Mic.sr, openMidi(n.s), 15);
+        const v = noteVerdict(n.s, n.f, r, null);
+        fb.className = 'feedback ' + v.cls;
+        fb.innerHTML = v.html;
+        if (v.ok) {
+          statuses[cur] = 'ok';
+          cur++;
+          drawTab();
+          prompt();
+          if (cur >= riff.notes.length) stepDone();
+        } else if (v.cls === 'bad') mistakes++;
+        setTimeout(() => (busy = false), 120);
+      } else if (playing) {
+        const t = o.time - Store.data.settings.latency;
+        const n = notesT.filter((x) => !x.got && Math.abs(x.t - t) < 0.22).sort((a, b) => Math.abs(a.t - t) - Math.abs(b.t - t))[0];
+        if (!n) return;
+        busy = true;
+        const note = riff.notes[n.i];
+        const pre = Mic.read(o.abs - 4096 - Math.round(0.01 * Mic.sr), 4096);
+        const post = await Mic.capture(o.abs, 0.015, 8192);
+        if (!alive) return;
+        const r = DSP.checkString(post, pre.length ? pre : null, Mic.sr, openMidi(note.s), 15);
+        n.got = r.fret === note.f && r.pitched >= 0.3 ? 'ok' : 'bad';
+        statuses[n.i] = n.got === 'ok' ? 'ok' : 'bad';
+        drawTab();
+        busy = false;
+      }
+    })];
+    return () => { alive = false; playing = false; Metro.stop(); cancelAnimationFrame(raf); offs.forEach((f) => f()); };
+  });
+}
+
+// Strum Coach — song player, screens, camera panel and navigation.
+
+// ---------- Song player ----------
+function SongPlayer(root, { song, onPass }) {
+  return needMic(root, () => {
+    const { segs, totalBeats } = songTimeline(song);
+    const pool = songChords(song);
+    // Practice mode steps through each chord *change* (repeats collapsed).
+    const steps = [];
+    segs.forEach((s, i) => { if (!steps.length || steps[steps.length - 1].chord !== s.chord) steps.push({ chord: s.chord, segs: [i] }); else steps[steps.length - 1].segs.push(i); });
+    let mode = 'step', cur = 0, fails = 0, busy = false, alive = true, playing = false, speed = 0.7;
+    let start = 0, spb = 1, iv = null, raf = 0, modal = null;
+    const hits = new Array(segs.length).fill(null);
+    const saved = Store.data.songs[song.id] || {};
+
+    root.innerHTML = `<div class="stack">
+      <div class="row between">
+        <div class="seg" data-mode><button data-m="step" class="on">🐢 Practice (waits for you)</button><button data-m="play">🎵 Play along (keeps the beat)</button></div>
+        <div class="row small muted">${esc(PATTERNS[song.pattern].name)} strum · ${song.bpm} BPM · ${song.beats}/4 ${saved.best != null ? `· best ${saved.best}%` : ''}</div>
+      </div>
+      <div class="card flat"><div class="player">
+        <div class="row" style="justify-content:center;gap:28px" data-now></div>
+        <div class="stack center" data-side></div>
+      </div></div>
+      <div class="feedback" data-fb></div>
+      <div class="chart" data-chart></div>
+      <div class="card flat"><h3>Chords in this song</h3><div class="row" style="gap:18px" data-chords></div><p class="small dim" style="margin:10px 0 0">Click a chord to check it string by string.</p></div>
+    </div>`;
+    const fb = $('[data-fb]', root);
+
+    // Chart grouped into bars
+    const drawChart = (nowSeg = -1) => {
+      let html = '', sec = null, barBeats = 0;
+      segs.forEach((s, i) => {
+        const header = `${s.section}`;
+        if (header !== sec || (i > 0 && segs[i - 1].section === s.section && s.start === 0)) {
+          if (sec !== null) html += '</div></div></div>';
+          const repeatStart = sec === header;
+          sec = header;
+          html += `<div class="sec"><h3>${esc(header)}${repeatStart ? ' (again)' : ''}</h3><div class="bars"><div class="barbox">`;
+          barBeats = 0;
+        } else if (barBeats >= song.beats) {
+          html += '</div><div class="barbox">';
+          barBeats = 0;
+        }
+        const cls = i === nowSeg ? 'now' : hits[i] === true ? 'hit' : hits[i] === false ? 'miss' : '';
+        html += `<span class="c ${cls}" style="flex:${s.beats}">${esc(s.chord)}</span>`;
+        barBeats += s.beats;
+      });
+      html += '</div></div></div>';
+      $('[data-chart]', root).innerHTML = html;
+    };
+
+    $('[data-chords]', root).innerHTML = pool.map((id) => `<button class="btn ghost" data-chord="${esc(id)}" style="padding:8px">${chordSVG(CHORD[id], { w: 90 })}<b>${esc(id)}</b></button>`).join('');
+    $$('[data-chord]', root).forEach((b) => (b.onclick = () => openChordModal(CHORD[b.dataset.chord])));
+
+    const openChordModal = (chord) => {
+      stopPlay();
+      modal?.close();
+      modal = showModal(`<div class="row between"><h2>Check ${esc(chord.id)}</h2><button class="btn small" data-close>Done</button></div><div data-body></div>`, (m) => {
+        const c = ChordTrainer($('[data-body]', m), { chord, strums: 2 });
+        return () => c();
+      });
+    };
+
+    const showStep = () => {
+      const st = steps[cur];
+      const nextC = steps[cur + 1]?.chord;
+      drawChart(st ? st.segs[0] : -1);
+      if (!st) return;
+      $('[data-now]', root).innerHTML = diagramBlock(CHORD[st.chord], { w: 200 }) + (nextC ? diagramBlock(CHORD[nextC], { w: 130, next: true, caption: 'next' }) : '');
+      $('[data-side]', root).innerHTML = `<div class="prompt">Strum ${esc(st.chord)}</div><div class="muted">Chord ${cur + 1} of ${steps.length} · ${esc(segs[st.segs[0]].section)}</div>
+        <div class="row" style="justify-content:center"><button class="btn small ghost" data-back>← Back</button><button class="btn small ghost" data-skip>Skip →</button><button class="btn small ghost" data-restart>Restart</button></div>`;
+      $('[data-back]', root).onclick = () => { cur = Math.max(0, cur - 1); fails = 0; showStep(); };
+      $('[data-skip]', root).onclick = () => { steps[cur].segs.forEach((i) => (hits[i] = false)); cur++; fails = 0; cur >= steps.length ? stepFinish() : showStep(); };
+      $('[data-restart]', root).onclick = () => { cur = 0; fails = 0; hits.fill(null); showStep(); fb.className = 'feedback'; fb.innerHTML = listenBadge(); };
+      Camera.context = { type: 'chord', chord: CHORD[st.chord] };
+    };
+
+    const stepFinish = () => {
+      drawChart();
+      const ok = hits.filter((h) => h === true).length;
+      $('[data-now]', root).innerHTML = '<div class="celebrate"><div class="emoji">🎉</div></div>';
+      $('[data-side]', root).innerHTML = `<div class="prompt">You played the whole song!</div><div class="muted">Next: switch to <b>Play along</b> and do it in time with the beat.</div>`;
+      fb.className = 'feedback ok';
+      fb.innerHTML = `<b>Song complete ✓</b> ${ok} of ${segs.length} chords clean on the first go.`;
+      Store.set((d) => { (d.songs[song.id] ||= {}).practiced = true; });
+      Camera.context = null;
+      onPass?.();
+    };
+
+    const stopPlay = () => {
+      if (!playing) return;
+      playing = false;
+      Metro.stop();
+      clearInterval(iv);
+      cancelAnimationFrame(raf);
+    };
+
+    const setupPlay = () => {
+      stopPlay();
+      hits.fill(null);
+      drawChart();
+      const bpm = Math.round(song.bpm * speed);
+      $('[data-now]', root).innerHTML = diagramBlock(CHORD[segs[0].chord], { w: 200 }) + (segs[1] ? diagramBlock(CHORD[segs.find((s) => s.chord !== segs[0].chord)?.chord || segs[1].chord], { w: 130, next: true, caption: 'next' }) : '');
+      $('[data-side]', root).innerHTML = `
+        <div class="stack">
+          <div><span class="muted">Speed: </span><b data-speedlbl>${Math.round(speed * 100)}% (${bpm} BPM)</b><input type="range" min="40" max="100" step="5" value="${speed * 100}" data-speed></div>
+          <div class="beats" data-beats>${Array.from({ length: song.beats }, (_, i) => `<div class="beat-light ${i === 0 ? 'accent' : ''}"></div>`).join('')}</div>
+          <div class="muted" data-count>You get one bar of clicks to count you in.</div>
+          <div><button class="btn primary big" data-play>▶ Start</button></div>
+        </div>`;
+      $('[data-speed]', root).oninput = (e) => {
+        speed = e.target.value / 100;
+        $('[data-speedlbl]', root).textContent = `${e.target.value}% (${Math.round(song.bpm * speed)} BPM)`;
+      };
+      $('[data-play]', root).onclick = () => (playing ? (stopPlay(), setupPlay()) : play());
+      fb.className = 'feedback';
+      fb.innerHTML = `Strum the <b>${esc(PATTERNS[song.pattern].name.toLowerCase())}</b> pattern (or just one strum per beat) and change chords when the chart moves. The coach listens for each chord.`;
+    };
+
+    const play = () => {
+      playing = true;
+      hits.fill(null);
+      const bpm = song.bpm * speed;
+      spb = 60 / bpm;
+      $('[data-play]', root).textContent = '■ Stop';
+      const lights = $$('[data-beats] .beat-light', root);
+      const segHeard = segs.map(() => ({ tries: 0, good: 0 }));
+      Camera.context = { type: 'rhythm' };
+      Metro.start({
+        bpm, beatsPerBar: song.beats, totalBeats: song.beats + totalBeats,
+        onStart: (t0) => (start = t0 + song.beats * spb),
+        onBeat: (b) => {
+          lights.forEach((l, i) => l.classList.toggle('on', i === b % song.beats));
+          const cnt = $('[data-count]', root);
+          if (cnt) cnt.textContent = b < song.beats ? `Count-in: ${b + 1}` : `Bar ${Math.floor((b - song.beats) / song.beats) + 1}`;
+        },
+        onEnd: () => setTimeout(() => alive && playing && playFinish(), 300),
+      });
+      let lastSeg = -1, lastHits = 0;
+      iv = setInterval(() => {
+        // Listen: grab the last ~170 ms and check it against the chord that should be sounding.
+        const now = Mic.ctx.currentTime - Store.data.settings.latency;
+        const beat = (now - start) / spb;
+        const i = segs.findIndex((s) => beat >= s.start && beat < s.start + s.beats);
+        if (i < 0 || hits[i] === true) return;
+        const windowStart = now - 8192 / Mic.sr;
+        if (windowStart < start + segs[i].start * spb + 0.05) return;
+        if (Mic.level < 0.004) return;
+        const j = judgeChord(Mic.latest(8192), segs[i].chord, pool, { strict: false });
+        if (j.quiet) return;
+        segHeard[i].tries++;
+        if (j.ok) { segHeard[i].good++; if (segHeard[i].good >= 1) hits[i] = true; }
+      }, 110);
+      const loop = () => {
+        if (!playing) return;
+        const now = Mic.ctx.currentTime;
+        const beat = (now - start) / spb;
+        const i = segs.findIndex((s) => beat >= s.start && beat < s.start + s.beats);
+        let changed = false;
+        segs.forEach((s, k) => { if (hits[k] === null && beat >= s.start + s.beats + 0.3) { hits[k] = false; changed = true; } });
+        if (changed || hits.filter(Boolean).length !== lastHits) { lastHits = hits.filter(Boolean).length; drawChart(i); }
+        if (i !== lastSeg) {
+          lastSeg = i;
+          drawChart(i);
+          if (i >= 0) {
+            const nextSeg = segs.slice(i + 1).find((s) => s.chord !== segs[i].chord);
+            $('[data-now]', root).innerHTML = diagramBlock(CHORD[segs[i].chord], { w: 200 }) + (nextSeg ? diagramBlock(CHORD[nextSeg.chord], { w: 130, next: true, caption: 'next' }) : '');
+          }
+        } else if (i >= 0 && hits[i] === true) {
+          const c = $('.chart .c.now', root);
+          if (c && !c.dataset.g) { c.dataset.g = 1; c.style.boxShadow = '0 0 0 2px var(--ok)'; }
+        }
+        if (i >= 0) {
+          const nextSeg = segs.slice(i + 1).find((s) => s.chord !== segs[i].chord);
+          if (nextSeg) {
+            const beatsLeft = Math.ceil(nextSeg.start - beat);
+            fb.className = 'feedback';
+            fb.innerHTML = beatsLeft <= 2 ? `<b>Get ready: ${esc(nextSeg.chord)} in ${beatsLeft}…</b>` : `${listenBadge()} ${hits[i] ? `<b style="display:inline;color:var(--ok)">${esc(segs[i].chord)} ✓</b>` : `Playing <b style="display:inline">${esc(segs[i].chord)}</b>`}`;
+          }
+        }
+        raf = requestAnimationFrame(loop);
+      };
+      raf = requestAnimationFrame(loop);
+    };
+
+    const playFinish = () => {
+      stopPlay();
+      segs.forEach((s, k) => { if (hits[k] === null) hits[k] = false; });
+      drawChart();
+      const ok = hits.filter(Boolean).length;
+      const pct = Math.round((ok / segs.length) * 100);
+      // What went wrong: which chords and which changes
+      const missByChord = {}, missByChange = {};
+      segs.forEach((s, k) => {
+        if (hits[k]) return;
+        missByChord[s.chord] = (missByChord[s.chord] || 0) + 1;
+        const prev = segs.slice(0, k).reverse().find((p) => p.chord !== s.chord);
+        if (prev) { const key = `${prev.chord}→${s.chord}`; missByChange[key] = (missByChange[key] || 0) + 1; }
+      });
+      const worstChange = Object.entries(missByChange).sort((a, b) => b[1] - a[1])[0];
+      const worstChord = Object.entries(missByChord).sort((a, b) => b[1] - a[1])[0];
+      const prevBest = Store.data.songs[song.id]?.best;
+      Store.set((d) => {
+        const s = (d.songs[song.id] ||= {});
+        s.best = Math.max(s.best || 0, pct);
+        s.plays = (s.plays || 0) + 1;
+        s.lastSpeed = speed;
+        if (worstChange) s.trouble = worstChange[0];
+      });
+      let tips = '';
+      if (pct >= 85) tips = speed < 1 ? `Great! Bump the speed up to ${Math.round(Math.min(1, speed + 0.1) * 100)}%.` : "You can play this song. Seriously. Go play it for someone!";
+      else if (worstChange && worstChange[1] >= 2) {
+        const [x, y] = worstChange[0].split('→');
+        tips = `You mostly lost it on the <b>${esc(x)} → ${esc(y)}</b> change (${worstChange[1]} misses). <a href="#/drill/${encodeURIComponent(x)}/${encodeURIComponent(y)}">Drill ${esc(x)} ↔ ${esc(y)} for a minute</a>, then come back.`;
+      } else if (worstChord) tips = `<b>${esc(worstChord[0])}</b> was missed most. <a href="#/chord/${encodeURIComponent(worstChord[0])}">Check it string by string</a>.`;
+      if (pct < 50 && speed > 0.5) tips += ' Also try a slower speed.';
+      fb.className = 'feedback ' + (pct >= 60 ? 'ok' : 'warn');
+      fb.innerHTML = `<b>${pct}% of chords heard clean ${pct >= 60 ? '✓' : ''} ${prevBest != null && pct > prevBest ? '· New best!' : ''}</b> ${tips}`;
+      $('[data-play]', root).textContent = '▶ Play again';
+      $('[data-play]', root).onclick = () => { setupPlay(); play(); };
+      Camera.context = null;
+      if (pct >= 60) onPass?.();
+    };
+
+    $$('[data-m]', root).forEach((b) => (b.onclick = () => {
+      mode = b.dataset.m;
+      $$('[data-m]', root).forEach((x) => x.classList.toggle('on', x === b));
+      stopPlay();
+      if (mode === 'step') { cur = 0; fails = 0; hits.fill(null); fb.className = 'feedback'; fb.innerHTML = listenBadge(); showStep(); }
+      else setupPlay();
+    }));
+
+    const offs = [animateListen(root), Mic.on('onset', async (o) => {
+      if (mode !== 'step' || busy || cur >= steps.length || modal?.open) return;
+      busy = true;
+      const st = steps[cur];
+      const pre = preOnset(o, 16384);
+      const samples = await Mic.capture(o.abs, 0.03, 16384);
+      if (!alive || mode !== 'step') { busy = false; return; }
+      const j = judgeChord(samples, st.chord, pool, { strict: false, pre });
+      if (j.quiet) { busy = false; return; }
+      if (j.ok) {
+        st.segs.forEach((i) => (hits[i] = fails === 0));
+        fb.className = 'feedback ok';
+        fb.innerHTML = `<b>${esc(st.chord)} ✓</b>`;
+        cur++;
+        fails = 0;
+        if (cur >= steps.length) stepFinish(); else showStep();
+      } else {
+        fails++;
+        const f = chordFeedback(CHORD[st.chord], j);
+        fb.className = 'feedback bad';
+        fb.innerHTML = f.html + (fails >= 3 ? ` <button class="btn small" data-fix>🔍 Check ${esc(st.chord)} string by string</button>` : '');
+        const fix = $('[data-fix]', fb);
+        if (fix) fix.onclick = () => openChordModal(CHORD[st.chord]);
+      }
+      setTimeout(() => (busy = false), 200);
+    })];
+
+    fb.innerHTML = listenBadge() + ' Strum each chord once. The song moves on when it hears the right chord.';
+    showStep();
+    return () => { alive = false; stopPlay(); modal?.close(); Camera.context = null; offs.forEach((f) => f()); };
+  });
+}
+
+function showModal(html, mount) {
+  const bg = document.createElement('div');
+  bg.className = 'modal-bg';
+  bg.innerHTML = `<div class="modal card">${html}</div>`;
+  document.body.appendChild(bg);
+  let cleanup = null;
+  const api = {
+    open: true,
+    close() { if (!api.open) return; api.open = false; cleanup?.(); bg.remove(); },
+  };
+  cleanup = mount?.(bg) || null;
+  bg.addEventListener('click', (e) => { if (e.target === bg || e.target.closest('[data-close]')) api.close(); });
+  return api;
+}
+
+// ---------- Progress helpers ----------
+const lessonDone = (id) => !!Store.data.lessons[id];
+const nextLesson = () => LESSONS.find((l) => !lessonDone(l.id));
+const totalMins = LESSONS.reduce((a, l) => a + l.mins, 0);
+const doneMins = () => LESSONS.filter((l) => lessonDone(l.id)).reduce((a, l) => a + l.mins, 0);
+const chordLearned = (id) => (Store.data.chords[id]?.clean || 0) >= 3;
+const fmtMins = (secs) => (secs < 3600 ? `${Math.round(secs / 60)} min` : `${(secs / 3600).toFixed(1)} h`);
+
+function coachSuggestions() {
+  const d = Store.data;
+  const out = [];
+  const next = nextLesson();
+  if (!Mic.running) out.push({ ico: '🎤', html: '<b>Turn on your microphone</b> so I can hear you play.', btn: 'Turn on', act: () => Mic.start(d.settings.micId).then(() => route()) });
+  if (d.tunedOn !== Store.today()) out.push({ ico: '🎯', html: "<b>Tune up first.</b> You haven't tuned today, and an out-of-tune guitar makes even perfect fingers sound wrong.", btn: 'Tune (1 min)', href: '#/tuner' });
+  if (Store.practiceToday() >= 40 * 60) out.push({ ico: '🧊', html: `<b>You've played ${fmtMins(Store.practiceToday())} today.</b> Nice! Fingertips toughen up during rest. Take a 10-minute break before more.` });
+  const trouble = Object.entries(d.chords)
+    .map(([id, c]) => ({ id, ...c, rate: c.tries ? c.clean / c.tries : 1 }))
+    .filter((c) => c.tries >= 4 && c.rate < 0.6 && CHORD[c.id])
+    .sort((a, b) => a.rate - b.rate)[0];
+  if (trouble) {
+    const worst = Object.entries(trouble.issues || {}).sort((a, b) => b[1] - a[1])[0];
+    out.push({
+      ico: '🔍',
+      html: `<b>${esc(trouble.id)} is clean ${Math.round(trouble.rate * 100)}% of the time.</b> ${worst ? `${cap(stringLabel(+worst[0]))} is usually the problem (${plural(worst[1], 'time')}). ${mutedAdvice(CHORD[trouble.id], +worst[0])}` : 'Run the string-by-string check to find the problem string.'}`,
+      btn: `Fix ${trouble.id}`, href: `#/chord/${encodeURIComponent(trouble.id)}`,
+    });
+  }
+  const slow = Object.entries(d.changes).filter(([, v]) => v.best < 25).sort((a, b) => a[1].best - b[1].best)[0];
+  if (slow) {
+    const [x, y] = slow[0].split('|');
+    out.push({ ico: '⏱️', html: `<b>${esc(x)} ↔ ${esc(y)} is your slowest change</b> (best ${slow[1].best} per minute). Songs flow at about 25+. One minute of this a day fixes it fast.`, btn: 'Drill it', href: `#/drill/${encodeURIComponent(x)}/${encodeURIComponent(y)}` });
+  }
+  const songTrouble = Object.entries(d.songs).filter(([id, s]) => s.best != null && s.best < 70 && SONGS.find((x) => x.id === id)).sort((a, b) => a[1].best - b[1].best)[0];
+  if (songTrouble) {
+    const s = SONGS.find((x) => x.id === songTrouble[0]);
+    out.push({ ico: '🎵', html: `<b>${esc(s.title)}: best ${songTrouble[1].best}%.</b> ${songTrouble[1].trouble ? `The ${esc(songTrouble[1].trouble)} change trips you up.` : ''} Try it at a slower speed until it's 80%+.`, btn: 'Play it', href: `#/song/${s.id}` });
+  }
+  if (next) out.push({ ico: '👉', html: `<b>Next lesson: ${esc(next.title)}</b> (${next.mins} min) in "${esc(next.moduleTitle)}".`, btn: 'Start', href: `#/lesson/${next.id}` });
+  else {
+    const untried = SONGS.find((s) => !d.songs[s.id]?.best);
+    if (untried) out.push({ ico: '🎸', html: `<b>Quickstart complete!</b> Learn a new song: <b>${esc(untried.title)}</b>.`, btn: 'Go', href: `#/song/${untried.id}` });
+  }
+  return out.slice(0, 5);
+}
+
+function tipsHTML(list) {
+  return list.map((t, i) => `<div class="tip"><div class="ico">${t.ico}</div><div class="grow"><p>${t.html}</p></div>${t.btn ? (t.href ? `<a class="btn small" href="${t.href}">${esc(t.btn)}</a>` : `<button class="btn small" data-act="${i}">${esc(t.btn)}</button>`) : ''}</div>`).join('');
+}
+function bindTips(root, list) {
+  $$('[data-act]', root).forEach((b) => (b.onclick = () => list[+b.dataset.act].act()));
+}
+
+// ---------- Screens ----------
+const Views = {
+  home(root) {
+    const d = Store.data;
+    const next = nextLesson();
+    const pct = Math.round((doneMins() / totalMins) * 100);
+    const learned = CHORDS.filter((c) => chordLearned(c.id)).length;
+    const tips = coachSuggestions();
+    const slowPair = Object.entries(d.changes).sort((a, b) => a[1].best - b[1].best)[0]?.[0]?.split('|') || ['G', 'C'];
+    const songForToday = SONGS.find((s) => d.songs[s.id]?.practiced && (d.songs[s.id].best || 0) < 85) || SONGS.find((s) => !d.songs[s.id]) || SONGS[0];
+    root.innerHTML = `
+      <div class="card hero">
+        <div class="row between" style="align-items:flex-start">
+          <div class="grow" style="min-width:260px">
+            <div class="chip accent">4-hour Quickstart</div>
+            <h1 style="margin-top:12px">${next ? (doneMins() ? 'Welcome back. Keep going.' : "Let's get you playing.") : "You're a guitar player now. 🎸"}</h1>
+            <p class="muted big">${next ? `From zero to strumming real songs. ${pct}% done.` : 'Quickstart complete. Keep practicing daily with the workout below.'}</p>
+            <div class="bar" style="max-width:520px"><i style="width:${pct}%"></i></div>
+            <div class="row" style="margin-top:18px">
+              ${next ? `<a class="btn primary big" href="#/lesson/${next.id}">${doneMins() ? 'Continue' : 'Start'}: ${esc(next.title)} →</a>` : '<a class="btn primary big" href="#/songs">Pick a song →</a>'}
+              <a class="btn big ghost" href="#/lessons">See all lessons</a>
+            </div>
+          </div>
+          <div style="font-size:5.5rem;line-height:1">🎸</div>
+        </div>
+      </div>
+      <div class="grid four" style="margin-top:16px">
+        <div class="stat"><b>${fmtMins(Store.practiceToday())}</b><span>played today</span></div>
+        <div class="stat"><b>${Store.streak()} 🔥</b><span>day streak</span></div>
+        <div class="stat"><b>${learned}/${CHORDS.length}</b><span>chords learned</span></div>
+        <div class="stat"><b>${Object.values(d.songs).filter((s) => s.practiced || s.best).length}</b><span>songs played</span></div>
+      </div>
+      <div class="section-title"><h2>Your coach says</h2></div>
+      <div data-tips>${tipsHTML(tips)}</div>
+      <div class="section-title"><h2>Today's 20-minute workout</h2><span class="muted small">do this every day</span></div>
+      <div class="grid three">
+        <a class="card lesson" href="#/tuner"><span class="check">1</span><span><span class="t">Tune up</span><br><span class="m">1 min</span></span></a>
+        <a class="card lesson" href="#/drill/${encodeURIComponent(slowPair[0])}/${encodeURIComponent(slowPair[1])}"><span class="check">2</span><span><span class="t">Changes: ${esc(slowPair[0])} ↔ ${esc(slowPair[1])}</span><br><span class="m">3 × 1 min, your slowest pair</span></span></a>
+        <a class="card lesson" href="#/rhythm/campfire"><span class="check">3</span><span><span class="t">Strumming: campfire</span><br><span class="m">5 min</span></span></a>
+        <a class="card lesson" href="#/song/${songForToday.id}"><span class="check">4</span><span><span class="t">Song: ${esc(songForToday.title)}</span><br><span class="m">10 min</span></span></a>
+      </div>`;
+    bindTips(root, tips);
+  },
+
+  lessons(root) {
+    const next = nextLesson();
+    root.innerHTML = `<h1>The 4-hour Quickstart</h1>
+      <p class="muted big">About ${Math.round(totalMins / 60 * 10) / 10} hours total. Do it in one day or spread it over a week: 20–30 minutes at a time is kindest to your fingertips. Progress saves automatically.</p>
+      <div class="bar" style="margin:14px 0 30px"><i style="width:${Math.round((doneMins() / totalMins) * 100)}%"></i></div>
+      ${MODULES.map((m, mi) => `<div class="module"><h2><span class="num">${mi + 1}</span>${esc(m.title)}</h2>
+        <div class="lesson-list">${m.lessons.map((l) => `<a class="lesson ${lessonDone(l.id) ? 'done' : ''} ${next?.id === l.id ? 'next' : ''}" href="#/lesson/${l.id}">
+          <span class="check">${lessonDone(l.id) ? '✓' : ''}</span><span><span class="t">${esc(l.title)}</span><br><span class="m">${l.mins} min${next?.id === l.id ? ' · up next' : ''}</span></span></a>`).join('')}</div></div>`).join('')}`;
+  },
+
+  lesson(root, id) {
+    const lesson = LESSONS.find((l) => l.id === id);
+    if (!lesson) return Views.notFound(root);
+    let step = 0, inner = null;
+    const passed = new Set();
+    root.innerHTML = `<div class="row between"><a href="#/lessons" class="muted small">← All lessons</a><span class="muted small">${esc(lesson.moduleTitle)} · ${lesson.mins} min</span></div>
+      <h1 style="margin-top:10px">${esc(lesson.title)}</h1>
+      <div class="steps-dots" data-dots></div>
+      <div class="card" style="margin-top:18px">
+        <h2 data-title></h2>
+        <div class="lesson-body" data-body></div>
+        <div class="lesson-foot">
+          <button class="btn ghost" data-back>← Back</button>
+          <span class="grow"></span>
+          <button class="btn ghost" data-skip>Skip for now</button>
+          <button class="btn primary" data-next>Next →</button>
+        </div>
+      </div>`;
+    const setPass = () => { passed.add(step); $('[data-next]', root).disabled = false; $('[data-skip]', root).classList.add('hidden'); };
+    const show = () => {
+      inner?.();
+      inner = null;
+      Metro.stop();
+      Camera.context = null;
+      const s = lesson.steps[step];
+      $('[data-dots]', root).innerHTML = lesson.steps.map((_, i) => `<i class="${i < step || passed.has(i) ? 'done' : i === step ? 'cur' : ''}"></i>`).join('');
+      const body = $('[data-body]', root);
+      const titles = { mic: 'Turn on the microphone', camera: 'Turn on the camera (optional)', tuner: 'Tune up', strings: 'Pluck each string', latency: 'Sync the timing' };
+      const chordTitle = s.chord && CHORD[s.chord] ? `${CHORD[s.chord].name} (${s.chord})` : '';
+      $('[data-title]', root).textContent = s.title || titles[s.type] || chordTitle || (s.type === 'change' ? `Switch ${s.a} ↔ ${s.b}` : s.type === 'song' ? SONGS.find((x) => x.id === s.song)?.title : '');
+      $('[data-back]', root).style.visibility = step ? 'visible' : 'hidden';
+      $('[data-next]', root).textContent = step === lesson.steps.length - 1 ? 'Finish lesson ✓' : 'Next →';
+      $('[data-next]', root).disabled = !passed.has(step);
+      $('[data-skip]', root).classList.toggle('hidden', passed.has(step));
+      const onPass = setPass;
+      switch (s.type) {
+        case 'read': body.innerHTML = `<div class="prose">${s.html}</div>`; setPass(); break;
+        case 'mic': inner = MicSetup(body, { onPass }); if (Mic.running) setPass(); break;
+        case 'camera': inner = CameraSetup(body, { onPass }); break;
+        case 'camera-check': inner = CameraSetup(body, { onPass, needBoth: true }); break;
+        case 'tuner': inner = Tuner(body, { onPass, requireAll: s.requireAll }); if (Store.data.tunedOn === Store.today()) setPass(); break;
+        case 'strings': inner = StringCheck(body, { chord: s.chord === 'open' ? OPEN_STRINGS : CHORD[s.chord], onPass }); break;
+        case 'chord': inner = ChordTrainer(body, { chord: CHORD[s.chord], strums: s.strums, onPass }); break;
+        case 'change': inner = ChangeDrill(body, { a: s.a, b: s.b, goal: s.goal, onPass }); break;
+        case 'latency': inner = Latency(body, { onPass }); break;
+        case 'rhythm': inner = Rhythm(body, { ...s, onPass }); break;
+        case 'riff': inner = Riff(body, { riff: RIFFS.find((r) => r.id === s.riff), tempo: s.tempo, onPass }); break;
+        case 'song': inner = SongPlayer(body, { song: SONGS.find((x) => x.id === s.song), onPass }); break;
+      }
+    };
+    const complete = () => {
+      inner?.();
+      inner = null;
+      Store.set((d) => (d.lessons[lesson.id] = Store.today()));
+      const next = nextLesson();
+      $('[data-title]', root).textContent = '';
+      $('[data-dots]', root).innerHTML = lesson.steps.map(() => '<i class="done"></i>').join('');
+      $('[data-body]', root).innerHTML = `<div class="celebrate"><div class="emoji">🎉</div><h2>Lesson complete!</h2>
+        <p class="muted big">${next ? `Up next: <b>${esc(next.title)}</b> (${next.mins} min)` : "That's the whole Quickstart. You did it!"}</p>
+        <div class="row" style="justify-content:center">${next ? `<a class="btn primary big" href="#/lesson/${next.id}">Next lesson →</a>` : '<a class="btn primary big" href="#/songs">Play songs →</a>'}<a class="btn big ghost" href="#/">Home</a></div>
+        <p class="small dim" style="margin-top:18px">Fingers sore? That's normal. Take a break; your progress is saved.</p></div>`;
+      root.querySelector('.lesson-foot').classList.add('hidden');
+    };
+    $('[data-back]', root).onclick = () => { if (step > 0) { step--; show(); } };
+    $('[data-next]', root).onclick = () => { if (step < lesson.steps.length - 1) { step++; show(); } else complete(); };
+    $('[data-skip]', root).onclick = () => { passed.add(step); $('[data-next]', root).click(); };
+    show();
+    return () => inner?.();
+  },
+
+  chords(root) {
+    const levels = { 1: 'Start here', 2: 'Core chords', 3: 'A bit harder' };
+    root.innerHTML = `<h1>Chords</h1><p class="muted big">Click a chord to learn it. The coach checks every string, then your strum.</p>
+      ${[1, 2, 3].map((lv) => `<div class="section-title"><h2>${levels[lv]}</h2></div><div class="grid four">${CHORDS.filter((c) => c.level === lv).map((c) => {
+        const st = Store.data.chords[c.id];
+        return `<a class="card chord-card" href="#/chord/${encodeURIComponent(c.id)}"><div class="name">${esc(c.id)}</div><div class="small muted">${esc(c.name)}</div>${chordSVG(c, { w: 120 })}
+          <div style="margin-top:8px">${chordLearned(c.id) ? '<span class="chip ok">✓ learned</span>' : st?.tries ? `<span class="chip">${st.clean}/${st.tries} clean</span>` : '<span class="chip">new</span>'}</div></a>`;
+      }).join('')}</div>`).join('')}`;
+  },
+
+  chord(root, id) {
+    const chord = CHORD[id];
+    if (!chord) return Views.notFound(root);
+    const others = CHORDS.filter((c) => c.id !== id && c.level <= 2).map((c) => c.id);
+    const songs = SONGS.filter((s) => songChords(s).includes(id));
+    root.innerHTML = `<a href="#/chords" class="muted small">← All chords</a>
+      <h1 style="margin-top:10px">${esc(chord.name)} <span class="muted">(${esc(chord.id)})</span></h1>
+      <p class="muted big">${esc(chord.tip)}</p>
+      <div class="card" data-trainer></div>
+      <div class="section-title"><h2>Practice switching to…</h2></div>
+      <div class="row">${others.map((o) => `<a class="btn small" href="#/drill/${encodeURIComponent(id)}/${encodeURIComponent(o)}">${esc(id)} ↔ ${esc(o)}</a>`).join('')}</div>
+      ${songs.length ? `<div class="section-title"><h2>Songs with ${esc(id)}</h2></div><div class="row">${songs.map((s) => `<a class="btn small ghost" href="#/song/${s.id}">${esc(s.title)}</a>`).join('')}</div>` : ''}`;
+    return ChordTrainer($('[data-trainer]', root), { chord, strums: 3, onPass: () => toast(`${chord.id} learned ✓`) });
+  },
+
+  drill(root, a, b) {
+    if (!CHORD[a] || !CHORD[b]) return Views.notFound(root);
+    root.innerHTML = `<a href="#/chords" class="muted small">← Chords</a><h1 style="margin-top:10px">Chord changes</h1><div class="card" data-x></div>`;
+    return ChangeDrill($('[data-x]', root), { a, b, goal: 15 });
+  },
+
+  rhythm(root, pattern) {
+    if (!PATTERNS[pattern]) return Views.notFound(root);
+    root.innerHTML = `<h1>Strumming practice</h1>
+      <div class="row" style="margin-bottom:16px">${Object.entries(PATTERNS).filter(([k]) => k !== 'waltz').map(([k, p]) => `<a class="btn small ${k === pattern ? 'primary' : ''}" href="#/rhythm/${k}">${esc(p.name)}</a>`).join('')}</div>
+      <div class="card" data-x></div>`;
+    return Rhythm($('[data-x]', root), { pattern, chords: ['G', 'C', 'D', 'G'], bpm: 65, bars: 4 });
+  },
+
+  songs(root) {
+    const stars = (n) => '★'.repeat(n) + '<span class="dim">' + '★'.repeat(3 - n) + '</span>';
+    root.innerHTML = `<h1>Songs</h1><p class="muted big">Chord charts are built in. Practice mode waits for you to get each chord right; play-along keeps the beat and scores you.</p>
+      <div class="section-title"><h2>Riffs (single notes)</h2></div>
+      <div class="grid three">${RIFFS.filter((r) => !r.hidden).map((r) => {
+        const st = Store.data.riffs[r.id];
+        return `<a class="card song-card" href="#/riff/${r.id}"><div class="title">${esc(r.title)}</div><div class="muted small">${esc(r.artist)}</div><p class="small" style="margin:8px 0 0">${esc(r.note)}</p>
+          <div class="chips">${st?.done ? '<span class="chip ok">✓ learned</span>' : ''}${st?.best ? `<span class="chip">best ${st.best}%</span>` : ''}</div></a>`;
+      }).join('')}</div>
+      <div class="section-title"><h2>Strumming songs</h2></div>
+      <div class="grid three">${SONGS.map((s) => {
+        const st = Store.data.songs[s.id];
+        return `<a class="card song-card" href="#/song/${s.id}"><div class="row between"><div class="title">${esc(s.title)}</div><span class="stars small">${stars(s.difficulty)}</span></div>
+          <div class="muted small">${esc(s.artist)} · ${s.bpm} BPM</div><p class="small" style="margin:8px 0 0">${esc(s.note)}</p>
+          <div class="chips">${songChords(s).map((c) => `<span class="chip ${chordLearned(c) ? 'ok' : ''}">${esc(c)}</span>`).join('')}${st?.best != null ? `<span class="chip accent">best ${st.best}%</span>` : ''}</div></a>`;
+      }).join('')}</div>`;
+  },
+
+  song(root, id) {
+    const song = SONGS.find((s) => s.id === id);
+    if (!song) return Views.notFound(root);
+    root.innerHTML = `<a href="#/songs" class="muted small">← All songs</a><h1 style="margin-top:10px">${esc(song.title)} <span class="muted" style="font-weight:500">· ${esc(song.artist)}</span></h1><p class="muted">${esc(song.note)}</p><div data-x></div>`;
+    return SongPlayer($('[data-x]', root), { song, onPass: () => {} });
+  },
+
+  riff(root, id) {
+    const riff = RIFFS.find((r) => r.id === id);
+    if (!riff) return Views.notFound(root);
+    root.innerHTML = `<a href="#/songs" class="muted small">← Songs & riffs</a><h1 style="margin-top:10px">${esc(riff.title)} <span class="muted" style="font-weight:500">· ${esc(riff.artist)}</span></h1><div class="card" data-x></div>`;
+    return Riff($('[data-x]', root), { riff, tempo: true });
+  },
+
+  tuner(root) {
+    root.innerHTML = `<h1>Tuner</h1><p class="muted big">Pluck a string. It finds the closest string automatically, or click one to lock it.</p><div data-x></div>`;
+    return Tuner($('[data-x]', root), {});
+  },
+
+  settings(root) {
+    const s = Store.data.settings;
+    root.innerHTML = `<h1>Settings</h1><div class="card">
+      <div class="setting"><div class="d"><b>Microphone</b><div class="small muted">Use the mic closest to your guitar. A USB or headset mic beats a laptop mic.</div></div><select data-mic><option value="">Default</option></select></div>
+      <div class="setting"><div class="d"><b>Camera</b></div><select data-cam><option value="">Default</option></select></div>
+      <div class="setting"><div class="d"><b>Left-handed</b><div class="small muted">Flips chord diagrams and swaps which hand the camera treats as your strumming hand.</div></div><label class="toggle"><input type="checkbox" data-lefty ${s.lefty ? 'checked' : ''}> Lefty</label></div>
+      <div class="setting"><div class="d"><b>Camera mixes up my hands</b><div class="small muted">If the camera labels your fretting hand as "strumming", turn this on.</div></div><label class="toggle"><input type="checkbox" data-swap ${s.swapHands ? 'checked' : ''}> Swap hands</label></div>
+      <div class="setting"><div class="d"><b>Listening sensitivity</b><div class="small muted">Raise it if the coach misses soft strums. Lower it if it reacts to noise or talking.</div></div><input type="range" min="0.5" max="2" step="0.1" value="${s.sensitivity}" data-sens style="max-width:220px"></div>
+      <div class="setting"><div class="d"><b>Metronome volume</b></div><input type="range" min="0.1" max="1" step="0.05" value="${s.clickVol}" data-vol style="max-width:220px"></div>
+      <div class="setting"><div class="d"><b>Timing delay: <span data-lat>${Math.round(s.latency * 1000)} ms</span></b><div class="small muted">Measured so rhythm scores are fair. Re-run if you change headphones or speakers.</div></div><a class="btn small" href="#/calibrate">Measure again</a></div>
+      <div class="setting"><div class="d"><b>Your progress</b><div class="small muted">Saved in this browser on this computer. Download a backup to move it to another computer.</div></div>
+        <div class="row"><button class="btn small" data-export>Download backup</button><label class="btn small">Restore backup<input type="file" accept=".json" data-import hidden></label><button class="btn small danger" data-reset>Reset everything</button></div></div>
+    </div>`;
+    navigator.mediaDevices?.enumerateDevices?.().then((list) => {
+      const fill = (sel, kind, cur) => list.filter((d) => d.kind === kind).forEach((d, i) => sel.insertAdjacentHTML('beforeend', `<option value="${esc(d.deviceId)}" ${d.deviceId === cur ? 'selected' : ''}>${esc(d.label || `${kind === 'audioinput' ? 'Microphone' : 'Camera'} ${i + 1}`)}</option>`));
+      fill($('[data-mic]', root), 'audioinput', s.micId);
+      fill($('[data-cam]', root), 'videoinput', s.camId);
+    });
+    $('[data-mic]', root).onchange = async (e) => { Store.set((d) => (d.settings.micId = e.target.value)); if (Mic.running) { Mic.stop(); await Mic.start(e.target.value); } toast('Microphone changed'); };
+    $('[data-cam]', root).onchange = async (e) => { Store.set((d) => (d.settings.camId = e.target.value)); if (Camera.active) { Camera.stop(); await Camera.start(e.target.value); } toast('Camera changed'); };
+    $('[data-lefty]', root).onchange = (e) => Store.set((d) => (d.settings.lefty = e.target.checked));
+    $('[data-swap]', root).onchange = (e) => Store.set((d) => (d.settings.swapHands = e.target.checked));
+    $('[data-sens]', root).oninput = (e) => { Store.set((d) => (d.settings.sensitivity = +e.target.value)); Mic.setSensitivity(+e.target.value); };
+    $('[data-vol]', root).oninput = (e) => Store.set((d) => (d.settings.clickVol = +e.target.value));
+    $('[data-export]', root).onclick = () => {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([JSON.stringify(Store.data, null, 2)], { type: 'application/json' }));
+      a.download = `strum-coach-backup-${Store.today()}.json`;
+      a.click();
+    };
+    $('[data-import]', root).onchange = async (e) => {
+      try { Store.import(await e.target.files[0].text()); toast('Progress restored ✓'); route(); }
+      catch (err) { toast('That file didn’t work: ' + esc(err.message)); }
+    };
+    $('[data-reset]', root).onclick = () => { if (confirm('Erase all your progress? This cannot be undone.')) { Store.reset(); toast('Progress reset'); route(); } };
+  },
+
+  calibrate(root) {
+    root.innerHTML = `<a href="#/settings" class="muted small">← Settings</a><h1 style="margin-top:10px">Measure timing delay</h1><div class="card" data-x></div>`;
+    return Latency($('[data-x]', root), { onPass: () => {} });
+  },
+
+  notFound(root) {
+    root.innerHTML = '<h1>Not found</h1><p><a href="#/">Go home</a></p>';
+  },
+};
+
+// ---------- Camera panel ----------
+const HAND_LINKS = [[0, 1], [1, 2], [2, 3], [3, 4], [0, 5], [5, 6], [6, 7], [7, 8], [5, 9], [9, 10], [10, 11], [11, 12], [9, 13], [13, 14], [14, 15], [15, 16], [13, 17], [17, 18], [18, 19], [19, 20], [0, 17]];
+
+function CameraPanel() {
+  const panel = $('#campanel');
+  const cv = $('canvas', panel);
+  const g = cv.getContext('2d');
+  const coach = $('.coach', panel);
+  let lastCoach = 0;
+  $('[data-min]', panel).onclick = () => document.body.classList.toggle('cam-min', panel.classList.toggle('min'));
+  $('[data-swap]', panel).onclick = () => { Store.set((d) => (d.settings.swapHands = !d.settings.swapHands)); toast('Swapped which hand is which'); };
+  $('[data-off]', panel).onclick = () => Camera.stop();
+  Camera.on('state', () => {
+    panel.classList.toggle('hidden', !Camera.active);
+    document.body.classList.toggle('cam-on', Camera.active);
+  });
+
+  const drawHand = (hand, color, label) => {
+    const W = cv.width, H = cv.height;
+    const P = (p) => [(1 - p.x) * W, p.y * H];
+    g.strokeStyle = color; g.lineWidth = 2.5;
+    HAND_LINKS.forEach(([a, b]) => { const [x1, y1] = P(hand.lm[a]); const [x2, y2] = P(hand.lm[b]); g.beginPath(); g.moveTo(x1, y1); g.lineTo(x2, y2); g.stroke(); });
+    hand.lm.forEach((p, i) => {
+      const [x, y] = P(p);
+      let c = color;
+      if (label === 'fretting' && [8, 12, 16, 20].includes(i)) {
+        const st = Camera.fingerState(i / 4 - 1);
+        c = st === 'flat' ? '#ff6b5b' : st === 'curled' ? '#3ecf8e' : color;
+      }
+      g.fillStyle = c; g.beginPath(); g.arc(x, y, [4, 8, 12, 16, 20].includes(i) ? 5 : 3, 0, Math.PI * 2); g.fill();
+    });
+    const [wx, wy] = P(hand.lm[0]);
+    g.font = 'bold 13px system-ui'; g.fillStyle = 'rgba(0,0,0,.6)';
+    const tw = g.measureText(label).width;
+    g.fillRect(wx - tw / 2 - 5, wy + 8, tw + 10, 20);
+    g.fillStyle = color; g.fillText(label, wx - tw / 2, wy + 23);
+  };
+
+  Camera.on('frame', () => {
+    if (!Camera.video) return;
+    const v = Camera.video;
+    if (cv.width !== v.videoWidth && v.videoWidth) { cv.width = v.videoWidth; cv.height = v.videoHeight; }
+    g.save(); g.scale(-1, 1); g.drawImage(v, -cv.width, 0, cv.width, cv.height); g.restore();
+    if (Camera.fret) drawHand(Camera.fret, '#f5a524', 'fretting');
+    if (Camera.strum) drawHand(Camera.strum, '#6fb6ff', 'strumming');
+    const now = performance.now();
+    if (now - lastCoach > 250) { lastCoach = now; coach.innerHTML = cameraCoach(); }
+  });
+}
+
+function cameraCoach() {
+  const line = (cls, ico, html) => `<div class="status ${cls}"><span class="s-ico">${ico}</span><span>${html}</span></div>`;
+  const fret = Camera.seen('fret'), strum = Camera.seen('strum');
+  const ctx = Camera.context;
+  if (!fret && !strum) return line('warn', '👀', "I can't see your hands. Get both hands and the guitar neck in the picture, with light in front of you.");
+  let out = '';
+  if (!fret) out += line('warn', '✋', "I can't see your fretting hand. Turn the neck a little toward the camera.");
+  if (ctx?.type === 'chord' && fret) {
+    const used = [...new Set(ctx.chord.fingers.filter((f) => f > 0))];
+    const states = used.map((f) => ({ f, st: Camera.fingerState(f) }));
+    out += `<div class="fingers">${states.map(({ f, st }) => `<span class="chip ${st === 'flat' ? '' : st ? 'ok' : ''}" style="${st === 'flat' ? 'color:var(--bad);border-color:#6b2b24' : ''}">${cap(fingerName(f))} ${st === 'flat' ? 'flat ✗' : st ? '✓' : '?'}</span>`).join('')}</div>`;
+    const flat = states.find((x) => x.st === 'flat');
+    out += flat
+      ? line('bad', '☝️', `Your <b>${fingerName(flat.f)}</b> finger looks flat. Curl it so the tip comes straight down, like a claw. Flat fingers mute the string below.`)
+      : line('ok', '✓', 'Finger shape looks good. Thumb behind the neck, wrist relaxed.');
+  } else if (ctx?.type === 'rhythm') {
+    if (!strum) out += line('warn', '✋', "I can't see your strumming hand.");
+    else {
+      const m = Camera.strumMotion();
+      if (m !== null && m < 0.015 && Mic.running && performance.now() - Mic.lastOnsetPerf < 3000) out += line('warn', '〰️', 'Keep your strumming hand moving like a pendulum, even on skipped beats.');
+      const last = ctx.last;
+      if (last?.got) out += line(last.got === last.want ? 'ok' : 'bad', last.got === 'D' ? '↓' : '↑', `Last strum: ${last.got === 'D' ? 'down' : 'up'}${last.got === last.want ? ' ✓' : `, should be ${last.want === 'D' ? 'down' : 'up'}`}`);
+      else out += line('ok', '✓', 'Watching your strumming direction.');
+    }
+  } else {
+    out += line('ok', '✓', `Tracking ${fret && strum ? 'both hands' : 'your hand'}.`);
+  }
+  return out;
+}
+
+// ---------- Header + navigation ----------
+function Header() {
+  const micPill = $('#micpill'), camPill = $('#campill');
+  const paint = () => {
+    micPill.classList.toggle('on', Mic.running);
+    camPill.classList.toggle("on", Camera.active);
+    $('.lbl', camPill).textContent = Camera.loading ? 'Loading…' : 'Camera';
+  };
+  micPill.onclick = async () => {
+    if (Mic.running) Mic.stop();
+    else if (!(await Mic.start(Store.data.settings.micId))) toast(esc(Mic.error), 5000);
+  };
+  camPill.onclick = async () => {
+    if (Camera.active) Camera.stop();
+    else if (!(await Camera.start(Store.data.settings.camId))) toast(esc(Camera.error), 6000);
+  };
+  Mic.on('state', paint);
+  Camera.on('state', paint);
+  Mic.on('level', (l) => ($('.meter i', micPill).style.width = Math.min(100, Math.sqrt(l) * 260) + '%'));
+  paint();
+}
+
+let cleanupView = null;
+function route() {
+  cleanupView?.();
+  cleanupView = null;
+  Metro.stop();
+  Camera.context = null;
+  const main = $('#main');
+  const hash = decodeURIComponent(location.hash.replace(/^#\/?/, ''));
+  const [name = '', ...args] = hash.split('/');
+  const view = { '': 'home', lessons: 'lessons', lesson: 'lesson', chords: 'chords', chord: 'chord', drill: 'drill', rhythm: 'rhythm', songs: 'songs', song: 'song', riff: 'riff', tuner: 'tuner', settings: 'settings', calibrate: 'calibrate' }[name] || 'notFound';
+  const tab = { home: '', lessons: 'lessons', lesson: 'lessons', chords: 'chords', chord: 'chords', drill: 'chords', rhythm: 'chords', songs: 'songs', song: 'songs', riff: 'songs', tuner: 'tuner', settings: 'settings', calibrate: 'settings' }[view];
+  $$('.nav a').forEach((a) => a.classList.toggle('active', a.dataset.tab === tab));
+  main.innerHTML = '';
+  cleanupView = Views[view](main, ...args) || null;
+  window.scrollTo(0, 0);
+}
+
+window.addEventListener('hashchange', route);
+window.addEventListener('DOMContentLoaded', () => {
+  Header();
+  CameraPanel();
+  route();
+  if (!window.isSecureContext) toast('Open this page over https (or as a local file) so the microphone and camera can work.', 8000);
+});
+
+</script>
+</body>
+</html>

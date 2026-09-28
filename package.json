@@ -2,7 +2,7 @@
   "name": "tensor-street",
   "version": "1.0.0",
   "private": true,
-  "description": "Tensor Street — the daily briefing on the AI economy. Auto-updating AI news, markets and analysis.",
+  "description": "Tensor Street \u2014 the daily briefing on the AI economy. Auto-updating AI news, markets and analysis.",
   "type": "module",
   "engines": {
     "node": "22.x"
@@ -11,7 +11,8 @@
     "dev": "node dev/server.js",
     "dev:mock": "node dev/server.js --mock",
     "test": "node --test dev/tests/*.test.js",
-    "pages": "node dev/build-pages.js"
+    "pages": "node dev/build-pages.js",
+    "guitar:build": "node guitar/build.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.128.0",
