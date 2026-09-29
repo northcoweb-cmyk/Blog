@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Hero Mode</title>
+<meta name="description" content="Use your webcam and your hands to shoot energy blasts, lasers and lightning.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E">
+<style>
+:root {
+  --bg: #07060d;
+  --panel: rgba(12, 10, 24, 0.72);
+  --line: rgba(255, 255, 255, 0.14);
+  --text: #f5f3ff;
+  --muted: #a9a3c7;
+  --accent: #ffcc33;
+  --hot: #ff5a1f;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: var(--bg); color: var(--text);
+  font: 16px/1.45 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+button { font: inherit; color: inherit; cursor: pointer; }
+canvas#stage { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; }
+
+.hud-top { position: fixed; top: 14px; left: 14px; right: 14px; display: flex; gap: 10px; align-items: center; z-index: 5; pointer-events: none; }
+.hud-top > * { pointer-events: auto; }
+.logo { font-weight: 900; letter-spacing: 0.08em; font-size: 1.1rem; padding: 8px 14px; border-radius: 12px; background: var(--panel); border: 1px solid var(--line); backdrop-filter: blur(8px); }
+.logo span { color: var(--accent); }
+.grow { flex: 1; }
+.btn { border: 1px solid var(--line); background: var(--panel); backdrop-filter: blur(8px); padding: 9px 14px; border-radius: 12px; font-weight: 700; }
+.btn:hover { border-color: var(--accent); }
+.btn.on { background: var(--accent); color: #1a1300; border-color: var(--accent); }
+.btn.rec { background: #e11d48; border-color: #e11d48; color: #fff; animation: pulse 1s infinite; }
+@keyframes pulse { 50% { opacity: 0.6; } }
+.themes { display: flex; gap: 6px; padding: 4px; border-radius: 14px; background: var(--panel); border: 1px solid var(--line); backdrop-filter: blur(8px); }
+.themes button { border: 0; background: transparent; padding: 6px 10px; border-radius: 10px; font-weight: 800; }
+.themes button.on { background: rgba(255, 255, 255, 0.16); }
+
+.guide { position: fixed; left: 14px; bottom: 14px; z-index: 5; display: flex; gap: 8px; flex-wrap: wrap; max-width: calc(100vw - 28px); }
+.move { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 8px 12px; backdrop-filter: blur(8px); min-width: 120px; transition: transform 0.12s, border-color 0.12s, background 0.12s; }
+.move .e { font-size: 1.5rem; line-height: 1; }
+.move b { display: block; font-size: 0.9rem; margin-top: 4px; }
+.move small { color: var(--muted); font-size: 0.75rem; }
+.move.active { border-color: var(--accent); background: rgba(255, 204, 51, 0.18); transform: translateY(-4px); }
+.guide.min .move small { display: none; }
+
+.meter { position: fixed; right: 14px; bottom: 14px; z-index: 5; width: 220px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; backdrop-filter: blur(8px); }
+.meter .label { display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.06em; color: var(--muted); }
+.meter .bar { height: 10px; border-radius: 6px; background: rgba(255, 255, 255, 0.1); margin-top: 6px; overflow: hidden; }
+.meter .bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--accent), var(--hot)); transition: width 0.1s; }
+.meter .score { font-size: 1.6rem; font-weight: 900; margin-top: 4px; }
+
+.status { position: fixed; top: 70px; left: 50%; transform: translateX(-50%); z-index: 5; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 8px 14px; font-weight: 700; backdrop-filter: blur(8px); transition: opacity 0.3s; }
+.status.hide { opacity: 0; pointer-events: none; }
+
+.start { position: fixed; inset: 0; z-index: 10; display: grid; place-items: center; padding: 20px;
+  background: radial-gradient(900px 500px at 50% 30%, #2a1660 0%, #07060d 70%); }
+.start .box { max-width: 760px; text-align: center; }
+.start h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); margin: 0; letter-spacing: -0.02em; line-height: 1; }
+.start h1 span { background: linear-gradient(90deg, #ffcc33, #ff5a1f, #ff2e88); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.start p { color: var(--muted); font-size: 1.15rem; }
+.start .go { margin-top: 18px; font-size: 1.25rem; padding: 16px 30px; border-radius: 16px; border: 0; font-weight: 900; color: #1a1300;
+  background: linear-gradient(90deg, #ffcc33, #ff8a1f); box-shadow: 0 10px 40px rgba(255, 140, 30, 0.45); }
+.start .go:hover { transform: scale(1.03); }
+.start .alt { margin-top: 10px; background: transparent; border: 1px solid var(--line); padding: 10px 18px; border-radius: 12px; color: var(--muted); font-weight: 700; }
+.start .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 26px 0 8px; text-align: left; }
+.start .grid div { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--line); border-radius: 14px; padding: 12px; }
+.start .grid .e { font-size: 1.7rem; }
+.start .grid b { display: block; }
+.start .grid small { color: var(--muted); }
+.start .err { color: #ff8a8a; font-weight: 700; margin-top: 14px; }
+.tip { font-size: 0.9rem; color: var(--muted); margin-top: 16px; }
+@media (max-width: 700px) { .move { min-width: 0; } .move small { display: none; } .meter { display: none; } }
+</style>
+</head>
+<body>
+<canvas id="stage"></canvas>
+
+<div class="hud-top hidden-until-start">
+  <div class="logo">⚡ HERO <span>MODE</span></div>
+  <div class="themes" id="themes"></div>
+  <div class="grow"></div>
+  <button class="btn" id="sound" title="Sound on/off">🔊 Sound</button>
+  <button class="btn" id="photo" title="Save a photo">📸 Photo</button>
+  <button class="btn" id="record" title="Record a clip">⏺ Record</button>
+</div>
+<div class="status hide" id="status"></div>
+<div class="guide" id="guide"></div>
+<div class="meter"><div class="label"><span>POWER</span><span id="combo"></span></div><div class="bar"><i id="power"></i></div><div class="score" id="score">0</div></div>
+
+<div class="start" id="start">
+  <div class="box">
+    <h1>Become a <span>superhero</span></h1>
+    <p>Your webcam tracks your hands. Make these moves and you get the powers.</p>
+    <div class="grid">
+      <div><div class="e">🖐️</div><b>Open palm</b><small>Energy orb charges in your hand</small></div>
+      <div><div class="e">💥</div><b>Push palm at camera</b><small>Energy blast</small></div>
+      <div><div class="e">👋</div><b>Swipe fast</b><small>Throw a fireball</small></div>
+      <div><div class="e">☝️</div><b>Point</b><small>Laser beam from your finger</small></div>
+      <div><div class="e">✊</div><b>Fist</b><small>Lightning. Two fists = arc between them</small></div>
+      <div><div class="e">🤘</div><b>Spidey hand</b><small>Flick to shoot webs</small></div>
+      <div><div class="e">✌️</div><b>Peace sign</b><small>Ice storm</small></div>
+      <div><div class="e">🙌</div><b>Both palms close together</b><small>Charge a mega ball, then pull apart</small></div>
+    </div>
+    <button class="go" id="go">⚡ Power up (turn on camera)</button><br>
+    <button class="alt" id="demo">Watch a demo first</button>
+    <div class="err" id="err"></div>
+    <div class="tip">Best with a light in front of you and your hands about an arm's length from the camera. The video never leaves your computer.</div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// Hero Mode — hand-tracked superpowers in the browser.
+// ============================================================
+const MP_VER = '0.10.14';
+const cv = document.getElementById('stage');
+const g = cv.getContext('2d');
+let W = 0, H = 0, DPR = 1;
+function resize() {
+  DPR = Math.min(2, window.devicePixelRatio || 1);
+  W = window.innerWidth; H = window.innerHeight;
+  cv.width = W * DPR; cv.height = H * DPR;
+  g.setTransform(DPR, 0, 0, DPR, 0, 0);
+}
+window.addEventListener('resize', resize);
+resize();
+
+const rand = (a, b) => a + Math.random() * (b - a);
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+const lerp = (a, b, t) => a + (b - a) * t;
+
+// ---------- Themes ----------
+const THEMES = {
+  fire: { name: '🔥 Fire', core: '#fff3c4', c1: '#ffb020', c2: '#ff4d00', c3: '#8a1400' },
+  storm: { name: '⚡ Storm', core: '#ffffff', c1: '#7fe7ff', c2: '#2f7bff', c3: '#1b1a6b' },
+  cosmic: { name: '🌌 Cosmic', core: '#ffe9ff', c1: '#ff66e0', c2: '#8a3cff', c3: '#2a0a5e' },
+  venom: { name: '🧪 Venom', core: '#f2ffe0', c1: '#b6ff3b', c2: '#23c552', c3: '#0b3d1b' },
+};
+let theme = THEMES.fire;
+try { theme = THEMES[localStorage.getItem('hero.theme')] || theme; } catch {}
+const themesEl = document.getElementById('themes');
+function paintThemes() {
+  themesEl.innerHTML = Object.entries(THEMES).map(([k, t]) => `<button data-k="${k}" class="${t === theme ? 'on' : ''}">${t.name}</button>`).join('');
+  themesEl.querySelectorAll('button').forEach((b) => (b.onclick = () => {
+    theme = THEMES[b.dataset.k];
+    try { localStorage.setItem('hero.theme', b.dataset.k); } catch {}
+    paintThemes();
+    Sound.charge(0.3);
+  }));
+}
+paintThemes();
+
+// ---------- Sound (synthesized, no files) ----------
+const Sound = (() => {
+  let ctx = null, master = null, on = true, laser = null, recDest = null;
+  try { on = localStorage.getItem('hero.sound') !== 'off'; } catch {}
+  const init = () => {
+    if (ctx) return;
+    ctx = new (window.AudioContext || window.webkitAudioContext)();
+    master = ctx.createGain();
+    master.gain.value = on ? 0.6 : 0;
+    const comp = ctx.createDynamicsCompressor();
+    master.connect(comp).connect(ctx.destination);
+    recDest = ctx.createMediaStreamDestination();
+    comp.connect(recDest);
+  };
+  const noise = (secs) => {
+    const b = ctx.createBuffer(1, Math.round(ctx.sampleRate * secs), ctx.sampleRate);
+    const d = b.getChannelData(0);
+    for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+    const s = ctx.createBufferSource();
+    s.buffer = b;
+    return s;
+  };
+  const env = (node, t, a, peak, dur) => {
+    node.gain.setValueAtTime(0.0001, t);
+    node.gain.exponentialRampToValueAtTime(peak, t + a);
+    node.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+  };
+  const api = {
+    init,
+    get stream() { return recDest?.stream; },
+    get on() { return on; },
+    toggle() { on = !on; if (master) master.gain.value = on ? 0.6 : 0; try { localStorage.setItem('hero.sound', on ? 'on' : 'off'); } catch {} return on; },
+    boom(size = 1) {
+      if (!ctx) return;
+      const t = ctx.currentTime;
+      const n = noise(1.2), f = ctx.createBiquadFilter(), gn = ctx.createGain();
+      f.type = 'lowpass'; f.frequency.setValueAtTime(3000, t); f.frequency.exponentialRampToValueAtTime(120, t + 0.9);
+      env(gn, t, 0.01, 0.9 * size, 1.1);
+      n.connect(f).connect(gn).connect(master); n.start(t);
+      const o = ctx.createOscillator(), og = ctx.createGain();
+      o.frequency.setValueAtTime(140, t); o.frequency.exponentialRampToValueAtTime(35, t + 0.6);
+      env(og, t, 0.005, 1.0 * size, 0.7);
+      o.connect(og).connect(master); o.start(t); o.stop(t + 0.8);
+    },
+    whoosh() {
+      if (!ctx) return;
+      const t = ctx.currentTime;
+      const n = noise(0.6), f = ctx.createBiquadFilter(), gn = ctx.createGain();
+      f.type = 'bandpass'; f.Q.value = 2; f.frequency.setValueAtTime(400, t); f.frequency.exponentialRampToValueAtTime(3000, t + 0.4);
+      env(gn, t, 0.05, 0.6, 0.55);
+      n.connect(f).connect(gn).connect(master); n.start(t);
+    },
+    zap() {
+      if (!ctx) return;
+      const t = ctx.currentTime;
+      const o = ctx.createOscillator(), gn = ctx.createGain(), f = ctx.createBiquadFilter();
+      o.type = 'sawtooth'; f.type = 'highpass'; f.frequency.value = 600;
+      for (let i = 0; i < 8; i++) o.frequency.setValueAtTime(rand(80, 900), t + i * 0.018);
+      env(gn, t, 0.003, 0.35, 0.18);
+      o.connect(f).connect(gn).connect(master); o.start(t); o.stop(t + 0.2);
+    },
+    thwip() {
+      if (!ctx) return;
+      const t = ctx.currentTime;
+      const o = ctx.createOscillator(), gn = ctx.createGain();
+      o.type = 'triangle'; o.frequency.setValueAtTime(1800, t); o.frequency.exponentialRampToValueAtTime(300, t + 0.12);
+      env(gn, t, 0.003, 0.5, 0.14);
+      o.connect(gn).connect(master); o.start(t); o.stop(t + 0.16);
+    },
+    chime() {
+      if (!ctx) return;
+      const t = ctx.currentTime;
+      [1320, 1760, 2640].forEach((fr, i) => {
+        const o = ctx.createOscillator(), gn = ctx.createGain();
+        o.frequency.value = fr;
+        env(gn, t + i * 0.05, 0.005, 0.18, 0.6);
+        o.connect(gn).connect(master); o.start(t + i * 0.05); o.stop(t + 0.8);
+      });
+    },
+    charge(level) {
+      if (!ctx) return;
+      const t = ctx.currentTime;
+      const o = ctx.createOscillator(), gn = ctx.createGain();
+      o.type = 'sine'; o.frequency.setValueAtTime(200 + level * 500, t); o.frequency.exponentialRampToValueAtTime(260 + level * 700, t + 0.15);
+      env(gn, t, 0.01, 0.12, 0.18);
+      o.connect(gn).connect(master); o.start(t); o.stop(t + 0.2);
+    },
+    laser(active) {
+      if (!ctx) return;
+      if (active && !laser) {
+        const o = ctx.createOscillator(), o2 = ctx.createOscillator(), f = ctx.createBiquadFilter(), gn = ctx.createGain();
+        o.type = 'sawtooth'; o.frequency.value = 110; o2.type = 'square'; o2.frequency.value = 113;
+        f.type = 'lowpass'; f.frequency.value = 1400; gn.gain.value = 0.0001;
+        gn.gain.exponentialRampToValueAtTime(0.22, ctx.currentTime + 0.08);
+        o.connect(f); o2.connect(f); f.connect(gn).connect(master); o.start(); o2.start();
+        laser = { o, o2, gn };
+      } else if (!active && laser) {
+        const l = laser; laser = null;
+        l.gn.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.1);
+        setTimeout(() => { l.o.stop(); l.o2.stop(); }, 150);
+      }
+    },
+  };
+  return api;
+})();
+
+// ---------- Particles & effects ----------
+const parts = [];
+const MAX_PARTS = 2200;
+function spawn(p) { if (parts.length < MAX_PARTS) parts.push(p); }
+const projectiles = [];
+const rings = [];
+const webs = [];
+const popups = [];
+let shake = 0, flash = 0, flashColor = '#fff';
+let score = 0, power = 0, combo = 0, comboUntil = 0;
+
+function burst(x, y, n, speed, colors, life = 0.8, size = 3, grav = 0) {
+  for (let i = 0; i < n; i++) {
+    const a = Math.random() * Math.PI * 2, s = rand(0.2, 1) * speed;
+    spawn({ x, y, vx: Math.cos(a) * s, vy: Math.sin(a) * s, life, max: life, size: rand(size * 0.5, size * 1.5), color: colors[(Math.random() * colors.length) | 0], grav, drag: 0.94 });
+  }
+}
+const POPS = { boom: ['BOOM!', 'KA-POW!', 'WHAM!', 'BLAM!'], zap: ['ZZZAP!', 'KRAK!', 'BZZT!'], pew: ['PEW PEW!', 'ZWAAM!'], thwip: ['THWIP!'], freeze: ['FREEZE!', 'CHILL!'], mega: ['MEGA BLAST!!', 'ULTIMATE!!'] };
+function pop(kind, x, y) {
+  const list = POPS[kind];
+  popups.push({ text: list[(Math.random() * list.length) | 0], x: clamp(x, 120, W - 120), y: clamp(y - 60, 80, H - 80), t: 0, rot: rand(-0.25, 0.25), big: kind === 'mega' });
+}
+function addScore(n, x, y) {
+  const now = performance.now();
+  combo = now < comboUntil ? combo + 1 : 1;
+  comboUntil = now + 2500;
+  score += n * combo;
+  power = Math.min(1, power + 0.12);
+}
+
+function blast(x, y, size = 1, dir = null, mega = false) {
+  const t = theme;
+  shake = Math.max(shake, 18 * size);
+  flash = Math.max(flash, 0.55 * size); flashColor = t.c1;
+  rings.push({ x, y, r: 10, max: Math.max(W, H) * 0.7 * size, w: 26 * size, color: t.c1, life: 1 });
+  rings.push({ x, y, r: 5, max: Math.max(W, H) * 0.45 * size, w: 10 * size, color: t.core, life: 1 });
+  burst(x, y, 220 * size, 22 * size, [t.core, t.c1, t.c2, t.c3], 1.1, 5 * size);
+  if (dir) {
+    for (let i = 0; i < 80; i++) spawn({ x, y, vx: dir.x * rand(10, 30) + rand(-4, 4), vy: dir.y * rand(10, 30) + rand(-4, 4), life: 0.9, max: 0.9, size: rand(3, 8), color: t.c1, grav: 0, drag: 0.96 });
+  }
+  Sound.boom(Math.min(1.4, size));
+  pop(mega ? 'mega' : 'boom', x, y);
+  addScore(Math.round(100 * size), x, y);
+}
+
+// ---------- Hands: gestures from landmarks ----------
+// Landmarks arrive in camera coordinates; we show a mirrored (selfie) picture.
+let video = null, landmarker = null, camOn = false, demo = false;
+let vw = 640, vh = 480;
+function toScreen(p) {
+  const s = Math.max(W / vw, H / vh);
+  const ox = (W - vw * s) / 2, oy = (H - vh * s) / 2;
+  return { x: ox + (1 - p.x) * vw * s, y: oy + p.y * vh * s, z: p.z };
+}
+
+function classify(pts) {
+  const w = pts[0];
+  const palm = dist(pts[0], pts[9]) || 1;
+  const ext = (tip, pip) => dist(w, pts[tip]) > dist(w, pts[pip]) * 1.12;
+  const f = { index: ext(8, 6), middle: ext(12, 10), ring: ext(16, 14), pinky: ext(20, 18) };
+  const thumb = dist(pts[4], pts[5]) > palm * 0.55;
+  let gesture = 'none';
+  if (f.index && f.middle && f.ring && f.pinky) gesture = 'palm';
+  else if (!f.index && !f.middle && !f.ring && !f.pinky) gesture = 'fist';
+  else if (f.index && !f.middle && !f.ring && !f.pinky) gesture = 'point';
+  else if (f.index && f.middle && !f.ring && !f.pinky) gesture = 'peace';
+  else if (f.index && !f.middle && !f.ring && f.pinky) gesture = 'spidey';
+  const center = { x: (pts[0].x + pts[5].x + pts[9].x + pts[17].x) / 4, y: (pts[0].y + pts[5].y + pts[9].y + pts[17].y) / 4 };
+  return { gesture, fingers: f, thumb, palm, center };
+}
+
+// Per-hand state (keyed by left/right) so we can measure speed and "push" toward the camera.
+const hands = { L: null, R: null };
+function updateHand(key, pts, now) {
+  let h = hands[key];
+  const c = classify(pts);
+  if (!h) h = hands[key] = { key, hist: [], gesture: 'none', votes: [], charge: 0, lastBlast: 0, lastWeb: 0, lastThrow: 0, seen: 0 };
+  h.pts = pts; h.seen = now;
+  h.votes.push(c.gesture);
+  if (h.votes.length > 4) h.votes.shift();
+  // Gesture must be stable for a few frames to switch (stops flicker).
+  const counts = {};
+  h.votes.forEach((v) => (counts[v] = (counts[v] || 0) + 1));
+  const top = Object.entries(counts).sort((a, b) => b[1] - a[1])[0];
+  if (top[1] >= 3) h.gesture = top[0];
+  // Tracker lost the hand or jumped: start motion fresh so it doesn't count as a swipe.
+  const last = h.hist[h.hist.length - 1];
+  if (last && (now - last.t > 150 || Math.hypot(c.center.x - last.x, c.center.y - last.y) > W * 0.2)) h.hist = [];
+  h.center = c.center; h.palm = c.palm;
+  h.hist.push({ t: now, x: c.center.x, y: c.center.y, s: c.palm });
+  while (h.hist.length && h.hist[0].t < now - 300) h.hist.shift();
+  return h;
+}
+function motion(h, ms = 140) {
+  const now = h.hist[h.hist.length - 1];
+  const old = h.hist.find((p) => p.t >= now.t - ms) || h.hist[0];
+  const dt = Math.max(1, now.t - old.t) / 1000;
+  return { vx: (now.x - old.x) / dt, vy: (now.y - old.y) / dt, grow: now.s / Math.max(1, old.s), dt };
+}
+
+// ---------- Power logic ----------
+let laserOn = false, twoHandBall = null, frostUntil = 0;
+function powers(now, dt) {
+  const list = Object.values(hands).filter((h) => h && now - h.seen < 250);
+  let anyLaser = false;
+  const t = theme;
+
+  // Two palms close together -> mega ball
+  const palms = list.filter((h) => h.gesture === 'palm');
+  if (palms.length === 2) {
+    const [a, b] = palms;
+    const d = dist(a.center, b.center);
+    const mid = { x: (a.center.x + b.center.x) / 2, y: (a.center.y + b.center.y) / 2 };
+    if (d < Math.min(W, H) * 0.55) {
+      twoHandBall ||= { charge: 0, d0: d, lastD: d, t0: now };
+      const ball = twoHandBall;
+      ball.charge = Math.min(1, ball.charge + dt * 0.6);
+      ball.x = mid.x; ball.y = mid.y; ball.r = 30 + d * 0.3 + ball.charge * 55;
+      const spread = (d - ball.lastD) / Math.max(dt, 0.001);
+      ball.lastD = d;
+      if (Math.random() < 0.3) Sound.charge(ball.charge);
+      if (ball.charge > 0.45 && spread > Math.min(W, H) * 1.2) {
+        blast(mid.x, mid.y, 1.6 + ball.charge, null, true);
+        twoHandBall = null;
+      }
+      palms.forEach((h) => { h.inBall = true; h.ballUntil = now + 500; });
+    } else if (twoHandBall && twoHandBall.charge > 0.45) {
+      blast(twoHandBall.x, twoHandBall.y, 1.5 + twoHandBall.charge, null, true);
+      twoHandBall = null;
+    } else twoHandBall = null;
+  } else if (twoHandBall) {
+    if (twoHandBall.charge > 0.6) blast(twoHandBall.x, twoHandBall.y, 1.4 + twoHandBall.charge, null, true);
+    twoHandBall = null;
+  }
+
+  for (const h of list) {
+    const m = motion(h);
+    const speed = Math.hypot(m.vx, m.vy);
+    const pts = h.pts;
+    if (h.gesture === 'palm' && !h.inBall) {
+      h.charge = Math.min(1, h.charge + dt * 0.8);
+      // Push toward camera = hand gets bigger fast.
+      if (m.grow > 1.22 && now - h.lastBlast > 700 && h.charge > 0.2) {
+        h.lastBlast = now;
+        blast(h.center.x, h.center.y, 0.7 + h.charge * 0.8);
+        h.charge = 0;
+      } else if (speed > W * 1.4 && now - h.lastThrow > 500 && h.charge > 0.25 && !(now < h.ballUntil)) {
+        // Fast swipe = throw a fireball in that direction.
+        h.lastThrow = now;
+        const dir = { x: m.vx / speed, y: m.vy / speed };
+        projectiles.push({ x: h.center.x, y: h.center.y, vx: dir.x * 1400, vy: dir.y * 1400, r: 22 + h.charge * 26, life: 2 });
+        Sound.whoosh();
+        pop('pew', h.center.x, h.center.y);
+        addScore(40, h.center.x, h.center.y);
+        h.charge = 0.1;
+      }
+    } else h.charge = Math.max(0, h.charge - dt * 2);
+    h.inBall = false;
+
+    if (h.gesture === 'point') {
+      anyLaser = true;
+      const base = pts[5], tip = pts[8];
+      let dx = tip.x - base.x, dy = tip.y - base.y;
+      const len = Math.hypot(dx, dy) || 1;
+      dx /= len; dy /= len;
+      // Beam to the edge of the screen
+      let tMax = 1e5;
+      if (dx > 0) tMax = Math.min(tMax, (W - tip.x) / dx); if (dx < 0) tMax = Math.min(tMax, -tip.x / dx);
+      if (dy > 0) tMax = Math.min(tMax, (H - tip.y) / dy); if (dy < 0) tMax = Math.min(tMax, -tip.y / dy);
+      h.beam = { x1: tip.x, y1: tip.y, x2: tip.x + dx * tMax, y2: tip.y + dy * tMax };
+      for (let i = 0; i < 6; i++) spawn({ x: h.beam.x2, y: h.beam.y2, vx: rand(-9, 9) - dx * 6, vy: rand(-9, 9) - dy * 6, life: 0.45, max: 0.45, size: rand(2, 4), color: Math.random() < 0.5 ? '#fff' : '#ff3355', grav: 0.3, drag: 0.95 });
+      if (Math.random() < dt * 2) addScore(5, h.beam.x2, h.beam.y2);
+    } else h.beam = null;
+
+    if (h.gesture === 'fist') {
+      h.bolts = [];
+      const n = 3 + Math.floor(power * 3);
+      for (let i = 0; i < n; i++) {
+        const a = rand(0, Math.PI * 2), r = h.palm * rand(1.2, 2.6);
+        h.bolts.push(bolt(h.center.x, h.center.y, h.center.x + Math.cos(a) * r, h.center.y + Math.sin(a) * r, 5));
+      }
+      if (Math.random() < 0.08) Sound.zap();
+      // Punch toward the camera
+      if (m.grow > 1.25 && now - h.lastBlast > 600) {
+        h.lastBlast = now;
+        shake = Math.max(shake, 14);
+        rings.push({ x: h.center.x, y: h.center.y, r: 10, max: 420, w: 14, color: '#bfefff', life: 1 });
+        burst(h.center.x, h.center.y, 90, 16, ['#ffffff', '#7fe7ff', '#2f7bff'], 0.7, 3);
+        Sound.boom(0.7); Sound.zap();
+        pop('zap', h.center.x, h.center.y);
+        addScore(60, h.center.x, h.center.y);
+      }
+    } else h.bolts = null;
+
+    if (h.gesture === 'spidey') {
+      if (speed > W * 1.0 && now - h.lastWeb > 450) {
+        h.lastWeb = now;
+        const dir = { x: m.vx / speed, y: m.vy / speed };
+        const from = h.pts[0];
+        let tMax = 1e5;
+        if (dir.x > 0) tMax = Math.min(tMax, (W - from.x) / dir.x); if (dir.x < 0) tMax = Math.min(tMax, -from.x / dir.x);
+        if (dir.y > 0) tMax = Math.min(tMax, (H - from.y) / dir.y); if (dir.y < 0) tMax = Math.min(tMax, -from.y / dir.y);
+        tMax = Math.min(tMax, Math.max(W, H) * 0.8);
+        webs.push({ x1: from.x, y1: from.y, x2: from.x + dir.x * tMax, y2: from.y + dir.y * tMax, t: 0, life: 4 });
+        Sound.thwip();
+        pop('thwip', from.x + dir.x * tMax * 0.6, from.y + dir.y * tMax * 0.6);
+        addScore(30, from.x, from.y);
+      }
+    }
+
+    if (h.gesture === 'peace') {
+      if (now > frostUntil) { frostUntil = now + 1400; Sound.chime(); pop('freeze', h.center.x, h.center.y); addScore(25, h.center.x, h.center.y); }
+      for (let i = 0; i < 4; i++) spawn({ x: rand(0, W), y: -10, vx: rand(-40, 40) / 60, vy: rand(2, 6), life: 3, max: 3, size: rand(2, 5), color: Math.random() < 0.5 ? '#ffffff' : '#bfe9ff', grav: 0.02, drag: 1, flake: true });
+      for (let i = 0; i < 3; i++) {
+        const a = rand(0, Math.PI * 2), s = rand(2, 7);
+        spawn({ x: pts[8].x, y: pts[8].y, vx: Math.cos(a) * s, vy: Math.sin(a) * s, life: 0.8, max: 0.8, size: rand(2, 4), color: '#dff6ff', grav: 0.05, drag: 0.95, flake: true });
+      }
+    }
+  }
+  if (anyLaser !== laserOn) { laserOn = anyLaser; Sound.laser(laserOn); }
+}
+
+// Jagged lightning bolt between two points
+function bolt(x1, y1, x2, y2, depth) {
+  const pts = [[x1, y1], [x2, y2]];
+  let disp = Math.hypot(x2 - x1, y2 - y1) * 0.35;
+  for (let d = 0; d < depth; d++) {
+    for (let i = pts.length - 1; i > 0; i--) {
+      const [ax, ay] = pts[i - 1], [bx, by] = pts[i];
+      pts.splice(i, 0, [(ax + bx) / 2 + rand(-disp, disp), (ay + by) / 2 + rand(-disp, disp)]);
+    }
+    disp /= 2;
+  }
+  return pts;
+}
+
+// ---------- Drawing ----------
+function drawOrb(x, y, r, charge, t = theme) {
+  const pulse = 1 + Math.sin(performance.now() / 70) * 0.08;
+  const R = r * pulse;
+  g.save();
+  g.globalCompositeOperation = 'lighter';
+  const grad = g.createRadialGradient(x, y, 0, x, y, R * 2.6);
+  grad.addColorStop(0, t.core); grad.addColorStop(0.18, t.c1); grad.addColorStop(0.45, t.c2 + 'aa'); grad.addColorStop(1, 'rgba(0,0,0,0)');
+  g.fillStyle = grad;
+  g.beginPath(); g.arc(x, y, R * 2.6, 0, Math.PI * 2); g.fill();
+  g.restore();
+  // swirling sparks
+  const n = 2 + Math.floor(charge * 5);
+  for (let i = 0; i < n; i++) {
+    const a = rand(0, Math.PI * 2), rr = R * rand(1.4, 2.4);
+    spawn({ x: x + Math.cos(a) * rr, y: y + Math.sin(a) * rr, vx: -Math.cos(a) * rr * 0.06 + Math.sin(a) * 2, vy: -Math.sin(a) * rr * 0.06 - Math.cos(a) * 2, life: 0.4, max: 0.4, size: rand(1.5, 3.5), color: Math.random() < 0.5 ? t.c1 : t.core, grav: 0, drag: 0.92 });
+  }
+}
+
+function strokeBolt(pts, color, width) {
+  g.beginPath();
+  pts.forEach(([x, y], i) => (i ? g.lineTo(x, y) : g.moveTo(x, y)));
+  g.strokeStyle = color; g.lineWidth = width; g.stroke();
+}
+
+function drawHandFX(h) {
+  const t = theme;
+  if (h.gesture === 'palm' && h.charge > 0.02 && !twoHandBall) {
+    drawOrb(h.center.x, h.center.y, 10 + h.charge * h.palm * 0.45, h.charge);
+  }
+  if (h.beam) {
+    const b = h.beam;
+    g.save();
+    g.globalCompositeOperation = 'lighter';
+    g.lineCap = 'round';
+    const jit = rand(0.85, 1.15);
+    g.shadowColor = '#ff2244'; g.shadowBlur = 30;
+    g.strokeStyle = 'rgba(255,30,60,0.35)'; g.lineWidth = 30 * jit; g.beginPath(); g.moveTo(b.x1, b.y1); g.lineTo(b.x2, b.y2); g.stroke();
+    g.strokeStyle = 'rgba(255,60,90,0.8)'; g.lineWidth = 12 * jit; g.stroke();
+    g.shadowBlur = 0;
+    g.strokeStyle = '#fff'; g.lineWidth = 4; g.stroke();
+    const eg = g.createRadialGradient(b.x1, b.y1, 0, b.x1, b.y1, 40);
+    eg.addColorStop(0, '#fff'); eg.addColorStop(0.3, '#ff5577'); eg.addColorStop(1, 'rgba(255,0,60,0)');
+    g.fillStyle = eg; g.beginPath(); g.arc(b.x1, b.y1, 40, 0, Math.PI * 2); g.fill();
+    g.restore();
+  }
+  if (h.bolts) {
+    g.save();
+    g.globalCompositeOperation = 'lighter';
+    g.lineJoin = 'round';
+    g.shadowColor = '#7fe7ff'; g.shadowBlur = 20;
+    h.bolts.forEach((p) => { strokeBolt(p, 'rgba(120,220,255,0.55)', 7); strokeBolt(p, '#ffffff', 2); });
+    g.restore();
+    const gl = g.createRadialGradient(h.center.x, h.center.y, 0, h.center.x, h.center.y, h.palm * 1.6);
+    gl.addColorStop(0, 'rgba(200,245,255,0.5)'); gl.addColorStop(1, 'rgba(0,120,255,0)');
+    g.save(); g.globalCompositeOperation = 'lighter'; g.fillStyle = gl; g.beginPath(); g.arc(h.center.x, h.center.y, h.palm * 1.6, 0, Math.PI * 2); g.fill(); g.restore();
+  }
+  if (h.gesture === 'spidey') {
+    g.save(); g.globalCompositeOperation = 'lighter';
+    const p = h.pts[0];
+    const gl = g.createRadialGradient(p.x, p.y, 0, p.x, p.y, 30);
+    gl.addColorStop(0, 'rgba(255,255,255,0.6)'); gl.addColorStop(1, 'rgba(255,255,255,0)');
+    g.fillStyle = gl; g.beginPath(); g.arc(p.x, p.y, 30, 0, Math.PI * 2); g.fill(); g.restore();
+  }
+}
+
+function drawArcsBetweenFists(list) {
+  const fists = list.filter((h) => h.gesture === 'fist');
+  if (fists.length !== 2) return;
+  const [a, b] = fists;
+  g.save();
+  g.globalCompositeOperation = 'lighter';
+  g.shadowColor = '#7fe7ff'; g.shadowBlur = 30;
+  for (let i = 0; i < 3; i++) {
+    const p = bolt(a.center.x, a.center.y, b.center.x, b.center.y, 6);
+    strokeBolt(p, 'rgba(120,220,255,0.6)', 10); strokeBolt(p, '#ffffff', 3);
+  }
+  g.restore();
+  flash = Math.max(flash, 0.08); flashColor = '#bfefff';
+  if (Math.random() < 0.15) Sound.zap();
+  if (Math.random() < 0.03) addScore(10, (a.center.x + b.center.x) / 2, (a.center.y + b.center.y) / 2);
+}
+
+function drawWeb(wb) {
+  const k = clamp(wb.t / 0.12, 0, 1);
+  const x2 = lerp(wb.x1, wb.x2, k), y2 = lerp(wb.y1, wb.y2, k);
+  const alpha = clamp(wb.life / 1.5, 0, 1);
+  g.save();
+  g.strokeStyle = `rgba(255,255,255,${0.9 * alpha})`; g.lineWidth = 2.5;
+  g.shadowColor = '#fff'; g.shadowBlur = 8;
+  g.beginPath(); g.moveTo(wb.x1, wb.y1); g.lineTo(x2, y2); g.stroke();
+  if (k >= 1) {
+    // splat web at the end
+    const R = 70;
+    for (let i = 0; i < 10; i++) {
+      const a = (i / 10) * Math.PI * 2;
+      g.beginPath(); g.moveTo(x2, y2); g.lineTo(x2 + Math.cos(a) * R, y2 + Math.sin(a) * R); g.stroke();
+    }
+    for (let r = 18; r <= R; r += 17) {
+      g.beginPath();
+      for (let i = 0; i <= 10; i++) {
+        const a = (i / 10) * Math.PI * 2;
+        const px = x2 + Math.cos(a) * r, py = y2 + Math.sin(a) * r;
+        i ? g.quadraticCurveTo(x2 + Math.cos(a - 0.31) * r * 0.85, y2 + Math.sin(a - 0.31) * r * 0.85, px, py) : g.moveTo(px, py);
+      }
+      g.stroke();
+    }
+  }
+  g.restore();
+}
+
+function drawSkeleton(h) {
+  const LINKS = [[0, 1], [1, 2], [2, 3], [3, 4], [0, 5], [5, 6], [6, 7], [7, 8], [5, 9], [9, 10], [10, 11], [11, 12], [9, 13], [13, 14], [14, 15], [15, 16], [13, 17], [17, 18], [18, 19], [19, 20], [0, 17]];
+  g.save();
+  g.globalCompositeOperation = 'lighter';
+  g.strokeStyle = theme.c1 + '66'; g.lineWidth = 2;
+  LINKS.forEach(([a, b]) => { g.beginPath(); g.moveTo(h.pts[a].x, h.pts[a].y); g.lineTo(h.pts[b].x, h.pts[b].y); g.stroke(); });
+  g.fillStyle = theme.core + 'cc';
+  [4, 8, 12, 16, 20].forEach((i) => { g.beginPath(); g.arc(h.pts[i].x, h.pts[i].y, 3.5, 0, Math.PI * 2); g.fill(); });
+  g.restore();
+}
+
+// ---------- Main loop ----------
+let lastFrame = performance.now(), lastDetect = 0, lastVideoTime = -1;
+function frame(now) {
+  const dt = Math.min(0.05, (now - lastFrame) / 1000);
+  lastFrame = now;
+
+  // Detect hands
+  if (camOn && video.readyState >= 2 && video.currentTime !== lastVideoTime && now - lastDetect > 30) {
+    lastVideoTime = video.currentTime; lastDetect = now;
+    vw = video.videoWidth || vw; vh = video.videoHeight || vh;
+    try { ingest(landmarker.detectForVideo(video, now), now); } catch (e) { console.warn(e); }
+  } else if (demo) {
+    ingestDemo(now);
+  }
+
+  const list = Object.values(hands).filter((h) => h && now - h.seen < 250);
+  powers(now, dt);
+
+  // Background: mirrored camera, a bit darker so powers glow.
+  g.save();
+  if (shake > 0.3) { g.translate(rand(-shake, shake), rand(-shake, shake)); shake *= 0.86; }
+  if (camOn) {
+    const s = Math.max(W / vw, H / vh);
+    const ox = (W - vw * s) / 2, oy = (H - vh * s) / 2;
+    g.save(); g.translate(W, 0); g.scale(-1, 1);
+    g.drawImage(video, W - ox - vw * s, oy, vw * s, vh * s);
+    g.restore();
+    g.fillStyle = `rgba(5,3,15,${0.28 + power * 0.18})`;
+    g.fillRect(-40, -40, W + 80, H + 80);
+  } else {
+    const bg = g.createRadialGradient(W / 2, H * 0.4, 0, W / 2, H * 0.4, Math.max(W, H));
+    bg.addColorStop(0, '#2a1660'); bg.addColorStop(1, '#07060d');
+    g.fillStyle = bg; g.fillRect(-40, -40, W + 80, H + 80);
+  }
+
+  list.forEach(drawSkeleton);
+  drawArcsBetweenFists(list);
+  list.forEach(drawHandFX);
+  if (twoHandBall) drawOrb(twoHandBall.x, twoHandBall.y, twoHandBall.r, twoHandBall.charge);
+
+  // projectiles
+  for (let i = projectiles.length - 1; i >= 0; i--) {
+    const p = projectiles[i];
+    p.x += p.vx * dt; p.y += p.vy * dt; p.life -= dt;
+    drawOrb(p.x, p.y, p.r, 1);
+    for (let k = 0; k < 4; k++) spawn({ x: p.x, y: p.y, vx: -p.vx / 200 + rand(-2, 2), vy: -p.vy / 200 + rand(-2, 2), life: 0.5, max: 0.5, size: rand(3, 7), color: [theme.c1, theme.c2][k % 2], grav: 0, drag: 0.93 });
+    if (p.x < -50 || p.x > W + 50 || p.y < -50 || p.y > H + 50 || p.life <= 0) {
+      const ex = clamp(p.x, 0, W), ey = clamp(p.y, 0, H);
+      blast(ex, ey, 0.7);
+      projectiles.splice(i, 1);
+    }
+  }
+
+  // rings
+  g.save(); g.globalCompositeOperation = 'lighter';
+  for (let i = rings.length - 1; i >= 0; i--) {
+    const r = rings[i];
+    r.r += (r.max - r.r) * 0.12 + 4; r.life -= dt * 1.4;
+    if (r.life <= 0) { rings.splice(i, 1); continue; }
+    g.globalAlpha = clamp(r.life, 0, 1);
+    g.strokeStyle = r.color; g.lineWidth = r.w * r.life;
+    g.beginPath(); g.arc(r.x, r.y, r.r, 0, Math.PI * 2); g.stroke();
+  }
+  g.globalAlpha = 1;
+
+  // particles
+  for (let i = parts.length - 1; i >= 0; i--) {
+    const p = parts[i];
+    p.life -= dt;
+    if (p.life <= 0) { parts[i] = parts[parts.length - 1]; parts.pop(); continue; }
+    p.vx *= p.drag; p.vy = p.vy * p.drag + p.grav;
+    p.x += p.vx * dt * 60; p.y += p.vy * dt * 60;
+    const a = p.life / p.max;
+    g.globalAlpha = a;
+    g.fillStyle = p.color;
+    if (p.flake) {
+      g.save(); g.translate(p.x, p.y); g.rotate(p.life * 3);
+      g.fillRect(-p.size, -0.6, p.size * 2, 1.2); g.fillRect(-0.6, -p.size, 1.2, p.size * 2);
+      g.restore();
+    } else {
+      g.beginPath(); g.arc(p.x, p.y, p.size * (0.4 + a * 0.6), 0, Math.PI * 2); g.fill();
+    }
+  }
+  g.globalAlpha = 1;
+  g.restore();
+
+  // webs
+  for (let i = webs.length - 1; i >= 0; i--) {
+    const wb = webs[i];
+    wb.t += dt; wb.life -= dt;
+    if (wb.life <= 0) { webs.splice(i, 1); continue; }
+    drawWeb(wb);
+  }
+
+  // frost overlay
+  if (now < frostUntil + 600) {
+    const a = clamp((frostUntil + 600 - now) / 2000, 0, 0.35);
+    const fg = g.createRadialGradient(W / 2, H / 2, Math.min(W, H) * 0.3, W / 2, H / 2, Math.max(W, H) * 0.75);
+    fg.addColorStop(0, 'rgba(180,230,255,0)'); fg.addColorStop(1, `rgba(200,240,255,${a})`);
+    g.fillStyle = fg; g.fillRect(-40, -40, W + 80, H + 80);
+  }
+
+  g.restore();
+
+  // flash
+  if (flash > 0.01) {
+    g.globalAlpha = flash; g.fillStyle = flashColor; g.fillRect(0, 0, W, H); g.globalAlpha = 1;
+    flash *= 0.82;
+  }
+
+  // power aura around the screen edge
+  if (power > 0.05) {
+    const pg = g.createRadialGradient(W / 2, H / 2, Math.min(W, H) * 0.45, W / 2, H / 2, Math.max(W, H) * 0.72);
+    pg.addColorStop(0, 'rgba(0,0,0,0)'); pg.addColorStop(1, theme.c2 + Math.round(power * 120).toString(16).padStart(2, '0'));
+    g.fillStyle = pg; g.fillRect(0, 0, W, H);
+  }
+  power = Math.max(0, power - dt * 0.05);
+
+  // comic popups
+  for (let i = popups.length - 1; i >= 0; i--) {
+    const p = popups[i];
+    p.t += dt;
+    if (p.t > 1.1) { popups.splice(i, 1); continue; }
+    const s = p.t < 0.12 ? p.t / 0.12 * 1.25 : 1.25 - Math.min(0.25, (p.t - 0.12) * 1.2);
+    g.save();
+    g.translate(p.x, p.y); g.rotate(p.rot); g.scale(s, s);
+    g.globalAlpha = clamp((1.1 - p.t) / 0.3, 0, 1);
+    g.font = `900 ${p.big ? 88 : 60}px Impact, "Arial Black", system-ui, sans-serif`;
+    g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.lineJoin = 'round';
+    g.lineWidth = 12; g.strokeStyle = '#1a0a00'; g.strokeText(p.text, 0, 0);
+    g.fillStyle = theme.c1; g.fillText(p.text, 0, 0);
+    g.lineWidth = 2; g.strokeStyle = '#fff'; g.strokeText(p.text, 0, 0);
+    g.restore();
+  }
+
+  updateHUD(list, now);
+  requestAnimationFrame(frame);
+}
+
+// ---------- Camera input ----------
+const handHist = { L: [], R: [] };
+function handShaped(w) {
+  if (!w) return true;
+  const d = (a, b) => Math.hypot(w[a].x - w[b].x, w[a].y - w[b].y, w[a].z - w[b].z);
+  const palm = d(0, 9), width = d(5, 17);
+  return palm > 0.05 && palm < 0.14 && width > 0.035 && width < 0.12;
+}
+function ingest(res, now) {
+  const found = { L: null, R: null };
+  (res.landmarks || []).forEach((lm, i) => {
+    const cat = res.handednesses?.[i]?.[0] || res.handedness?.[i]?.[0];
+    // Skip weak or oddly shaped detections (a face or mouth can fool the tracker).
+    if (!cat || cat.score < 0.75 || !handShaped(res.worldLandmarks?.[i])) return;
+    const key = cat.categoryName === 'Left' ? 'R' : 'L'; // mirrored view
+    if (!found[key]) found[key] = lm.map(toScreen);
+  });
+  for (const k of ['L', 'R']) {
+    handHist[k] = [...handHist[k], !!found[k]].slice(-5);
+    // Only trust a hand that's shown up in most recent frames.
+    if (found[k] && handHist[k].filter(Boolean).length >= 3) updateHand(k, found[k], now);
+  }
+}
+
+// ---------- Demo mode (fake hands) ----------
+// Builds 21 landmarks for a pose, in screen pixels.
+function fakeHand(cx, cy, size, pose, angle = 0) {
+  const ext = { palm: [1, 1, 1, 1], fist: [0, 0, 0, 0], point: [1, 0, 0, 0], peace: [1, 1, 0, 0], spidey: [1, 0, 0, 1] }[pose];
+  const P = [[0, 0]];
+  const thumbOut = pose === 'palm' || pose === 'spidey';
+  P.push([-0.35, -0.25], thumbOut ? [-0.6, -0.5] : [-0.4, -0.5], thumbOut ? [-0.8, -0.75] : [-0.25, -0.65], thumbOut ? [-0.95, -0.95] : [-0.05, -0.7]);
+  const mcps = [[-0.3, -1], [-0.05, -1.05], [0.2, -1], [0.42, -0.9]];
+  mcps.forEach(([x, y], i) => {
+    const k = i === 3 ? 0.75 : 1;
+    P.push([x, y]);
+    if (ext[i]) P.push([x, y - 0.45 * k], [x, y - 0.75 * k], [x, y - 1.0 * k]);
+    else P.push([x, y - 0.3], [x + 0.02, y - 0.15], [x + 0.02, y + 0.12]);
+  });
+  const c = Math.cos(angle), s = Math.sin(angle);
+  return P.map(([x, y]) => ({ x: cx + (x * c - y * s) * size, y: cy + (x * s + y * c) * size, z: 0 }));
+}
+const DEMO = [
+  { d: 2.2, name: 'Open palm: orb charges', L: null, R: (t) => ({ x: 0.62, y: 0.62, s: 0.13, pose: 'palm' }) },
+  { d: 0.6, name: 'Push toward camera: BLAST', R: (t) => ({ x: 0.62, y: 0.6, s: 0.13 + t * 0.2, pose: 'palm' }) },
+  { d: 1.6, name: 'Point: laser', R: (t) => ({ x: 0.55, y: 0.72, s: 0.12, pose: 'point', a: -0.9 + Math.sin(t * 2) * 0.35 }) },
+  { d: 1.8, name: 'Two fists: lightning arc', L: (t) => ({ x: 0.3, y: 0.6, s: 0.11, pose: 'fist' }), R: (t) => ({ x: 0.7, y: 0.6 + Math.sin(t * 3) * 0.04, s: 0.11, pose: 'fist' }) },
+  { d: 0.3, name: 'Spidey flick: web', R: (t) => ({ x: 0.45 + t * 0.35, y: 0.7 - t * 0.35, s: 0.12, pose: 'spidey' }) },
+  { d: 1.2, name: 'Spidey flick: web', R: (t) => ({ x: 0.8, y: 0.35, s: 0.12, pose: 'spidey' }) },
+  { d: 1.8, name: 'Peace sign: ice storm', R: (t) => ({ x: 0.5, y: 0.65, s: 0.12, pose: 'peace' }) },
+  { d: 2.4, name: 'Palms together: mega ball', L: (t) => ({ x: 0.43, y: 0.6, s: 0.12, pose: 'palm', a: 0.6 }), R: (t) => ({ x: 0.57, y: 0.6, s: 0.12, pose: 'palm', a: -0.6 }) },
+  { d: 0.35, name: 'Pull apart: MEGA BLAST', L: (t) => ({ x: 0.43 - t * 0.6, y: 0.6, s: 0.12, pose: 'palm', a: 0.6 }), R: (t) => ({ x: 0.57 + t * 0.6, y: 0.6, s: 0.12, pose: 'palm', a: -0.6 }) },
+  { d: 0.9, name: 'Swipe: fireball', R: (t) => ({ x: 0.2, y: 0.55, s: 0.12, pose: 'palm' }) },
+  { d: 0.35, name: 'Swipe: fireball', R: (t) => ({ x: 0.2 + t * 0.7, y: 0.55, s: 0.12, pose: 'palm' }) },
+  { d: 1.2, name: 'Swipe: fireball', R: (t) => ({ x: 0.9, y: 0.55, s: 0.12, pose: 'fist' }) },
+];
+let demoStart = 0;
+function ingestDemo(now) {
+  const total = DEMO.reduce((a, s) => a + s.d, 0);
+  let t = ((now - demoStart) / 1000) % total;
+  let step = DEMO[0];
+  for (const s of DEMO) { if (t < s.d) { step = s; break; } t -= s.d; }
+  const k = t / step.d;
+  setStatus('DEMO · ' + step.name);
+  for (const key of ['L', 'R']) {
+    const f = step[key]?.(k);
+    if (!f) continue;
+    const size = f.s * Math.min(W, H) * 2.2;
+    updateHand(key, fakeHand(f.x * W, f.y * H + size * 0.5, size, f.pose, f.a || 0), now);
+  }
+}
+
+// ---------- HUD ----------
+const MOVES = [
+  ['palm', '🖐️', 'Energy orb', 'open palm, push to blast'],
+  ['point', '☝️', 'Laser', 'point a finger'],
+  ['fist', '✊', 'Lightning', 'make a fist, punch forward'],
+  ['spidey', '🤘', 'Web shot', 'flick this hand'],
+  ['peace', '✌️', 'Ice storm', 'peace sign'],
+  ['ball', '🙌', 'Mega ball', 'palms close, pull apart'],
+];
+const guide = document.getElementById('guide');
+guide.innerHTML = MOVES.map(([k, e, n, s]) => `<div class="move" data-g="${k}"><div class="e">${e}</div><b>${n}</b><small>${s}</small></div>`).join('');
+const statusEl = document.getElementById('status');
+let statusText = '';
+function setStatus(t) {
+  if (t === statusText) return;
+  statusText = t;
+  statusEl.textContent = t;
+  statusEl.classList.toggle('hide', !t);
+}
+let noHandsSince = performance.now();
+function updateHUD(list, now) {
+  const active = new Set(list.map((h) => h.gesture));
+  if (twoHandBall) active.add('ball');
+  guide.querySelectorAll('.move').forEach((m) => m.classList.toggle('active', active.has(m.dataset.g)));
+  document.getElementById('power').style.width = Math.round(Math.max(power, twoHandBall?.charge || 0, ...list.map((h) => h.charge || 0)) * 100) + '%';
+  document.getElementById('score').textContent = score.toLocaleString();
+  document.getElementById('combo').textContent = now < comboUntil && combo > 1 ? `COMBO x${combo}` : '';
+  if (camOn) {
+    if (list.length) { noHandsSince = now; setStatus(''); }
+    else if (now - noHandsSince > 1500) setStatus('Show me your hands ✋ Hold them up about an arm\'s length from the camera');
+  }
+}
+
+// ---------- Start / camera ----------
+async function startCamera() {
+  const err = document.getElementById('err');
+  const btn = document.getElementById('go');
+  btn.disabled = true; btn.textContent = 'Powering up…';
+  Sound.init();
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ video: { width: { ideal: 1280 }, height: { ideal: 720 }, facingMode: 'user' }, audio: false });
+    video = document.createElement('video');
+    video.muted = true; video.playsInline = true; video.srcObject = stream;
+    await video.play();
+    const vision = await import(`https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@${MP_VER}/vision_bundle.mjs`);
+    const files = await vision.FilesetResolver.forVisionTasks(`https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@${MP_VER}/wasm`);
+    const opts = (delegate) => ({
+      baseOptions: { modelAssetPath: 'https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task', delegate },
+      runningMode: 'VIDEO', numHands: 2,
+      minHandDetectionConfidence: 0.6, minHandPresenceConfidence: 0.6, minTrackingConfidence: 0.5,
+    });
+    try { landmarker = await vision.HandLandmarker.createFromOptions(files, opts('GPU')); }
+    catch { landmarker = await vision.HandLandmarker.createFromOptions(files, opts('CPU')); }
+    demo = false;
+    hands.L = hands.R = null;
+    camOn = true;
+    document.getElementById('start').remove();
+    setStatus('Hold up an open palm 🖐️');
+    Sound.charge(1);
+  } catch (e) {
+    btn.disabled = false; btn.textContent = '⚡ Power up (turn on camera)';
+    err.textContent = e.name === 'NotAllowedError'
+      ? 'Camera permission was blocked. Click the camera icon in the address bar, allow it, then try again.'
+      : e.name === 'NotFoundError' ? 'No camera found.' : 'Could not start (hand tracking needs internet the first time): ' + (e.message || e);
+  }
+}
+document.getElementById('go').onclick = startCamera;
+document.getElementById('demo').onclick = () => {
+  Sound.init();
+  demo = true; demoStart = performance.now();
+  document.getElementById('start').style.display = 'none';
+  // Let them get back to the start screen to turn the camera on.
+  const back = document.createElement('button');
+  back.className = 'btn on'; back.textContent = '⚡ Try it with my camera';
+  back.style.cssText = 'position:fixed;top:122px;left:50%;transform:translateX(-50%);z-index:6';
+  back.onclick = () => { back.remove(); demo = false; hands.L = hands.R = null; setStatus(''); document.getElementById('start').style.display = ''; };
+  document.body.appendChild(back);
+};
+
+// ---------- Photo & recording ----------
+document.getElementById('sound').onclick = (e) => { Sound.init(); e.currentTarget.textContent = Sound.toggle() ? '🔊 Sound' : '🔇 Muted'; };
+if (!Sound.on) document.getElementById('sound').textContent = '🔇 Muted';
+document.getElementById('photo').onclick = () => {
+  flash = 0.9; flashColor = '#fff';
+  setTimeout(() => cv.toBlob((b) => {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(b); a.download = `hero-mode-${Date.now()}.png`; a.click();
+  }), 60);
+};
+let recorder = null;
+document.getElementById('record').onclick = (e) => {
+  const btn = e.currentTarget;
+  if (recorder) { recorder.stop(); return; }
+  Sound.init();
+  const stream = cv.captureStream(30);
+  Sound.stream?.getAudioTracks().forEach((t) => stream.addTrack(t));
+  const type = ['video/mp4', 'video/webm;codecs=vp9,opus', 'video/webm'].find((t) => window.MediaRecorder && MediaRecorder.isTypeSupported(t));
+  if (!type) { setStatus('Recording is not supported in this browser'); return; }
+  const chunks = [];
+  recorder = new MediaRecorder(stream, { mimeType: type, videoBitsPerSecond: 6e6 });
+  recorder.ondataavailable = (ev) => ev.data.size && chunks.push(ev.data);
+  recorder.onstop = () => {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob(chunks, { type }));
+    a.download = `hero-mode-${Date.now()}.${type.startsWith('video/mp4') ? 'mp4' : 'webm'}`;
+    a.click();
+    recorder = null;
+    btn.classList.remove('rec'); btn.textContent = '⏺ Record';
+  };
+  recorder.start(250);
+  btn.classList.add('rec'); btn.textContent = '⏹ Stop & save';
+};
+
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>
