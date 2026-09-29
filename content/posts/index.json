@@ -1,30 +1,30 @@
 [
   {
-    "slug": "ex-tesla-team-raises-12-5m-to-automate-supply-chains",
-    "title": "Ex‑Tesla team raises $12.5M to automate supply chains",
-    "dek": "Startup Atomic has built agentic AI for supply chains and counts DoorDash and HelloFresh as users.",
-    "section": "startups",
+    "slug": "council-of-europe-revives-biden-backed-ai-rules",
+    "title": "Council of Europe revives Biden-backed AI rules",
+    "dek": "Alain Berset has pushed a human-rights focused AI framework that the Biden administration and several European states have already endorsed.",
+    "section": "policy",
     "tags": [
-      "AI",
-      "supply chain",
-      "funding"
+      "AI policy",
+      "Council of Europe",
+      "regulation"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://techcrunch.com/wp-content/uploads/2026/09/atomic-founders.jpg?resize=1200,900",
-      "alt": "Ex-Tesla team raises $12.5M to put supply chains on autopilot",
-      "credit": "TechCrunch"
+      "url": "https://thehill.com/wp-content/uploads/sites/2/2026/09/AI_Kelly_AP_ElenaCovalenco.jpg?w=900",
+      "alt": "Council of Europe head revives Biden-backed framework for AI regulation",
+      "credit": "The Hill"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Ex-Tesla team raises $12.5M to put supply chains on autopilot",
-      "url": "https://techcrunch.com/2026/09/29/ex-tesla-team-raises-12-5m-to-put-supply-chains-on-autopilot/",
-      "source": "TechCrunch"
+      "title": "Council of Europe head revives Biden-backed framework for AI regulation",
+      "url": "https://thehill.com/policy/international/6116016-council-europe-ai-framework/",
+      "source": "The Hill"
     },
     "aiAssisted": true,
-    "createdAt": "2026-09-29T10:06:00.680Z",
-    "updatedAt": "2026-09-29T10:06:00.680Z",
+    "createdAt": "2026-09-29T10:06:00.522Z",
+    "updatedAt": "2026-09-29T10:06:00.522Z",
     "publishedAt": null,
     "readingTime": 1
   },
