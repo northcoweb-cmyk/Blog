@@ -450,8 +450,9 @@ const Views = {
       root.querySelector('.lesson-foot').classList.add('hidden');
     };
     $('[data-back]', root).onclick = () => { if (step > 0) { step--; show(); } };
-    $('[data-next]', root).onclick = () => { if (step < lesson.steps.length - 1) { step++; show(); } else complete(); };
-    $('[data-skip]', root).onclick = () => { passed.add(step); $('[data-next]', root).click(); };
+    const advance = () => { if (step < lesson.steps.length - 1) { step++; show(); } else complete(); };
+    $('[data-next]', root).onclick = advance;
+    $('[data-skip]', root).onclick = () => { passed.add(step); advance(); };
     show();
     return () => inner?.();
   },

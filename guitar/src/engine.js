@@ -232,7 +232,7 @@ const Camera = (() => {
   const self = {
     ...ev,
     active: false, loading: false, error: null, video: null, stream: null, landmarker: null,
-    fret: null, strum: null, trail: [], context: null, lastSeen: { fret: 0, strum: 0 },
+    fret: null, strum: null, trail: [], hist: { fret: [], strum: [] }, context: null, lastSeen: { fret: 0, strum: 0 },
     arch: {},
 
     async start(deviceId) {
@@ -258,7 +258,7 @@ const Camera = (() => {
               delegate,
             },
             runningMode: 'VIDEO', numHands: 2,
-            minHandDetectionConfidence: 0.4, minHandPresenceConfidence: 0.4, minTrackingConfidence: 0.4,
+            minHandDetectionConfidence: 0.65, minHandPresenceConfidence: 0.65, minTrackingConfidence: 0.5,
           });
           try { self.landmarker = await vision.HandLandmarker.createFromOptions(files, opts('GPU')); }
           catch { self.landmarker = await vision.HandLandmarker.createFromOptions(files, opts('CPU')); }
@@ -314,10 +314,21 @@ const Camera = (() => {
       if (s.swapHands) strumLabel = strumLabel === 'Left' ? 'Right' : 'Left';
       let fret = null, strum = null;
       (res.landmarks || []).forEach((lm, i) => {
-        const label = res.handednesses?.[i]?.[0]?.categoryName || res.handedness?.[i]?.[0]?.categoryName;
-        const hand = { lm, world: res.worldLandmarks?.[i] };
-        if (label === strumLabel) strum = hand; else fret = hand;
+        const cat = res.handednesses?.[i]?.[0] || res.handedness?.[i]?.[0];
+        const world = res.worldLandmarks?.[i];
+        // Webcams sometimes see a mouth or face as a hand. Real hands get a confident
+        // label and have hand-sized proportions.
+        if (!cat || cat.score < 0.8 || !self._handShaped(world)) return;
+        const hand = { lm, world, score: cat.score };
+        if (cat.categoryName === strumLabel) { if (!strum || hand.score > strum.score) strum = hand; }
+        else if (!fret || hand.score > fret.score) fret = hand;
       });
+      // Only trust a hand after it has shown up in most recent frames (false hits flicker).
+      self.hist.fret = [...self.hist.fret, !!fret].slice(-8);
+      self.hist.strum = [...self.hist.strum, !!strum].slice(-8);
+      const steady = (h) => h.filter(Boolean).length >= 5;
+      if (!steady(self.hist.fret)) fret = null;
+      if (!steady(self.hist.strum)) strum = null;
       self.fret = fret;
       self.strum = strum;
       if (fret) { self.lastSeen.fret = now; self._arch(fret); }
@@ -327,6 +338,14 @@ const Camera = (() => {
         self.trail.push({ t: now, y });
       }
       while (self.trail.length && self.trail[0].t < now - 3000) self.trail.shift();
+    },
+
+    // Palm and finger lengths (in metres, from 3D landmarks) must look like a real hand.
+    _handShaped(w) {
+      if (!w) return true;
+      const d = (a, b) => Math.hypot(w[a].x - w[b].x, w[a].y - w[b].y, w[a].z - w[b].z);
+      const palm = d(0, 9), width = d(5, 17), index = d(5, 6) + d(6, 7) + d(7, 8);
+      return palm > 0.05 && palm < 0.14 && width > 0.035 && width < 0.12 && index > 0.035 && index < 0.13;
     },
 
     // How curled each fretting finger is (from 3D joint angles). Flat fingers mute strings.

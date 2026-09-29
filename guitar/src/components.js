@@ -241,6 +241,7 @@ function Tuner(root, { onPass, requireAll = false } = {}) {
       <div class="cents" data-cents>Pluck ${stringLabel(target)}</div>
       <div class="gauge"><div class="scale"></div><div class="zero"></div><div class="needle" data-needle></div></div>
       <div class="feedback center" data-fb>Pluck one string and let it ring.</div>
+      ${requireAll ? '<div style="margin-top:12px"><button class="btn small" data-tuned>My guitar is already tuned →</button></div>' : ''}
       <p class="small dim" style="margin-top:12px">Tip: tune <b>up</b> to the note. If you're too high, loosen below it and come back up; strings hold their tuning better that way.</p>
     </div>`;
     const paint = () => $$('[data-s]', root).forEach((b) => {
@@ -251,6 +252,8 @@ function Tuner(root, { onPass, requireAll = false } = {}) {
     paint();
     $$('[data-s]', root).forEach((b) => (b.onclick = () => { target = +b.dataset.s; manual = true; inTune = 0; readings = []; paint(); }));
     const fb = $('[data-fb]', root), needle = $('[data-needle]', root);
+    const tunedBtn = $('[data-tuned]', root);
+    if (tunedBtn) tunedBtn.onclick = () => { Store.set((d) => (d.tunedOn = Store.today())); fb.className = 'feedback ok'; fb.innerHTML = '<b>Got it ✓</b> Skipping the tuner.'; onPass?.(); };
     const iv = setInterval(() => {
       if (!alive) return;
       if (Mic.level < 0.003) { readings = []; inTune = 0; return; }
