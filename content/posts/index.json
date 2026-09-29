@@ -1,5 +1,34 @@
 [
   {
+    "slug": "ex-tesla-team-raises-12-5m-to-automate-supply-chains",
+    "title": "Ex‑Tesla team raises $12.5M to automate supply chains",
+    "dek": "Startup Atomic has built agentic AI for supply chains and counts DoorDash and HelloFresh as users.",
+    "section": "startups",
+    "tags": [
+      "AI",
+      "supply chain",
+      "funding"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://techcrunch.com/wp-content/uploads/2026/09/atomic-founders.jpg?resize=1200,900",
+      "alt": "Ex-Tesla team raises $12.5M to put supply chains on autopilot",
+      "credit": "TechCrunch"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Ex-Tesla team raises $12.5M to put supply chains on autopilot",
+      "url": "https://techcrunch.com/2026/09/29/ex-tesla-team-raises-12-5m-to-put-supply-chains-on-autopilot/",
+      "source": "TechCrunch"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-09-29T10:06:00.680Z",
+    "updatedAt": "2026-09-29T10:06:00.680Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "trygtm-ai-powered-outreach-that-turns-prospects-into-meetings",
     "title": "TryGTM: AI-Powered Outreach That Turns Prospects Into Meetings",
     "dek": "An automated approach to finding leads, starting conversations, and booking sales calls.",

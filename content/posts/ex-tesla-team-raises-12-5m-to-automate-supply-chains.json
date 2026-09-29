@@ -1,0 +1,29 @@
+{
+  "slug": "ex-tesla-team-raises-12-5m-to-automate-supply-chains",
+  "title": "Ex‑Tesla team raises $12.5M to automate supply chains",
+  "dek": "Startup Atomic has built agentic AI for supply chains and counts DoorDash and HelloFresh as users.",
+  "body": "Atomic, a startup founded by former Tesla employees, raised $12.5 million to build what it calls agentic supply chain software , AI systems that act autonomously to make decisions and take actions. The company says its product is already in use at companies including DoorDash and HelloFresh.\n\n## Why it matters\n\nSupply chains are complex, with many moving parts and frequent exceptions. Software that can act on behalf of human planners , by making adjustments, rebooking shipments or reallocating inventory, for example , could cut response times and reduce manual work. Large logistics customers such as DoorDash and HelloFresh testing or deploying agentic tools signals enterprise interest in software that automates operational decisions rather than only providing analytics.\n\n## The details\n\n- Amount raised: $12.5 million.  \n- Company: Atomic.  \n- Team background: founders and early team members previously worked at Tesla.  \n- Product: agentic supply chain software — AI that takes autonomous actions in supply chain workflows.  \n- Early customers or users: DoorDash and HelloFresh.  \n\nMissing or not yet disclosed: the reporting does not list the investors in the round, the company’s valuation or detailed product capabilities such as which supply chain tasks Atomic automates, the size of the deployments at DoorDash and HelloFresh, exact customer outcomes, or the company’s revenue and pricing model.\n\n## What to watch\n\nWatch for announcements about pilot results or customer case studies that quantify time or cost savings. Also look for details about who invested in the $12.5 million round and whether Atomic will expand beyond current users into manufacturing, retail or third-party logistics.\n\nSource: [TechCrunch](https://techcrunch.com/2026/09/29/ex-tesla-team-raises-12-5m-to-put-supply-chains-on-autopilot/)",
+  "section": "startups",
+  "tags": [
+    "AI",
+    "supply chain",
+    "funding"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://techcrunch.com/wp-content/uploads/2026/09/atomic-founders.jpg?resize=1200,900",
+    "alt": "Ex-Tesla team raises $12.5M to put supply chains on autopilot",
+    "credit": "TechCrunch"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Ex-Tesla team raises $12.5M to put supply chains on autopilot",
+    "url": "https://techcrunch.com/2026/09/29/ex-tesla-team-raises-12-5m-to-put-supply-chains-on-autopilot/",
+    "source": "TechCrunch"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-09-29T10:06:00.680Z",
+  "updatedAt": "2026-09-29T10:06:00.680Z",
+  "publishedAt": null
+}
