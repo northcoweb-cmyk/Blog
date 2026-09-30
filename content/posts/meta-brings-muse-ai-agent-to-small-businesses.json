@@ -1,0 +1,29 @@
+{
+  "slug": "meta-brings-muse-ai-agent-to-small-businesses",
+  "title": "Meta brings Muse AI agent to small businesses",
+  "dek": "Meta says Muse can help small-business owners run operations and find new customers as the company expands the agent beyond consumer products.",
+  "body": "Meta is expanding its AI agent Muse to small businesses. The company says Muse can help owners run their businesses and find new customers, and outlets report the move targets the broader small-business market.\n\n## Why it matters\n\nMeta is pushing an AI agent into a commercial user base that spans millions of businesses. If Muse becomes widely adopted by small firms, it could change how routine tasks such as customer acquisition and day-to-day operations are managed — shifting work from human-only processes to AI-supported workflows. Observers note Meta already has a large head start in the space, which could accelerate adoption among businesses that use the company’s platforms.\n\n## The details\n\n- Meta announced it is expanding Muse, its AI agent, to small businesses.\n- The company says Muse can help business owners run their businesses and find new customers.\n- Multiple outlets covered the rollout, including TechCrunch, CNBC, Investopedia, Dataconomy, New York Post, and The Tech Buzz.\n- One outlet framed the rollout as targeting roughly 200 million small businesses, reporting Muse’s availability at that scale.\n- CNBC reported Meta already has a “huge head start” in bringing Muse to small businesses.\n\nWhat’s not yet clear from the available coverage: which specific features Muse will offer to small businesses, pricing and contract terms, the rollout timeline and geographic scope, any limits on data access or third-party integrations, and how Meta plans to measure business-side outcomes such as customer growth or time saved.\n\n## What to watch\n\nLook for concrete product details from Meta: exact features, pricing, and the list of markets where Muse will be available first. Also watch for case studies or metrics showing whether Muse measurably increases customer acquisition or reduces operating costs for small firms.\n\nSource: [TechCrunch](https://techcrunch.com/2026/09/29/meta-is-expanding-its-ai-agent-muse-to-small-businesses/)",
+  "section": "mainstreet",
+  "tags": [
+    "Meta",
+    "AI agents",
+    "small business"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://techcrunch.com/wp-content/uploads/2026/09/GTM_Connectors_16x9-1.png?resize=1200,675",
+    "alt": "Meta is expanding its AI agent Muse to small businesses",
+    "credit": "TechCrunch"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Meta is expanding its AI agent Muse to small businesses",
+    "url": "https://techcrunch.com/2026/09/29/meta-is-expanding-its-ai-agent-muse-to-small-businesses/",
+    "source": "TechCrunch"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-09-30T10:06:04.904Z",
+  "updatedAt": "2026-09-30T10:06:04.904Z",
+  "publishedAt": null
+}
