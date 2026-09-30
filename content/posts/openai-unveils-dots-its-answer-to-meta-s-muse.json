@@ -1,0 +1,29 @@
+{
+  "slug": "openai-unveils-dots-its-answer-to-meta-s-muse",
+  "title": "OpenAI unveils Dots, its answer to Meta’s Muse",
+  "dek": "Dots are always-on AI assistants announced at DevDay that run across apps and learn user preferences.",
+  "body": "OpenAI introduced Dots at its DevDay keynote on Tuesday: always-on agent assistants that run in the background across connected apps and learn a user’s preferences over time. The company says Dots can “do nearly anything” and that the agents are powered by its GPT-6 Astra model.\n\n## Why it matters\n\nDots represent OpenAI’s move into agentic, persistent assistants , a category of AI that stays active, performs tasks across multiple services, and adapts to users instead of responding only to one-off prompts. Meta has been promoting a similar product called Muse; OpenAI’s launch signals a direct competition between large AI platform companies to own the always-on agent layer users may rely on for coordination, automation, and personalization.\n\nPersistent agents change the balance of control and data flow: they must connect to apps, run continuously or on-demand in the background, and retain or infer preferences. That raises questions about where decision-making happens, how data is stored, and what guardrails are in place — all issues that matter to companies, regulators, and users.\n\n## The details\n\n- Announcement context: OpenAI unveiled Dots during its DevDay keynote on Tuesday.\n- Product description: Dots are described as always-on AI assistants that can operate across connected apps while learning user preferences over time.\n- Capabilities claim: OpenAI says the agents can “do nearly anything.”\n- Underlying model: Dots are powered by OpenAI’s GPT-6 Astra model.\n- Positioning: The product is presented as a competitor to Meta’s Muse.\n- Deployment model mentioned by coverage: Dots run in the cloud and work in the background.\n\nWhat remains unclear from available reporting: the precise feature set, the apps and platforms Dots will connect to, pricing and availability, technical limits or latency expectations, concrete privacy and data-retention policies, and the specific safety or oversight mechanisms OpenAI will use for always-on agents.\n\n## What to watch\n\nWatch for official documentation from OpenAI detailing how Dots access and store app data, and which integrations ship at launch. Also track regulatory and industry responses on privacy and security: persistent agents that connect across services typically draw attention from privacy advocates and compliance teams.\n\nSource: [The Verge](https://www.theverge.com/ai-artificial-intelligence/1002033/openai-dots-launch-muse-competitor)",
+  "section": "ai",
+  "tags": [
+    "OpenAI",
+    "AI agents",
+    "GPT-6"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/Dots-Hero-Image.png?quality=90&strip=all&crop=0,0,100,100",
+    "alt": "OpenAI launches Dots, its Muse competitor",
+    "credit": "The Verge"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "OpenAI launches Dots, its Muse competitor",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1002033/openai-dots-launch-muse-competitor",
+    "source": "The Verge"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-09-30T10:06:05.719Z",
+  "updatedAt": "2026-09-30T10:06:05.719Z",
+  "publishedAt": null
+}

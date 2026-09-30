@@ -1,32 +1,32 @@
 [
   {
-    "slug": "meta-brings-muse-ai-agent-to-small-businesses",
-    "title": "Meta brings Muse AI agent to small businesses",
-    "dek": "Meta says Muse can help small-business owners run operations and find new customers as the company expands the agent beyond consumer products.",
-    "section": "mainstreet",
+    "slug": "openai-unveils-dots-its-answer-to-meta-s-muse",
+    "title": "OpenAI unveils Dots, its answer to Meta’s Muse",
+    "dek": "Dots are always-on AI assistants announced at DevDay that run across apps and learn user preferences.",
+    "section": "ai",
     "tags": [
-      "Meta",
+      "OpenAI",
       "AI agents",
-      "small business"
+      "GPT-6"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://techcrunch.com/wp-content/uploads/2026/09/GTM_Connectors_16x9-1.png?resize=1200,675",
-      "alt": "Meta is expanding its AI agent Muse to small businesses",
-      "credit": "TechCrunch"
+      "url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/Dots-Hero-Image.png?quality=90&strip=all&crop=0,0,100,100",
+      "alt": "OpenAI launches Dots, its Muse competitor",
+      "credit": "The Verge"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Meta is expanding its AI agent Muse to small businesses",
-      "url": "https://techcrunch.com/2026/09/29/meta-is-expanding-its-ai-agent-muse-to-small-businesses/",
-      "source": "TechCrunch"
+      "title": "OpenAI launches Dots, its Muse competitor",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1002033/openai-dots-launch-muse-competitor",
+      "source": "The Verge"
     },
     "aiAssisted": true,
-    "createdAt": "2026-09-30T10:06:04.904Z",
-    "updatedAt": "2026-09-30T10:06:04.904Z",
+    "createdAt": "2026-09-30T10:06:05.719Z",
+    "updatedAt": "2026-09-30T10:06:05.719Z",
     "publishedAt": null,
-    "readingTime": 1
+    "readingTime": 2
   },
   {
     "slug": "council-of-europe-revives-biden-backed-ai-rules",
