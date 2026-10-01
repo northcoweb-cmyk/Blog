@@ -2027,3 +2027,7 @@ kbd {
   .coverage a { display: block; padding: 13px 0 3px; }
   .site-footer li a { min-width: 44px; }
 }
+
+@media (pointer: coarse) {
+  .logo { min-height: 44px; }
+}
