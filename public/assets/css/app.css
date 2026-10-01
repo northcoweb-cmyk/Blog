@@ -109,6 +109,9 @@
 }
 
 /* ---------- Base ---------- */
+[hidden] {
+  display: none !important;
+}
 *,
 *::before,
 *::after {
@@ -1987,4 +1990,17 @@ kbd {
 }
 @media (max-width: 460px) {
   .cards-4 { grid-template-columns: 1fr; }
+}
+
+/* ---------- Touch screens: comfortable tap targets ---------- */
+@media (pointer: coarse) {
+  .icon-btn { width: 44px; height: 44px; }
+  .btn { min-height: 44px; }
+  .btn-sm { min-height: 40px; }
+  .tabs button { padding: 10px 14px; }
+  .drawer-panel a { padding: 14px 12px; }
+  .hl-list a { padding: 15px 0; }
+  .nav a { padding: 12px 12px; }
+  .tags a, .tags span { padding: 9px 14px; }
+  .footer-link, .site-footer li a { display: inline-block; padding: 4px 0; }
 }

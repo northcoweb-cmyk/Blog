@@ -310,7 +310,7 @@ let configPromise;
 export const getConfig = () => (configPromise ||= api('/api/config').catch(() => ({ features: {} })));
 
 export function signupHtml({ title = 'Get the Brief in your inbox', text = 'The five AI stories that matter, every morning. Free, two minutes, no noise.' } = {}) {
-  return `<div class="signup" data-signup>
+  return `<div class="signup" data-signup hidden>
     <h3>${esc(title)}</h3><p>${esc(text)}</p>
     <form novalidate>
       <label class="sr-only" for="su-${(Math.random() * 1e6) | 0}">Email address</label>
@@ -324,15 +324,18 @@ export function signupHtml({ title = 'Get the Brief in your inbox', text = 'The 
 
 export async function wireSignups(root = document) {
   const cfg = await getConfig();
+  const enabled = !!cfg.features?.newsletter;
+  // Subscribe buttons only exist when the email service is connected.
+  if (root === document) $$('[data-subscribe]').forEach((el) => (enabled ? (el.hidden = false) : el.remove()));
   $$('[data-signup]', root).forEach((box) => {
     if (box._wired) return;
     box._wired = true;
-    if (!cfg.features?.newsletter) {
-      // No email provider connected yet → offer the channels that do work.
-      box.querySelector('form').outerHTML = `<div class="alt"><a href="https://instagram.com/${esc(cfg.site?.instagram || SITE.instagram)}" target="_blank" rel="noopener">${ICON.instagram.replace('<svg', '<svg width="15" height="15"')} Follow on Instagram</a><a href="/rss.xml">${ICON.rss.replace('<svg', '<svg width="15" height="15"')} RSS feed</a></div>`;
-      box.querySelector('p').textContent = 'Email edition launching soon. Follow along for the daily headlines.';
+    if (!enabled) {
+      // Not connected → no signup box at all (and no empty gap where it was).
+      (box.closest('[data-signup-slot], #subscribe') || box.parentElement || box).remove();
       return;
     }
+    box.hidden = false;
     const form = box.querySelector('form');
     const msg = box.querySelector('.msg');
     form.addEventListener('submit', async (e) => {
@@ -381,7 +384,7 @@ export function initChrome({ active = '' } = {}) {
         <div class="mast-actions">
           <button class="icon-btn" data-search aria-label="Search">${ICON.search}</button>
           <button class="icon-btn theme-btn" aria-label="Toggle dark mode">${currentTheme() === 'dark' ? ICON.sun : ICON.moon}</button>
-          <a class="btn btn-primary btn-sm btn-subscribe" href="#subscribe" data-subscribe>Subscribe</a>
+          <a class="btn btn-primary btn-sm btn-subscribe" href="#subscribe" data-subscribe hidden>Subscribe</a>
           <button class="icon-btn menu-btn" aria-label="Menu" data-menu>${ICON.menu}</button>
         </div>
       </div>
@@ -394,7 +397,7 @@ export function initChrome({ active = '' } = {}) {
       <div class="wrap">
         <div class="foot-grid">
           <div>${logoHtml()}<p style="max-width:34ch;margin:14px 0 0">${esc(SITE.tagline)}. Model launches, AI markets, policy and the businesses putting AI to work. Updated all day.</p>
-            <div class="socials"><a href="https://instagram.com/${SITE.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${ICON.instagram}</a><a href="/rss.xml" aria-label="RSS">${ICON.rss}</a><a href="#subscribe" data-subscribe aria-label="Newsletter">${ICON.mail}</a></div></div>
+            <div class="socials"><a href="https://instagram.com/${SITE.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${ICON.instagram}</a><a href="/rss.xml" aria-label="RSS">${ICON.rss}</a><a href="#subscribe" data-subscribe aria-label="Newsletter" hidden>${ICON.mail}</a></div></div>
           <div><h4>Desks</h4><ul>${SECTIONS.slice(0, 4).map((s) => `<li><a href="/section/${s.id}">${s.long}</a></li>`).join('')}</ul></div>
           <div><h4>More desks</h4><ul>${SECTIONS.slice(4).map((s) => `<li><a href="/section/${s.id}">${s.long}</a></li>`).join('')}</ul></div>
           <div><h4>Tensor Street</h4><ul><li><a href="/about">About</a></li><li><a href="/learn">Learn AI: Glossary</a></li><li><a href="/archive">Daily archive</a></li><li><a href="/search">Search</a></li><li><a href="/rss.xml">RSS</a></li></ul></div>
