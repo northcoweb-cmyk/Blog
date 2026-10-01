@@ -464,7 +464,10 @@ function openSearch() {
   const o = $('#search-overlay');
   if (!o) return (location.href = '/search');
   o.classList.add('open');
-  setTimeout(() => o.querySelector('input').focus(), 20);
+  // Focus right away (inside the tap, so phones raise the keyboard), and again once it has painted.
+  const input = o.querySelector('input');
+  input.focus({ preventScroll: true });
+  setTimeout(() => document.activeElement !== input && input.focus({ preventScroll: true }), 60);
 }
 function closeSearch() {
   $('#search-overlay')?.classList.remove('open');

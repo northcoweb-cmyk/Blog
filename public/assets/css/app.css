@@ -2009,3 +2009,21 @@ kbd {
   .site-footer .socials a { width: 44px; height: 44px; }
   .meta a { padding: 12px 4px; margin: -12px -4px; }
 }
+
+/* ---------- Small phones (iPhone SE and narrower): header must not overlap ---------- */
+@media (max-width: 400px) {
+  .mast-row { gap: 8px; }
+  .logo { font-size: 19px; gap: 8px; min-width: 0; }
+  .logo svg { width: 27px; height: 27px; }
+  .mast-actions { gap: 0; }
+  .mast-actions .icon-btn { width: 40px; height: 40px; }
+}
+@media (max-width: 340px) {
+  .logo { font-size: 17px; }
+  .mast-actions .icon-btn { width: 38px; height: 38px; }
+}
+@media (pointer: coarse) {
+  .coverage li { padding: 0; }
+  .coverage a { display: block; padding: 13px 0 3px; }
+  .site-footer li a { min-width: 44px; }
+}
