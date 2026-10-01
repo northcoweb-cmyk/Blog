@@ -1,5 +1,34 @@
 [
   {
+    "slug": "google-unveils-gemini-4-argon-but-it-isn-t-available-yet",
+    "title": "Google unveils Gemini 4 “Argon” but it isn’t available yet",
+    "dek": "Google announced Argon, the first Gemini 4 model and its new flagship, but users can’t access it yet.",
+    "section": "models",
+    "tags": [
+      "Google",
+      "Gemini 4",
+      "AI models"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/gemini-general-1-1152x648.jpg",
+      "alt": "Google announces Gemini 4 Argon AI model, but you can't use it yet",
+      "credit": "Ars Technica"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Google announces Gemini 4 Argon AI model, but you can't use it yet",
+      "url": "https://arstechnica.com/google/2026/09/google-announces-gemini-4-argon-ai-model-but-you-cant-use-it-yet/",
+      "source": "Ars Technica"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-10-01T10:06:01.043Z",
+    "updatedAt": "2026-10-01T10:06:01.043Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "openai-unveils-dots-its-answer-to-meta-s-muse",
     "title": "OpenAI unveils Dots, its answer to Meta’s Muse",
     "dek": "Dots are always-on AI assistants announced at DevDay that run across apps and learn user preferences.",

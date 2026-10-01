@@ -1,0 +1,29 @@
+{
+  "slug": "google-unveils-gemini-4-argon-but-it-isn-t-available-yet",
+  "title": "Google unveils Gemini 4 “Argon” but it isn’t available yet",
+  "dek": "Google announced Argon, the first Gemini 4 model and its new flagship, but users can’t access it yet.",
+  "body": "Google announced a new flagship AI model called Gemini 4 Argon, the company’s first Gemini 4 release. Several outlets describe Argon as Google’s most powerful Gemini model to date, but the company has not made the model available for public use yet.\n\n## Why it matters\n\nArgon is positioned as the opening offering in the Gemini 4 series. That makes it the next major step in Google’s model roadmap, and the announcement sets expectations for what the company will offer after its Gemini 3.x family. At the same time, Argon’s unavailability means enterprises, developers, and end users cannot evaluate or deploy the model yet. The gap between announcement and access matters because it affects purchasing, product planning, and any competitive response from rivals.\n\n## The details\n\n- Google named its first Gemini 4 model Argon.\n- Multiple outlets called Argon the Gemini 4 flagship and described it as Google’s most powerful model yet.\n- Reports note that the release follows months of delays.\n- Despite the announcement, Argon is not yet available for public use.\n- Coverage appeared across outlets including Ars Technica, Engadget, TechCrunch, Emirates 24|7, and CNBC.\n\nMany technical specifics were not disclosed in the reporting available: Google has not published model size, training data details, latency or throughput numbers, availability timeline, pricing, or product integrations for Argon.\n\n## What to watch\n\nWatch for official Google follow-ups that clarify when Argon will be available, what deployment options (cloud API, on-device, enterprise licensing) will exist, and any benchmark numbers comparing Argon to prior Gemini releases. Also monitor regulatory or partner announcements that could indicate how broadly Google intends to distribute the model.\n\nSource: [Ars Technica](https://arstechnica.com/google/2026/09/google-announces-gemini-4-argon-ai-model-but-you-cant-use-it-yet/)",
+  "section": "models",
+  "tags": [
+    "Google",
+    "Gemini 4",
+    "AI models"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/gemini-general-1-1152x648.jpg",
+    "alt": "Google announces Gemini 4 Argon AI model, but you can't use it yet",
+    "credit": "Ars Technica"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Google announces Gemini 4 Argon AI model, but you can't use it yet",
+    "url": "https://arstechnica.com/google/2026/09/google-announces-gemini-4-argon-ai-model-but-you-cant-use-it-yet/",
+    "source": "Ars Technica"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-01T10:06:01.043Z",
+  "updatedAt": "2026-10-01T10:06:01.043Z",
+  "publishedAt": null
+}
