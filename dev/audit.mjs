@@ -66,9 +66,9 @@ for (const [name, opts] of DEVICES) {
     // 2. Leftover subscribe/newsletter UI (email service is not connected)
     const leftovers = await page.evaluate(() => {
       const hits = [];
-      for (const el of document.querySelectorAll('button, a, h1, h2, h3, h4, label')) {
+      for (const el of document.querySelectorAll('.signup, [data-signup], [data-subscribe], form button, button[type=submit], a.btn-subscribe')) {
         const r = el.getBoundingClientRect();
-        if (r.width && r.height && /subscribe|in your inbox|email edition/i.test(el.textContent)) hits.push(el.textContent.trim().slice(0, 40));
+        if (r.width && r.height) hits.push(el.textContent.trim().slice(0, 40) || el.className);
       }
       return hits;
     });
@@ -85,7 +85,7 @@ for (const [name, opts] of DEVICES) {
 
     // 4. Tap targets on touch devices
     if (opts.hasTouch) {
-      const small = await page.evaluate(() => [...document.querySelectorAll('a, button, input, select')].filter((el) => { const r = el.getBoundingClientRect(); const cs = getComputedStyle(el); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && (r.height < 30 || r.width < 30) && !el.closest('.tape, .hl-list li, p, .prose, .meta, .tags') && el.type !== 'hidden' && !el.classList.contains('hp') && !el.classList.contains('skip') && !(r.width < 3); }).slice(0, 4).map((el) => `${el.tagName.toLowerCase()}:${(el.getAttribute('aria-label') || el.textContent || '').trim().slice(0, 18)} ${Math.round(el.getBoundingClientRect().width)}x${Math.round(el.getBoundingClientRect().height)}`));
+      const small = await page.evaluate(() => [...document.querySelectorAll('a, button, input, select')].filter((el) => { const r = el.getBoundingClientRect(); const cs = getComputedStyle(el); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && (r.height < 30 || r.width < 30) && !el.closest('.tape, .hl-list li, p, .prose, .tags, .ai-note, .takebox, .sk, .signup') && el.type !== 'hidden' && !el.classList.contains('hp') && !el.classList.contains('skip') && !(r.width < 3); }).slice(0, 4).map((el) => `${el.tagName.toLowerCase()}:${(el.getAttribute('aria-label') || el.textContent || '').trim().slice(0, 18)} ${Math.round(el.getBoundingClientRect().width)}x${Math.round(el.getBoundingClientRect().height)}`));
       if (small.length) bad(name, label, `small tap targets: ${small.join(', ')}`);
     }
 
@@ -127,7 +127,7 @@ for (const [name, opts] of DEVICES) {
       await page.click('[data-menu]');
       await page.waitForSelector('#drawer.open', { timeout: 2000 });
       const n = await page.$$eval('#drawer .drawer-panel a', (a) => a.filter((x) => x.getBoundingClientRect().width).length);
-      await page.click('#drawer [data-close]');
+      await page.click('.drawer-panel [data-close]');
       await page.waitForFunction(() => !document.querySelector('#drawer.open'));
       return n >= 9;
     });

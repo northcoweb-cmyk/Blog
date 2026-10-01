@@ -1993,6 +1993,7 @@ kbd {
 }
 
 /* ---------- Touch screens: comfortable tap targets ---------- */
+/* Small text links get a bigger invisible hit area (padding + matching negative margin) so layout doesn't move. */
 @media (pointer: coarse) {
   .icon-btn { width: 44px; height: 44px; }
   .btn { min-height: 44px; }
@@ -2002,5 +2003,9 @@ kbd {
   .hl-list a { padding: 15px 0; }
   .nav a { padding: 12px 12px; }
   .tags a, .tags span { padding: 9px 14px; }
-  .footer-link, .site-footer li a { display: inline-block; padding: 4px 0; }
+  .crumbs a, .sec-head a.more, .dl-right a, .credit a { display: inline-flex; align-items: center; padding: 13px 8px; margin: -13px -8px; }
+  .site-footer ul { gap: 0; }
+  .site-footer li a { display: inline-block; padding: 12px 0; }
+  .site-footer .socials a { width: 44px; height: 44px; }
+  .meta a { padding: 12px 4px; margin: -12px -4px; }
 }
