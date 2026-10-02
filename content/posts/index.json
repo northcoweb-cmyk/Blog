@@ -1,5 +1,34 @@
 [
   {
+    "slug": "microsoft-rolls-out-new-transcription-and-tts-models-for-voice-agents",
+    "title": "Microsoft rolls out new transcription and TTS models for voice agents",
+    "dek": "Microsoft AI released MAI-Transcribe-2-Streaming and new text-to-speech models aimed at voice agents.",
+    "section": "models",
+    "tags": [
+      "Microsoft",
+      "speech AI",
+      "voice agents"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://the-decoder.com/wp-content/uploads/2026/10/MAI-quotation_marks_swarm_hq-1920x1167-1.webp",
+      "alt": "Microsoft AI releases new transcription and text-to-speech models for voice agents",
+      "credit": "The Decoder"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Microsoft AI releases new transcription and text-to-speech models for voice agents",
+      "url": "https://the-decoder.com/microsoft-ai-releases-new-transcription-and-text-to-speech-models-for-voice-agents/",
+      "source": "The Decoder"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-10-02T10:06:04.280Z",
+    "updatedAt": "2026-10-02T10:06:04.280Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "google-s-gemini-4-argon-narrows-gap-but-doesn-t-overtake-rivals",
     "title": "Google's Gemini 4 Argon narrows gap but doesn't overtake rivals",
     "dek": "New Gemini frontier model matches OpenAI on some tests but trails Anthropic while using far more tokens per task.",

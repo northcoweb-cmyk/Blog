@@ -1,0 +1,29 @@
+{
+  "slug": "microsoft-rolls-out-new-transcription-and-tts-models-for-voice-agents",
+  "title": "Microsoft rolls out new transcription and TTS models for voice agents",
+  "dek": "Microsoft AI released MAI-Transcribe-2-Streaming and new text-to-speech models aimed at voice agents.",
+  "body": "Microsoft AI has published new speech models: MAI-Transcribe-2-Streaming, advertised as a model for real-time transcription, and a set of text-to-speech (TTS) models targeted at voice agents. The announcement appeared on The Decoder.\n\n## Why it matters\n\nMicrosoft framed the release around voice agents , software that interacts by speaking and listening — by providing both transcription (speech-to-text) and text-to-speech capabilities. Those two components are the basic building blocks of any system that needs to understand spoken input and produce spoken output. The combination suggests Microsoft is pushing updates intended for conversational and interactive audio applications.\n\nInformation on performance, language support, latency, pricing, availability, and integration options was not provided in the coverage. That means customers and developers do not yet have published benchmarks or details on where and when they can access the models.\n\n## The details\n\n- Microsoft AI released MAI-Transcribe-2-Streaming, described as a model for real-time transcription.\n- Microsoft also released new text-to-speech models aimed at voice agents.\n- The story and announcement were reported by The Decoder.\n- The article did not include technical specs, performance benchmarks, supported languages, latency figures, licensing terms, or pricing.\n- The article did not state availability dates or the platforms and APIs through which the models will be distributed.\n\n## What to watch\n\nWatch for Microsoft to publish technical documentation and benchmarks that show latency, accuracy across languages and accents, and resource requirements. Also look for details on licensing, pricing, and how the models integrate with existing Microsoft cloud services and developer tools.\n\nSource: [The Decoder](https://the-decoder.com/microsoft-ai-releases-new-transcription-and-text-to-speech-models-for-voice-agents/)",
+  "section": "models",
+  "tags": [
+    "Microsoft",
+    "speech AI",
+    "voice agents"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://the-decoder.com/wp-content/uploads/2026/10/MAI-quotation_marks_swarm_hq-1920x1167-1.webp",
+    "alt": "Microsoft AI releases new transcription and text-to-speech models for voice agents",
+    "credit": "The Decoder"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Microsoft AI releases new transcription and text-to-speech models for voice agents",
+    "url": "https://the-decoder.com/microsoft-ai-releases-new-transcription-and-text-to-speech-models-for-voice-agents/",
+    "source": "The Decoder"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-02T10:06:04.280Z",
+  "updatedAt": "2026-10-02T10:06:04.280Z",
+  "publishedAt": null
+}
