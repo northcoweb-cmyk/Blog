@@ -1,5 +1,34 @@
 [
   {
+    "slug": "open-source-bootloops-helps-ai-do-precise-scientific-calculations",
+    "title": "Open-source BootLoops helps AI do precise scientific calculations",
+    "dek": "Harvard physicist Matthew Schwartz used BootLoops with Anthropic’s Claude to generate dozens of manuscripts, but human experts remained essential.",
+    "section": "models",
+    "tags": [
+      "open-source",
+      "research",
+      "AI-assist"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://the-decoder.com/wp-content/uploads/2026/10/frontier_claude_shaped_science_problems.png",
+      "alt": "Open-source \"BootLoops\" harness supports AI models in performing precise scientific calculations",
+      "credit": "The Decoder"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Open-source \"BootLoops\" harness supports AI models in performing precise scientific calculations",
+      "url": "https://the-decoder.com/open-source-bootloops-harness-supports-ai-models-in-performing-precise-scientific-calculations/",
+      "source": "The Decoder"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-10-03T10:06:01.547Z",
+    "updatedAt": "2026-10-03T10:06:01.547Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "trump-tech-leaders-sign-ai-accord-but-doubts-remain",
     "title": "Trump, tech leaders sign AI accord but doubts remain",
     "dek": "A high-profile pledge on artificial intelligence did not calm critics who say voluntary measures lack necessary guardrails.",

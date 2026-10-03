@@ -1,0 +1,29 @@
+{
+  "slug": "open-source-bootloops-helps-ai-do-precise-scientific-calculations",
+  "title": "Open-source BootLoops helps AI do precise scientific calculations",
+  "dek": "Harvard physicist Matthew Schwartz used BootLoops with Anthropic’s Claude to generate dozens of manuscripts, but human experts remained essential.",
+  "body": "Harvard physicist Matthew Schwartz used an open-source tool called BootLoops together with the AI model Claude to produce 36 manuscripts across 18 academic fields in three months. The work ranged from particle physics to linguistics. According to reporting, many of those machine-generated results only became scientifically useful after human experts reviewed and edited them , a reminder that the outputs required significant human intervention. As Schwartz summarized: “Look at everything yourself.”\n\n## Why it matters\n\nBootLoops is an open-source harness , a software layer that helps connect AI models to tasks — designed to support models in performing precise scientific calculations. That capability could change how researchers prototype ideas and run computational steps, especially when a model can be directed to run calculations rather than only draft prose. The episode shows both the speed gains possible when pairing such tooling with a large language model and the limits of model-only work: human domain expertise still determined whether a manuscript was scientifically valid.\n\n## The details\n\n- Tool: BootLoops, an open-source harness intended to support scientific calculations by AI models.\n- Model used: Claude (the reporting identifies this model as the one Schwartz used).\n- Output: 36 manuscripts produced in three months.\n- Scope: Manuscripts spanned 18 fields, with examples including particle physics and linguistics.\n- Human role: The results often required expert review and intervention to become scientifically valuable; Schwartz advised thorough human checking: “Look at everything yourself.”\n- What’s not specified: The report does not provide detailed breakdowns of manuscript quality, the exact nature of the human edits, peer-review outcomes, or whether the manuscripts led to published papers.\n\n## What to watch\n\nResearchers and institutions will likely monitor how open-source harnesses like BootLoops evolve and whether they lower the time and cost to produce computational research drafts. Equally important is tracking how peer review and expert verification scale as more labs adopt model-assisted workflows.\n\nSource: [The Decoder](https://the-decoder.com/open-source-bootloops-harness-supports-ai-models-in-performing-precise-scientific-calculations/)",
+  "section": "models",
+  "tags": [
+    "open-source",
+    "research",
+    "AI-assist"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://the-decoder.com/wp-content/uploads/2026/10/frontier_claude_shaped_science_problems.png",
+    "alt": "Open-source \"BootLoops\" harness supports AI models in performing precise scientific calculations",
+    "credit": "The Decoder"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Open-source \"BootLoops\" harness supports AI models in performing precise scientific calculations",
+    "url": "https://the-decoder.com/open-source-bootloops-harness-supports-ai-models-in-performing-precise-scientific-calculations/",
+    "source": "The Decoder"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-03T10:06:01.547Z",
+  "updatedAt": "2026-10-03T10:06:01.547Z",
+  "publishedAt": null
+}
