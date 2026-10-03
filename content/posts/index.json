@@ -1,32 +1,32 @@
 [
   {
-    "slug": "open-source-bootloops-helps-ai-do-precise-scientific-calculations",
-    "title": "Open-source BootLoops helps AI do precise scientific calculations",
-    "dek": "Harvard physicist Matthew Schwartz used BootLoops with Anthropic’s Claude to generate dozens of manuscripts, but human experts remained essential.",
+    "slug": "ai-agents-convert-photos-to-3d-blender-scenes-but-misjudge-accuracy",
+    "title": "AI agents convert photos to 3D Blender scenes , but misjudge accuracy",
+    "dek": "A system called LEGO-Anything produces editable Blender code from single images, but tested agents fail to assess their own geometric correctness.",
     "section": "models",
     "tags": [
-      "open-source",
-      "research",
-      "AI-assist"
+      "3D AI",
+      "computer vision",
+      "agents"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://the-decoder.com/wp-content/uploads/2026/10/frontier_claude_shaped_science_problems.png",
-      "alt": "Open-source \"BootLoops\" harness supports AI models in performing precise scientific calculations",
+      "url": "https://the-decoder.com/wp-content/uploads/2026/10/lego-anything-generated-image-nano-banana-pro.jpg",
+      "alt": "AI agents build 3D scenes from photos but have no idea if they got it right",
       "credit": "The Decoder"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Open-source \"BootLoops\" harness supports AI models in performing precise scientific calculations",
-      "url": "https://the-decoder.com/open-source-bootloops-harness-supports-ai-models-in-performing-precise-scientific-calculations/",
+      "title": "AI agents build 3D scenes from photos but have no idea if they got it right",
+      "url": "https://the-decoder.com/ai-agents-build-3d-scenes-from-photos-but-have-no-idea-if-they-got-it-right/",
       "source": "The Decoder"
     },
     "aiAssisted": true,
-    "createdAt": "2026-10-03T10:06:01.547Z",
-    "updatedAt": "2026-10-03T10:06:01.547Z",
+    "createdAt": "2026-10-03T10:06:02.994Z",
+    "updatedAt": "2026-10-03T10:06:02.994Z",
     "publishedAt": null,
-    "readingTime": 1
+    "readingTime": 2
   },
   {
     "slug": "trump-tech-leaders-sign-ai-accord-but-doubts-remain",
