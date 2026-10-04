@@ -1,0 +1,29 @@
+{
+  "slug": "anthropic-will-spend-100m-to-train-nearly-10-000-ai-engineers",
+  "title": "Anthropic will spend $100M to train nearly 10,000 AI engineers",
+  "dek": "The AI company announced a multi‑million dollar program with consulting partners to build engineering talent for deploying large models.",
+  "body": "Anthropic said it will invest $100 million to train nearly 10,000 AI engineers, working with a set of consulting firms to deliver the program.\n\n## Why it matters\n\nCompanies building and deploying large AI models often cite a shortage of engineers who know how to integrate, fine‑tune and operate those systems. Anthropic’s investment targets that skills gap by funding training at scale , a move that could change who gets access to deployment know‑how and which consultancies capture implementation work. The program also signals how model developers are starting to fund downstream adoption rather than relying solely on third‑party hiring or traditional education pipelines.\n\n## The details\n\n- Anthropic will invest $100 million to train nearly 10,000 AI engineers.\n- Multiple outlets report the initiative will involve partnerships with consulting firms; early partners named include McKinsey and Deloitte.\n- Some reports frame the cohort target as 10,000 engineers by 2027.\n- Several outlets say the training is intended to help engineers deploy Anthropic’s models , including Claude — although specific curricula or syllabi have not been published.\n- Public reports do not yet disclose selection criteria for trainees, whether the training will be paid or credentialed, or the geographic scope of the program.\n\n## What to watch\n\nLook for formal program materials from Anthropic or its consulting partners that describe course content, assessment methods and employment outcomes. Also watch which companies (beyond McKinsey and Deloitte) join as partners and whether the program includes on‑the‑job placements or certifications that third parties will recognize.\n\nSource: [CNBC](https://www.cnbc.com/2026/10/02/anthropic-to-invest-100-million-to-train-ai-engineer-talent.html)",
+  "section": "markets",
+  "tags": [
+    "Anthropic",
+    "workforce",
+    "AI engineering"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Slack_offices%2C_Howard_Street%2C_San_Francisco_%28viewed_from_the_south-west%2C_January_2020%29.jpg/1280px-Slack_offices%2C_Howard_Street%2C_San_Francisco_%28viewed_from_the_south-west%2C_January_2020%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "alt": "Anthropic to invest $100 million to train AI engineer talent",
+    "credit": "CNBC"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Anthropic to invest $100 million to train AI engineer talent",
+    "url": "https://www.cnbc.com/2026/10/02/anthropic-to-invest-100-million-to-train-ai-engineer-talent.html",
+    "source": "CNBC"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-04T10:06:11.856Z",
+  "updatedAt": "2026-10-04T10:06:11.856Z",
+  "publishedAt": null
+}
