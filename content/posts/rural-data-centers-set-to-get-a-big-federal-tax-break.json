@@ -1,0 +1,29 @@
+{
+  "slug": "rural-data-centers-set-to-get-a-big-federal-tax-break",
+  "title": "Rural data centers set to get a big federal tax break",
+  "dek": "A change in federal law could make rural data center projects eligible for substantial tax incentives starting next year, though major cloud firms aren’t rushing in.",
+  "body": "Congress has added a provision in the One Big Beautiful Bill Act that makes data center projects in rural locations eligible for large federal tax benefits beginning next year. The change applies to projects in rural areas; it is a tax-policy shift intended to direct investment outside major urban markets. Some of the largest cloud providers , known as hyperscalers (large-scale cloud companies that operate many data centers) , do not appear eager to claim the new subsidy.\n\n## Why it matters\n\nTax incentives shape where companies build infrastructure. Making rural data center projects eligible for major federal tax breaks could redirect capital and jobs to smaller communities that have not historically attracted large-scale compute facilities. The move also alters the economics of cloud and enterprise infrastructure planning: projects that were marginal under previous rules might become viable if they qualify for the new treatment. That could influence land use, local tax bases, and regional competition for industrial-scale energy and water demand tied to data centers.\n\n## The details\n\n- The policy change is part of the One Big Beautiful Bill Act. \n- It makes data center projects in rural areas eligible for major federal tax benefits. \n- The eligibility starts next year. \n- Some hyperscalers do not seem eager to take the tax subsidies. \n\nWhat the public account does not yet specify: the exact size of the tax benefits, the precise definition of which rural areas qualify, whether there are caps on the number of projects, and how federal officials will enforce or monitor compliance. It is also not yet clear which companies will apply for the benefits or how local authorities are preparing to attract or regulate new projects.\n\n## What to watch\n\nWatch for official guidance from Treasury or the IRS clarifying eligibility rules and application processes. Also track announcements from cloud providers and major corporate users about whether they will pursue rural projects under the new rules — their decisions will show whether the tax change changes investment patterns.\n\nSource: [WIRED](https://www.wired.com/story/rural-data-centers-are-in-for-a-big-federal-tax-break/)",
+  "section": "policy",
+  "tags": [
+    "policy",
+    "data centers",
+    "cloud"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://media.wired.com/photos/6abfbb7863cea41649272752/master/pass/100226-Power%20Play.jpg",
+    "alt": "Rural Data Centers Are in for a Big Federal Tax Break",
+    "credit": "WIRED"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Rural Data Centers Are in for a Big Federal Tax Break",
+    "url": "https://www.wired.com/story/rural-data-centers-are-in-for-a-big-federal-tax-break/",
+    "source": "WIRED"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-04T10:06:13.835Z",
+  "updatedAt": "2026-10-04T10:06:13.835Z",
+  "publishedAt": null
+}
