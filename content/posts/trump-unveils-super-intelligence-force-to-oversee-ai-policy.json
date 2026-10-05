@@ -1,0 +1,29 @@
+{
+  "slug": "trump-unveils-super-intelligence-force-to-oversee-ai-policy",
+  "title": "Trump unveils “Super Intelligence Force” to oversee AI policy",
+  "dek": "The new task force is presented as the administration’s latest response to debate over AI safety.",
+  "body": "President Trump announced a new body called the “Super Intelligence Force” intended to oversee and coordinate U.S. AI policy. The announcement frames the task force as a response to ongoing debates about AI safety and governance.\n\n## Why it matters\n\nThe U.S. is debating how to manage risks from advanced AI systems, and this announcement signals the administration intends to put a dedicated body at the center of that effort. A named, centralized force could change how federal AI policy is coordinated across agencies and how the government engages with companies and researchers , but the specifics that determine its influence are not yet public.\n\n## The details\n\n- The group is called the “Super Intelligence Force.”\n- The stated purpose is to oversee or coordinate U.S. AI policy.\n- The White House presented the force as the administration’s latest response to the debate over AI safety.\n- Coverage of the announcement appeared in multiple outlets reporting the launch and the intended role in U.S. AI policy.\n- Public reporting has not yet provided full details on the force’s membership, legal authority, budget, or how it will interact with existing agencies.\n\n## What to watch\n\nLook for formal documents or an executive order that define the force’s authority, staffing and funding — those will determine whether it changes policy or mainly serves as a coordinating body. Also watch how existing agencies and industry groups react; their cooperation will be critical for any meaningful oversight role.\n\nSource: [TechCrunch](https://techcrunch.com/2026/10/04/trump-unveils-his-new-super-intelligence-force/)",
+  "section": "policy",
+  "tags": [
+    "AI policy",
+    "US politics",
+    "regulation"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://techcrunch.com/wp-content/uploads/2026/09/GettyImages-2297764008.jpg?w=1024",
+    "alt": "Trump unveils his new Super Intelligence Force",
+    "credit": "TechCrunch"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Trump unveils his new Super Intelligence Force",
+    "url": "https://techcrunch.com/2026/10/04/trump-unveils-his-new-super-intelligence-force/",
+    "source": "TechCrunch"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-05T10:06:06.975Z",
+  "updatedAt": "2026-10-05T10:06:06.975Z",
+  "publishedAt": null
+}
