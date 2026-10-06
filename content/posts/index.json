@@ -1,5 +1,34 @@
 [
   {
+    "slug": "reflection-ai-releases-beam-an-open-weight-model-aimed-at-chinese-rivals",
+    "title": "Reflection AI releases Beam, an open-weight model aimed at Chinese rivals",
+    "dek": "Nvidia-backed startup Reflection AI published its first open-weight model, Beam, and says it matches leading open-source models from China.",
+    "section": "models",
+    "tags": [
+      "Reflection AI",
+      "open-source",
+      "Nvidia"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://thehill.com/wp-content/uploads/sites/2/2026/10/GettyImages-2239729471-e1791236365645.jpg?w=900",
+      "alt": "Reflection AI releases first open model to rival China",
+      "credit": "The Hill"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Reflection AI releases first open model to rival China",
+      "url": "https://thehill.com/policy/technology/6130496-reflection-ai-releases-beam-model/",
+      "source": "The Hill"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-10-06T10:06:03.146Z",
+    "updatedAt": "2026-10-06T10:06:03.146Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "trump-announces-super-intelligence-force-to-coordinate-on-ai",
     "title": "Trump announces 'Super Intelligence Force' to coordinate on AI",
     "dek": "A White House unit called the Super Intelligence Force will report directly to the president and work with companies and infrastructure operators.",

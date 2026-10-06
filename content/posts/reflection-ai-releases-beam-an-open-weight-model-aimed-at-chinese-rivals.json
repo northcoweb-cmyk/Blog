@@ -1,0 +1,29 @@
+{
+  "slug": "reflection-ai-releases-beam-an-open-weight-model-aimed-at-chinese-rivals",
+  "title": "Reflection AI releases Beam, an open-weight model aimed at Chinese rivals",
+  "dek": "Nvidia-backed startup Reflection AI published its first open-weight model, Beam, and says it matches leading open-source models from China.",
+  "body": "Reflection AI released its first open-weight model, called Beam, and said in a blog post that the model rivals leading open-source technologies developed in the U.S. and China. The company is backed by Nvidia.\n\n## Why it matters\n\nOpen-weight models are models whose parameters are publicly available, letting developers run, inspect and modify them. Beam’s release adds another openly available model to a field where Chinese groups have recently produced influential open-source offerings. That matters for developers, researchers and companies deciding which models to build on or deploy, and it affects which technologies are available outside of a single vendor’s ecosystem.\n\n## The details\n\n- Reflection AI announced Beam in a blog post published Monday. The company described Beam as being on par with some leading open-source models made in China.\n- Reflection AI is backed by Nvidia, which the company disclosed in its announcement.\n- The model is presented as an \"open-weight\" release, meaning its parameters are available for others to use and modify.\n- Coverage of the release appeared in multiple outlets, highlighting the framing of Beam as a rival to Chinese open-source models.\n\nWhat the announcement does not say , and what is not publicly detailed yet — includes exact performance benchmarks, specific model size or architecture, the datasets used for training, licensing terms, and whether commercial use is permitted. The blog post asserts parity with Chinese open-source models but does not publish independent comparisons in the material cited.\n\n## What to watch\n\nLook for third-party evaluations and benchmark results that confirm or refute Reflection AI’s claim that Beam matches leading Chinese models. Also watch for publication of the model weights, code, and license text so developers can assess real-world usability and legal constraints.\n\nSource: [The Hill](https://thehill.com/policy/technology/6130496-reflection-ai-releases-beam-model/)",
+  "section": "models",
+  "tags": [
+    "Reflection AI",
+    "open-source",
+    "Nvidia"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://thehill.com/wp-content/uploads/sites/2/2026/10/GettyImages-2239729471-e1791236365645.jpg?w=900",
+    "alt": "Reflection AI releases first open model to rival China",
+    "credit": "The Hill"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Reflection AI releases first open model to rival China",
+    "url": "https://thehill.com/policy/technology/6130496-reflection-ai-releases-beam-model/",
+    "source": "The Hill"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-06T10:06:03.146Z",
+  "updatedAt": "2026-10-06T10:06:03.146Z",
+  "publishedAt": null
+}
