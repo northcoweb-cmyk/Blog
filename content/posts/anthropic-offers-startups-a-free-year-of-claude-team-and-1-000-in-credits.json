@@ -1,0 +1,29 @@
+{
+  "slug": "anthropic-offers-startups-a-free-year-of-claude-team-and-1-000-in-credits",
+  "title": "Anthropic offers startups a free year of Claude Team and $1,000 in credits",
+  "dek": "Anthropic is launching a program that provides startups one year of its Claude Team service and $1,000 in token credits.",
+  "body": "Anthropic announced a new program that gives startups a free year of Claude Team and $1,000 in token credits. The company framed the move as a way to get AI-powered products into the market through the businesses that build on top of models , “We created this program because we believe the benefits of AI will reach most people through the companies that build on top of models, rather than through the models alone.”\n\n## Why it matters\n\nStartups are an important distribution channel for AI capabilities because they package models into products and services customers actually use. Providing a year of Claude Team plus token credits reduces the short-term cost of experimenting with Anthropic’s commercial offering, which could accelerate product development and trials for early-stage companies.\n\nFrom Anthropic’s perspective, the program is a direct way to encourage adoption of Claude within the developer and startup community rather than relying solely on model-level distribution.\n\n## The details\n\n- Offer: One free year of Claude Team and $1,000 in token credits.\n- Target: Startups. (TechCrunch and Dataconomy report the program is aimed at startups.)\n- Public messaging: Anthropic said the program exists because it expects the benefits of AI to reach most people through companies that build on models.  \n- Coverage: The announcement was reported by TechCrunch and picked up by Dataconomy.\n\nWhat the companies did not disclose publicly in these reports:\n\n- Exact eligibility criteria for participating startups (for example, size, revenue, region or stage).\n- Whether the free year includes enterprise features beyond Claude Team, or limits on usage during the free year.\n- How the $1,000 in token credits will be applied or whether they have an expiration or usage restrictions.\n\n## What to watch\n\nLook for follow-up details from Anthropic about eligibility, usage limits and geographic availability — those will determine how broadly startups can take advantage. Also watch whether other model providers match or respond to this pricing and credits approach, which could influence startup choices for model providers.\n\nSource: [TechCrunch](https://techcrunch.com/2026/10/06/anthropic-gives-startups-a-free-year-of-enterprise-service-and-1000-in-token-credits/)",
+  "section": "ai",
+  "tags": [
+    "Anthropic",
+    "startups",
+    "AI infrastructure"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://techcrunch.com/wp-content/uploads/2026/06/Claude-photo.jpg?w=1024",
+    "alt": "Anthropic is giving startups a free year of Claude Team and $1,000 in credits",
+    "credit": "TechCrunch"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Anthropic is giving startups a free year of Claude Team and $1,000 in credits",
+    "url": "https://techcrunch.com/2026/10/06/anthropic-gives-startups-a-free-year-of-enterprise-service-and-1000-in-token-credits/",
+    "source": "TechCrunch"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-07T10:06:02.575Z",
+  "updatedAt": "2026-10-07T10:06:02.575Z",
+  "publishedAt": null
+}
