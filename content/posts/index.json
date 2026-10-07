@@ -1,30 +1,31 @@
 [
   {
-    "slug": "anthropic-offers-startups-a-free-year-of-claude-team-and-1-000-in-credits",
-    "title": "Anthropic offers startups a free year of Claude Team and $1,000 in credits",
-    "dek": "Anthropic is launching a program that provides startups one year of its Claude Team service and $1,000 in token credits.",
-    "section": "ai",
+    "slug": "anthropic-expands-claude-startups-program-to-court-founders-and-fast-growth-firm",
+    "title": "Anthropic expands Claude Startups program to court founders and fast-growth firms",
+    "dek": "Anthropic broadened its Claude Startups initiative, signaling a renewed push to deepen ties with early-stage and fast-growing companies.",
+    "section": "startups",
     "tags": [
       "Anthropic",
+      "Claude",
       "startups",
-      "AI infrastructure"
+      "AI industry"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://techcrunch.com/wp-content/uploads/2026/06/Claude-photo.jpg?w=1024",
-      "alt": "Anthropic is giving startups a free year of Claude Team and $1,000 in credits",
-      "credit": "TechCrunch"
+      "url": "https://image.cnbcfm.com/api/v1/image/108349279-1786641474597-gettyimages-2283915428-TFSPI_03072026-6044.jpeg?v=1789409239&w=1920&h=1080",
+      "alt": "Anthropic expands Claude Startups program in bid to snag founders and fast-growing companies",
+      "credit": "CNBC"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Anthropic is giving startups a free year of Claude Team and $1,000 in credits",
-      "url": "https://techcrunch.com/2026/10/06/anthropic-gives-startups-a-free-year-of-enterprise-service-and-1000-in-token-credits/",
-      "source": "TechCrunch"
+      "title": "Anthropic expands Claude Startups program in bid to snag founders and fast-growing companies",
+      "url": "https://www.cnbc.com/2026/10/06/anthropic-claude-startups-program.html",
+      "source": "CNBC"
     },
     "aiAssisted": true,
-    "createdAt": "2026-10-07T10:06:02.575Z",
-    "updatedAt": "2026-10-07T10:06:02.575Z",
+    "createdAt": "2026-10-07T10:06:02.789Z",
+    "updatedAt": "2026-10-07T10:06:02.789Z",
     "publishedAt": null,
     "readingTime": 1
   },
