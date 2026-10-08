@@ -1,0 +1,29 @@
+{
+  "slug": "manus-raises-500m-after-meta-deal-unwound",
+  "title": "Manus raises $500M after Meta deal unwound",
+  "dek": "The AI agent developer secured fresh capital in its first funding round since Beijing forced Meta to unwind a roughly $2 billion acquisition.",
+  "body": "Manus, an artificial intelligence agent developer, raised roughly $500 million in its first funding round since Meta was forced to unwind an acquisition of the company.\n\nAn AI agent is software that can perform tasks or make decisions on behalf of users. The new financing gives Manus fresh capital after Chinese authorities required Meta to reverse a roughly $2 billion deal to buy the startup.\n\n## Why it matters\n\nThe financing closes a major chapter for Manus and highlights how regulatory intervention can reshape outcomes for AI companies and their backers. Beijing’s decision to force Meta to unwind the acquisition returned Manus to independent status and now the company has raised substantial outside capital to continue operating on its own.\n\nThe size of the round , reported at about $500 million, with other outlets noting it was “more than $500 million” — signals strong investor interest in AI applications that build and deploy autonomous agents. It also creates a test case for how large, regulated acquisitions in AI can be unwound and how startups move forward afterward.\n\n## The details\n\n- Manus is an AI agent developer; the company was previously part of an acquisition by Meta that Chinese regulators forced to be unwound.\n- The funding round provided roughly $500 million in fresh capital; Reuters described the raise as \"more than $500 million.\" \n- This is Manus’s first funding round since the breakup of the Meta deal.\n- Beijing forced Meta to unwind the acquisition, which was reported to be roughly $2 billion.\n- Public reports do not list the investors in the new round or the specific uses for the capital.\n\n## What to watch\n\nLook for disclosure of the new investors and any governance changes tied to the financing. Also watch for announcements about product roadmaps or hires that show how Manus will deploy the capital to develop and scale its AI agents.\n\nRegulatory follow-through matters: observers will be watching whether Chinese authorities take further steps affecting foreign buyers or domestic AI companies, and whether similar unwindings become more common.\n\nSource: [CNBC](https://www.cnbc.com/2026/10/08/manus-fund-raise-meta-muse-tencent.html)",
+  "section": "startups",
+  "tags": [
+    "AI startups",
+    "funding",
+    "regulation"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://image.cnbcfm.com/api/v1/image/108375190-1791437632622-gettyimages-2254446954-CHINA_MANUS.jpeg?v=1791437646&w=1920&h=1080",
+    "alt": "AI startup Manus raises $500 million in first funding round since Meta breakup",
+    "credit": "CNBC"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "AI startup Manus raises $500 million in first funding round since Meta breakup",
+    "url": "https://www.cnbc.com/2026/10/08/manus-fund-raise-meta-muse-tencent.html",
+    "source": "CNBC"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-08T10:06:08.632Z",
+  "updatedAt": "2026-10-08T10:06:08.632Z",
+  "publishedAt": null
+}

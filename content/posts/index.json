@@ -1,32 +1,32 @@
 [
   {
-    "slug": "ai-tools-enabled-a-single-attacker-to-hit-south-korean-banks",
-    "title": "AI tools enabled a single attacker to hit South Korean banks",
-    "dek": "CrowdStrike says an attacker using ARTEX and large language models stole tens of thousands of records from multiple financial institutions including Shinhan Bank.",
-    "section": "models",
+    "slug": "manus-raises-500m-after-meta-deal-unwound",
+    "title": "Manus raises $500M after Meta deal unwound",
+    "dek": "The AI agent developer secured fresh capital in its first funding round since Beijing forced Meta to unwind a roughly $2 billion acquisition.",
+    "section": "startups",
     "tags": [
-      "cybersecurity",
-      "AI",
-      "finance"
+      "AI startups",
+      "funding",
+      "regulation"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://the-decoder.com/wp-content/uploads/2026/10/cyber_kraken.png",
-      "alt": "AI-powered hacking tools enabled a likely single attacker to breach multiple South Korean banks",
-      "credit": "The Decoder"
+      "url": "https://image.cnbcfm.com/api/v1/image/108375190-1791437632622-gettyimages-2254446954-CHINA_MANUS.jpeg?v=1791437646&w=1920&h=1080",
+      "alt": "AI startup Manus raises $500 million in first funding round since Meta breakup",
+      "credit": "CNBC"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "AI-powered hacking tools enabled a likely single attacker to breach multiple South Korean banks",
-      "url": "https://the-decoder.com/ai-powered-hacking-tools-enabled-a-likely-single-attacker-to-breach-multiple-south-korean-banks/",
-      "source": "The Decoder"
+      "title": "AI startup Manus raises $500 million in first funding round since Meta breakup",
+      "url": "https://www.cnbc.com/2026/10/08/manus-fund-raise-meta-muse-tencent.html",
+      "source": "CNBC"
     },
     "aiAssisted": true,
-    "createdAt": "2026-10-08T10:06:08.094Z",
-    "updatedAt": "2026-10-08T10:06:08.094Z",
+    "createdAt": "2026-10-08T10:06:08.632Z",
+    "updatedAt": "2026-10-08T10:06:08.632Z",
     "publishedAt": null,
-    "readingTime": 1
+    "readingTime": 2
   },
   {
     "slug": "anthropic-expands-claude-startups-program-to-court-founders-and-fast-growth-firm",
