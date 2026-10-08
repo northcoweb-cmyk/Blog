@@ -1,0 +1,29 @@
+{
+  "slug": "ai-tools-enabled-a-single-attacker-to-hit-south-korean-banks",
+  "title": "AI tools enabled a single attacker to hit South Korean banks",
+  "dek": "CrowdStrike says an attacker using ARTEX and large language models stole tens of thousands of records from multiple financial institutions including Shinhan Bank.",
+  "body": "A likely single attacker used AI-powered tooling to breach multiple South Korean financial institutions and steal customer data. CrowdStrike identified an intrusion that included more than 25,000 customer records taken from Shinhan Bank. The researcher firm ties the methods to ARTEX, an open-source automated penetration testing tool that leverages models such as DeepSeek and GLM-5.3.\n\n## Why it matters\nAI models that automate offensive tasks can multiply the impact of one operator. CrowdStrike says this case demonstrates how AI-based tooling made it possible for a single person to carry out what would previously have required more people or specialized teams. Financial institutions hold concentrated, high-value data, so breaches can scale quickly when tooling automates reconnaissance and exploitation.\n\n## The details\n- CrowdStrike investigated and reported the campaign.\n- A suspected Chinese-speaking attacker is the likely operator; fuller attribution has not been reported.\n- ARTEX, an open-source tool, was used; ARTEX uses AI models including DeepSeek and GLM-5.3 to automate penetration testing (penetration testing is offensive security work that probes systems for vulnerabilities).\n- Shinhan Bank lost more than 25,000 customer records as part of the incident.\n- The campaign affected multiple South Korean financial institutions; precise list and full scope of affected organizations have not been disclosed.\n- CrowdStrike highlights the incident as an example of how AI tooling can enable a single individual to perform large-scale cyber intrusions.\n\n## What to watch\nExpect follow-up reporting from CrowdStrike and affected banks with details about how ARTEX was applied, the timeline of intrusions, and what vulnerabilities or gaps were exploited. Regulators and financial institutions will likely reassess detection and response controls for automated attack tooling.\n\nSource: [The Decoder](https://the-decoder.com/ai-powered-hacking-tools-enabled-a-likely-single-attacker-to-breach-multiple-south-korean-banks/)",
+  "section": "models",
+  "tags": [
+    "cybersecurity",
+    "AI",
+    "finance"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://the-decoder.com/wp-content/uploads/2026/10/cyber_kraken.png",
+    "alt": "AI-powered hacking tools enabled a likely single attacker to breach multiple South Korean banks",
+    "credit": "The Decoder"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "AI-powered hacking tools enabled a likely single attacker to breach multiple South Korean banks",
+    "url": "https://the-decoder.com/ai-powered-hacking-tools-enabled-a-likely-single-attacker-to-breach-multiple-south-korean-banks/",
+    "source": "The Decoder"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-08T10:06:08.094Z",
+  "updatedAt": "2026-10-08T10:06:08.094Z",
+  "publishedAt": null
+}

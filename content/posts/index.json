@@ -1,5 +1,34 @@
 [
   {
+    "slug": "ai-tools-enabled-a-single-attacker-to-hit-south-korean-banks",
+    "title": "AI tools enabled a single attacker to hit South Korean banks",
+    "dek": "CrowdStrike says an attacker using ARTEX and large language models stole tens of thousands of records from multiple financial institutions including Shinhan Bank.",
+    "section": "models",
+    "tags": [
+      "cybersecurity",
+      "AI",
+      "finance"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://the-decoder.com/wp-content/uploads/2026/10/cyber_kraken.png",
+      "alt": "AI-powered hacking tools enabled a likely single attacker to breach multiple South Korean banks",
+      "credit": "The Decoder"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "AI-powered hacking tools enabled a likely single attacker to breach multiple South Korean banks",
+      "url": "https://the-decoder.com/ai-powered-hacking-tools-enabled-a-likely-single-attacker-to-breach-multiple-south-korean-banks/",
+      "source": "The Decoder"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-10-08T10:06:08.094Z",
+    "updatedAt": "2026-10-08T10:06:08.094Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "anthropic-expands-claude-startups-program-to-court-founders-and-fast-growth-firm",
     "title": "Anthropic expands Claude Startups program to court founders and fast-growth firms",
     "dek": "Anthropic broadened its Claude Startups initiative, signaling a renewed push to deepen ties with early-stage and fast-growing companies.",
