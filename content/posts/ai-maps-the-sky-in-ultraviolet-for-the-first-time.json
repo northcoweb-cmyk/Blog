@@ -1,0 +1,29 @@
+{
+  "slug": "ai-maps-the-sky-in-ultraviolet-for-the-first-time",
+  "title": "AI maps the sky in ultraviolet for the first time",
+  "dek": "Anthropic’s Claude Science helped an astrophysicist assemble a full-sky ultraviolet map by downloading, calibrating and inpainting archival data.",
+  "body": "An astrophysicist at Johns Hopkins University used Anthropic’s Claude Science to produce the first complete ultraviolet (UV) map of the sky. AI agents gathered data from multiple space missions, applied calibration procedures to make the different datasets compatible, and used inpainting , a technique that fills missing data , to cover gaps. The reconstructed map’s predictions were, on average, about ten percent off from actual measurements.\n\n## Why it matters\n\nThis project shows how large AI models can be applied to assemble and process large, heterogeneous astronomical archives. Creating a full-sky UV map required combining observations from different instruments and epochs; according to the researcher involved, the work likely would not have been done without the AI-assisted workflow. A complete UV sky map is a new resource for astrophysics because ultraviolet light traces hot stars, gas and energetic processes that are not visible in ordinary optical surveys.\n\n## The details\n\n- Who: Brice Ménard, an astrophysicist at Johns Hopkins University, led the effort using Anthropic’s Claude Science.\n- What: The team produced the first complete map of the sky in ultraviolet light.\n- How: AI agents downloaded data from multiple space missions, calibrated the disparate datasets, and used inpainting to fill missing regions.\n- Accuracy: The AI-based predictions averaged roughly a ten percent deviation from actual measurements.\n- Claims about feasibility: Ménard characterized the project as an example of research that would likely not have been completed without the AI workflow.\n- Unknowns: The specific space missions used, the volume of data processed, the exact calibration methods, and the detailed evaluation metrics beyond the average ten percent deviation have not been disclosed in the reporting.\n\n## What to watch\n\nLook for follow-up validations from independent teams that compare the AI-assembled map to raw, mission-level data and to future UV observations. Also watch for released datasets, code or documentation that detail which missions and calibration steps were used — those materials are needed for wider scientific reuse and reproducibility.\n\nSource: [The Decoder](https://the-decoder.com/anthropics-claude-science-creates-the-first-complete-ultraviolet-map-of-the-sky/)",
+  "section": "research",
+  "tags": [
+    "AI in science",
+    "astronomy",
+    "Anthropic"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://the-decoder.com/wp-content/uploads/2026/10/claude_sky_mapping.png",
+    "alt": "Anthropic's Claude Science creates the first complete ultraviolet map of the sky",
+    "credit": "The Decoder"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Anthropic's Claude Science creates the first complete ultraviolet map of the sky",
+    "url": "https://the-decoder.com/anthropics-claude-science-creates-the-first-complete-ultraviolet-map-of-the-sky/",
+    "source": "The Decoder"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-09T10:06:06.184Z",
+  "updatedAt": "2026-10-09T10:06:06.184Z",
+  "publishedAt": null
+}

@@ -1,5 +1,34 @@
 [
   {
+    "slug": "ai-maps-the-sky-in-ultraviolet-for-the-first-time",
+    "title": "AI maps the sky in ultraviolet for the first time",
+    "dek": "Anthropic’s Claude Science helped an astrophysicist assemble a full-sky ultraviolet map by downloading, calibrating and inpainting archival data.",
+    "section": "research",
+    "tags": [
+      "AI in science",
+      "astronomy",
+      "Anthropic"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://the-decoder.com/wp-content/uploads/2026/10/claude_sky_mapping.png",
+      "alt": "Anthropic's Claude Science creates the first complete ultraviolet map of the sky",
+      "credit": "The Decoder"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Anthropic's Claude Science creates the first complete ultraviolet map of the sky",
+      "url": "https://the-decoder.com/anthropics-claude-science-creates-the-first-complete-ultraviolet-map-of-the-sky/",
+      "source": "The Decoder"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-10-09T10:06:06.184Z",
+    "updatedAt": "2026-10-09T10:06:06.184Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "manus-raises-500m-after-meta-deal-unwound",
     "title": "Manus raises $500M after Meta deal unwound",
     "dek": "The AI agent developer secured fresh capital in its first funding round since Beijing forced Meta to unwind a roughly $2 billion acquisition.",
