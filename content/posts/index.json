@@ -1,30 +1,30 @@
 [
   {
-    "slug": "ai-maps-the-sky-in-ultraviolet-for-the-first-time",
-    "title": "AI maps the sky in ultraviolet for the first time",
-    "dek": "Anthropic’s Claude Science helped an astrophysicist assemble a full-sky ultraviolet map by downloading, calibrating and inpainting archival data.",
+    "slug": "openai-backs-firing-of-three-safety-researchers",
+    "title": "OpenAI backs firing of three safety researchers",
+    "dek": "Company says researchers broke policies on handling sensitive information; says action was not about raising safety concerns",
     "section": "research",
     "tags": [
-      "AI in science",
-      "astronomy",
-      "Anthropic"
+      "OpenAI",
+      "AI safety",
+      "personnel"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://the-decoder.com/wp-content/uploads/2026/10/claude_sky_mapping.png",
-      "alt": "Anthropic's Claude Science creates the first complete ultraviolet map of the sky",
-      "credit": "The Decoder"
+      "url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/08/STK155_OPEN_AI_CVirginia_C-1.jpg?quality=90&strip=all&crop=0,0,100,100",
+      "alt": "OpenAI doubles down on decision to fire three AI safety researchers",
+      "credit": "The Verge"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Anthropic's Claude Science creates the first complete ultraviolet map of the sky",
-      "url": "https://the-decoder.com/anthropics-claude-science-creates-the-first-complete-ultraviolet-map-of-the-sky/",
-      "source": "The Decoder"
+      "title": "OpenAI doubles down on decision to fire three AI safety researchers",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1008604/openai-defends-decision-fire-safety-researchers",
+      "source": "The Verge"
     },
     "aiAssisted": true,
-    "createdAt": "2026-10-09T10:06:06.184Z",
-    "updatedAt": "2026-10-09T10:06:06.184Z",
+    "createdAt": "2026-10-09T10:06:06.133Z",
+    "updatedAt": "2026-10-09T10:06:06.133Z",
     "publishedAt": null,
     "readingTime": 1
   },

@@ -1,0 +1,29 @@
+{
+  "slug": "openai-backs-firing-of-three-safety-researchers",
+  "title": "OpenAI backs firing of three safety researchers",
+  "dek": "Company says researchers broke policies on handling sensitive information; says action was not about raising safety concerns",
+  "body": "OpenAI has stood by its decision to dismiss three researchers who worked on AI safety, saying an internal investigation found they committed \"a significant breach of trust.\" The company posted the explanation on X on Friday and named the dismissed staff as Jasmine Wang, Tomek Korbak, and Mikita Balesni.\n\n## Why it matters\n\nOpenAI is one of the leading organizations working on policies and technical work to reduce risks from advanced AI. Removing three people from its safety team is a major personnel move that affects its internal capacity and sends a signal to staff and the broader AI community about how the company will treat breaches of its information-handling rules.\n\nOpenAI also explicitly framed the decision as unrelated to raising safety concerns or speaking out, which addresses a central worry among researchers and external observers about whether whistleblowing or internal critique could trigger punitive action.\n\n## The details\n\n- OpenAI announced the dismissals in a post on X on Friday.\n- The company identified the three dismissed employees as Jasmine Wang, Tomek Korbak, and Mikita Balesni.\n- OpenAI said an investigation found the researchers committed \"a significant breach of trust.\" \n- The stated reason for dismissal was violation of \"clear policies on handling sensitive information.\" \n- OpenAI told reporters the decision was not about raising safety concerns or speaking out, per CNBC.\n- The exact nature of the sensitive information, how it was handled, and the specifics of the breach were not disclosed in the company statement.\n- The company did not publish the investigation report publicly in its post, and it is not known whether there will be further internal or external review.\n\n## What to watch\n\nLook for more details from OpenAI about the investigation findings and any follow-up actions, including whether the company will publish a more detailed account or provide additional transparency to employees. Watch for responses from the three researchers and any third parties, such as academic collaborators or funders, that may clarify what information was at issue.\n\nSource: [The Verge](https://www.theverge.com/ai-artificial-intelligence/1008604/openai-defends-decision-fire-safety-researchers)",
+  "section": "research",
+  "tags": [
+    "OpenAI",
+    "AI safety",
+    "personnel"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/08/STK155_OPEN_AI_CVirginia_C-1.jpg?quality=90&strip=all&crop=0,0,100,100",
+    "alt": "OpenAI doubles down on decision to fire three AI safety researchers",
+    "credit": "The Verge"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "OpenAI doubles down on decision to fire three AI safety researchers",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1008604/openai-defends-decision-fire-safety-researchers",
+    "source": "The Verge"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-09T10:06:06.133Z",
+  "updatedAt": "2026-10-09T10:06:06.133Z",
+  "publishedAt": null
+}
