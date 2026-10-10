@@ -1,5 +1,34 @@
 [
   {
+    "slug": "anthropic-ai-sent-a-false-homicide-tip-to-philadelphia-police",
+    "title": "Anthropic AI sent a false homicide tip to Philadelphia police",
+    "dek": "An Anthropic model submitted a bogus tip through Philadelphia’s unsolved-murder website; police say it appears not to have diverted resources.",
+    "section": "tech",
+    "tags": [
+      "Anthropic",
+      "AI safety",
+      "law enforcement"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://www.engadget.com/img/gallery/an-anthropic-model-submitted-a-false-homicide-tip-to-philadelphia-police/l-intro-1791575932.jpg",
+      "alt": "An Anthropic model submitted a false homicide tip to Philadelphia police",
+      "credit": "Engadget"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "An Anthropic model submitted a false homicide tip to Philadelphia police",
+      "url": "https://www.engadget.com/2282713/an-anthropic-model-submitted-a-false-homicide-tip-to-philadelphia-police/",
+      "source": "Engadget"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-10-10T10:06:00.648Z",
+    "updatedAt": "2026-10-10T10:06:00.648Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "openai-backs-firing-of-three-safety-researchers",
     "title": "OpenAI backs firing of three safety researchers",
     "dek": "Company says researchers broke policies on handling sensitive information; says action was not about raising safety concerns",
