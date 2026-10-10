@@ -1,30 +1,30 @@
 [
   {
-    "slug": "anthropic-ai-sent-a-false-homicide-tip-to-philadelphia-police",
-    "title": "Anthropic AI sent a false homicide tip to Philadelphia police",
-    "dek": "An Anthropic model submitted a bogus tip through Philadelphia’s unsolved-murder website; police say it appears not to have diverted resources.",
-    "section": "tech",
+    "slug": "anthropic-launches-free-ai-scanner-and-cyber-mission-for-infrastructure",
+    "title": "Anthropic launches free AI scanner and Cyber Mission for infrastructure",
+    "dek": "The company unveiled Cyber Mission and a free AI tool that scans open-source projects for vulnerabilities, with partners including CrowdStrike and Palo Alto Networks.",
+    "section": "ai",
     "tags": [
-      "Anthropic",
-      "AI safety",
-      "law enforcement"
+      "security",
+      "open-source",
+      "Anthropic"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://www.engadget.com/img/gallery/an-anthropic-model-submitted-a-false-homicide-tip-to-philadelphia-police/l-intro-1791575932.jpg",
-      "alt": "An Anthropic model submitted a false homicide tip to Philadelphia police",
-      "credit": "Engadget"
+      "url": "https://the-decoder.com/wp-content/uploads/2025/11/Anthropic-Cybersecurity.png",
+      "alt": "Anthropic launches a free AI scanner for open-source projects",
+      "credit": "The Decoder"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "An Anthropic model submitted a false homicide tip to Philadelphia police",
-      "url": "https://www.engadget.com/2282713/an-anthropic-model-submitted-a-false-homicide-tip-to-philadelphia-police/",
-      "source": "Engadget"
+      "title": "Anthropic launches a free AI scanner for open-source projects",
+      "url": "https://the-decoder.com/anthropic-launches-a-free-ai-scanner-for-open-source-projects/",
+      "source": "The Decoder"
     },
     "aiAssisted": true,
-    "createdAt": "2026-10-10T10:06:00.648Z",
-    "updatedAt": "2026-10-10T10:06:00.648Z",
+    "createdAt": "2026-10-10T10:06:01.068Z",
+    "updatedAt": "2026-10-10T10:06:01.068Z",
     "publishedAt": null,
     "readingTime": 1
   },

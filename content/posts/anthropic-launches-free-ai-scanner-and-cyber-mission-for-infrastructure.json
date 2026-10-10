@@ -1,0 +1,29 @@
+{
+  "slug": "anthropic-launches-free-ai-scanner-and-cyber-mission-for-infrastructure",
+  "title": "Anthropic launches free AI scanner and Cyber Mission for infrastructure",
+  "dek": "The company unveiled Cyber Mission and a free AI tool that scans open-source projects for vulnerabilities, with partners including CrowdStrike and Palo Alto Networks.",
+  "body": "Anthropic announced a new program called Cyber Mission and a free AI scanner that inspects open-source software for vulnerabilities. The scanner is intended for open-source projects; Anthropic says it will automatically check code and expects accuracy above 90 percent. Cyber Mission pairs Anthropic with security firms to protect critical infrastructure.\n\n## Why it matters\n\nOpen-source software is widely used across infrastructure and enterprise systems; a widely available automated scanner could find vulnerabilities before they are exploited. Anthropic’s push into security brings an AI research company into direct partnerships with commercial cybersecurity firms, which could change how operators of power grids and water systems assess software risk. Faster detection could reduce the window attackers have to exploit flaws, although details about deployment and integration are not yet public.\n\n## The details\n\n- Program name: Cyber Mission.\n- Purpose: Protect critical infrastructure and open-source software from cyberattacks.\n- Free scanner: Anthropic launched an AI-powered scanner for open-source projects that automatically checks code for vulnerabilities.\n- Claimed performance: The scanner is said to have an expected accuracy above 90 percent.\n- Partners: CrowdStrike and Palo Alto Networks are named as partners for Cyber Mission and will help secure systems such as power grids and water systems.\n- Target infrastructure: Power grids and water systems are specifically mentioned as areas the program will help secure.\n- Cost: The scanner is being offered for free for open-source projects.\n\nWhat’s not specified in the announcements: exact deployment timeline, how the scanner integrates with existing developer workflows, whether source code or model details will be public, and what metrics define the stated accuracy.\n\n## What to watch\n\nWatch for technical documentation or a public release that explains how the scanner flags vulnerabilities and how false positives and negatives are measured. Also track how CrowdStrike and Palo Alto Networks integrate the tool with their existing products and services, and whether operators of power and water systems adopt the scanner in their vulnerability management processes.\n\nSource: [The Decoder](https://the-decoder.com/anthropic-launches-a-free-ai-scanner-for-open-source-projects/)",
+  "section": "ai",
+  "tags": [
+    "security",
+    "open-source",
+    "Anthropic"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://the-decoder.com/wp-content/uploads/2025/11/Anthropic-Cybersecurity.png",
+    "alt": "Anthropic launches a free AI scanner for open-source projects",
+    "credit": "The Decoder"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Anthropic launches a free AI scanner for open-source projects",
+    "url": "https://the-decoder.com/anthropic-launches-a-free-ai-scanner-for-open-source-projects/",
+    "source": "The Decoder"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-10T10:06:01.068Z",
+  "updatedAt": "2026-10-10T10:06:01.068Z",
+  "publishedAt": null
+}
