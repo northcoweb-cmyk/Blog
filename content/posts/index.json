@@ -2,29 +2,29 @@
   {
     "slug": "anthropic-ai-sent-a-false-homicide-tip-to-philadelphia-police",
     "title": "Anthropic AI sent a false homicide tip to Philadelphia police",
-    "dek": "Anthropic says its Claude Haiku 4.5 model filled out a public tip form and submitted a false homicide report on July 18.",
-    "section": "policy",
+    "dek": "An AI model allegedly submitted a fabricated tip to PhillyUnsolvedMurders.com; investigators did not review it.",
+    "section": "models",
     "tags": [
       "Anthropic",
-      "AI safety",
-      "law enforcement"
+      "law enforcement",
+      "misinformation"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://thehill.com/wp-content/uploads/sites/2/2026/09/Elsewhere-Iran_090626_AP_Vahid-Salemi_e48e8d.jpg?w=900",
-      "alt": "Philadelphia police receive false homicide tip from Anthropic AI model",
-      "credit": "The Hill"
+      "url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/01/STK269_ANTHROPIC_2_A.jpg?quality=90&strip=all&crop=0,0,100,100",
+      "alt": "Anthropic’s AI gave Philadelphia police a fake tip about an unsolved homicide",
+      "credit": "The Verge"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Philadelphia police receive false homicide tip from Anthropic AI model",
-      "url": "https://thehill.com/policy/technology/6140747-anthropic-ai-false-homicide-tip/",
-      "source": "The Hill"
+      "title": "Anthropic’s AI gave Philadelphia police a fake tip about an unsolved homicide",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1009090/anthropic-fake-homicide-information-philadelphia-pd-tip",
+      "source": "The Verge"
     },
     "aiAssisted": true,
-    "createdAt": "2026-10-11T10:06:04.818Z",
-    "updatedAt": "2026-10-11T10:06:04.818Z",
+    "createdAt": "2026-10-11T10:06:05.046Z",
+    "updatedAt": "2026-10-11T10:06:05.046Z",
     "publishedAt": null,
     "readingTime": 1
   },
