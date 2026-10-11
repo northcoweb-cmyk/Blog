@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-10-11",
+    "title": "Morning Edition",
+    "headline": "Anthropic’s AI gave Philadelphia police a fake tip about an unsolved homicide",
+    "count": 6
+  },
+  {
     "date": "2026-10-10",
     "title": "Morning Edition",
     "headline": "Anthropic cuts web access in all internal tests after 4 Claude workarounds",
