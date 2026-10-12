@@ -1,0 +1,29 @@
+{
+  "slug": "intel-and-broadcom-ceos-flag-capital-crunch-as-an-ai-risk",
+  "title": "Intel and Broadcom CEOs flag capital crunch as an AI risk",
+  "dek": "The leaders of two major chipmakers warned that limited access to investment could become a primary bottleneck for artificial intelligence growth.",
+  "body": "What happened\n\nThe chief executives of Intel and Broadcom warned that access to capital could become a major constraint on the artificial intelligence boom. That is the central claim reported by CNBC.\n\n## Why it matters\n\nCapital , money available for investment in companies, infrastructure and research , fuels large-scale AI projects. If access to that funding tightens, development and deployment of AI systems could slow. The CEOs’ warning signals that concerns about financing are rising to the top of the industry agenda alongside chips, data and talent.\n\nThe statement matters because both executives lead companies that supply hardware and services foundational to AI systems. Reduced investment could affect new chip fabrication, data-center expansion and software development cycles. The warning also reframes a policy conversation often centered on supply chains and regulation: finance itself may be a limiting factor.\n\n## The details\n\n- Two chief executives , one from Intel and one from Broadcom — told CNBC that access to capital could emerge as a major constraint on AI.\n- The reporting highlights the finance side of AI growth as an industry-level risk on par with technical and supply answers.\n- The coverage does not provide details about specific markets, time frames, or particular types of capital (for example, venture, debt, or corporate investment) cited by the executives.\n- It is not reported whether the CEOs proposed specific remedies or policy steps in response to the risk they described.\n\n## What to watch\n\nWatch for follow-up comments from both companies that clarify what kinds of financing they mean and what steps, if any, they expect investors or policymakers to take. Also track capital flows into AI startups, chip manufacturing projects and data-center construction for signs that investment is tightening or reorienting.\n\nSource: [CNBC](https://www.cnbc.com/2026/10/12/intel-broadcom-ceos-warn-capital-crunch-could-become-ai-bottleneck.html)",
+  "section": "markets",
+  "tags": [
+    "AI",
+    "Hardware",
+    "Finance"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://image.cnbcfm.com/api/v1/image/108315138-17804039612026-06-02t070118z_913331550_rc2jllarvolb_rtrmadp_0_computex-intel.jpeg?v=1780403995&w=1920&h=1080",
+    "alt": "Intel, Broadcom CEOs warn capital crunch could become AI's biggest bottleneck",
+    "credit": "CNBC"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Intel, Broadcom CEOs warn capital crunch could become AI's biggest bottleneck",
+    "url": "https://www.cnbc.com/2026/10/12/intel-broadcom-ceos-warn-capital-crunch-could-become-ai-bottleneck.html",
+    "source": "CNBC"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-12T10:06:05.470Z",
+  "updatedAt": "2026-10-12T10:06:05.470Z",
+  "publishedAt": null
+}

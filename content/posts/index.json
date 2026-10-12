@@ -1,30 +1,30 @@
 [
   {
-    "slug": "microsoft-president-ai-is-less-regulated-than-milk",
-    "title": "Microsoft president: AI is less regulated than milk",
-    "dek": "Microsoft's president contrasted AI's risk to hacking with the stricter rules applied to milk.",
-    "section": "policy",
+    "slug": "intel-and-broadcom-ceos-flag-capital-crunch-as-an-ai-risk",
+    "title": "Intel and Broadcom CEOs flag capital crunch as an AI risk",
+    "dek": "The leaders of two major chipmakers warned that limited access to investment could become a primary bottleneck for artificial intelligence growth.",
+    "section": "markets",
     "tags": [
       "AI",
-      "regulation",
-      "Microsoft"
+      "Hardware",
+      "Finance"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://www.engadget.com/img/gallery/microsofts-president-says-ai-is-less-regulated-than-a-carton-of-milk/l-intro-1791797091.jpg",
-      "alt": "Microsoft's president says AI is less regulated than a carton of milk",
-      "credit": "Engadget"
+      "url": "https://image.cnbcfm.com/api/v1/image/108315138-17804039612026-06-02t070118z_913331550_rc2jllarvolb_rtrmadp_0_computex-intel.jpeg?v=1780403995&w=1920&h=1080",
+      "alt": "Intel, Broadcom CEOs warn capital crunch could become AI's biggest bottleneck",
+      "credit": "CNBC"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Microsoft's president says AI is less regulated than a carton of milk",
-      "url": "https://www.engadget.com/2283487/microsoft-president-ai-less-regulated-than-a-carton-of-milk/",
-      "source": "Engadget"
+      "title": "Intel, Broadcom CEOs warn capital crunch could become AI's biggest bottleneck",
+      "url": "https://www.cnbc.com/2026/10/12/intel-broadcom-ceos-warn-capital-crunch-could-become-ai-bottleneck.html",
+      "source": "CNBC"
     },
     "aiAssisted": true,
-    "createdAt": "2026-10-12T10:06:04.438Z",
-    "updatedAt": "2026-10-12T10:06:04.438Z",
+    "createdAt": "2026-10-12T10:06:05.470Z",
+    "updatedAt": "2026-10-12T10:06:05.470Z",
     "publishedAt": null,
     "readingTime": 1
   },
