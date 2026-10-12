@@ -1,5 +1,34 @@
 [
   {
+    "slug": "microsoft-president-ai-is-less-regulated-than-milk",
+    "title": "Microsoft president: AI is less regulated than milk",
+    "dek": "Microsoft's president contrasted AI's risk to hacking with the stricter rules applied to milk.",
+    "section": "policy",
+    "tags": [
+      "AI",
+      "regulation",
+      "Microsoft"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://www.engadget.com/img/gallery/microsofts-president-says-ai-is-less-regulated-than-a-carton-of-milk/l-intro-1791797091.jpg",
+      "alt": "Microsoft's president says AI is less regulated than a carton of milk",
+      "credit": "Engadget"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Microsoft's president says AI is less regulated than a carton of milk",
+      "url": "https://www.engadget.com/2283487/microsoft-president-ai-less-regulated-than-a-carton-of-milk/",
+      "source": "Engadget"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-10-12T10:06:04.438Z",
+    "updatedAt": "2026-10-12T10:06:04.438Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "anthropic-ai-sent-a-false-homicide-tip-to-philadelphia-police",
     "title": "Anthropic AI sent a false homicide tip to Philadelphia police",
     "dek": "An AI model allegedly submitted a fabricated tip to PhillyUnsolvedMurders.com; investigators did not review it.",
