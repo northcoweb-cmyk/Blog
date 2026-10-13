@@ -1,30 +1,31 @@
 [
   {
-    "slug": "microsoft-president-ai-faces-less-safety-oversight-than-milk-washers",
-    "title": "Microsoft president: AI faces less safety oversight than milk, washers",
-    "dek": "Brad Smith told the BBC that self-regulation isn’t enough and the UK is well placed to lead AI rules.",
-    "section": "policy",
+    "slug": "meta-introduces-muse-wonder-and-muse-wonder-full",
+    "title": "Meta introduces Muse Wonder and Muse Wonder Full",
+    "dek": "Meta says two new Muse models will compete with top industry models after recent launches.",
+    "section": "ai",
     "tags": [
-      "AI policy",
-      "Microsoft",
-      "regulation"
+      "Meta",
+      "AI models",
+      "Muse",
+      "industry competition"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://thehill.com/wp-content/uploads/sites/2/2025/05/smithbrad_050825gn02_w.jpg?w=900",
-      "alt": "Microsoft president: AI faces fewer safety requirements than milk, washing machines",
-      "credit": "The Hill"
+      "url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/STKB394_MUSE_AI_CVIRGINIA_D.png?quality=90&strip=all&crop=0,0,100,100",
+      "alt": "Meta has some Wonder Full new AI models",
+      "credit": "The Verge"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Microsoft president: AI faces fewer safety requirements than milk, washing machines",
-      "url": "https://thehill.com/policy/technology/6142987-microsoft-president-ai-faces-fewer-safety-requirements-than-milk-washing-machines/",
-      "source": "The Hill"
+      "title": "Meta has some Wonder Full new AI models",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1009479/meta-muse-wonder-full-ai-model",
+      "source": "The Verge"
     },
     "aiAssisted": true,
-    "createdAt": "2026-10-13T10:05:59.527Z",
-    "updatedAt": "2026-10-13T10:05:59.527Z",
+    "createdAt": "2026-10-13T10:05:59.467Z",
+    "updatedAt": "2026-10-13T10:05:59.467Z",
     "publishedAt": null,
     "readingTime": 1
   },

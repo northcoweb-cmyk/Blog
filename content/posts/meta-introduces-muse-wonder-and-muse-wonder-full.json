@@ -1,0 +1,30 @@
+{
+  "slug": "meta-introduces-muse-wonder-and-muse-wonder-full",
+  "title": "Meta introduces Muse Wonder and Muse Wonder Full",
+  "dek": "Meta says two new Muse models will compete with top industry models after recent launches.",
+  "body": "Meta has unveiled two new large AI models, Muse Wonder and Muse Wonder Full. The company presented these models as follow-ups to Muse Spark, the first model from its reorganized Superintelligence Labs division, and to Muse, an AI agent the company introduced earlier.\n\n## Why it matters\n\nMeta is publicly positioning these models as contenders against leading AI vendors. Multiple outlets describe the releases as an explicit challenge to competitors such as OpenAI and Anthropic, and characterize the models as \"frontier-class\" , language Meta and reporters use to signal ambition at the high end of the market.\n\nIf Meta succeeds, the company could close gaps in perception and capability that followed other big-model entrants. If it does not, the launches could still influence product road maps, partnerships, and hiring as rivals respond.\n\n## The details\n\n- The new models are named Muse Wonder and Muse Wonder Full. \n- They come after Muse Spark, the first model from Meta’s revamped Superintelligence Labs, and after Muse, an AI agent the company released earlier. \n- Meta claims the models can compete with the industry’s best. \n- Coverage from news outlets frames the models as a bid to rival OpenAI and Anthropic and calls them \"frontier-class.\" \n- Specific performance metrics, pricing, deployment details, and availability timelines have not been disclosed in the reporting cited.\n\n## What to watch\n\nWatch for published benchmark results and demonstrations that reveal how Muse Wonder and Muse Wonder Full perform on standard tests; those will shape whether external researchers and enterprise buyers treat Meta’s claims as credible. Also watch for rollout details , how Meta makes the models available, integrated product changes, and any commercial terms — because access and pricing will determine market impact.\n\nSource: [The Verge](https://www.theverge.com/ai-artificial-intelligence/1009479/meta-muse-wonder-full-ai-model)",
+  "section": "ai",
+  "tags": [
+    "Meta",
+    "AI models",
+    "Muse",
+    "industry competition"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/STKB394_MUSE_AI_CVIRGINIA_D.png?quality=90&strip=all&crop=0,0,100,100",
+    "alt": "Meta has some Wonder Full new AI models",
+    "credit": "The Verge"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Meta has some Wonder Full new AI models",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1009479/meta-muse-wonder-full-ai-model",
+    "source": "The Verge"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-13T10:05:59.467Z",
+  "updatedAt": "2026-10-13T10:05:59.467Z",
+  "publishedAt": null
+}
