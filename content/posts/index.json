@@ -1,5 +1,34 @@
 [
   {
+    "slug": "microsoft-president-ai-faces-less-safety-oversight-than-milk-washers",
+    "title": "Microsoft president: AI faces less safety oversight than milk, washers",
+    "dek": "Brad Smith told the BBC that self-regulation isn’t enough and the UK is well placed to lead AI rules.",
+    "section": "policy",
+    "tags": [
+      "AI policy",
+      "Microsoft",
+      "regulation"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://thehill.com/wp-content/uploads/sites/2/2025/05/smithbrad_050825gn02_w.jpg?w=900",
+      "alt": "Microsoft president: AI faces fewer safety requirements than milk, washing machines",
+      "credit": "The Hill"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Microsoft president: AI faces fewer safety requirements than milk, washing machines",
+      "url": "https://thehill.com/policy/technology/6142987-microsoft-president-ai-faces-fewer-safety-requirements-than-milk-washing-machines/",
+      "source": "The Hill"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-10-13T10:05:59.527Z",
+    "updatedAt": "2026-10-13T10:05:59.527Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "intel-and-broadcom-ceos-flag-capital-crunch-as-an-ai-risk",
     "title": "Intel and Broadcom CEOs flag capital crunch as an AI risk",
     "dek": "The leaders of two major chipmakers warned that limited access to investment could become a primary bottleneck for artificial intelligence growth.",
