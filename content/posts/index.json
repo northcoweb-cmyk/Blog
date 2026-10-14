@@ -1,30 +1,30 @@
 [
   {
-    "slug": "google-funds-17-groups-to-apply-ai-to-scientific-research",
-    "title": "Google funds 17 groups to apply AI to scientific research",
-    "dek": "Google.org is providing $36 million through its Impact Challenge: AI for Science to 17 organizations using artificial intelligence in science.",
-    "section": "models",
+    "slug": "men-overclaim-recognition-of-ai-leaders-harvard-study-finds",
+    "title": "Men Overclaim Recognition of AI Leaders, Harvard Study Finds",
+    "dek": "A new Harvard study found that more than half of men surveyed said they recognized AI leaders who were entirely fictional.",
+    "section": "research",
     "tags": [
-      "AI",
-      "science",
-      "philanthropy"
+      "study",
+      "gender",
+      "AI"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI_for_Science_hero.max-600x600.format-webp.webp",
-      "alt": "17 organizations using AI to accelerate scientific breakthroughs",
-      "credit": "Google"
+      "url": "https://media.wired.com/photos/6ace9af8b7c3e684c0712364/master/pass/Men-Cant-Stop-Lying-About-AI-Business938329806.jpg",
+      "alt": "Men Can’t Stop Faking How Much They Know About AI",
+      "credit": "WIRED"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "17 organizations using AI to accelerate scientific breakthroughs",
-      "url": "https://blog.google/company-news/outreach-and-initiatives/google-org/impact-challenge-ai-science-recipients/",
-      "source": "Google"
+      "title": "Men Can’t Stop Faking How Much They Know About AI",
+      "url": "https://www.wired.com/story/men-cant-stop-faking-how-much-they-know-about-ai/",
+      "source": "WIRED"
     },
     "aiAssisted": true,
-    "createdAt": "2026-10-14T10:06:03.291Z",
-    "updatedAt": "2026-10-14T10:06:03.291Z",
+    "createdAt": "2026-10-14T10:06:06.847Z",
+    "updatedAt": "2026-10-14T10:06:06.847Z",
     "publishedAt": null,
     "readingTime": 1
   },

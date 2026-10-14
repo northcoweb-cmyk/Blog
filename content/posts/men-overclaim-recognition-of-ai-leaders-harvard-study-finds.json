@@ -1,0 +1,29 @@
+{
+  "slug": "men-overclaim-recognition-of-ai-leaders-harvard-study-finds",
+  "title": "Men Overclaim Recognition of AI Leaders, Harvard Study Finds",
+  "dek": "A new Harvard study found that more than half of men surveyed said they recognized AI leaders who were entirely fictional.",
+  "body": "More than half of the men surveyed in a new Harvard study said they recognized leaders in artificial intelligence who did not exist. The study tested respondents’ claimed familiarity with AI figures and included entirely fictional names; a majority of male respondents reported recognizing those fake leaders.\n\n## Why it matters\n\nIf a majority of surveyed men claim recognition of fictional AI figures, that indicates overclaiming of knowledge about AI—saying you know more than you do. That behavior can distort surveys and public measurements of expertise, because stated familiarity may not reflect actual knowledge. The finding raises questions about how to interpret self-reported measures of AI literacy and recognition.\n\n## The details\n\n- The research is described as a Harvard study.\n- More than half of the men surveyed reported recognizing AI leaders who were entirely fictional.\n- The names used to test recognition were, according to the report, totally fictional.\n- The report frames the behavior as men faking how much they know about AI.\n\nWhat the public report does not yet specify\n\n- The sample size of the survey is not stated here.\n- The respondent demographics beyond gender are not provided.\n- The exact survey questions, selection of fictional names, and study methodology are not described here.\n- Any data about women or other gender groups is not included in this summary.\n\n## What to watch\n\nLook for the full study release or a peer-reviewed paper from the Harvard team for sample size, questionnaire wording, and statistical analysis. Replication or follow-up work will be important to see whether this pattern appears in other samples or settings.\n\nSource: [WIRED](https://www.wired.com/story/men-cant-stop-faking-how-much-they-know-about-ai/)",
+  "section": "research",
+  "tags": [
+    "study",
+    "gender",
+    "AI"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://media.wired.com/photos/6ace9af8b7c3e684c0712364/master/pass/Men-Cant-Stop-Lying-About-AI-Business938329806.jpg",
+    "alt": "Men Can’t Stop Faking How Much They Know About AI",
+    "credit": "WIRED"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Men Can’t Stop Faking How Much They Know About AI",
+    "url": "https://www.wired.com/story/men-cant-stop-faking-how-much-they-know-about-ai/",
+    "source": "WIRED"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-14T10:06:06.847Z",
+  "updatedAt": "2026-10-14T10:06:06.847Z",
+  "publishedAt": null
+}
