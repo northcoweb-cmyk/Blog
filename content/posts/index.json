@@ -1,5 +1,34 @@
 [
   {
+    "slug": "google-funds-17-groups-to-apply-ai-to-scientific-research",
+    "title": "Google funds 17 groups to apply AI to scientific research",
+    "dek": "Google.org is providing $36 million through its Impact Challenge: AI for Science to 17 organizations using artificial intelligence in science.",
+    "section": "models",
+    "tags": [
+      "AI",
+      "science",
+      "philanthropy"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI_for_Science_hero.max-600x600.format-webp.webp",
+      "alt": "17 organizations using AI to accelerate scientific breakthroughs",
+      "credit": "Google"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "17 organizations using AI to accelerate scientific breakthroughs",
+      "url": "https://blog.google/company-news/outreach-and-initiatives/google-org/impact-challenge-ai-science-recipients/",
+      "source": "Google"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-10-14T10:06:03.291Z",
+    "updatedAt": "2026-10-14T10:06:03.291Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "meta-introduces-muse-wonder-and-muse-wonder-full",
     "title": "Meta introduces Muse Wonder and Muse Wonder Full",
     "dek": "Meta says two new Muse models will compete with top industry models after recent launches.",
