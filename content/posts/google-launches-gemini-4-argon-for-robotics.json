@@ -1,0 +1,29 @@
+{
+  "slug": "google-launches-gemini-4-argon-for-robotics",
+  "title": "Google launches Gemini 4 Argon for robotics",
+  "dek": "DeepMind’s new Gemini 4 Argon model targets physical reasoning, zero-shot control, Real2Sim and agentic workflows for robot tasks.",
+  "body": "Google DeepMind has released Gemini 4 Argon, a version of its Gemini 4 family tailored for robotics. The team says the model leads the ERQA benchmark for embodied robotic question answering and includes capabilities aimed at physical reasoning, zero-shot control, a Real2Sim approach, and agentic workflows.\n\n## Why it matters\n\nRobotics needs models that understand physical interactions and can translate that understanding directly into actions. DeepMind positions Gemini 4 Argon as addressing both cognition and control: physical reasoning to predict outcomes of interactions, plus zero-shot control that aims to execute tasks without task-specific training. If the model performs as described, it could reduce the amount of bespoke training and simulation needed to get robots working on new tasks.\n\nGemini 4 Argon’s Real2Sim component , a pipeline that maps real-world robot data into simulation — is designed to let teams test and iterate in simulated environments using data gathered from physical experiments. Agentic workflows, which automate sequences of decision-making steps for a robot, are included to help compose perception, planning and action into longer tasks.\n\n## The details\n\n- Product: Gemini 4 Argon, a robotics-focused variant of Gemini 4 from Google DeepMind.\n- Benchmarks: DeepMind reports Gemini 4 Argon leads the ERQA benchmark for embodied robotic question answering (ERQA measures how well models reason about objects and actions in physical environments).\n- Capabilities called out by DeepMind: physical reasoning, zero-shot control, Real2Sim, and agentic workflows.\n- Availability: multiple news outlets report Google released Gemini 4 Argon to the public or made it available for developers and businesses.\n- What’s not specified: exact performance numbers on ERQA beyond the leadership claim, pricing, commercial licensing terms, hardware requirements, supported robot platforms, and detailed safety or robustness evaluations.\n\n## What to watch\n\nLook for independent benchmarks and replication studies that publish the numeric ERQA results and compare them to prior state of the art. Also watch for developer reports on how well zero-shot control and Real2Sim translate into reliable behavior on physical robots, and for details from Google about supported platforms, APIs, or pricing.\n\nSource: [Google DeepMind](https://deepmind.google/blog/gemini-4-argon-for-robotics/)",
+  "section": "models",
+  "tags": [
+    "robotics",
+    "DeepMind",
+    "Gemini-4"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/argon__robotics__hero.2e16d0ba.fill-1200x600.png",
+    "alt": "Gemini 4 Argon for Robotics",
+    "credit": "Google DeepMind"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Gemini 4 Argon for Robotics",
+    "url": "https://deepmind.google/blog/gemini-4-argon-for-robotics/",
+    "source": "Google DeepMind"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-15T10:06:09.568Z",
+  "updatedAt": "2026-10-15T10:06:09.568Z",
+  "publishedAt": null
+}

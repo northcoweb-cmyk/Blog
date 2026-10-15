@@ -1,30 +1,30 @@
 [
   {
-    "slug": "anthropic-q3-revenue-slows-ahead-of-planned-november-ipo",
-    "title": "Anthropic Q3 revenue slows ahead of planned November IPO",
-    "dek": "The AI start-up reported $16.8 billion in Q3 revenue, up 45% but well below prior quarter growth, and investors are tempering valuation hopes.",
-    "section": "markets",
+    "slug": "google-launches-gemini-4-argon-for-robotics",
+    "title": "Google launches Gemini 4 Argon for robotics",
+    "dek": "DeepMind’s new Gemini 4 Argon model targets physical reasoning, zero-shot control, Real2Sim and agentic workflows for robot tasks.",
+    "section": "models",
     "tags": [
-      "Anthropic",
-      "IPO",
-      "AI earnings"
+      "robotics",
+      "DeepMind",
+      "Gemini-4"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://the-decoder.com/wp-content/uploads/2026/09/anthropic_amodei.png",
-      "alt": "Anthropic's Q3 revenue hits $16.8B but growth slows ahead of planned November IPO",
-      "credit": "The Decoder"
+      "url": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/argon__robotics__hero.2e16d0ba.fill-1200x600.png",
+      "alt": "Gemini 4 Argon for Robotics",
+      "credit": "Google DeepMind"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Anthropic's Q3 revenue hits $16.8B but growth slows ahead of planned November IPO",
-      "url": "https://the-decoder.com/anthropics-q3-revenue-hits-16-8b-but-growth-slows-ahead-of-planned-november-ipo/",
-      "source": "The Decoder"
+      "title": "Gemini 4 Argon for Robotics",
+      "url": "https://deepmind.google/blog/gemini-4-argon-for-robotics/",
+      "source": "Google DeepMind"
     },
     "aiAssisted": true,
-    "createdAt": "2026-10-15T10:06:08.274Z",
-    "updatedAt": "2026-10-15T10:06:08.274Z",
+    "createdAt": "2026-10-15T10:06:09.568Z",
+    "updatedAt": "2026-10-15T10:06:09.568Z",
     "publishedAt": null,
     "readingTime": 1
   },
