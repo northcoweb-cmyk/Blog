@@ -1,5 +1,34 @@
 [
   {
+    "slug": "anthropic-q3-revenue-slows-ahead-of-planned-november-ipo",
+    "title": "Anthropic Q3 revenue slows ahead of planned November IPO",
+    "dek": "The AI start-up reported $16.8 billion in Q3 revenue, up 45% but well below prior quarter growth, and investors are tempering valuation hopes.",
+    "section": "markets",
+    "tags": [
+      "Anthropic",
+      "IPO",
+      "AI earnings"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://the-decoder.com/wp-content/uploads/2026/09/anthropic_amodei.png",
+      "alt": "Anthropic's Q3 revenue hits $16.8B but growth slows ahead of planned November IPO",
+      "credit": "The Decoder"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Anthropic's Q3 revenue hits $16.8B but growth slows ahead of planned November IPO",
+      "url": "https://the-decoder.com/anthropics-q3-revenue-hits-16-8b-but-growth-slows-ahead-of-planned-november-ipo/",
+      "source": "The Decoder"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-10-15T10:06:08.274Z",
+    "updatedAt": "2026-10-15T10:06:08.274Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "men-overclaim-recognition-of-ai-leaders-harvard-study-finds",
     "title": "Men Overclaim Recognition of AI Leaders, Harvard Study Finds",
     "dek": "A new Harvard study found that more than half of men surveyed said they recognized AI leaders who were entirely fictional.",
