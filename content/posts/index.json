@@ -1,5 +1,35 @@
 [
   {
+    "slug": "meta-s-muse-spark-open-an-open-weight-multimodal-moe-model",
+    "title": "Meta’s Muse Spark Open: an open-weight multimodal MoE model",
+    "dek": "Meta released Muse Spark Open , an open-weight, multimodal mixture-of-experts model hosted on Hugging Face.",
+    "section": "research",
+    "tags": [
+      "open-source",
+      "foundations",
+      "multimodal",
+      "Meta"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://huggingface.co/blog/assets/meta-muse-spark-open/thumbnail.png",
+      "alt": "Welcome Muse Spark Open: open-weight frontier multimodal mixture-of-experts model from Meta",
+      "credit": "Hugging Face"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Welcome Muse Spark Open: open-weight frontier multimodal mixture-of-experts model from Meta",
+      "url": "https://huggingface.co/blog/meta-muse-spark-open",
+      "source": "Hugging Face"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-10-16T10:06:05.100Z",
+    "updatedAt": "2026-10-16T10:06:05.100Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "google-launches-gemini-4-argon-for-robotics",
     "title": "Google launches Gemini 4 Argon for robotics",
     "dek": "DeepMind’s new Gemini 4 Argon model targets physical reasoning, zero-shot control, Real2Sim and agentic workflows for robot tasks.",

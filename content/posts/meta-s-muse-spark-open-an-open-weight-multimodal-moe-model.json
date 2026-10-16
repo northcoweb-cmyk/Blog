@@ -1,0 +1,30 @@
+{
+  "slug": "meta-s-muse-spark-open-an-open-weight-multimodal-moe-model",
+  "title": "Meta’s Muse Spark Open: an open-weight multimodal MoE model",
+  "dek": "Meta released Muse Spark Open , an open-weight, multimodal mixture-of-experts model hosted on Hugging Face.",
+  "body": "Meta has published Muse Spark Open, a new open-weight model described as multimodal and built with a mixture-of-experts (MoE) architecture. The model is available through a Hugging Face blog post and positioned as part of an effort to advance and democratize AI via open source and open science.\n\n## Why it matters\n\nOpen-weight means the model weights are publicly available rather than restricted; that makes it possible for researchers, developers and organizations to inspect, fine-tune, and deploy the model themselves. Multimodal models process more than one type of data , for example text plus images , which broadens the kinds of tasks a single model can handle. A mixture-of-experts architecture routes different inputs to specialized subnetworks, a design aimed at increasing capacity without multiplying computation for every input. Those three features together make Muse Spark Open a notable release for people tracking accessible, high-capacity AI systems.\n\n## The details\n\n- Name: Muse Spark Open.\n- Publisher: Meta, announced via Hugging Face.\n- Classification: open-weight , model weights are publicly released.\n- Capabilities described: multimodal (handles multiple data types); uses a mixture-of-experts (MoE) architecture.\n- Reported use cases in coverage: coding and agentic tasks (agentic tasks meaning tasks that involve autonomous decision-making or multi-step problem solving).\n- Stated goal: to advance and democratize artificial intelligence through open source and open science.\n\nWhat is not specified in the sources: exact model sizes, the composition and sources of the training data, licensing details, benchmark performance numbers, and deployment or safety controls. Those technical and policy details have not been disclosed in the available material.\n\n## What to watch\n\nWatch for follow-up documentation from Meta or Hugging Face with training data provenance, license terms, and performance benchmarks; those specifics will determine how broadly and responsibly the model can be used. Also watch for community forks, fine-tunes, and integrations that typically follow open-weight releases — they will show which real-world tasks the model handles well and where it needs improvement.\n\nSource: [Hugging Face](https://huggingface.co/blog/meta-muse-spark-open)",
+  "section": "research",
+  "tags": [
+    "open-source",
+    "foundations",
+    "multimodal",
+    "Meta"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://huggingface.co/blog/assets/meta-muse-spark-open/thumbnail.png",
+    "alt": "Welcome Muse Spark Open: open-weight frontier multimodal mixture-of-experts model from Meta",
+    "credit": "Hugging Face"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Welcome Muse Spark Open: open-weight frontier multimodal mixture-of-experts model from Meta",
+    "url": "https://huggingface.co/blog/meta-muse-spark-open",
+    "source": "Hugging Face"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-16T10:06:05.100Z",
+  "updatedAt": "2026-10-16T10:06:05.100Z",
+  "publishedAt": null
+}
