@@ -1,31 +1,30 @@
 [
   {
-    "slug": "meta-s-muse-spark-open-an-open-weight-multimodal-moe-model",
-    "title": "Meta’s Muse Spark Open: an open-weight multimodal MoE model",
-    "dek": "Meta released Muse Spark Open , an open-weight, multimodal mixture-of-experts model hosted on Hugging Face.",
-    "section": "research",
+    "slug": "chase-launches-national-event-to-fight-ai-enabled-scams",
+    "title": "Chase launches national event to fight AI-enabled scams",
+    "dek": "Chase is hosting a nationwide event to present strategies, expert insights, and resources aimed at protecting people and finances from AI-enabled fraud.",
+    "section": "mainstreet",
     "tags": [
-      "open-source",
-      "foundations",
-      "multimodal",
-      "Meta"
+      "financial-services",
+      "fraud",
+      "AI"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://huggingface.co/blog/assets/meta-muse-spark-open/thumbnail.png",
-      "alt": "Welcome Muse Spark Open: open-weight frontier multimodal mixture-of-experts model from Meta",
-      "credit": "Hugging Face"
+      "url": "https://media.smallbiztrends.com/2026/10/news-article-chase-hosts-national-event-to-combat-rising-ai-enabled-scams-100x100.jpg",
+      "alt": "Chase Hosts National Event to Combat Rising AI-Enabled Scams",
+      "credit": "Small Business Trends"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Welcome Muse Spark Open: open-weight frontier multimodal mixture-of-experts model from Meta",
-      "url": "https://huggingface.co/blog/meta-muse-spark-open",
-      "source": "Hugging Face"
+      "title": "Chase Hosts National Event to Combat Rising AI-Enabled Scams",
+      "url": "https://smallbiztrends.com/chase-hosts-national-event-to-combat-rising-ai-enabled-scams/",
+      "source": "Small Business Trends"
     },
     "aiAssisted": true,
-    "createdAt": "2026-10-16T10:06:05.100Z",
-    "updatedAt": "2026-10-16T10:06:05.100Z",
+    "createdAt": "2026-10-16T10:06:05.229Z",
+    "updatedAt": "2026-10-16T10:06:05.229Z",
     "publishedAt": null,
     "readingTime": 1
   },
