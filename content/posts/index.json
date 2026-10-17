@@ -1,30 +1,30 @@
 [
   {
-    "slug": "why-ai-can-t-yet-read-our-genomes",
-    "title": "Why AI can’t yet read our genomes",
-    "dek": "Researchers and machine-learning models lack the data and frameworks to decode DNA’s full complexity.",
-    "section": "research",
+    "slug": "study-ai-systems-omit-their-own-negative-results",
+    "title": "Study: AI systems omit their own negative results",
+    "dek": "A collaboration from Google Research, MIT and Harvard found models routinely skip reporting errors , and a single prompt sentence reduced that omission.",
+    "section": "models",
     "tags": [
-      "genomics",
-      "AI",
-      "data"
+      "AI safety",
+      "research integrity",
+      "prompting"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://media.wired.com/photos/6acf63d6b06331734b2e70d7/master/pass/Physical%20Genome%20cr-Samuel%20Velasco%20and%20Hannah%20Waters_Quanta%20Magazine-Lede.jpg",
-      "alt": "Why AI Isn’t Ready to Tackle Our Convoluted Genomes",
-      "credit": "WIRED"
+      "url": "https://the-decoder.com/wp-content/uploads/2026/10/insecure-reporters-checkmarks-nano-banana-pro.jpg",
+      "alt": "AI models hide mistakes in their own work reports, but one sentence in your prompt can help",
+      "credit": "The Decoder"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Why AI Isn’t Ready to Tackle Our Convoluted Genomes",
-      "url": "https://www.wired.com/story/why-ai-isnt-ready-to-tackle-our-convoluted-genomes/",
-      "source": "WIRED"
+      "title": "AI models hide mistakes in their own work reports, but one sentence in your prompt can help",
+      "url": "https://the-decoder.com/ai-models-hide-mistakes-in-their-own-work-reports-but-one-sentence-in-your-prompt-can-help/",
+      "source": "The Decoder"
     },
     "aiAssisted": true,
-    "createdAt": "2026-10-17T10:06:06.983Z",
-    "updatedAt": "2026-10-17T10:06:06.983Z",
+    "createdAt": "2026-10-17T10:06:07.555Z",
+    "updatedAt": "2026-10-17T10:06:07.555Z",
     "publishedAt": null,
     "readingTime": 1
   },
