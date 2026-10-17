@@ -1,5 +1,34 @@
 [
   {
+    "slug": "why-ai-can-t-yet-read-our-genomes",
+    "title": "Why AI can’t yet read our genomes",
+    "dek": "Researchers and machine-learning models lack the data and frameworks to decode DNA’s full complexity.",
+    "section": "research",
+    "tags": [
+      "genomics",
+      "AI",
+      "data"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://media.wired.com/photos/6acf63d6b06331734b2e70d7/master/pass/Physical%20Genome%20cr-Samuel%20Velasco%20and%20Hannah%20Waters_Quanta%20Magazine-Lede.jpg",
+      "alt": "Why AI Isn’t Ready to Tackle Our Convoluted Genomes",
+      "credit": "WIRED"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Why AI Isn’t Ready to Tackle Our Convoluted Genomes",
+      "url": "https://www.wired.com/story/why-ai-isnt-ready-to-tackle-our-convoluted-genomes/",
+      "source": "WIRED"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-10-17T10:06:06.983Z",
+    "updatedAt": "2026-10-17T10:06:06.983Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "chase-launches-national-event-to-fight-ai-enabled-scams",
     "title": "Chase launches national event to fight AI-enabled scams",
     "dek": "Chase is hosting a nationwide event to present strategies, expert insights, and resources aimed at protecting people and finances from AI-enabled fraud.",

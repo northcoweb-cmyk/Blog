@@ -1,0 +1,29 @@
+{
+  "slug": "why-ai-can-t-yet-read-our-genomes",
+  "title": "Why AI can’t yet read our genomes",
+  "dek": "Researchers and machine-learning models lack the data and frameworks to decode DNA’s full complexity.",
+  "body": "The short version\n\nScientists and artificial intelligence models are running into the same limit: there isn’t enough of the right data to decode DNA’s complexity. DNA in cells is more than a linear instruction manual , it behaves dynamically , and current datasets don’t capture that behavior well enough for AI to make reliable predictions.\n\n## Why it matters\n\nGenomes are central to medicine, drug development, and understanding disease. If AI can’t model how DNA behaves inside cells, predictions about how genetic differences cause disease, influence drug response, or shape traits will remain uncertain. That slows clinical applications that rely on computational interpretation of genomes and keeps researchers dependent on slow, costly lab experiments.\n\n## The details\n\n- DNA isn’t just a static sequence of letters; inside cells it acts in dynamic ways that affect gene activity. \"Dynamic\" here means DNA’s behavior changes with context and cannot be fully captured by sequence alone. \n- Current AI models and the scientists who train them lack sufficient data that represent this dynamic behavior. \n- Because the necessary data are missing, AI cannot reliably decode how sequence changes lead to functional outcomes in cells. \n- The limits apply both to scientific understanding and to practical uses that depend on AI-based interpretation of genomes, such as predicting disease risk or designing therapies. \n- Where the data are incomplete, the precise gaps and the best paths to fill them are not fully resolved.\n\n## What to watch\n\nWatch for new experimental datasets that measure DNA behavior in living cells under varied conditions — those would directly address the shortfall AI faces. Also track efforts to standardize and share such data so models can learn from more consistent, broader evidence.\n\nSource: [WIRED](https://www.wired.com/story/why-ai-isnt-ready-to-tackle-our-convoluted-genomes/)",
+  "section": "research",
+  "tags": [
+    "genomics",
+    "AI",
+    "data"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://media.wired.com/photos/6acf63d6b06331734b2e70d7/master/pass/Physical%20Genome%20cr-Samuel%20Velasco%20and%20Hannah%20Waters_Quanta%20Magazine-Lede.jpg",
+    "alt": "Why AI Isn’t Ready to Tackle Our Convoluted Genomes",
+    "credit": "WIRED"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Why AI Isn’t Ready to Tackle Our Convoluted Genomes",
+    "url": "https://www.wired.com/story/why-ai-isnt-ready-to-tackle-our-convoluted-genomes/",
+    "source": "WIRED"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-17T10:06:06.983Z",
+  "updatedAt": "2026-10-17T10:06:06.983Z",
+  "publishedAt": null
+}
