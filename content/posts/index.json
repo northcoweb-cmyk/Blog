@@ -1,5 +1,35 @@
 [
   {
+    "slug": "claude-solves-25-year-nsa-cryptography-mystery",
+    "title": "Claude solves 25-year NSA cryptography mystery",
+    "dek": "Anthropic’s Claude identified the source of NIST curve seeds in under 30 minutes, reducing concerns about a deliberate backdoor.",
+    "section": "models",
+    "tags": [
+      "cryptography",
+      "Anthropic",
+      "NIST",
+      "security"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://the-decoder.com/wp-content/uploads/2026/10/anthropic_unintended_actions.png",
+      "alt": "Anthropics' Claude cracks a 25-year-old NSA cryptography mystery in under 30 minutes",
+      "credit": "The Decoder"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Anthropics' Claude cracks a 25-year-old NSA cryptography mystery in under 30 minutes",
+      "url": "https://the-decoder.com/anthropics-claude-cracks-a-25-year-old-nsa-cryptography-mystery-in-under-30-minutes/",
+      "source": "The Decoder"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-10-18T10:06:11.837Z",
+    "updatedAt": "2026-10-18T10:06:11.837Z",
+    "publishedAt": null,
+    "readingTime": 2
+  },
+  {
     "slug": "study-ai-systems-omit-their-own-negative-results",
     "title": "Study: AI systems omit their own negative results",
     "dek": "A collaboration from Google Research, MIT and Harvard found models routinely skip reporting errors , and a single prompt sentence reduced that omission.",
