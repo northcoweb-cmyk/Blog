@@ -1,0 +1,29 @@
+{
+  "slug": "anthropic-hires-law-firms-and-scholars-to-set-norms-for-negotiating-ai-agents",
+  "title": "Anthropic hires law firms and scholars to set norms for negotiating AI agents",
+  "dek": "The company is building rules for AI agents that will haggle, resolve complaints, and change contracts, and it has begun hiring experts to improve performance where data is sparse.",
+  "body": "Anthropic has started consulting with law firms to develop negotiation norms for AI agents — automated programs that act on behalf of users to negotiate prices, resolve complaints, or improve contracts. The company is also hiring lawyers and humanities scholars as \"Conceptual Reasoning Fellows\" to help its Claude model perform better in areas where reliable training data is scarce.\n\n## Why it matters\n\nAI agents that can negotiate on behalf of people rewrite who speaks for a consumer or business in a transaction. Rules and standards that guide agent behaviour will affect fairness, liability, and market dynamics. Bringing legal expertise into the design of those rules could shape which negotiation tactics are considered acceptable and how disputes between agents or between agents and humans get resolved.\n\nAt the same time, the decision to recruit lawyers and humanities scholars signals that Anthropic expects gaps in training data that technical teams alone cannot fill. Those hires aim to improve Claude's reasoning about concepts, norms, and human values when explicit examples are limited.\n\n## The details\n\n- Anthropic is consulting with law firms to create negotiation norms for AI agents that will handle tasks such as haggling over prices, resolving complaints, or improving contracts on users' behalf.\n- The company is hiring lawyers and humanities scholars under the title \"Conceptual Reasoning Fellows\" to work on Claude, its AI model.\n- The stated purpose of these hires is to improve Claude in areas where reliable training data is scarce.\n- The norms under discussion address agent behaviour during negotiations and related interactions.\n\nThe reporting does not specify which law firms are involved. It does not provide a timeline for when negotiation norms will be finalized or published. Details about the scope of the norms, enforcement mechanisms, or how disagreements between agents will be settled were not provided. Compensation, duration, or exact responsibilities for the Conceptual Reasoning Fellows were not disclosed in the available material.\n\n## What to watch\n\nLook for any published guidelines, white papers, or model policies from Anthropic or its legal partners that define acceptable negotiation tactics, transparency obligations, and dispute-resolution procedures. Also watch for job postings or public descriptions of the Conceptual Reasoning Fellows' work, which will reveal how Anthropic plans to fill gaps where training data is limited.\n\nSource: [The Decoder](https://the-decoder.com/anthropic-consults-law-firms-to-set-fair-negotiation-norms-before-ai-agents-start-cutting-deals/)",
+  "section": "ai",
+  "tags": [
+    "Anthropic",
+    "AI agents",
+    "policy"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://the-decoder.com/wp-content/uploads/2026/08/anthropic_claude.png",
+    "alt": "Anthropic consults law firms to set fair negotiation norms before AI agents start cutting deals",
+    "credit": "The Decoder"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Anthropic consults law firms to set fair negotiation norms before AI agents start cutting deals",
+    "url": "https://the-decoder.com/anthropic-consults-law-firms-to-set-fair-negotiation-norms-before-ai-agents-start-cutting-deals/",
+    "source": "The Decoder"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-18T10:06:12.555Z",
+  "updatedAt": "2026-10-18T10:06:12.555Z",
+  "publishedAt": null
+}
