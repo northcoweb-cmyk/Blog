@@ -1,5 +1,34 @@
 [
   {
+    "slug": "anthropic-pledges-5-of-shares-to-public-benefit-fund",
+    "title": "Anthropic pledges 5% of shares to public benefit fund",
+    "dek": "The AI company said it will set aside 5% of its equity into a new fund it calls a 'public benefit' vehicle.",
+    "section": "markets",
+    "tags": [
+      "Anthropic",
+      "AI policy",
+      "corporate governance"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://techcrunch.com/wp-content/uploads/2026/01/GettyImages-2252871842.jpg?w=1024",
+      "alt": "Anthropic says it’s committing 5% of its shares to a ‘public benefit fund’",
+      "credit": "TechCrunch"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Anthropic says it’s committing 5% of its shares to a ‘public benefit fund’",
+      "url": "https://techcrunch.com/2026/10/18/anthropic-says-its-committing-5-of-its-shares-to-a-public-benefit-fund/",
+      "source": "TechCrunch"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-10-19T10:06:06.663Z",
+    "updatedAt": "2026-10-19T10:06:06.663Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "anthropic-hires-law-firms-and-scholars-to-set-norms-for-negotiating-ai-agents",
     "title": "Anthropic hires law firms and scholars to set norms for negotiating AI agents",
     "dek": "The company is building rules for AI agents that will haggle, resolve complaints, and change contracts, and it has begun hiring experts to improve performance where data is sparse.",
