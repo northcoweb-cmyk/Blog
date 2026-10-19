@@ -1,0 +1,29 @@
+{
+  "slug": "four-gemini-4-argon-agents-beat-minecraft-s-ender-dragon-unaided",
+  "title": "Four Gemini 4 Argon agents beat Minecraft’s Ender Dragon unaided",
+  "dek": "Google’s Gemini 4 Argon agents cooperated and competed inside Minecraft to defeat the Ender Dragon without human intervention.",
+  "body": "Four Gemini 4 Argon agents beat Minecraft’s Ender Dragon with no human intervention. The agents shared information , including tips, threats and mistakes — as they acted inside the game to reach and defeat the final boss. An \"agent\" here means an autonomous software program that takes actions in an environment.\n\n## Why it matters\nThis is an instance of multiple autonomous agents completing a complex in-game objective without direct human control. It demonstrates that Gemini 4 Argon agents can operate, interact and alter behavior in a multi-agent setting inside a popular, open-ended game environment.\n\n## The details\n- Four Gemini 4 Argon agents were involved.  \n- The agents defeated Minecraft’s Ender Dragon, the game’s boss enemy.  \n- The agents operated without human intervention.  \n- During play, the agents exchanged tips, issued threats and made mistakes that influenced the outcome.  \n\nWhat’s not yet detailed in the reporting: the exact technical setup, the time taken, whether the agents used vision or only game-state inputs, how the agents were initialized or trained, and whether Google plans to publish code, logs or evaluation metrics.\n\n## What to watch\nLook for technical write-ups or code drops from Google that reveal the agents’ inputs, decision loops and communication protocols. Also watch for independent evaluations showing how repeatable the result is and whether the same approach transfers to other multi-step tasks.\n\nSource: [Engadget](https://www.engadget.com/2289944/google-gemini-4-agents-just-beat-minecraft-with-no-human-intervention/)",
+  "section": "models",
+  "tags": [
+    "Google Gemini",
+    "AI agents",
+    "Minecraft"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://www.engadget.com/img/gallery/google-gemini-4-agents-just-beat-minecraft-with-no-human-intervention/l-intro-1792401444.jpg",
+    "alt": "Google Gemini 4 agents just beat Minecraft with no human intervention",
+    "credit": "Engadget"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Google Gemini 4 agents just beat Minecraft with no human intervention",
+    "url": "https://www.engadget.com/2289944/google-gemini-4-agents-just-beat-minecraft-with-no-human-intervention/",
+    "source": "Engadget"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-19T10:06:08.075Z",
+  "updatedAt": "2026-10-19T10:06:08.075Z",
+  "publishedAt": null
+}
