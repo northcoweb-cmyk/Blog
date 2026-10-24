@@ -1,30 +1,30 @@
 [
   {
-    "slug": "study-fancy-coding-agent-harnesses-raise-costs-without-improving-accuracy",
-    "title": "Study: Fancy coding-agent harnesses raise costs without improving accuracy",
-    "dek": "A controlled test found switching between agent harnesses barely changes pass rates while tripling cost per task in some cases.",
-    "section": "research",
+    "slug": "canva-launches-craft-its-first-in-house-image-model",
+    "title": "Canva launches Craft, its first in-house image model",
+    "dek": "Canva introduced Craft, an advanced AI model for image generation designed to help users produce visuals more efficiently.",
+    "section": "models",
     "tags": [
-      "AI agents",
-      "costs",
-      "software engineering"
+      "Canva",
+      "image-generation",
+      "AI"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://the-decoder.com/wp-content/uploads/2026/10/harness-buys-tokens-nano-banana-pro.jpg",
-      "alt": "Fancy harnesses make coding agents more expensive but not better, study finds",
-      "credit": "The Decoder"
+      "url": "https://media.smallbiztrends.com/2026/10/news-article-canva-launches-advanced-ai-model-craft-for-enhanced-image-generation-100x100.jpg",
+      "alt": "Canva Launches Advanced AI Model Craft for Enhanced Image Generation",
+      "credit": "Small Business Trends"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Fancy harnesses make coding agents more expensive but not better, study finds",
-      "url": "https://the-decoder.com/fancy-harnesses-make-coding-agents-more-expensive-but-not-better-study-finds/",
-      "source": "The Decoder"
+      "title": "Canva Launches Advanced AI Model Craft for Enhanced Image Generation",
+      "url": "https://smallbiztrends.com/canva-launches-advanced-ai-model-craft-for-enhanced-image-generation/",
+      "source": "Small Business Trends"
     },
     "aiAssisted": true,
-    "createdAt": "2026-10-24T10:06:06.465Z",
-    "updatedAt": "2026-10-24T10:06:06.465Z",
+    "createdAt": "2026-10-24T10:06:08.003Z",
+    "updatedAt": "2026-10-24T10:06:08.003Z",
     "publishedAt": null,
     "readingTime": 1
   },

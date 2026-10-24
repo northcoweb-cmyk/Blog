@@ -1,0 +1,29 @@
+{
+  "slug": "canva-launches-craft-its-first-in-house-image-model",
+  "title": "Canva launches Craft, its first in-house image model",
+  "dek": "Canva introduced Craft, an advanced AI model for image generation designed to help users produce visuals more efficiently.",
+  "body": "Canva has launched Craft, an advanced AI model intended to generate images inside its design platform. The company describes Craft as its first in-house image model and positions it to help users create visuals with improved capabilities and efficiency.\n\n## Why it matters\n\nCanva is a major player in online design tools, used by millions of small businesses, marketers, and creators. Bringing image-generation technology developed internally changes Canva’s reliance on third-party image models and gives the company direct control over how that capability is delivered inside its product. For users, an integrated, Canva-built model could mean faster workflows and features tuned to the platform’s editing and template systems.\n\n## The details\n\n- Product name: Craft.\n- Developer: Canva.\n- Function: image generation , creating visuals within Canva’s platform.\n- Noted as Canva’s first in-house image model by coverage from The Decoder and TechCrunch.\n- News outlets reporting the release include Small Business Trends and TechCrunch; TechCrunch’s coverage carries a 2026/10/22 date in its URL.\n\nWhat is not yet specified in the reporting: model architecture, dataset sources, model size, exact performance metrics, pricing or access tiers, enterprise or API availability, and a rollout timeline across Canva’s apps and regions.\n\n## What to watch\n\nWatch how Canva integrates Craft into its editor and templates, and whether the company offers Craft as an option across free and paid tiers. Also monitor whether Canva publishes technical details about Craft’s training data, safety controls, and guardrails — those disclosures will shape how businesses and creators judge adoption.\n\nSource: [Small Business Trends](https://smallbiztrends.com/canva-launches-advanced-ai-model-craft-for-enhanced-image-generation/)",
+  "section": "models",
+  "tags": [
+    "Canva",
+    "image-generation",
+    "AI"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://media.smallbiztrends.com/2026/10/news-article-canva-launches-advanced-ai-model-craft-for-enhanced-image-generation-100x100.jpg",
+    "alt": "Canva Launches Advanced AI Model Craft for Enhanced Image Generation",
+    "credit": "Small Business Trends"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Canva Launches Advanced AI Model Craft for Enhanced Image Generation",
+    "url": "https://smallbiztrends.com/canva-launches-advanced-ai-model-craft-for-enhanced-image-generation/",
+    "source": "Small Business Trends"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-24T10:06:08.003Z",
+  "updatedAt": "2026-10-24T10:06:08.003Z",
+  "publishedAt": null
+}
