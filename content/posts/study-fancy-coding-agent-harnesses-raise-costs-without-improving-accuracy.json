@@ -1,0 +1,29 @@
+{
+  "slug": "study-fancy-coding-agent-harnesses-raise-costs-without-improving-accuracy",
+  "title": "Study: Fancy coding-agent harnesses raise costs without improving accuracy",
+  "dek": "A controlled test found switching between agent harnesses barely changes pass rates while tripling cost per task in some cases.",
+  "body": "A controlled study compared several popular coding-agent \"harnesses\" , software frameworks or wrappers that run and manage AI coding agents , and found that changing harnesses produced almost no improvement in task pass rates while often increasing cost per task substantially.\n\n## Why it matters\n\nTeams adopting AI agents for coding are investing in tooling and integrations. If changing the harness does not materially increase the rate at which agents solve problems, those extra engineering and compute costs may not be justified. The study highlights that the dominant driver of higher cost per task is repeated transmission of the system prompt , the instruction set given to the agent — at each step of a run.\n\n## The details\n\n- The study was controlled, meaning researchers compared harnesses under similar conditions. \n- Harnesses examined included Claude Code, OpenCode, and mini-SWE-agent. \n- Switching between these harnesses moved pass rates only marginally, roughly comparable to rerunning the same setup multiple times. \n- Cost per task could increase by up to three times when switching harnesses. \n- The main source of the higher cost was the system prompt being resent at every step of an agent’s execution. \n- The study’s headline conclusion is that fancy harnesses raise costs without producing measurable improvements in pass rates.\n\nDetails not provided in the summary: the exact pass-rate numbers, the number of tasks or runs, the testbed configuration, and whether any harness-specific features were tuned. The summary also does not state whether the study accounted for developer time spent integrating harnesses or for longer-term maintenance costs.\n\n## What to watch\n\nLook for full publication of the study with raw numbers and methodology so teams can judge whether the measured pass-rate differences matter for their use cases. Also watch for follow-up work that breaks down prompt-resend costs by API and by agent workflow to identify practical optimizations.\n\nSource: [The Decoder](https://the-decoder.com/fancy-harnesses-make-coding-agents-more-expensive-but-not-better-study-finds/)",
+  "section": "research",
+  "tags": [
+    "AI agents",
+    "costs",
+    "software engineering"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://the-decoder.com/wp-content/uploads/2026/10/harness-buys-tokens-nano-banana-pro.jpg",
+    "alt": "Fancy harnesses make coding agents more expensive but not better, study finds",
+    "credit": "The Decoder"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Fancy harnesses make coding agents more expensive but not better, study finds",
+    "url": "https://the-decoder.com/fancy-harnesses-make-coding-agents-more-expensive-but-not-better-study-finds/",
+    "source": "The Decoder"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-24T10:06:06.465Z",
+  "updatedAt": "2026-10-24T10:06:06.465Z",
+  "publishedAt": null
+}
