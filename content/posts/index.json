@@ -1,30 +1,30 @@
 [
   {
-    "slug": "jack-clark-moves-his-self-improving-ai-prediction-to-2027",
-    "title": "Jack Clark moves his self-improving AI prediction to 2027",
-    "dek": "A new P-Zero Research benchmark measuring models’ ability to design and evaluate experiments has prompted Anthropic’s co-founder to accelerate his timeline.",
-    "section": "startups",
+    "slug": "how-the-us-anti-data-center-movement-can-learn-from-ireland-to-new-zealand",
+    "title": "How the US anti–data-center movement can learn from Ireland to New Zealand",
+    "dek": "Writer Paris Marx, author of Hyperscale, says long-term international experience offers lessons for U.S. campaigns against data center construction.",
+    "section": "ai",
     "tags": [
-      "AI timelines",
-      "benchmarks",
-      "Anthropic"
+      "data centers",
+      "policy",
+      "Paris Marx"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://the-decoder.com/wp-content/uploads/2026/10/tasteval_and_rsi.png",
-      "alt": "Anthropic co-founder Jack Clark moves his prediction for self-improving AI forward to 2027",
-      "credit": "The Decoder"
+      "url": "https://media.wired.com/photos/6adbe4fc594ddd5d406f1b4a/master/pass/102326-Power%20Play-What%20the%20US%20Anti-Data%20Center%20Movement%20Can%20Learn%20From%20Everywhere%20Else-v2.jpg",
+      "alt": "What the US Movement Against Data Centers Can Learn From Abroad",
+      "credit": "WIRED"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Anthropic co-founder Jack Clark moves his prediction for self-improving AI forward to 2027",
-      "url": "https://the-decoder.com/anthropic-co-founder-jack-clark-moves-his-prediction-for-self-improving-ai-forward-to-2027/",
-      "source": "The Decoder"
+      "title": "What the US Movement Against Data Centers Can Learn From Abroad",
+      "url": "https://www.wired.com/story/what-the-us-anti-data-center-movement-can-learn-from-everywhere-else/",
+      "source": "WIRED"
     },
     "aiAssisted": true,
-    "createdAt": "2026-10-25T10:06:03.140Z",
-    "updatedAt": "2026-10-25T10:06:03.140Z",
+    "createdAt": "2026-10-25T10:06:03.371Z",
+    "updatedAt": "2026-10-25T10:06:03.371Z",
     "publishedAt": null,
     "readingTime": 1
   },
