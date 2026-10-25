@@ -1,0 +1,29 @@
+{
+  "slug": "jack-clark-moves-his-self-improving-ai-prediction-to-2027",
+  "title": "Jack Clark moves his self-improving AI prediction to 2027",
+  "dek": "A new P-Zero Research benchmark measuring models’ ability to design and evaluate experiments has prompted Anthropic’s co-founder to accelerate his timeline.",
+  "body": "What happened\n\nAnthropic co-founder Jack Clark said he now expects self-improving AI by 2027 after results on a new benchmark from P-Zero Research. The benchmark tests how well AI models can design experiments and evaluate their outcomes on their own. \"Self-improving AI\" means systems that can modify or improve their own behavior or code without human intervention.\n\n## Why it matters\n\nThis is a shift in public timing from a prominent industry figure. If models can reliably design and assess experiments, they edge closer to automating parts of scientific and engineering workflows that today require human judgment. Faster improvement on those capabilities would change how researchers assess AI risk and governance because internal testing and iteration are central to models becoming more capable without direct human coding.\n\n## The details\n\n- P-Zero Research created a benchmark that measures models’ ability to design experiments and evaluate results independently.\n- Results on that benchmark have been improving rapidly, according to reporting by The Decoder.\n- Jack Clark, Anthropic’s co-founder, adjusted his public prediction and now places the arrival of self-improving AI in 2027.\n- The Decoder reported the story; full technical specifics of the benchmark and the results were not provided in the summary.\n\nWhat’s not known yet: the summary does not include the benchmark’s name beyond P-Zero Research’s involvement, which models were tested, numerical scores or performance metrics, the dataset or tasks used, whether independent reviewers validated the results, or what Clark’s earlier timeline had been.\n\n## What to watch\n\nLook for P-Zero Research to publish full benchmark documentation with methodology, datasets, and scores. Also watch for independent replications or critiques from other labs and for any statements from Anthropic clarifying how Clark’s timeline change relates to the company’s own plans.\n\nSource: [The Decoder](https://the-decoder.com/anthropic-co-founder-jack-clark-moves-his-prediction-for-self-improving-ai-forward-to-2027/)",
+  "section": "startups",
+  "tags": [
+    "AI timelines",
+    "benchmarks",
+    "Anthropic"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://the-decoder.com/wp-content/uploads/2026/10/tasteval_and_rsi.png",
+    "alt": "Anthropic co-founder Jack Clark moves his prediction for self-improving AI forward to 2027",
+    "credit": "The Decoder"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Anthropic co-founder Jack Clark moves his prediction for self-improving AI forward to 2027",
+    "url": "https://the-decoder.com/anthropic-co-founder-jack-clark-moves-his-prediction-for-self-improving-ai-forward-to-2027/",
+    "source": "The Decoder"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-25T10:06:03.140Z",
+  "updatedAt": "2026-10-25T10:06:03.140Z",
+  "publishedAt": null
+}

@@ -1,5 +1,34 @@
 [
   {
+    "slug": "jack-clark-moves-his-self-improving-ai-prediction-to-2027",
+    "title": "Jack Clark moves his self-improving AI prediction to 2027",
+    "dek": "A new P-Zero Research benchmark measuring models’ ability to design and evaluate experiments has prompted Anthropic’s co-founder to accelerate his timeline.",
+    "section": "startups",
+    "tags": [
+      "AI timelines",
+      "benchmarks",
+      "Anthropic"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://the-decoder.com/wp-content/uploads/2026/10/tasteval_and_rsi.png",
+      "alt": "Anthropic co-founder Jack Clark moves his prediction for self-improving AI forward to 2027",
+      "credit": "The Decoder"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Anthropic co-founder Jack Clark moves his prediction for self-improving AI forward to 2027",
+      "url": "https://the-decoder.com/anthropic-co-founder-jack-clark-moves-his-prediction-for-self-improving-ai-forward-to-2027/",
+      "source": "The Decoder"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-10-25T10:06:03.140Z",
+    "updatedAt": "2026-10-25T10:06:03.140Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "canva-launches-craft-its-first-in-house-image-model",
     "title": "Canva launches Craft, its first in-house image model",
     "dek": "Canva introduced Craft, an advanced AI model for image generation designed to help users produce visuals more efficiently.",
