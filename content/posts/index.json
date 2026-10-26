@@ -1,5 +1,34 @@
 [
   {
+    "slug": "musk-warns-200-neoclouds-face-collapse-related-stocks-drop",
+    "title": "Musk warns 200+ 'neoclouds' face collapse; related stocks drop",
+    "dek": "Elon Musk said more than 200 neoclouds face 'guppy-level death,' and shares of several specialist cloud firms fell as investors question debt-fueled expansion.",
+    "section": "markets",
+    "tags": [
+      "neocloud",
+      "AI infrastructure",
+      "markets"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://image.cnbcfm.com/api/v1/image/108437814-1792509978035-gettyimages-2297775036-1r5_3021_gdulgt9a.jpeg?v=1792537393&w=1920&h=1080",
+      "alt": "Neocloud stocks fall as Elon Musk says more than 200 of them face 'guppy-level death'",
+      "credit": "CNBC"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Neocloud stocks fall as Elon Musk says more than 200 of them face 'guppy-level death'",
+      "url": "https://www.cnbc.com/2026/10/26/neocloud-stocks-today-coreweave-nebius-iren-elon-musk.html",
+      "source": "CNBC"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-10-26T10:06:07.522Z",
+    "updatedAt": "2026-10-26T10:06:07.522Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "how-the-us-anti-data-center-movement-can-learn-from-ireland-to-new-zealand",
     "title": "How the US anti–data-center movement can learn from Ireland to New Zealand",
     "dek": "Writer Paris Marx, author of Hyperscale, says long-term international experience offers lessons for U.S. campaigns against data center construction.",
