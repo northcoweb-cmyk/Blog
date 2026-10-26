@@ -1,30 +1,30 @@
 [
   {
-    "slug": "musk-warns-200-neoclouds-face-collapse-related-stocks-drop",
-    "title": "Musk warns 200+ 'neoclouds' face collapse; related stocks drop",
-    "dek": "Elon Musk said more than 200 neoclouds face 'guppy-level death,' and shares of several specialist cloud firms fell as investors question debt-fueled expansion.",
+    "slug": "wall-street-traders-build-data-centers-and-back-chip-startups-for-ai",
+    "title": "Wall Street traders build data centers and back chip startups for AI",
+    "dek": "High-frequency trading firms including Jane Street and Hudson River Trading are investing in computing infrastructure and chip ventures to gain AI capacity.",
     "section": "markets",
     "tags": [
-      "neocloud",
-      "AI infrastructure",
-      "markets"
+      "finance",
+      "ai",
+      "infrastructure"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://image.cnbcfm.com/api/v1/image/108437814-1792509978035-gettyimages-2297775036-1r5_3021_gdulgt9a.jpeg?v=1792537393&w=1920&h=1080",
-      "alt": "Neocloud stocks fall as Elon Musk says more than 200 of them face 'guppy-level death'",
-      "credit": "CNBC"
+      "url": "https://the-decoder.com/wp-content/uploads/2024/05/money_server_room.png",
+      "alt": "Wall Street's fastest traders are building data centers and backing chip startups to stay ahead in AI",
+      "credit": "The Decoder"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Neocloud stocks fall as Elon Musk says more than 200 of them face 'guppy-level death'",
-      "url": "https://www.cnbc.com/2026/10/26/neocloud-stocks-today-coreweave-nebius-iren-elon-musk.html",
-      "source": "CNBC"
+      "title": "Wall Street's fastest traders are building data centers and backing chip startups to stay ahead in AI",
+      "url": "https://the-decoder.com/wall-streets-fastest-traders-are-building-data-centers-and-backing-chip-startups-to-stay-ahead-in-ai/",
+      "source": "The Decoder"
     },
     "aiAssisted": true,
-    "createdAt": "2026-10-26T10:06:07.522Z",
-    "updatedAt": "2026-10-26T10:06:07.522Z",
+    "createdAt": "2026-10-26T10:06:08.309Z",
+    "updatedAt": "2026-10-26T10:06:08.309Z",
     "publishedAt": null,
     "readingTime": 1
   },

@@ -1,0 +1,29 @@
+{
+  "slug": "wall-street-traders-build-data-centers-and-back-chip-startups-for-ai",
+  "title": "Wall Street traders build data centers and back chip startups for AI",
+  "dek": "High-frequency trading firms including Jane Street and Hudson River Trading are investing in computing infrastructure and chip ventures to gain AI capacity.",
+  "body": "What happened\n\nHigh-frequency trading firms on Wall Street are pushing into hardware and facilities to secure more AI computing power. Firms named in reporting include Jane Street and Hudson River Trading. They are building data centers and providing support to chip startups as part of a competitive effort to stay ahead in AI.\n\n## Why it matters\n\nHigh-frequency trading firms execute trades at very small timescales; high-frequency trading refers to firms that use automated systems to place large numbers of orders in milliseconds. Access to more AI computing power can change how these firms develop and deploy models and systems. When trading firms invest directly in data centers and chips, they change their reliance on third-party cloud providers and chipmakers, and they may influence the supply chain for specialized hardware.\n\nThose moves could shift where capital flows in the tech stack and which vendors capture demand for AI-optimized chips and facilities. The presence of major trading firms in hardware and chip financing also signals that AI compute is now a strategic asset for nontraditional infrastructure investors.\n\n## The details\n\n- Reported firms include Jane Street and Hudson River Trading.\n- These firms are building their own data centers.\n- They are backing chip startups.\n- The stated aim is to stay ahead in AI by securing computing power.\n\nWhat the report does not say yet\n\n- The precise size, location, or technical specifications of the data centers are not disclosed in the reporting cited here.\n- Exact investment amounts in chip startups and the identities of all funded companies are not provided.\n- The timeline for when these facilities and chips will enter service is not specified.\n\n## What to watch\n\nWatch for disclosures about the scale and scope of the data centers and for announcements from the chip startups receiving backing. Also monitor whether these moves change how trading firms procure cloud services or negotiate with commercial chip suppliers.\n\nSource: [The Decoder](https://the-decoder.com/wall-streets-fastest-traders-are-building-data-centers-and-backing-chip-startups-to-stay-ahead-in-ai/)",
+  "section": "markets",
+  "tags": [
+    "finance",
+    "ai",
+    "infrastructure"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://the-decoder.com/wp-content/uploads/2024/05/money_server_room.png",
+    "alt": "Wall Street's fastest traders are building data centers and backing chip startups to stay ahead in AI",
+    "credit": "The Decoder"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Wall Street's fastest traders are building data centers and backing chip startups to stay ahead in AI",
+    "url": "https://the-decoder.com/wall-streets-fastest-traders-are-building-data-centers-and-backing-chip-startups-to-stay-ahead-in-ai/",
+    "source": "The Decoder"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-26T10:06:08.309Z",
+  "updatedAt": "2026-10-26T10:06:08.309Z",
+  "publishedAt": null
+}
