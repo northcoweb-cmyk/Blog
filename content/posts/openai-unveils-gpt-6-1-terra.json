@@ -1,0 +1,29 @@
+{
+  "slug": "openai-unveils-gpt-6-1-terra",
+  "title": "OpenAI unveils GPT-6.1 Terra",
+  "dek": "A lower-cost model that aims to make fast, capable computer use more widely available.",
+  "body": "OpenAI introduced GPT-6.1 Terra, a new model positioned to bring fast and capable computer use to a broader set of people.\n\n## Why it matters\n\nOpenAI says GPT-6.1 Terra is intended to make powerful AI-driven interactions on computers more accessible. Coverage of the release highlights the model’s ability to analyze screen content and edit video, and describes it as more affordable than prior offerings. If Terra delivers those capabilities at a lower price point, it could change how people use AI for everyday tasks like managing on-screen information and basic multimedia editing.\n\n## The details\n\n- Product name: GPT-6.1 Terra.\n- Purpose as stated: bringing fast and capable computer use to everyone.\n- Reported capabilities in coverage: can analyze screen content and edit video.\n- Reported positioning in coverage: more affordable than previous models.\n- Specific technical specifications, pricing, availability dates, and platform integrations have not been provided in the materials cited.\n\n## What to watch\n\nLook for official technical specs and pricing from OpenAI to understand performance and cost trade-offs. Also watch for user reports and developer documentation that confirm how well the model analyzes on-screen content and performs video edits in real-world workflows.\n\nSource: [OpenAI](https://openai.com/index/introducing-gpt-6-1-terra)",
+  "section": "models",
+  "tags": [
+    "OpenAI",
+    "models",
+    "AI tools"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/1515_Third_Street.jpg/1280px-1515_Third_Street.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "alt": "Introducing GPT-6.1 Terra",
+    "credit": "OpenAI"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Introducing GPT-6.1 Terra",
+    "url": "https://openai.com/index/introducing-gpt-6-1-terra",
+    "source": "OpenAI"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-27T10:06:06.305Z",
+  "updatedAt": "2026-10-27T10:06:06.305Z",
+  "publishedAt": null
+}
