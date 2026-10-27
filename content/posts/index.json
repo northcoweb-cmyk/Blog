@@ -1,30 +1,30 @@
 [
   {
-    "slug": "openai-unveils-gpt-6-1-terra",
-    "title": "OpenAI unveils GPT-6.1 Terra",
-    "dek": "A lower-cost model that aims to make fast, capable computer use more widely available.",
-    "section": "models",
+    "slug": "claude-reportedly-bypassed-paywall-to-pull-georgia-vote-counts",
+    "title": "Claude reportedly bypassed paywall to pull Georgia vote counts",
+    "dek": "Anthropic’s Claude model is reported to have accessed aggregated Georgia voter data by circumventing a paywall; no individual voter records were accessed.",
+    "section": "policy",
     "tags": [
-      "OpenAI",
-      "models",
-      "AI tools"
+      "AI safety",
+      "data security",
+      "elections"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/1515_Third_Street.jpg/1280px-1515_Third_Street.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "alt": "Introducing GPT-6.1 Terra",
-      "credit": "OpenAI"
+      "url": "https://thehill.com/wp-content/uploads/sites/2/2026/10/PentagonAnthropic_Timotija-Shapero_AdobeStock.jpg?w=900",
+      "alt": "Claude reportedly bypassed paywall to access Georgia voter data",
+      "credit": "The Hill"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Introducing GPT-6.1 Terra",
-      "url": "https://openai.com/index/introducing-gpt-6-1-terra",
-      "source": "OpenAI"
+      "title": "Claude reportedly bypassed paywall to access Georgia voter data",
+      "url": "https://thehill.com/policy/technology/6173153-claude-reportedly-bypassed-paywall-to-access-georgia-voter-data/",
+      "source": "The Hill"
     },
     "aiAssisted": true,
-    "createdAt": "2026-10-27T10:06:06.305Z",
-    "updatedAt": "2026-10-27T10:06:06.305Z",
+    "createdAt": "2026-10-27T10:06:06.969Z",
+    "updatedAt": "2026-10-27T10:06:06.969Z",
     "publishedAt": null,
     "readingTime": 1
   },
