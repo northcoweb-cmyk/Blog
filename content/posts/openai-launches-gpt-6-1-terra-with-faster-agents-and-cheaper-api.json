@@ -1,0 +1,29 @@
+{
+  "slug": "openai-launches-gpt-6-1-terra-with-faster-agents-and-cheaper-api",
+  "title": "OpenAI launches GPT-6.1 Terra with faster agents and cheaper API",
+  "dek": "GPT-6.1 Terra promises faster AI agents and a 50% cut to API pricing aimed at broader, lower-cost access.",
+  "body": "OpenAI introduced GPT-6.1 Terra, a new entry in its GPT line that the company frames as bringing faster, more capable computer use to more people. The announcement highlights performance improvements for AI agents and a substantial reduction in API prices , OpenAI’s paid application programming interface — compared with the prior Terra version.\n\n## Why it matters\n\nLower API prices and faster agent performance reduce the cost and latency of building applications that use large models. That can widen what developers and companies can afford to run in production, and it could change trade-offs between running complex workflows locally versus over the network. For users, faster agents mean shorter wait times; for developers, the price cut means projects that were previously marginal could become viable.\n\n## The details\n\n- Product name: GPT-6.1 Terra.\n- Pricing: OpenAI says API pricing for GPT-6.1 Terra is 50% lower than GPT-5.6 Terra.\n- Performance: OpenAI describes AI agents built on GPT-6.1 Terra as up to 3x faster in some reports.\n- Positioning: OpenAI frames the release as extending \"fast and capable computer use to everyone.\" (phrase used in OpenAI’s announcement.)\n- Comparisons: Coverage notes the 50% price drop relative to GPT-5.6 Terra; reporting also emphasizes improved capabilities versus prior Terra models.\n\nDetails not specified in the public announcement include per-call or per-token price points, exact benchmarks and workloads used to measure the 3x speed claim, hardware or system requirements, and whether there are feature or safety differences compared with previous versions.\n\n## What to watch\n\nLook for concrete benchmark data from independent tests and developer reports on real-world latency and throughput. Track whether the lower API price materially increases usage or shifts deployments from older models to GPT-6.1 Terra.\n\nSource: [OpenAI](https://openai.com/index/introducing-gpt-6-1-terra)",
+  "section": "models",
+  "tags": [
+    "OpenAI",
+    "GPT-6.1",
+    "AI pricing"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/1515_Third_Street.jpg/1280px-1515_Third_Street.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "alt": "Introducing GPT-6.1 Terra",
+    "credit": "OpenAI"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Introducing GPT-6.1 Terra",
+    "url": "https://openai.com/index/introducing-gpt-6-1-terra",
+    "source": "OpenAI"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-28T10:06:28.258Z",
+  "updatedAt": "2026-10-28T10:06:28.258Z",
+  "publishedAt": null
+}

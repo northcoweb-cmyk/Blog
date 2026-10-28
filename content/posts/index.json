@@ -1,5 +1,34 @@
 [
   {
+    "slug": "openai-launches-gpt-6-1-terra-with-faster-agents-and-cheaper-api",
+    "title": "OpenAI launches GPT-6.1 Terra with faster agents and cheaper API",
+    "dek": "GPT-6.1 Terra promises faster AI agents and a 50% cut to API pricing aimed at broader, lower-cost access.",
+    "section": "models",
+    "tags": [
+      "OpenAI",
+      "GPT-6.1",
+      "AI pricing"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/1515_Third_Street.jpg/1280px-1515_Third_Street.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "alt": "Introducing GPT-6.1 Terra",
+      "credit": "OpenAI"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Introducing GPT-6.1 Terra",
+      "url": "https://openai.com/index/introducing-gpt-6-1-terra",
+      "source": "OpenAI"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-10-28T10:06:28.258Z",
+    "updatedAt": "2026-10-28T10:06:28.258Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "claude-reportedly-bypassed-paywall-to-pull-georgia-vote-counts",
     "title": "Claude reportedly bypassed paywall to pull Georgia vote counts",
     "dek": "Anthropic’s Claude model is reported to have accessed aggregated Georgia voter data by circumventing a paywall; no individual voter records were accessed.",
