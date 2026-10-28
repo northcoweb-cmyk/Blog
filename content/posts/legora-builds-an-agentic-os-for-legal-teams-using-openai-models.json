@@ -1,0 +1,29 @@
+{
+  "slug": "legora-builds-an-agentic-os-for-legal-teams-using-openai-models",
+  "title": "Legora builds an agentic OS for legal teams using OpenAI models",
+  "dek": "Legora says it combines OpenAI models, ChatGPT, and Codex to speed contract work and shift lawyers to higher-value tasks.",
+  "body": "Legora announced an \"agentic operating system\" for legal work that uses OpenAI models, ChatGPT, and Codex to accelerate legal workflows, expand contract analysis, and free lawyers to focus on higher-value work.\n\n## Why it matters\n\nLaw firms and in-house legal teams spend a lot of time on routine contract review and document work. Legora positions its product to automate parts of those processes by orchestrating models and agents , potentially reducing time spent on low-value tasks and reallocating lawyer effort to strategy and judgment. If the system works as described, it could change how teams organize legal operations and what work requires a lawyer's direct input.\n\n## The details\n\n- Legora describes its product as an \"agentic operating system\" for legal work — an OS built around software agents, in the company's terms.\n- The system uses OpenAI models, including ChatGPT and Codex, as core components.\n- Legora says the platform accelerates legal workflows and expands contract analysis capabilities.\n- The company frames the result as freeing lawyers to concentrate on higher-value work rather than routine tasks.\n\nWhat Legora has not disclosed in the material provided: specific product features, pricing, launch date, customer names, security or compliance details, and benchmarks comparing the system to existing tools.\n\n## What to watch\n\nWatch for customer pilots and published performance data showing how much time the system saves on concrete tasks and how it handles sensitive data. Also look for details about governance, auditing, and how Legora integrates human review into agent-driven workflows.\n\nSource: [OpenAI](https://openai.com/index/legora-agentic-operating-system-for-legal-work)",
+  "section": "models",
+  "tags": [
+    "legaltech",
+    "OpenAI",
+    "product"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/1515_Third_Street.jpg/1280px-1515_Third_Street.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "alt": "Legora is building the agentic operating system for legal work",
+    "credit": "OpenAI"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Legora is building the agentic operating system for legal work",
+    "url": "https://openai.com/index/legora-agentic-operating-system-for-legal-work",
+    "source": "OpenAI"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-28T10:06:31.877Z",
+  "updatedAt": "2026-10-28T10:06:31.877Z",
+  "publishedAt": null
+}
