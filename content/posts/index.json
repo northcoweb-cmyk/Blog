@@ -1,8 +1,8 @@
 [
   {
-    "slug": "google-launches-gemini-4-carbon-for-cybersecurity",
-    "title": "Google launches Gemini 4 Carbon for cybersecurity",
-    "dek": "A new Google AI model, Gemini 4 Carbon, has been introduced with an explicit focus on cybersecurity.",
+    "slug": "google-launches-gemini-4-carbon-with-cybersecurity-focus",
+    "title": "Google launches Gemini 4 Carbon with cybersecurity focus",
+    "dek": "Gemini 4 Carbon is Google’s newest frontier model; Google says it leads a key benchmark and improves coding, agentic tasks, and cybersecurity.",
     "section": "models",
     "tags": [
       "Google",
@@ -11,20 +11,20 @@
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://media.smallbiztrends.com/2026/10/gemini-news-google-launches-gemini-4-carbon-the-future-of-cybersecurity-unveiled-100x100.jpg",
-      "alt": "Google Launches Gemini 4 Carbon: The Future of Cybersecurity Unveiled",
-      "credit": "Small Business Trends"
+      "url": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/03/STK255_Google_Gemini_A.jpg?quality=90&strip=all&crop=0,0,100,100",
+      "alt": "Google launches Gemini 4 Carbon with a ‘significant leap’ in cybersecurity",
+      "credit": "The Verge"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Google Launches Gemini 4 Carbon: The Future of Cybersecurity Unveiled",
-      "url": "https://smallbiztrends.com/google-launches-gemini-4-carbon-the-future-of-cybersecurity-unveiled/",
-      "source": "Small Business Trends"
+      "title": "Google launches Gemini 4 Carbon with a ‘significant leap’ in cybersecurity",
+      "url": "https://www.theverge.com/tech/1021339/google-gemini-4-carbon-cybersecurity-frontier",
+      "source": "The Verge"
     },
     "aiAssisted": true,
-    "createdAt": "2026-10-29T10:06:12.586Z",
-    "updatedAt": "2026-10-29T10:06:12.586Z",
+    "createdAt": "2026-10-29T10:06:12.861Z",
+    "updatedAt": "2026-10-29T10:06:12.861Z",
     "publishedAt": null,
     "readingTime": 1
   },
