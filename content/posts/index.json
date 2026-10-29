@@ -1,5 +1,34 @@
 [
   {
+    "slug": "google-launches-gemini-4-carbon-for-cybersecurity",
+    "title": "Google launches Gemini 4 Carbon for cybersecurity",
+    "dek": "A new Google AI model, Gemini 4 Carbon, has been introduced with an explicit focus on cybersecurity.",
+    "section": "models",
+    "tags": [
+      "Google",
+      "AI",
+      "cybersecurity"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://media.smallbiztrends.com/2026/10/gemini-news-google-launches-gemini-4-carbon-the-future-of-cybersecurity-unveiled-100x100.jpg",
+      "alt": "Google Launches Gemini 4 Carbon: The Future of Cybersecurity Unveiled",
+      "credit": "Small Business Trends"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Google Launches Gemini 4 Carbon: The Future of Cybersecurity Unveiled",
+      "url": "https://smallbiztrends.com/google-launches-gemini-4-carbon-the-future-of-cybersecurity-unveiled/",
+      "source": "Small Business Trends"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-10-29T10:06:12.586Z",
+    "updatedAt": "2026-10-29T10:06:12.586Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "legora-builds-an-agentic-os-for-legal-teams-using-openai-models",
     "title": "Legora builds an agentic OS for legal teams using OpenAI models",
     "dek": "Legora says it combines OpenAI models, ChatGPT, and Codex to speed contract work and shift lawyers to higher-value tasks.",

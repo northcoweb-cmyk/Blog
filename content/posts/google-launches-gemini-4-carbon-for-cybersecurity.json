@@ -1,0 +1,29 @@
+{
+  "slug": "google-launches-gemini-4-carbon-for-cybersecurity",
+  "title": "Google launches Gemini 4 Carbon for cybersecurity",
+  "dek": "A new Google AI model, Gemini 4 Carbon, has been introduced with an explicit focus on cybersecurity.",
+  "body": "Google has launched Gemini 4 Carbon, an AI model positioned with a cybersecurity focus. Multiple outlets reported the announcement, describing the model as targeted at protecting digital assets and addressing online threats. Exact technical specifications and deployment details have not been disclosed in the coverage.\n\n## Why it matters\n\nEnterprises and security teams watch new models because advanced AI can be used to detect, analyze, and respond to threats at scale — tasks that are central to modern cybersecurity operations. A major vendor like Google releasing a model explicitly oriented toward security could shift where organizations look for tooling and could affect how security workflows are designed.\n\n## The details\n\n- Name: Gemini 4 Carbon.\n- Purpose: Reported emphasis on cybersecurity.\n- Coverage: Announcement reported by Small Business Trends, Reuters, and The Economic Times.\n- Public information gaps: The reports do not provide detailed technical specifications, performance benchmarks, pricing, availability, or the specific cybersecurity features and use cases the model supports.\n\n## What to watch\n\nLook for technical documentation and independent evaluations that show how Gemini 4 Carbon performs on security tasks compared with existing tools. Watch for details on availability, integration options for enterprise security stacks, and any reported real-world deployments.\n\nSource: [Small Business Trends](https://smallbiztrends.com/google-launches-gemini-4-carbon-the-future-of-cybersecurity-unveiled/)",
+  "section": "models",
+  "tags": [
+    "Google",
+    "AI",
+    "cybersecurity"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://media.smallbiztrends.com/2026/10/gemini-news-google-launches-gemini-4-carbon-the-future-of-cybersecurity-unveiled-100x100.jpg",
+    "alt": "Google Launches Gemini 4 Carbon: The Future of Cybersecurity Unveiled",
+    "credit": "Small Business Trends"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Google Launches Gemini 4 Carbon: The Future of Cybersecurity Unveiled",
+    "url": "https://smallbiztrends.com/google-launches-gemini-4-carbon-the-future-of-cybersecurity-unveiled/",
+    "source": "Small Business Trends"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-29T10:06:12.586Z",
+  "updatedAt": "2026-10-29T10:06:12.586Z",
+  "publishedAt": null
+}
