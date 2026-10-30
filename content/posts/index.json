@@ -1,5 +1,34 @@
 [
   {
+    "slug": "new-york-bans-unsafe-chatbot-behavior-with-children",
+    "title": "New York bans 'unsafe' chatbot behavior with children",
+    "dek": "Gov. Kathy Hochul signed a bill defining a dozen 'unsafe AI companion features' for chatbots used with kids",
+    "section": "policy",
+    "tags": [
+      "AI policy",
+      "child safety",
+      "New York"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://thehill.com/wp-content/uploads/sites/2/2026/10/6ae2710050f854.64595746.jpeg?w=900",
+      "alt": "New York enacts ban on 'unsafe' chatbot behavior with kids as states push AI regulation boundaries",
+      "credit": "The Hill"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "New York enacts ban on 'unsafe' chatbot behavior with kids as states push AI regulation boundaries",
+      "url": "https://thehill.com/policy/technology/new-york-ban-unsafe-chatbot-behavior-kids-ai/",
+      "source": "The Hill"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-10-30T10:06:07.048Z",
+    "updatedAt": "2026-10-30T10:06:07.048Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "google-launches-gemini-4-carbon-with-cybersecurity-focus",
     "title": "Google launches Gemini 4 Carbon with cybersecurity focus",
     "dek": "Gemini 4 Carbon is Google’s newest frontier model; Google says it leads a key benchmark and improves coding, agentic tasks, and cybersecurity.",

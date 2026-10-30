@@ -1,0 +1,29 @@
+{
+  "slug": "new-york-bans-unsafe-chatbot-behavior-with-children",
+  "title": "New York bans 'unsafe' chatbot behavior with children",
+  "dek": "Gov. Kathy Hochul signed a bill defining a dozen 'unsafe AI companion features' for chatbots used with kids",
+  "body": "New York signed a law this week that restricts how companion chatbots can behave with children. Governor Kathy Hochul signed the legislation Wednesday; it lays out a dozen definitions of what the law calls “unsafe AI companion features.”\n\n## Why it matters\nStates are increasingly using laws to set guardrails on artificial intelligence. This New York action targets chatbots marketed as companions for children and adds to a growing patchwork of state-level rules aimed at protecting minors, regulating employer use of AI and pushing developers to avoid catastrophic failures. The new law could shape what companies build and how they label chatbot features for kids.\n\n## The details\n- The bill was signed by Gov. Kathy Hochul on Wednesday. \n- It focuses on “companion” chatbots — conversational AI systems described as companions for users, including children.\n- The law includes a dozen definitions of “unsafe AI companion features.”\n- The reporting locations include Harrisburg, Pa., and coverage of the change appeared through AP and other outlets.\n- The action is described as part of a broader trend of state governments moving to regulate AI across several fronts: child protection, employer use, and developer responsibilities to prevent AI-caused catastrophes.\n\nWhat the law does not specify in the pieces cited: the exact text of the dozen definitions, enforcement mechanisms, penalties, effective dates, how companies must change products, or how federal rules might interact with the state law.\n\n## What to watch\nExpect follow-up reporting on the law’s text and how regulators plan to enforce the new definitions. Watch for statements from companies that make companion chatbots and for other states to propose or refine similar measures.\n\nSource: [The Hill](https://thehill.com/policy/technology/new-york-ban-unsafe-chatbot-behavior-kids-ai/)",
+  "section": "policy",
+  "tags": [
+    "AI policy",
+    "child safety",
+    "New York"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://thehill.com/wp-content/uploads/sites/2/2026/10/6ae2710050f854.64595746.jpeg?w=900",
+    "alt": "New York enacts ban on 'unsafe' chatbot behavior with kids as states push AI regulation boundaries",
+    "credit": "The Hill"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "New York enacts ban on 'unsafe' chatbot behavior with kids as states push AI regulation boundaries",
+    "url": "https://thehill.com/policy/technology/new-york-ban-unsafe-chatbot-behavior-kids-ai/",
+    "source": "The Hill"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-30T10:06:07.048Z",
+  "updatedAt": "2026-10-30T10:06:07.048Z",
+  "publishedAt": null
+}
