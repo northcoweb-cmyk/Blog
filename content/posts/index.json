@@ -1,30 +1,30 @@
 [
   {
-    "slug": "new-york-bans-unsafe-chatbot-behavior-with-children",
-    "title": "New York bans 'unsafe' chatbot behavior with children",
-    "dek": "Gov. Kathy Hochul signed a bill defining a dozen 'unsafe AI companion features' for chatbots used with kids",
-    "section": "policy",
+    "slug": "mistral-releases-weights-for-1-trillion-parameter-large-4-model",
+    "title": "Mistral releases weights for 1‑trillion‑parameter Large 4 model",
+    "dek": "The company published model weights it says let organizations run a trillion‑parameter AI model on‑premises to control cybersecurity defenses.",
+    "section": "models",
     "tags": [
-      "AI policy",
-      "child safety",
-      "New York"
+      "Mistral",
+      "model weights",
+      "cybersecurity"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://thehill.com/wp-content/uploads/sites/2/2026/10/6ae2710050f854.64595746.jpeg?w=900",
-      "alt": "New York enacts ban on 'unsafe' chatbot behavior with kids as states push AI regulation boundaries",
-      "credit": "The Hill"
+      "url": "https://techcrunch.com/wp-content/uploads/2024/06/GettyImages-1760104305.jpg?resize=1200,798",
+      "alt": "Mistral releases weights for its trillion-parameter AI model, targeting cybersecurity",
+      "credit": "TechCrunch"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "New York enacts ban on 'unsafe' chatbot behavior with kids as states push AI regulation boundaries",
-      "url": "https://thehill.com/policy/technology/new-york-ban-unsafe-chatbot-behavior-kids-ai/",
-      "source": "The Hill"
+      "title": "Mistral releases weights for its trillion-parameter AI model, targeting cybersecurity",
+      "url": "https://techcrunch.com/2026/10/29/mistral-releases-weights-for-its-trillion-parameter-ai-model-targeting-cybersecurity/",
+      "source": "TechCrunch"
     },
     "aiAssisted": true,
-    "createdAt": "2026-10-30T10:06:07.048Z",
-    "updatedAt": "2026-10-30T10:06:07.048Z",
+    "createdAt": "2026-10-30T10:06:07.860Z",
+    "updatedAt": "2026-10-30T10:06:07.860Z",
     "publishedAt": null,
     "readingTime": 1
   },
