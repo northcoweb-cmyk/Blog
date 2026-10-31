@@ -1,0 +1,29 @@
+{
+  "slug": "an-ai-agent-performed-brain-injections-on-a-live-mouse",
+  "title": "An AI agent performed brain injections on a live mouse",
+  "dek": "A biotech startup let an AI agent pick a gene therapy and carry out an injection into a live mouse’s brain.",
+  "body": "An automated AI system chose a gene therapy and carried out an injection into the brain of a live mouse. A biotech startup tested the agent in a real lab procedure and the treatment was delivered successfully — a concrete instance of an AI agent making experimental choices and operating on a living animal.\n\n## Why it matters\n\nThis incident shows AI systems moving beyond design and simulation into hands-on experimental work inside living animals. That raises questions about laboratory safety, oversight, reproducibility, and how decisions made by automated systems will be reviewed and regulated. It also signals a possible change in how some lab tasks are carried out, since an agent both chose the therapy and performed the physical injection.\n\n## The details\n\n- A biotech startup allowed an AI agent to select a gene therapy and to perform an injection into the brain of a live mouse.\n- The agent successfully delivered the chosen treatment.\n- The event was presented as an example of an AI agent operating in a laboratory setting.\n- Publicly available information does not specify the startup’s name, the identity of the therapy, the strain or number of mice used, the experimental endpoints, or safety and welfare outcomes for the animal.\n- It is not publicly detailed how the agent’s decision-making process was audited or whether human researchers intervened during preparation or the procedure.\n\n## What to watch\n\nLook for follow-up reporting that provides the startup’s identity, experimental details, animal welfare outcomes, and independent verification of the results. Also watch for responses from regulators and research institutions about rules for allowing automated systems to perform experiments on living subjects.\n\nSource: [WIRED](https://www.wired.com/story/an-ai-agent-did-brain-surgery-on-live-mouse/)",
+  "section": "startups",
+  "tags": [
+    "AI",
+    "biotech",
+    "lab automation"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://media.wired.com/photos/6ae4d6bbd55a0e2bc0a8d990/master/pass/103026-AI%20Mouse%2002.jpg",
+    "alt": "An AI Agent Injected Drugs Into a Live Mouse’s Brain",
+    "credit": "WIRED"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "An AI Agent Injected Drugs Into a Live Mouse’s Brain",
+    "url": "https://www.wired.com/story/an-ai-agent-did-brain-surgery-on-live-mouse/",
+    "source": "WIRED"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-31T10:06:07.613Z",
+  "updatedAt": "2026-10-31T10:06:07.613Z",
+  "publishedAt": null
+}

@@ -1,30 +1,30 @@
 [
   {
-    "slug": "openai-falls-short-of-30b-fundraise-takes-11b-at-1-25t-valuation",
-    "title": "OpenAI falls short of $30B fundraise, takes $11B at $1.25T valuation",
-    "dek": "OpenAI secured about $11 billion of a planned $30 billion round as big investors pulled back during a tech sell-off.",
-    "section": "markets",
+    "slug": "an-ai-agent-performed-brain-injections-on-a-live-mouse",
+    "title": "An AI agent performed brain injections on a live mouse",
+    "dek": "A biotech startup let an AI agent pick a gene therapy and carry out an injection into a live mouse’s brain.",
+    "section": "startups",
     "tags": [
-      "funding",
-      "OpenAI",
-      "valuation"
+      "AI",
+      "biotech",
+      "lab automation"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://the-decoder.com/wp-content/uploads/2026/10/openai_anthropic.png",
-      "alt": "OpenAI raises just $11 billion of its $30 billion target as big investors lose their AI appetite",
-      "credit": "The Decoder"
+      "url": "https://media.wired.com/photos/6ae4d6bbd55a0e2bc0a8d990/master/pass/103026-AI%20Mouse%2002.jpg",
+      "alt": "An AI Agent Injected Drugs Into a Live Mouse’s Brain",
+      "credit": "WIRED"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "OpenAI raises just $11 billion of its $30 billion target as big investors lose their AI appetite",
-      "url": "https://the-decoder.com/openai-raises-just-11-billion-of-its-30-billion-target-as-big-investors-lose-their-ai-appetite/",
-      "source": "The Decoder"
+      "title": "An AI Agent Injected Drugs Into a Live Mouse’s Brain",
+      "url": "https://www.wired.com/story/an-ai-agent-did-brain-surgery-on-live-mouse/",
+      "source": "WIRED"
     },
     "aiAssisted": true,
-    "createdAt": "2026-10-31T10:06:05.968Z",
-    "updatedAt": "2026-10-31T10:06:05.968Z",
+    "createdAt": "2026-10-31T10:06:07.613Z",
+    "updatedAt": "2026-10-31T10:06:07.613Z",
     "publishedAt": null,
     "readingTime": 1
   },
