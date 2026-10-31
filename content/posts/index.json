@@ -1,5 +1,34 @@
 [
   {
+    "slug": "openai-falls-short-of-30b-fundraise-takes-11b-at-1-25t-valuation",
+    "title": "OpenAI falls short of $30B fundraise, takes $11B at $1.25T valuation",
+    "dek": "OpenAI secured about $11 billion of a planned $30 billion round as big investors pulled back during a tech sell-off.",
+    "section": "markets",
+    "tags": [
+      "funding",
+      "OpenAI",
+      "valuation"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://the-decoder.com/wp-content/uploads/2026/10/openai_anthropic.png",
+      "alt": "OpenAI raises just $11 billion of its $30 billion target as big investors lose their AI appetite",
+      "credit": "The Decoder"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "OpenAI raises just $11 billion of its $30 billion target as big investors lose their AI appetite",
+      "url": "https://the-decoder.com/openai-raises-just-11-billion-of-its-30-billion-target-as-big-investors-lose-their-ai-appetite/",
+      "source": "The Decoder"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-10-31T10:06:05.968Z",
+    "updatedAt": "2026-10-31T10:06:05.968Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "mistral-releases-weights-for-1-trillion-parameter-large-4-model",
     "title": "Mistral releases weights for 1‑trillion‑parameter Large 4 model",
     "dek": "The company published model weights it says let organizations run a trillion‑parameter AI model on‑premises to control cybersecurity defenses.",

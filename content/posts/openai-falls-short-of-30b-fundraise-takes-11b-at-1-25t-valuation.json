@@ -1,0 +1,29 @@
+{
+  "slug": "openai-falls-short-of-30b-fundraise-takes-11b-at-1-25t-valuation",
+  "title": "OpenAI falls short of $30B fundraise, takes $11B at $1.25T valuation",
+  "dek": "OpenAI secured about $11 billion of a planned $30 billion round as big investors pulled back during a tech sell-off.",
+  "body": "OpenAI said it raised roughly $11 billion in its most recent financing, well under the $30 billion it had targeted. The company’s valuation in the round came in at about $1.25 trillion. Several large investors reduced or withdrew commitments amid a broader tech-sector sell-off, and rival Anthropic is preparing to pursue a public listing as early as November.\n\n## Why it matters\n\nThis funding shortfall signals waning appetite among large investors for mega-scale private investments in AI companies. A missed target of this size narrows OpenAI’s near-term capital runway and may change how the company approaches future fundraising and partnerships. It also shifts attention to public-market options for other AI firms, since Anthropic is reportedly eyeing an initial public offering as early as November.\n\n## The details\n\n- Amount raised: about $11 billion.\n- Target: $30 billion.\n- Valuation: about $1.25 trillion.\n- Investor behavior: major investors pulled back amid a recent sell-off in technology stocks.\n- Competitor moves: Anthropic is pushing to go public as early as November.\n\nSpecifics that are not yet public include the identities and dollar commitments of the investors who did participate, the precise timeline for the closing of the $11 billion raise, any changes to deal terms compared with initial plans, and how OpenAI plans to allocate the funds it did secure.\n\n## What to watch\n\nWatch for filings or disclosures that name participating investors and any board or governance changes tied to the round. Also monitor Anthropic’s IPO progress and timing; a November public-market debut would test investor demand for AI companies outside OpenAI.\n\nSource: [The Decoder](https://the-decoder.com/openai-raises-just-11-billion-of-its-30-billion-target-as-big-investors-lose-their-ai-appetite/)",
+  "section": "markets",
+  "tags": [
+    "funding",
+    "OpenAI",
+    "valuation"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://the-decoder.com/wp-content/uploads/2026/10/openai_anthropic.png",
+    "alt": "OpenAI raises just $11 billion of its $30 billion target as big investors lose their AI appetite",
+    "credit": "The Decoder"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "OpenAI raises just $11 billion of its $30 billion target as big investors lose their AI appetite",
+    "url": "https://the-decoder.com/openai-raises-just-11-billion-of-its-30-billion-target-as-big-investors-lose-their-ai-appetite/",
+    "source": "The Decoder"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-10-31T10:06:05.968Z",
+  "updatedAt": "2026-10-31T10:06:05.968Z",
+  "publishedAt": null
+}
