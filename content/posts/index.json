@@ -1,5 +1,34 @@
 [
   {
+    "slug": "companies-say-ai-is-finally-showing-up-in-earnings",
+    "title": "Companies say AI is finally showing up in earnings",
+    "dek": "Santander, Novartis and others reported early profit and revenue effects from AI as investors push for returns.",
+    "section": "markets",
+    "tags": [
+      "AI",
+      "earnings",
+      "business"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://image.cnbcfm.com/api/v1/image/108253381-1768531442124-gettyimages-2218925569-_dsc8484.jpeg?v=1793360711&w=1920&h=1080",
+      "alt": "Companies promised AI gains— here's how the payoff showed up in earnings",
+      "credit": "CNBC"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Companies promised AI gains— here's how the payoff showed up in earnings",
+      "url": "https://www.cnbc.com/2026/11/01/ai-investments-company-earnings.html",
+      "source": "CNBC"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-01T10:06:02.782Z",
+    "updatedAt": "2026-11-01T10:06:02.782Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "an-ai-agent-performed-brain-injections-on-a-live-mouse",
     "title": "An AI agent performed brain injections on a live mouse",
     "dek": "A biotech startup let an AI agent pick a gene therapy and carry out an injection into a live mouse’s brain.",
