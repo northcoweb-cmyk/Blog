@@ -1,32 +1,32 @@
 [
   {
-    "slug": "companies-say-ai-is-finally-showing-up-in-earnings",
-    "title": "Companies say AI is finally showing up in earnings",
-    "dek": "Santander, Novartis and others reported early profit and revenue effects from AI as investors push for returns.",
-    "section": "markets",
+    "slug": "openai-folds-chat-and-work-into-one-chatgpt-interface",
+    "title": "OpenAI folds Chat and Work into one ChatGPT interface",
+    "dek": "New token-based quota will be shared across chat and coding; basic chats exempt from the cap.",
+    "section": "ai",
     "tags": [
-      "AI",
-      "earnings",
-      "business"
+      "OpenAI",
+      "pricing",
+      "ChatGPT"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://image.cnbcfm.com/api/v1/image/108253381-1768531442124-gettyimages-2218925569-_dsc8484.jpeg?v=1793360711&w=1920&h=1080",
-      "alt": "Companies promised AI gains— here's how the payoff showed up in earnings",
-      "credit": "CNBC"
+      "url": "https://the-decoder.com/wp-content/uploads/2026/04/openai_chatgpt_colors.png",
+      "alt": "OpenAI's upcoming chat-and-work merger in ChatGPT signals the end of all-you-can-prompt pricing",
+      "credit": "The Decoder"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Companies promised AI gains— here's how the payoff showed up in earnings",
-      "url": "https://www.cnbc.com/2026/11/01/ai-investments-company-earnings.html",
-      "source": "CNBC"
+      "title": "OpenAI's upcoming chat-and-work merger in ChatGPT signals the end of all-you-can-prompt pricing",
+      "url": "https://the-decoder.com/openais-upcoming-chat-and-work-merger-in-chatgpt-signals-the-end-of-all-you-can-prompt-pricing/",
+      "source": "The Decoder"
     },
     "aiAssisted": true,
-    "createdAt": "2026-11-01T10:06:02.782Z",
-    "updatedAt": "2026-11-01T10:06:02.782Z",
+    "createdAt": "2026-11-01T10:06:03.567Z",
+    "updatedAt": "2026-11-01T10:06:03.567Z",
     "publishedAt": null,
-    "readingTime": 1
+    "readingTime": 2
   },
   {
     "slug": "an-ai-agent-performed-brain-injections-on-a-live-mouse",

@@ -1,0 +1,29 @@
+{
+  "slug": "openai-folds-chat-and-work-into-one-chatgpt-interface",
+  "title": "OpenAI folds Chat and Work into one ChatGPT interface",
+  "dek": "New token-based quota will be shared across chat and coding; basic chats exempt from the cap.",
+  "body": "OpenAI has merged its Chat and Work modes into a single ChatGPT interface and will introduce a shared, token-based quota for multiple plans beginning in December. The change puts ChatGPT chat interactions and Codex (the coding model) on the same consumption ledger, with more complex models using more of the shared quota while simple instant chats do not count toward it.\n\n## Why it matters\n\nThe shift ends the practical all-you-can-prompt model for people on Plus, Pro, and Business plans by tying use to a token quota , tokens are the chunks of text the models process when you send prompts and receive responses. Heavy users who rely on larger models or on coding workflows are likely to hit the quota faster, which the reporting says will probably reduce the effective quality of ChatGPT for those users on lower-cost plans.\n\nThis changes how people and teams will budget for generative AI: not by subscription tier alone, but by how many tokens their workflows consume. It also aligns chat and code usage under the same metering system, making it harder to treat coding tasks and conversational queries as separate budget items.\n\n## The details\n\n- OpenAI is combining Chat and Work into one interface.\n- The shared quota will apply to Plus, Pro, and Business plans.\n- The quota is token-based , tokens are units of input and output text that models process.\n- More complex models consume more of the token quota; simple instant chats do not count toward it.\n- Codex (the coding model) will be included in the shared quota alongside chat.\n- The change starts in December.\n- The reporting suggests heavy users on lower-cost plans will likely see a drop in ChatGPT quality as a result.\n\n## What to watch\n\nOpenAI has not published the exact token limits or the precise consumption rates for different models, so monitor for the official quota numbers and billing details when they’re released. Watch how enterprises adjust subscriptions and internal policies for model use — teams that run code-generation or long-context workflows may need to reassess plan choices or introduce usage controls.\n\nSource: [The Decoder](https://the-decoder.com/openais-upcoming-chat-and-work-merger-in-chatgpt-signals-the-end-of-all-you-can-prompt-pricing/)",
+  "section": "ai",
+  "tags": [
+    "OpenAI",
+    "pricing",
+    "ChatGPT"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://the-decoder.com/wp-content/uploads/2026/04/openai_chatgpt_colors.png",
+    "alt": "OpenAI's upcoming chat-and-work merger in ChatGPT signals the end of all-you-can-prompt pricing",
+    "credit": "The Decoder"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "OpenAI's upcoming chat-and-work merger in ChatGPT signals the end of all-you-can-prompt pricing",
+    "url": "https://the-decoder.com/openais-upcoming-chat-and-work-merger-in-chatgpt-signals-the-end-of-all-you-can-prompt-pricing/",
+    "source": "The Decoder"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-01T10:06:03.567Z",
+  "updatedAt": "2026-11-01T10:06:03.567Z",
+  "publishedAt": null
+}
