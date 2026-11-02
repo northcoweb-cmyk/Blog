@@ -1,0 +1,29 @@
+{
+  "slug": "hundreds-of-apps-hid-sexually-abusive-deepfake-features",
+  "title": "Hundreds of apps hid sexually abusive deepfake features",
+  "dek": "WIRED found roughly 400 Chinese-language apps and sites that appeared normal but included secret tools for creating violent AI images and video.",
+  "body": "What happened\n\nWIRED uncovered about 400 apps and websites tied to Chinese-language developers that presented themselves as ordinary AI tools but contained hidden features that enabled users to create sexually abusive, violent AI-generated images and videos. Deepfake refers to synthetic media,images or video,created by AI to convincingly depict people doing or saying things they never did.\n\n## Why it matters\n\nThese hidden features turn ordinary consumer-facing tools into channels for creating sexually abusive content at scale. That raises immediate harms for potential victims shown in such content and broader risks around normalization, distribution, and reuse of abusive imagery. It also points to gaps in oversight: tools that look benign can include secret capabilities that skirt review and moderation.\n\n## The details\n\n- WIRED identified roughly 400 apps and websites linked to Chinese-language developers.\n- The services outwardly appeared to be regular AI tools but included concealed options for producing violent, sexually abusive synthetic images and video.\n- The hidden features enabled users to generate deepfakes—AI-made images or video meant to portray real people in fabricated scenarios.\n- The reporting links the behavior to a cluster of developers working in Chinese-language markets.\n- Specific app names, hosting platforms, how long the features operated, and the identities of the developers are not provided in the summary.\n\n## What to watch\n\nWatch for responses from app stores and hosting platforms about removal or enforcement, and for follow-up reporting that names the services or describes how the features were concealed. Also track whether regulators or law enforcement open inquiries into developers or platforms tied to this network.\n\nSource: [WIRED](https://www.wired.com/story/hundreds-of-mundane-ai-apps-are-hiding-abusive-deepfake-features/)",
+  "section": "ai",
+  "tags": [
+    "deepfakes",
+    "misuse",
+    "apps"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://media.wired.com/photos/6adfc11328ba980ed3d0219a/master/pass/Security_ChinaAppsBehindDeepFakes_v1.jpg",
+    "alt": "Hundreds of Mundane AI Apps Are Hiding Sexually Abusive Deepfake Features",
+    "credit": "WIRED"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Hundreds of Mundane AI Apps Are Hiding Sexually Abusive Deepfake Features",
+    "url": "https://www.wired.com/story/hundreds-of-mundane-ai-apps-are-hiding-abusive-deepfake-features/",
+    "source": "WIRED"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-02T10:06:09.064Z",
+  "updatedAt": "2026-11-02T10:06:09.064Z",
+  "publishedAt": null
+}

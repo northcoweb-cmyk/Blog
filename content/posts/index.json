@@ -1,30 +1,30 @@
 [
   {
-    "slug": "anthropic-tells-claude-not-to-recreate-existing-video-games",
-    "title": "Anthropic tells Claude not to recreate existing video games",
-    "dek": "Anthropic updated Claude so it will refuse requests to reproduce existing games while still assisting with original or genre designs.",
-    "section": "tech",
+    "slug": "hundreds-of-apps-hid-sexually-abusive-deepfake-features",
+    "title": "Hundreds of apps hid sexually abusive deepfake features",
+    "dek": "WIRED found roughly 400 Chinese-language apps and sites that appeared normal but included secret tools for creating violent AI images and video.",
+    "section": "ai",
     "tags": [
-      "Anthropic",
-      "AI policy",
-      "video games"
+      "deepfakes",
+      "misuse",
+      "apps"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://www.engadget.com/img/gallery/anthropic-updates-claude-to-stop-it-from-recreating-existing-video-games/l-intro-1793566610.jpg",
-      "alt": "Anthropic updates Claude to stop it from recreating existing video games",
-      "credit": "Engadget"
+      "url": "https://media.wired.com/photos/6adfc11328ba980ed3d0219a/master/pass/Security_ChinaAppsBehindDeepFakes_v1.jpg",
+      "alt": "Hundreds of Mundane AI Apps Are Hiding Sexually Abusive Deepfake Features",
+      "credit": "WIRED"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Anthropic updates Claude to stop it from recreating existing video games",
-      "url": "https://www.engadget.com/2303469/anthropic-updates-claude-to-stop-it-from-recreating-existing-video-games/",
-      "source": "Engadget"
+      "title": "Hundreds of Mundane AI Apps Are Hiding Sexually Abusive Deepfake Features",
+      "url": "https://www.wired.com/story/hundreds-of-mundane-ai-apps-are-hiding-abusive-deepfake-features/",
+      "source": "WIRED"
     },
     "aiAssisted": true,
-    "createdAt": "2026-11-02T10:06:08.148Z",
-    "updatedAt": "2026-11-02T10:06:08.148Z",
+    "createdAt": "2026-11-02T10:06:09.064Z",
+    "updatedAt": "2026-11-02T10:06:09.064Z",
     "publishedAt": null,
     "readingTime": 1
   },
