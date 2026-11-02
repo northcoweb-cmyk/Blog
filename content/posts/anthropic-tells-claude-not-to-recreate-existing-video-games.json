@@ -1,0 +1,29 @@
+{
+  "slug": "anthropic-tells-claude-not-to-recreate-existing-video-games",
+  "title": "Anthropic tells Claude not to recreate existing video games",
+  "dek": "Anthropic updated Claude so it will refuse requests to reproduce existing games while still assisting with original or genre designs.",
+  "body": "Anthropic updated Claude, its conversational AI assistant, to refuse requests that would recreate existing video games. The change stops Claude from producing content that reproduces games, though users can still ask it to help design original games or generate ideas in a genre.\n\n## Why it matters\n\nAI tools that generate code, text and assets can potentially reproduce copyrighted material from the datasets they were trained on. Game creators and publishers have raised concerns about models producing near-identical clones of commercial titles. Anthropic’s change is a move by a developer of a widely used assistant to limit one specific class of potentially infringing output , recreations of existing games , while keeping the assistant available for creative work that stays original.\n\n## The details\n\n- Anthropic updated Claude to decline prompts that would recreate existing video games. \n- Users retain the ability to use Claude for designing original games or for generating content that follows a genre, rather than copying an existing title. \n- The story about the update was reported by Engadget and picked up by game-industry outlets including Game Developer and PCMag Middle East. \n- The reports did not provide technical specifics about how Claude determines whether a user request would recreate an existing game. \n- The reports did not include quotes from Anthropic or examples of declined prompts. \n\n## What to watch\n\nWatch for follow-up statements from Anthropic that explain the guardrails and detection methods it uses — those details are not in the reporting so far. Also monitor whether other AI developers adopt similar limits or publish clearer policies and examples about what counts as \"recreating\" a game and what is allowed when helping design original titles.\n\nSource: [Engadget](https://www.engadget.com/2303469/anthropic-updates-claude-to-stop-it-from-recreating-existing-video-games/)",
+  "section": "tech",
+  "tags": [
+    "Anthropic",
+    "AI policy",
+    "video games"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://www.engadget.com/img/gallery/anthropic-updates-claude-to-stop-it-from-recreating-existing-video-games/l-intro-1793566610.jpg",
+    "alt": "Anthropic updates Claude to stop it from recreating existing video games",
+    "credit": "Engadget"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Anthropic updates Claude to stop it from recreating existing video games",
+    "url": "https://www.engadget.com/2303469/anthropic-updates-claude-to-stop-it-from-recreating-existing-video-games/",
+    "source": "Engadget"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-02T10:06:08.148Z",
+  "updatedAt": "2026-11-02T10:06:08.148Z",
+  "publishedAt": null
+}

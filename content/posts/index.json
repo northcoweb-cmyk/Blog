@@ -1,5 +1,34 @@
 [
   {
+    "slug": "anthropic-tells-claude-not-to-recreate-existing-video-games",
+    "title": "Anthropic tells Claude not to recreate existing video games",
+    "dek": "Anthropic updated Claude so it will refuse requests to reproduce existing games while still assisting with original or genre designs.",
+    "section": "tech",
+    "tags": [
+      "Anthropic",
+      "AI policy",
+      "video games"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://www.engadget.com/img/gallery/anthropic-updates-claude-to-stop-it-from-recreating-existing-video-games/l-intro-1793566610.jpg",
+      "alt": "Anthropic updates Claude to stop it from recreating existing video games",
+      "credit": "Engadget"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Anthropic updates Claude to stop it from recreating existing video games",
+      "url": "https://www.engadget.com/2303469/anthropic-updates-claude-to-stop-it-from-recreating-existing-video-games/",
+      "source": "Engadget"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-02T10:06:08.148Z",
+    "updatedAt": "2026-11-02T10:06:08.148Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "openai-folds-chat-and-work-into-one-chatgpt-interface",
     "title": "OpenAI folds Chat and Work into one ChatGPT interface",
     "dek": "New token-based quota will be shared across chat and coding; basic chats exempt from the cap.",
