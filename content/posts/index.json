@@ -1,30 +1,31 @@
 [
   {
-    "slug": "anthropic-blocks-game-cloning-in-claude-code",
-    "title": "Anthropic blocks game cloning in Claude Code",
-    "dek": "Anthropic has restricted its code-writing model Claude Code from recreating existing video games after a series of AI-built knockoffs.",
-    "section": "ai",
+    "slug": "samsung-unveils-galaxy-buds-on-with-hands-free-ai-controls",
+    "title": "Samsung Unveils Galaxy Buds On with Hands‑Free AI Controls",
+    "dek": "Samsung introduced the Galaxy Buds On, earbuds that use hands‑free AI controls and include other smart audio features.",
+    "section": "mainstreet",
     "tags": [
-      "Anthropic",
-      "AI",
-      "games"
+      "samsung",
+      "earbuds",
+      "ai",
+      "audio"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://the-decoder.com/wp-content/uploads/2026/11/Anthropic-Claude-Mario.png",
-      "alt": "Anthropic cracks down on game cloning in Claude Code after wave of AI-built knockoffs",
-      "credit": "The Decoder"
+      "url": "https://media.smallbiztrends.com/2026/11/Gemini_Generated_Image_fyh3o1fyh3o1fyh3-1-100x100.jpg",
+      "alt": "Samsung Unveils Galaxy Buds On With Hands-Free AI Controls",
+      "credit": "Small Business Trends"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Anthropic cracks down on game cloning in Claude Code after wave of AI-built knockoffs",
-      "url": "https://the-decoder.com/anthropic-cracks-down-on-game-cloning-in-claude-code-after-wave-of-ai-built-knockoffs/",
-      "source": "The Decoder"
+      "title": "Samsung Unveils Galaxy Buds On With Hands-Free AI Controls",
+      "url": "https://smallbiztrends.com/samsung-unveils-galaxy-buds-on-with-hands-free-ai-controls/",
+      "source": "Small Business Trends"
     },
     "aiAssisted": true,
-    "createdAt": "2026-11-03T10:06:10.618Z",
-    "updatedAt": "2026-11-03T10:06:10.618Z",
+    "createdAt": "2026-11-03T10:06:11.051Z",
+    "updatedAt": "2026-11-03T10:06:11.051Z",
     "publishedAt": null,
     "readingTime": 1
   },
