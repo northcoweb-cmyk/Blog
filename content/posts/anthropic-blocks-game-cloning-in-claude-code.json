@@ -1,0 +1,29 @@
+{
+  "slug": "anthropic-blocks-game-cloning-in-claude-code",
+  "title": "Anthropic blocks game cloning in Claude Code",
+  "dek": "Anthropic has restricted its code-writing model Claude Code from recreating existing video games after a series of AI-built knockoffs.",
+  "body": "Anthropic has stopped its code-writing assistant Claude Code from recreating existing video games. Claude Code is a coding assistant, an AI model that generates source code on request. The change follows a reported wave of AI-built knockoffs of commercial games that were produced using Claude Code.\n\n## Why it matters\n\nCode-generation models are increasingly used to produce working software. When those models are able to recreate or closely imitate existing commercial games, it raises legal, ethical, and business questions for platform owners, game developers, and model makers. Anthropic’s move shows a concrete step from a model developer to limit a specific use case,game cloning,in response to observed misuse or problematic outputs. It is an example of how companies operating large code models are beginning to set boundaries on what the models will produce.\n\n## The details\n\n- Anthropic has implemented a block in Claude Code that prevents the model from recreating existing video games.\n- The action was taken after a reported wave of AI-built knockoffs of games that used Claude Code to generate the projects.\n- Claude Code is described as a coding assistant that can generate code; the restriction applies specifically to recreating existing video games.\n- Public reporting identified the wave of knockoffs and the company response, but details beyond the block,such as the technical method of blocking, the scope of games covered, or enforcement mechanisms—have not been disclosed.\n- It is not publicly known whether the block is temporary, limited to certain versions of Claude Code, or will be expanded to other categories of copyrighted software.\n\n## What to watch\n\nWatch for further disclosures from Anthropic about how the block works, which titles or types of games are covered, and whether the restriction will extend to other forms of copyrighted code. Also look for responses from game developers and legal actors that could clarify whether this step reduces commercial risk or prompts different model policies.\n\nSource: [The Decoder](https://the-decoder.com/anthropic-cracks-down-on-game-cloning-in-claude-code-after-wave-of-ai-built-knockoffs/)",
+  "section": "ai",
+  "tags": [
+    "Anthropic",
+    "AI",
+    "games"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://the-decoder.com/wp-content/uploads/2026/11/Anthropic-Claude-Mario.png",
+    "alt": "Anthropic cracks down on game cloning in Claude Code after wave of AI-built knockoffs",
+    "credit": "The Decoder"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Anthropic cracks down on game cloning in Claude Code after wave of AI-built knockoffs",
+    "url": "https://the-decoder.com/anthropic-cracks-down-on-game-cloning-in-claude-code-after-wave-of-ai-built-knockoffs/",
+    "source": "The Decoder"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-03T10:06:10.618Z",
+  "updatedAt": "2026-11-03T10:06:10.618Z",
+  "publishedAt": null
+}

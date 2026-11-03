@@ -1,5 +1,34 @@
 [
   {
+    "slug": "anthropic-blocks-game-cloning-in-claude-code",
+    "title": "Anthropic blocks game cloning in Claude Code",
+    "dek": "Anthropic has restricted its code-writing model Claude Code from recreating existing video games after a series of AI-built knockoffs.",
+    "section": "ai",
+    "tags": [
+      "Anthropic",
+      "AI",
+      "games"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://the-decoder.com/wp-content/uploads/2026/11/Anthropic-Claude-Mario.png",
+      "alt": "Anthropic cracks down on game cloning in Claude Code after wave of AI-built knockoffs",
+      "credit": "The Decoder"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Anthropic cracks down on game cloning in Claude Code after wave of AI-built knockoffs",
+      "url": "https://the-decoder.com/anthropic-cracks-down-on-game-cloning-in-claude-code-after-wave-of-ai-built-knockoffs/",
+      "source": "The Decoder"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-03T10:06:10.618Z",
+    "updatedAt": "2026-11-03T10:06:10.618Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "hundreds-of-apps-hid-sexually-abusive-deepfake-features",
     "title": "Hundreds of apps hid sexually abusive deepfake features",
     "dek": "WIRED found roughly 400 Chinese-language apps and sites that appeared normal but included secret tools for creating violent AI images and video.",
