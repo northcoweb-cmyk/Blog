@@ -1,5 +1,35 @@
 [
   {
+    "slug": "anthropic-stops-claude-code-from-cloning-existing-video-games",
+    "title": "Anthropic stops Claude Code from cloning existing video games",
+    "dek": "Anthropic says its coding assistant will no longer recreate existing games after a wave of AI-built knockoffs.",
+    "section": "ai",
+    "tags": [
+      "Anthropic",
+      "AI policy",
+      "software",
+      "copyright"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://the-decoder.com/wp-content/uploads/2026/11/Anthropic-Claude-Mario.png",
+      "alt": "Anthropic cracks down on game cloning in Claude Code after wave of AI-built knockoffs",
+      "credit": "The Decoder"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Anthropic cracks down on game cloning in Claude Code after wave of AI-built knockoffs",
+      "url": "https://the-decoder.com/anthropic-cracks-down-on-game-cloning-in-claude-code-after-wave-of-ai-built-knockoffs/",
+      "source": "The Decoder"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-04T10:06:04.282Z",
+    "updatedAt": "2026-11-04T10:06:04.282Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "samsung-unveils-galaxy-buds-on-with-hands-free-ai-controls",
     "title": "Samsung Unveils Galaxy Buds On with Hands‑Free AI Controls",
     "dek": "Samsung introduced the Galaxy Buds On, earbuds that use hands‑free AI controls and include other smart audio features.",

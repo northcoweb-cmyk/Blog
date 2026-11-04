@@ -1,0 +1,30 @@
+{
+  "slug": "anthropic-stops-claude-code-from-cloning-existing-video-games",
+  "title": "Anthropic stops Claude Code from cloning existing video games",
+  "dek": "Anthropic says its coding assistant will no longer recreate existing games after a wave of AI-built knockoffs.",
+  "body": "Anthropic has adjusted its coding assistant, Claude Code, to block requests that recreate existing video games. Claude Code is the company’s tool for writing and debugging software; the change follows reports of a spate of AI-built knockoff games.\n\n## Why it matters\n\nAI coding assistants are increasingly capable of producing working software from prompts. When those systems recreate whole games or directly copy proprietary code, it raises legal and commercial risks for platform makers, game developers and users who rely on AI to produce original work. Anthropic’s move shows a platform-level approach to limiting certain kinds of code generation rather than leaving enforcement to downstream actors.\n\n## The details\n\n- Anthropic has implemented limits in Claude Code that prevent it from recreating existing video games. The company confirmed the change after coverage of AI-built knockoffs.\n- The action came after a wave of AI-built knockoff games that prompted concern about automated cloning of existing titles.\n- Independent reports indicate other models are also being used to block or limit reverse-engineering tasks; users have reported that Opus 5.5 is actively blocking reverse engineering prompts. Reverse engineering means attempting to reconstruct a product’s design or code from its behavior or compiled output.\n- Public reporting links the Claude Code change specifically to the problem of game cloning; Anthropic has confirmed the new limits but finer implementation details and enforcement mechanisms have not been disclosed publicly.\n\n## What to watch\n\nWatch for further public technical details from Anthropic about how Claude Code detects or refuses game-cloning prompts, and whether other AI platform providers adopt similar restrictions. Also track responses from game developers and legal actors — coverage so far describes the policy change and related reports of other models blocking reverse engineering, but not broader industry coordination or legal actions.\n\nSource: [The Decoder](https://the-decoder.com/anthropic-cracks-down-on-game-cloning-in-claude-code-after-wave-of-ai-built-knockoffs/)",
+  "section": "ai",
+  "tags": [
+    "Anthropic",
+    "AI policy",
+    "software",
+    "copyright"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://the-decoder.com/wp-content/uploads/2026/11/Anthropic-Claude-Mario.png",
+    "alt": "Anthropic cracks down on game cloning in Claude Code after wave of AI-built knockoffs",
+    "credit": "The Decoder"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Anthropic cracks down on game cloning in Claude Code after wave of AI-built knockoffs",
+    "url": "https://the-decoder.com/anthropic-cracks-down-on-game-cloning-in-claude-code-after-wave-of-ai-built-knockoffs/",
+    "source": "The Decoder"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-04T10:06:04.282Z",
+  "updatedAt": "2026-11-04T10:06:04.282Z",
+  "publishedAt": null
+}
