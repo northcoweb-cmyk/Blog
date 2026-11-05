@@ -1,0 +1,29 @@
+{
+  "slug": "anthropic-watermark-bypass-found-on-older-claude-models",
+  "title": "Anthropic watermark bypass found on older Claude models",
+  "dek": "Researchers or users found that a single sampling parameter can disable Anthropic’s text watermark on older Claude versions, and the company issued a compliance warning.",
+  "body": "Anthropic is rolling out text watermarking to four additional Claude models ahead of the EU AI Act’s December deadline. But users discovered that on older models , including Claude Opus 4.6 and Sonnet 4.6 — the watermark can be disabled by changing a single sampling parameter. Anthropic’s public response was to post a compliance warning.\n\n## Why it matters\n\nText watermarking is a method to mark AI-generated text so it can be identified later. Regulators and companies are pushing watermarks as one tool for attribution and compliance with new rules, including the EU AI Act. If watermarks are easy to remove, they offer weaker protection for downstream uses, compliance checks, and any systems that rely on the signal to distinguish AI output from human writing.\n\nThis incident highlights a gap between rollout plans and effective enforcement: deploying a watermark across models does not guarantee that the mark will remain present in all outputs or under all API settings.\n\n## The details\n\n- Anthropic is adding text watermarking to four more Claude models before the EU AI Act’s December deadline.\n- On older models such as Claude Opus 4.6 and Sonnet 4.6, API users can disable the watermark by changing a single sampling parameter.\n- Anthropic’s response to the finding was to issue a compliance warning.\n- The discovery and reporting appeared in a story published by The Decoder.\n\nWhat is not yet known from the available reporting: which four additional Claude models are receiving the watermark, what exact sampling parameter disables the watermark, how widely the bypass is being used in practice, whether Anthropic will patch the older models or change API defaults, and whether regulators have been informed or will take action.\n\n## What to watch\n\nWatch for follow-up from Anthropic about technical fixes or configuration changes to prevent the bypass. Also look for disclosures about which specific models received the watermark and whether the company will backpatch older versions or change API controls to enforce watermarking.\n\nSource: [The Decoder](https://the-decoder.com/anthropics-text-watermark-is-easy-to-bypass-on-several-older-claude-models/)",
+  "section": "models",
+  "tags": [
+    "Anthropic",
+    "watermarking",
+    "model-security"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://the-decoder.com/wp-content/uploads/2026/08/Claude-Watermark.png",
+    "alt": "Anthropic's text watermark is easy to bypass on several older Claude models",
+    "credit": "The Decoder"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Anthropic's text watermark is easy to bypass on several older Claude models",
+    "url": "https://the-decoder.com/anthropics-text-watermark-is-easy-to-bypass-on-several-older-claude-models/",
+    "source": "The Decoder"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-05T10:06:05.491Z",
+  "updatedAt": "2026-11-05T10:06:05.491Z",
+  "publishedAt": null
+}

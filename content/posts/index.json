@@ -1,5 +1,34 @@
 [
   {
+    "slug": "anthropic-watermark-bypass-found-on-older-claude-models",
+    "title": "Anthropic watermark bypass found on older Claude models",
+    "dek": "Researchers or users found that a single sampling parameter can disable Anthropic’s text watermark on older Claude versions, and the company issued a compliance warning.",
+    "section": "models",
+    "tags": [
+      "Anthropic",
+      "watermarking",
+      "model-security"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://the-decoder.com/wp-content/uploads/2026/08/Claude-Watermark.png",
+      "alt": "Anthropic's text watermark is easy to bypass on several older Claude models",
+      "credit": "The Decoder"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Anthropic's text watermark is easy to bypass on several older Claude models",
+      "url": "https://the-decoder.com/anthropics-text-watermark-is-easy-to-bypass-on-several-older-claude-models/",
+      "source": "The Decoder"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-05T10:06:05.491Z",
+    "updatedAt": "2026-11-05T10:06:05.491Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "fal-raises-1-3b-doubles-valuation-to-16b",
     "title": "Fal raises $1.3B, doubles valuation to $16B",
     "dek": "Five-year-old generative media inference startup closes a $1.3 billion round led by Bessemer.",
