@@ -1,0 +1,29 @@
+{
+  "slug": "openai-launches-images-2-6-with-gifs-and-faster-generation",
+  "title": "OpenAI launches Images 2.6 with GIFs and faster generation",
+  "dek": "Images 2.6 adds GIF creation, faster image generation, finer editing controls, and new API controls across ChatGPT, Codex, and the API.",
+  "body": "OpenAI introduced Images 2.6, an update that brings faster image generation, a GIF creation feature, more precise editing, and new API controls. The capabilities are exposed across ChatGPT, Codex, and the API.\n\n## Why it matters\n\nImage tooling is a growing product vector for large AI providers because it touches creators, designers, and developers. Images 2.6 bundles performance (faster generation), creative output (GIFs), and finer control for edits and developers via API controls , a set of changes that could change how teams and apps integrate image generation and editing into workflows.\n\n## The details\n\n- Product: OpenAI released Images 2.6.\n- Key features: faster image generation; GIF creation; more precise editing controls for images.\n- Availability: features are available across ChatGPT, Codex, and the API.\n- Developer-facing changes: new API controls are part of the release.\n\nWhat is not specified in the announcement: precise performance numbers for “faster” generation, technical limits or quotas, pricing changes, regional availability, or exact developer API parameters. The announcement does not provide sample GIFs, example edit flows, or benchmarks comparing Images 2.6 to prior versions.\n\n## What to watch\n\nWatch how quickly third-party apps and developer integrations adopt the GIF creation and editing controls in the API — that will show whether these features drive new uses beyond single-session creation. Also watch for follow-up documentation or technical notes from OpenAI that spell out API parameters, rate limits, pricing, and example workflows; those details are not yet included in the announcement.\n\nSource: [OpenAI](https://openai.com/index/introducing-images-2-6)",
+  "section": "models",
+  "tags": [
+    "OpenAI",
+    "image-generation",
+    "API"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/1515_Third_Street.jpg/1280px-1515_Third_Street.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "alt": "Introducing Images 2.6",
+    "credit": "OpenAI"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Introducing Images 2.6",
+    "url": "https://openai.com/index/introducing-images-2-6",
+    "source": "OpenAI"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-05T10:06:06.265Z",
+  "updatedAt": "2026-11-05T10:06:06.265Z",
+  "publishedAt": null
+}

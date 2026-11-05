@@ -1,30 +1,30 @@
 [
   {
-    "slug": "anthropic-watermark-bypass-found-on-older-claude-models",
-    "title": "Anthropic watermark bypass found on older Claude models",
-    "dek": "Researchers or users found that a single sampling parameter can disable Anthropic’s text watermark on older Claude versions, and the company issued a compliance warning.",
+    "slug": "openai-launches-images-2-6-with-gifs-and-faster-generation",
+    "title": "OpenAI launches Images 2.6 with GIFs and faster generation",
+    "dek": "Images 2.6 adds GIF creation, faster image generation, finer editing controls, and new API controls across ChatGPT, Codex, and the API.",
     "section": "models",
     "tags": [
-      "Anthropic",
-      "watermarking",
-      "model-security"
+      "OpenAI",
+      "image-generation",
+      "API"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://the-decoder.com/wp-content/uploads/2026/08/Claude-Watermark.png",
-      "alt": "Anthropic's text watermark is easy to bypass on several older Claude models",
-      "credit": "The Decoder"
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/1515_Third_Street.jpg/1280px-1515_Third_Street.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+      "alt": "Introducing Images 2.6",
+      "credit": "OpenAI"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Anthropic's text watermark is easy to bypass on several older Claude models",
-      "url": "https://the-decoder.com/anthropics-text-watermark-is-easy-to-bypass-on-several-older-claude-models/",
-      "source": "The Decoder"
+      "title": "Introducing Images 2.6",
+      "url": "https://openai.com/index/introducing-images-2-6",
+      "source": "OpenAI"
     },
     "aiAssisted": true,
-    "createdAt": "2026-11-05T10:06:05.491Z",
-    "updatedAt": "2026-11-05T10:06:05.491Z",
+    "createdAt": "2026-11-05T10:06:06.265Z",
+    "updatedAt": "2026-11-05T10:06:06.265Z",
     "publishedAt": null,
     "readingTime": 1
   },
