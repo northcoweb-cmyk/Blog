@@ -1,0 +1,29 @@
+{
+  "slug": "google-launches-gemini-omni-1-2-flash-for-longer-cheaper-ai-video",
+  "title": "Google launches Gemini Omni 1.2 Flash for longer, cheaper AI video",
+  "dek": "New release extends clip length to 15 seconds, adds native editing and lowers pricing by 30 percent.",
+  "body": "Google announced Gemini Omni 1.2 Flash, an update to its multimodal model that adds built-in support for 15-second video generation and editing, improves consistency of outputs, and reduces pricing by 30 percent. The company describes the release as a faster and more cost-effective option for producing short AI-generated video clips.\n\n## Why it matters\n\nAI video remains expensive and technically demanding compared with image and text generation. Extending native clip length to 15 seconds and cutting price by nearly a third lowers two of the main barriers for developers and creators: the cost per clip and the amount of work needed to stitch together multiple short outputs. Stronger consistency means results should better match prompts over longer sequences, which matters for applications that need coherent motion, sustained character appearance, or narrative continuity.\n\n## The details\n\n- Product name: Gemini Omni 1.2 Flash.\n- New native video capability: generates and edits video clips up to 15 seconds.\n- Pricing: Google says costs are reduced by 30 percent compared with the prior option.\n- Quality: Google reports stronger consistency in model outputs.\n- Positioning: Google frames the release as faster and more cost-effective for short video generation.\n\nExact pricing numbers, API access details, throughput limits, and per-project or enterprise licensing terms were not provided in the announcement. Information about supported resolutions, frame rates, content policy changes, or infrastructure requirements was not disclosed in the materials available.\n\n## What to watch\n\nWatch for developer reaction on cost-per-minute and real-world output quality, and for early experiments showing how well the model preserves visual continuity across 15 seconds. Also look for technical documentation and pricing pages from Google that explain API limits, content-moderation controls, and supported editing workflows—those details are not yet public in the announcement.\n\nSource: [Google](https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/)",
+  "section": "models",
+  "tags": [
+    "Google",
+    "AI video",
+    "Gemini Omni"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-omni-1.2_FZLql41.max-600x600.format-webp.webp",
+    "alt": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+    "credit": "Google"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+    "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+    "source": "Google"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-06T10:06:04.457Z",
+  "updatedAt": "2026-11-06T10:06:04.457Z",
+  "publishedAt": null
+}

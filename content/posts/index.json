@@ -1,5 +1,34 @@
 [
   {
+    "slug": "google-launches-gemini-omni-1-2-flash-for-longer-cheaper-ai-video",
+    "title": "Google launches Gemini Omni 1.2 Flash for longer, cheaper AI video",
+    "dek": "New release extends clip length to 15 seconds, adds native editing and lowers pricing by 30 percent.",
+    "section": "models",
+    "tags": [
+      "Google",
+      "AI video",
+      "Gemini Omni"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-omni-1.2_FZLql41.max-600x600.format-webp.webp",
+      "alt": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+      "credit": "Google"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+      "source": "Google"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-06T10:06:04.457Z",
+    "updatedAt": "2026-11-06T10:06:04.457Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "openai-launches-images-2-6-with-gifs-and-faster-generation",
     "title": "OpenAI launches Images 2.6 with GIFs and faster generation",
     "dek": "Images 2.6 adds GIF creation, faster image generation, finer editing controls, and new API controls across ChatGPT, Codex, and the API.",
