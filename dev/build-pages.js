@@ -1,4 +1,4 @@
-// Generates the static HTML shells in /public from one template, so every page
+// Generates the HTML shells (/pages for server-filled pages, /public for 404 + admin) from one template, so every page
 // shares the same <head>. Run after editing: `node dev/build-pages.js`
 // (The generated files are committed, so Vercel needs no build step.)
 import fs from 'node:fs/promises';
@@ -180,6 +180,11 @@ Models · Markets · Main Street AI
   </section>
 </div></main>`,
   },
+  'page.html': {
+    title: 'Tensor Street',
+    script: 'about',
+    main: `<main id="main"><div class="wrap"><!--CONTENT--></div></main>`,
+  },
   '404.html': {
     title: 'Page not found · Tensor Street',
     script: 'about',
@@ -201,6 +206,8 @@ for (const [file, cfg] of Object.entries(pages)) {
     // The newsroom is its own home-screen app: separate name, opens on the Instagram page.
     html = html.replace('<link rel="manifest" href="/site.webmanifest">', '<link rel="manifest" href="/admin.webmanifest">').replace('<meta name="theme-color" content="#0a0e1a">', '<meta name="theme-color" content="#070a12">');
   }
-  await fs.writeFile(path.join(ROOT, 'public', file), html);
+  // Pages the server fills in (SEO tags, article text) live in /pages; 404 and the newsroom stay static.
+  const dir = file === '404.html' || file === 'admin.html' ? 'public' : 'pages';
+  await fs.writeFile(path.join(ROOT, dir, file), html);
 }
 console.log(`Wrote ${Object.keys(pages).length} pages.`);

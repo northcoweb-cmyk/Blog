@@ -261,6 +261,7 @@ async function editor(view, slug) {
         <div class="field"><label>Publish date</label><input class="in" type="datetime-local" id="f-date" value="${pubLocal}"><span class="hint">Leave empty for “now”. A future date schedules it.</span></div>
         <label class="switch">Feature on homepage<input type="checkbox" id="f-featured"${p.featured ? ' checked' : ''}></label>
       </div>
+      <div class="panel panel-pad" id="seo-panel" style="display:grid;gap:10px"><div style="font-weight:700;font-size:14px">Search preview &amp; SEO score</div><div id="serp"></div><ul id="seo-list" style="list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:13px"></ul></div>
       ${p.sourceStory?.url ? `<div class="panel panel-pad" style="font-size:13px"><div style="color:var(--muted);margin-bottom:4px">Based on</div><a href="${esc(p.sourceStory.url)}" target="_blank" style="font-weight:600">${esc(p.sourceStory.title)}</a><div style="color:var(--muted)">${esc(p.sourceStory.source || '')}</div></div>` : ''}
       ${p.aiAssisted ? '<div class="note">This draft was written with AI. Check every fact against the source before publishing. Published AI-assisted posts are labeled for readers.</div>' : ''}
       ${!isNew ? '<button class="btn" id="del" style="color:var(--down)">Delete article</button>' : ''}
@@ -345,6 +346,36 @@ async function editor(view, slug) {
     drop.innerHTML = '<div>Click or drop an image</div>';
   });
 
+  // Live Google preview + checklist: what search engines look for when ranking a name or topic.
+  const seoCheck = () => {
+    const title = $('#f-title').value.trim();
+    const dek = $('#f-dek').value.trim();
+    const tags = $('#f-tags').value.split(',').map((t) => t.trim()).filter(Boolean);
+    const text = body.value;
+    const words = text.split(/\s+/).filter(Boolean).length;
+    const slugVal = ($('#f-slug').value.trim() || title).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80);
+    const main = tags[0] || '';
+    const has = (str) => main && str.toLowerCase().includes(main.toLowerCase());
+    const checks = [
+      [title.length >= 30 && title.length <= 62, `Headline is 30–62 characters (${title.length}). Google cuts it off after about 60.`],
+      [!!main && has(title), main ? `Headline contains “${main}” (your first tag, the name people will search).` : 'Put the company or topic name FIRST in Tags. That is the name this page will rank for.'],
+      [dek.length >= 70 && dek.length <= 158, `Subheadline is 70–158 characters (${dek.length}). It becomes the Google description.`],
+      [!!main && has(dek), main ? `Subheadline mentions “${main}”.` : 'Subheadline mentions the company name.'],
+      [!!main && has(text.slice(0, 400)), main ? `“${main}” appears in the first paragraph.` : 'Name the company in the first paragraph.'],
+      [words >= 300, `At least 300 words (${words}). Longer, original articles rank better.`],
+      [(text.match(/^##\s/gm) || []).length >= 2, 'Has 2 or more ## subheadings.'],
+      [(text.match(/\]\(https?:\/\//g) || []).length >= 1, 'Links out to at least one source.'],
+      [!!(cover || coverUpload) && ($('#f-alt').value.trim().length > 5), 'Cover image has a caption/alt text describing it.'],
+      [tags.length >= 3, `3 or more tags (${tags.length}). Each tag gets its own topic page.`],
+      [slugVal.length > 0 && slugVal.length <= 60 && (!main || slugVal.includes(main.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''))), `URL contains the name: /p/${slugVal || '…'}`],
+    ];
+    const score = checks.filter((c) => c[0]).length;
+    $('#serp').innerHTML = `<div style="font-family:Arial,sans-serif;background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px"><div style="font-size:12px;color:#202124">tensorstreet.com › p › ${esc(slugVal)}</div><div style="font-size:18px;line-height:1.25;color:#1a0dab;margin:2px 0">${esc((title || 'Your headline').slice(0, 62))}</div><div style="font-size:13px;line-height:1.4;color:#4d5156">${esc((dek || 'Your subheadline shows here as the description.').slice(0, 158))}</div></div>`;
+    $('#seo-list').innerHTML = `<li style="font-weight:700">${score}/${checks.length} ${score >= 9 ? '🟢 Great' : score >= 6 ? '🟡 Getting there' : '🔴 Needs work'}</li>` + checks.map(([ok, msg]) => `<li style="display:flex;gap:8px"><span aria-hidden="true">${ok ? '✅' : '⬜'}</span><span style="color:${ok ? 'var(--muted)' : 'var(--ink)'}">${esc(msg)}</span></li>`).join('');
+  };
+  ['f-title', 'f-dek', 'f-tags', 'f-slug', 'f-alt', 'f-body'].forEach((id) => $('#' + id).addEventListener('input', seoCheck));
+  seoCheck();
+
   const collect = (status) => {
     const d = $('#f-date').value;
     return {
@@ -373,8 +404,8 @@ async function editor(view, slug) {
     btn.disabled = true;
     btn.innerHTML = spinner;
     try {
-      const { post: saved } = await post('/api/admin/posts', { post: data, image: coverUpload });
-      toast(status === 'published' ? 'Published. It’s live within a minute.' : 'Draft saved');
+      const { post: saved, indexnow } = await post('/api/admin/posts', { post: data, image: coverUpload });
+      toast(status === 'published' ? `Published. Live within a minute.${indexnow === 'sent' ? ' Bing/Yahoo notified.' : ''}` : 'Draft saved');
       statusCache = null;
       if (saved.slug !== p.slug || !slug) location.hash = `#/edit/${encodeURIComponent(saved.slug)}`;
       else route();

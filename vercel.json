@@ -7,7 +7,7 @@
   "functions": {
     "api/*.js": {
       "maxDuration": 60,
-      "includeFiles": "content/**"
+      "includeFiles": "{content/**,pages/*.html}"
     }
   },
   "crons": [
@@ -34,10 +34,6 @@
       "destination": "/api/public?action=media&path=:path*"
     },
     {
-      "source": "/p/:slug",
-      "destination": "/api/public?action=p&slug=:slug"
-    },
-    {
       "source": "/rss.xml",
       "destination": "/api/public?action=rss"
     },
@@ -46,16 +42,68 @@
       "destination": "/api/public?action=sitemap"
     },
     {
-      "source": "/section/:id",
-      "destination": "/section"
+      "source": "/",
+      "destination": "/api/public?action=html&kind=index"
     },
     {
-      "source": "/story/:id",
-      "destination": "/story"
+      "source": "/about",
+      "destination": "/api/public?action=html&kind=about"
+    },
+    {
+      "source": "/learn",
+      "destination": "/api/public?action=html&kind=learn"
+    },
+    {
+      "source": "/archive",
+      "destination": "/api/public?action=html&kind=archive"
+    },
+    {
+      "source": "/search",
+      "destination": "/api/public?action=html&kind=search"
+    },
+    {
+      "source": "/brand",
+      "destination": "/api/public?action=html&kind=brand"
+    },
+    {
+      "source": "/post",
+      "destination": "/api/public?action=html&kind=postpreview"
+    },
+    {
+      "source": "/topics",
+      "destination": "/api/public?action=html&kind=topics"
     },
     {
       "source": "/archive/:date",
-      "destination": "/archive"
+      "destination": "/api/public?action=html&kind=archiveDate&date=:date"
+    },
+    {
+      "source": "/section/:id",
+      "destination": "/api/public?action=html&kind=section&id=:id"
+    },
+    {
+      "source": "/story/:id",
+      "destination": "/api/public?action=html&kind=story&id=:id"
+    },
+    {
+      "source": "/topic/:slug",
+      "destination": "/api/public?action=html&kind=topic&slug=:slug"
+    },
+    {
+      "source": "/p/:slug",
+      "destination": "/api/public?action=html&kind=p&slug=:slug"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/api/public?action=robots"
+    },
+    {
+      "source": "/news-sitemap.xml",
+      "destination": "/api/public?action=newssitemap"
+    },
+    {
+      "source": "/indexnow-key.txt",
+      "destination": "/api/public?action=indexnowkey"
     },
     {
       "source": "/admin/:path*",

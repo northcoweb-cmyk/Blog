@@ -400,7 +400,7 @@ export function initChrome({ active = '' } = {}) {
             <div class="socials"><a href="https://instagram.com/${SITE.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${ICON.instagram}</a><a href="/rss.xml" aria-label="RSS">${ICON.rss}</a><a href="#subscribe" data-subscribe aria-label="Newsletter" hidden>${ICON.mail}</a></div></div>
           <div><h4>Desks</h4><ul>${SECTIONS.slice(0, 4).map((s) => `<li><a href="/section/${s.id}">${s.long}</a></li>`).join('')}</ul></div>
           <div><h4>More desks</h4><ul>${SECTIONS.slice(4).map((s) => `<li><a href="/section/${s.id}">${s.long}</a></li>`).join('')}</ul></div>
-          <div><h4>Tensor Street</h4><ul><li><a href="/about">About</a></li><li><a href="/learn">Learn AI: Glossary</a></li><li><a href="/archive">Daily archive</a></li><li><a href="/search">Search</a></li><li><a href="/rss.xml">RSS</a></li></ul></div>
+          <div><h4>Tensor Street</h4><ul><li><a href="/about">About</a></li><li><a href="/topics">Companies &amp; topics</a></li><li><a href="/learn">Learn AI: Glossary</a></li><li><a href="/archive">Daily archive</a></li><li><a href="/search">Search</a></li><li><a href="/rss.xml">RSS</a></li></ul></div>
         </div>
         <div class="foot-note"><span>© ${new Date().getFullYear()} ${SITE.name}. Headlines and summaries link to the original publishers.</span><span>Not investment advice. Market data may be delayed.</span></div>
       </div>

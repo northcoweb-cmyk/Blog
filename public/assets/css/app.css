@@ -587,6 +587,9 @@ button {
   font-weight: 600;
   flex: 1;
   min-width: 0;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
 }
 .breaking a.bk-title:hover {
   text-decoration: underline;

@@ -1,4 +1,5 @@
 import { $, esc, api, initChrome, mediaHtml, storyCard, sectionById, timeAgo, fmtDate, shareButtons, signupHtml, wireSignups, ICON } from './site.js';
+const slugTopic = (t) => String(t).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80);
 
 const WHY = {
   models: 'New model releases reset what products can do, what they cost, and what competitors have to match.',
@@ -63,7 +64,7 @@ async function main() {
             .join('')}</ul></section>`
         : ''
     }
-    ${s.tags?.length ? `<div class="tags" style="margin-bottom:32px">${s.tags.map((t) => `<a href="/search?q=${encodeURIComponent(t)}">${esc(t)}</a>`).join('')}</div>` : ''}
+    ${s.tags?.length ? `<div class="tags" style="margin-bottom:32px">${s.tags.map((t) => `<a href="/topic/${esc(slugTopic(t))}">${esc(t)}</a>`).join('')}</div>` : ''}
     <div id="subscribe">${signupHtml()}</div>`;
   wireSignups(root);
 

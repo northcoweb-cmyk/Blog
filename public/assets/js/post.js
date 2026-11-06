@@ -1,4 +1,5 @@
 import { $, esc, api, initChrome, mediaHtml, deskCard, sectionById, fmtDate, shareButtons, signupHtml, wireSignups, ICON } from './site.js';
+const slugTopic = (t) => String(t).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80);
 import { renderMarkdown } from './md.js';
 
 const root = $('#post');
@@ -37,7 +38,7 @@ async function main() {
     <div class="prose">${post.html || renderMarkdown(post.body || '')}</div>
     ${post.sourceStory?.url ? `<div class="readout" style="margin-top:36px"><div><div class="t">Original reporting</div><div class="s">${esc(post.sourceStory.source || 'Source')}</div></div><a class="btn" href="${esc(post.sourceStory.url)}" target="_blank" rel="noopener">Read the source ${ICON.ext}</a></div>` : ''}
     ${post.aiAssisted ? `<div class="ai-note" style="margin-top:20px">${ICON.spark.replace('<svg', '<svg width="15" height="15" style="flex:none;margin-top:2px"')}<span>This article was drafted with the help of AI and reviewed by the Tensor Street desk.</span></div>` : ''}
-    ${post.tags?.length ? `<div class="tags" style="margin:28px 0">${post.tags.map((t) => `<a href="/search?q=${encodeURIComponent(t)}">${esc(t)}</a>`).join('')}</div>` : '<div style="height:28px"></div>'}
+    ${post.tags?.length ? `<div class="tags" style="margin:28px 0">${post.tags.map((t) => `<a href="/topic/${esc(slugTopic(t))}">${esc(t)}</a>`).join('')}</div>` : '<div style="height:28px"></div>'}
     <div id="subscribe">${signupHtml()}</div>`;
   wireSignups(root);
 

@@ -85,6 +85,29 @@ The site keeps updating itself all day whether you log in or not.
 
 ---
 
+## Get found on Google (SEO)
+
+Every page is built on the server with real text, a title, a description, a canonical link, share-preview tags and structured data, so Google and ChatGPT-style crawlers can read it.
+
+**What happens automatically**
+- Every tag on a published article gets its own page: `/topic/northco`. Write about NorthCo with the tag `NorthCo` and `/topic/northco` collects everything about it. That page is what can rank for the name.
+- `/topics` lists every company and topic. `/sitemap.xml` and `/news-sitemap.xml` list all pages. `/robots.txt` points to both.
+- When you publish, Bing, Yahoo and DuckDuckGo are pinged (IndexNow). Google finds pages through the sitemap.
+- The article editor has a live **Search preview and SEO score**. Aim for green.
+
+**Do this once (free, about 10 minutes)**
+1. Set `SITE_URL` in Vercel to your real domain (for example `https://yourdomain.com`), then redeploy.
+2. Go to search.google.com/search-console, add your domain, verify it, then submit `sitemap.xml` and `news-sitemap.xml`.
+3. Go to bing.com/webmasters, sign in, import from Google Search Console.
+4. Put your domain in the Instagram bio and link to your best articles. Links from other sites are the biggest ranking factor.
+
+**For every article about a company** (say NorthCo)
+- First tag = the exact name: `NorthCo`. Put the name in the headline, the subheadline, and the first paragraph.
+- 300+ words, 2+ subheadings, 1+ source link, a cover image with a caption.
+- Be honest: nobody can promise #1. Google ranks by trust and links. Original reporting that nobody else has, on a name with little competition, is how a new site wins.
+
+Check the whole site any time: `node dev/server.js` then `node dev/seo-check.mjs http://localhost:3000`.
+
 ## Brand
 
 - **Name:** Tensor Street. "Tensor" is the basic building block of AI math; "Street" as in Wall Street. AI meets the market.
