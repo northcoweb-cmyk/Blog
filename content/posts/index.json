@@ -1,30 +1,30 @@
 [
   {
-    "slug": "google-launches-gemini-omni-1-2-flash-for-longer-cheaper-ai-video",
-    "title": "Google launches Gemini Omni 1.2 Flash for longer, cheaper AI video",
-    "dek": "New release extends clip length to 15 seconds, adds native editing and lowers pricing by 30 percent.",
+    "slug": "airbnb-plans-an-ai-travel-agent-for-early-2027",
+    "title": "Airbnb plans an AI travel agent for early 2027",
+    "dek": "Airbnb told shareholders it will begin rolling out an AI assistant to help plan and book trips in the first half of 2027.",
     "section": "models",
     "tags": [
-      "Google",
-      "AI video",
-      "Gemini Omni"
+      "Airbnb",
+      "AI",
+      "travel"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-omni-1.2_FZLql41.max-600x600.format-webp.webp",
-      "alt": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
-      "credit": "Google"
+      "url": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/04/acastro_STK090_06.jpg?quality=90&strip=all&crop=0,0,100,100",
+      "alt": "Airbnb is working on an AI travel agent",
+      "credit": "The Verge"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
-      "source": "Google"
+      "title": "Airbnb is working on an AI travel agent",
+      "url": "https://www.theverge.com/tech/1028412/airbnb-ai-travel-agent-q3-2026-earnings",
+      "source": "The Verge"
     },
     "aiAssisted": true,
-    "createdAt": "2026-11-06T10:06:04.457Z",
-    "updatedAt": "2026-11-06T10:06:04.457Z",
+    "createdAt": "2026-11-06T10:06:04.784Z",
+    "updatedAt": "2026-11-06T10:06:04.784Z",
     "publishedAt": null,
     "readingTime": 1
   },
