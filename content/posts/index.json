@@ -1,5 +1,34 @@
 [
   {
+    "slug": "openai-raises-11-billion-as-it-pursues-up-to-20-billion-more",
+    "title": "OpenAI raises $11 billion as it pursues up to $20 billion more",
+    "dek": "First part of a funding round values OpenAI at $1.25 trillion and signals shifting investor appetite.",
+    "section": "policy",
+    "tags": [
+      "OpenAI",
+      "funding",
+      "AI investment"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://the-decoder.com/wp-content/uploads/2026/10/openai_misalign-2.png",
+      "alt": "OpenAI lands an $11 billion funding round, but has to court dentists for more capital",
+      "credit": "The Decoder"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "OpenAI lands an $11 billion funding round, but has to court dentists for more capital",
+      "url": "https://the-decoder.com/openai-lands-an-11-billion-funding-round-but-has-to-court-dentists-for-more-capital/",
+      "source": "The Decoder"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-07T10:06:10.944Z",
+    "updatedAt": "2026-11-07T10:06:10.944Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "airbnb-plans-an-ai-travel-agent-for-early-2027",
     "title": "Airbnb plans an AI travel agent for early 2027",
     "dek": "Airbnb told shareholders it will begin rolling out an AI assistant to help plan and book trips in the first half of 2027.",
