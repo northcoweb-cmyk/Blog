@@ -1,5 +1,35 @@
 [
   {
+    "slug": "google-ai-detects-high-blood-pressure-from-a-regular-smartwatch",
+    "title": "Google AI detects high blood pressure from a regular smartwatch",
+    "dek": "A Google Research model uses pulse and motion sensors to spot signs of hypertension; it’s live in the Google Health app but not a diagnostic tool.",
+    "section": "research",
+    "tags": [
+      "health",
+      "wearables",
+      "Google",
+      "AI"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://the-decoder.com/wp-content/uploads/2026/11/googel_hypertension.png",
+      "alt": "Google's AI detects high blood pressure from a regular smartwatch without a cuff",
+      "credit": "The Decoder"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Google's AI detects high blood pressure from a regular smartwatch without a cuff",
+      "url": "https://the-decoder.com/googles-ai-detects-high-blood-pressure-from-a-regular-smartwatch-without-a-cuff/",
+      "source": "The Decoder"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-07T10:06:14.499Z",
+    "updatedAt": "2026-11-07T10:06:14.499Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "openai-raises-11-billion-as-it-pursues-up-to-20-billion-more",
     "title": "OpenAI raises $11 billion as it pursues up to $20 billion more",
     "dek": "First part of a funding round values OpenAI at $1.25 trillion and signals shifting investor appetite.",
