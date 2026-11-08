@@ -1,0 +1,29 @@
+{
+  "slug": "world-models-are-moving-ai-into-3d-space",
+  "title": "World models are moving AI into 3D space",
+  "dek": "WIRED reports that world models,AIs that simulate physical environments,are being used to teach robots and autonomous cars to navigate the real world.",
+  "body": "World models,AI systems that create internal simulations of physical environments,are being applied beyond text and 2D images to full 3D space. According to WIRED, these models simulate real-world physics and are used to teach robots and autonomous cars how to navigate reality.\n\n## Why it matters\n\nMoving AI from text and flat images into simulated 3D physical space changes where and how systems learn. Instead of only predicting the next word or classifying pixels, world models let systems practice movement, sensor interpretation, and cause-and-effect inside a virtual version of the world. That capability is being applied to robotics and autonomous driving, where learning to act in three dimensions,and under physical constraints like gravity and contact—matters for basic functionality.\n\n## The details\n\n- \"World models\" are AI systems that build simulated 3D environments.  \n- These simulations incorporate real-world physics so agents can experience cause and effect.  \n- The simulations are being used to teach robots how to move and operate in physical spaces.  \n- The same approach is being applied to autonomous cars to teach navigation and interaction with the environment.  \n- The shift represents moving AI training out of text-centric tasks and into embodied, spatial learning.\n\n## What to watch\n\nDetails on performance limits, deployment timelines, and real-world failure modes were not provided. Pay attention to reporting that documents where simulated learning succeeds or breaks down in physical tasks, and to updates on how these models are validated against real-world behavior.\n\nSource: [WIRED](https://www.wired.com/story/world-models-will-soon-be-inescapable-what-you-need-to-know/)",
+  "section": "research",
+  "tags": [
+    "world models",
+    "robotics",
+    "autonomous vehicles"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://media.wired.com/photos/6aee7497bf81da8802edc3e6/master/pass/gear-ai-world-models-3d.jpg",
+    "alt": "World Models Will Soon Be Inescapable. Here’s What You Need to Know",
+    "credit": "WIRED"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "World Models Will Soon Be Inescapable. Here’s What You Need to Know",
+    "url": "https://www.wired.com/story/world-models-will-soon-be-inescapable-what-you-need-to-know/",
+    "source": "WIRED"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-08T10:06:18.906Z",
+  "updatedAt": "2026-11-08T10:06:18.906Z",
+  "publishedAt": null
+}

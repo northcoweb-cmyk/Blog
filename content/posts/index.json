@@ -1,5 +1,34 @@
 [
   {
+    "slug": "world-models-are-moving-ai-into-3d-space",
+    "title": "World models are moving AI into 3D space",
+    "dek": "WIRED reports that world models,AIs that simulate physical environments,are being used to teach robots and autonomous cars to navigate the real world.",
+    "section": "research",
+    "tags": [
+      "world models",
+      "robotics",
+      "autonomous vehicles"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://media.wired.com/photos/6aee7497bf81da8802edc3e6/master/pass/gear-ai-world-models-3d.jpg",
+      "alt": "World Models Will Soon Be Inescapable. Here’s What You Need to Know",
+      "credit": "WIRED"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "World Models Will Soon Be Inescapable. Here’s What You Need to Know",
+      "url": "https://www.wired.com/story/world-models-will-soon-be-inescapable-what-you-need-to-know/",
+      "source": "WIRED"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-08T10:06:18.906Z",
+    "updatedAt": "2026-11-08T10:06:18.906Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "google-ai-detects-high-blood-pressure-from-a-regular-smartwatch",
     "title": "Google AI detects high blood pressure from a regular smartwatch",
     "dek": "A Google Research model uses pulse and motion sensors to spot signs of hypertension; it’s live in the Google Health app but not a diagnostic tool.",
