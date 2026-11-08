@@ -1,0 +1,30 @@
+{
+  "slug": "new-benchmark-finds-ai-coding-agents-fail-most-real-world-fixes",
+  "title": "New benchmark finds AI coding agents fail most real-world fixes",
+  "dek": "Alibaba’s Co-Design Bench shows top models fully solve just 26.4% of previously troublesome user requests.",
+  "body": "What happened\n\nAlibaba released a new coding-agent benchmark called Co-Design Bench that evaluates AI tools on real user requests that had already caused trouble in practice. The best performer on the benchmark, GPT-6 Astra, fully solved only 26.4 percent of tasks. By contrast, the same models report success rates above 99 percent on older, widely used benchmarks. The result: nearly three out of four tasks still need human cleanup after agent output.\n\n## Why it matters\n\nBenchmarks drive how developers and companies judge AI coding tools. A test made from requests that actually failed in production gives a very different picture than older benchmarks where models score above 99 percent. That gap matters for teams relying on these agents to reduce developer time, because the Co-Design Bench suggests much more human intervention will be required than the older scores imply.\n\n## The details\n\n- Benchmark name: Co-Design Bench, created by Alibaba.\n- Test set: real user requests that previously tripped up coding agents in practice.\n- Top performer: GPT-6 Astra.\n- Top score: GPT-6 Astra fully solved 26.4 percent of tasks on Co-Design Bench.\n- Comparison to older benchmarks: the same models exceed 99 percent on those older tests.\n- Practical implication reported: nearly three out of four tasks still require human cleanup after agent completion.\n\n## What to watch\n\nWatch for follow-up releases from Alibaba showing more breakdowns by task type and failure modes, since the current data highlights a wide performance gap but does not detail where agents fail most. Also watch for other benchmark teams to adopt real-world failure cases to see whether this pattern holds across datasets and vendor models.\n\nSource: [The Decoder](https://the-decoder.com/ai-coding-agents-still-need-human-cleanup-on-nearly-three-out-of-four-tasks-in-a-real-world-test/)",
+  "section": "models",
+  "tags": [
+    "benchmarks",
+    "code-generation",
+    "Alibaba",
+    "AI-evaluation"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://the-decoder.com/wp-content/uploads/2026/11/co-design-bench-nano-banana-pro.jpg",
+    "alt": "AI coding agents still need human cleanup on nearly three out of four tasks in a real-world test",
+    "credit": "The Decoder"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "AI coding agents still need human cleanup on nearly three out of four tasks in a real-world test",
+    "url": "https://the-decoder.com/ai-coding-agents-still-need-human-cleanup-on-nearly-three-out-of-four-tasks-in-a-real-world-test/",
+    "source": "The Decoder"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-08T10:06:20.188Z",
+  "updatedAt": "2026-11-08T10:06:20.188Z",
+  "publishedAt": null
+}

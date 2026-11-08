@@ -1,30 +1,31 @@
 [
   {
-    "slug": "world-models-are-moving-ai-into-3d-space",
-    "title": "World models are moving AI into 3D space",
-    "dek": "WIRED reports that world models,AIs that simulate physical environments,are being used to teach robots and autonomous cars to navigate the real world.",
-    "section": "research",
+    "slug": "new-benchmark-finds-ai-coding-agents-fail-most-real-world-fixes",
+    "title": "New benchmark finds AI coding agents fail most real-world fixes",
+    "dek": "Alibaba’s Co-Design Bench shows top models fully solve just 26.4% of previously troublesome user requests.",
+    "section": "models",
     "tags": [
-      "world models",
-      "robotics",
-      "autonomous vehicles"
+      "benchmarks",
+      "code-generation",
+      "Alibaba",
+      "AI-evaluation"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://media.wired.com/photos/6aee7497bf81da8802edc3e6/master/pass/gear-ai-world-models-3d.jpg",
-      "alt": "World Models Will Soon Be Inescapable. Here’s What You Need to Know",
-      "credit": "WIRED"
+      "url": "https://the-decoder.com/wp-content/uploads/2026/11/co-design-bench-nano-banana-pro.jpg",
+      "alt": "AI coding agents still need human cleanup on nearly three out of four tasks in a real-world test",
+      "credit": "The Decoder"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "World Models Will Soon Be Inescapable. Here’s What You Need to Know",
-      "url": "https://www.wired.com/story/world-models-will-soon-be-inescapable-what-you-need-to-know/",
-      "source": "WIRED"
+      "title": "AI coding agents still need human cleanup on nearly three out of four tasks in a real-world test",
+      "url": "https://the-decoder.com/ai-coding-agents-still-need-human-cleanup-on-nearly-three-out-of-four-tasks-in-a-real-world-test/",
+      "source": "The Decoder"
     },
     "aiAssisted": true,
-    "createdAt": "2026-11-08T10:06:18.906Z",
-    "updatedAt": "2026-11-08T10:06:18.906Z",
+    "createdAt": "2026-11-08T10:06:20.188Z",
+    "updatedAt": "2026-11-08T10:06:20.188Z",
     "publishedAt": null,
     "readingTime": 1
   },
