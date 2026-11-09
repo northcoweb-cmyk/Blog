@@ -1,5 +1,34 @@
 [
   {
+    "slug": "wall-street-on-nvidia-s-probe-into-jensen-huang",
+    "title": "Wall Street on Nvidia’s probe into Jensen Huang",
+    "dek": "Investigation into spy claims against Nvidia’s CEO has traders and analysts focused on succession risks.",
+    "section": "markets",
+    "tags": [
+      "Nvidia",
+      "governance",
+      "Wall Street"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://images.mktw.net/im-03911341",
+      "alt": "How Wall Street is reacting to the news of Nvidia’s investigation into Jensen Huang spy claims",
+      "credit": "MarketWatch"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "How Wall Street is reacting to the news of Nvidia’s investigation into Jensen Huang spy claims",
+      "url": "https://www.marketwatch.com/story/how-wall-street-is-reacting-to-the-news-of-nvidias-jensen-huang-investigation-into-spy-claims-d8c839ab",
+      "source": "MarketWatch"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-09T10:06:00.491Z",
+    "updatedAt": "2026-11-09T10:06:00.491Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "new-benchmark-finds-ai-coding-agents-fail-most-real-world-fixes",
     "title": "New benchmark finds AI coding agents fail most real-world fixes",
     "dek": "Alibaba’s Co-Design Bench shows top models fully solve just 26.4% of previously troublesome user requests.",
