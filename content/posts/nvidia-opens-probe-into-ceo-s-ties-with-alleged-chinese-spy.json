@@ -1,0 +1,29 @@
+{
+  "slug": "nvidia-opens-probe-into-ceo-s-ties-with-alleged-chinese-spy",
+  "title": "Nvidia opens probe into CEO’s ties with alleged Chinese spy",
+  "dek": "Board launches an independent investigation after reports link a Megaspeed executive to China’s intelligence agency",
+  "body": "Nvidia announced it is opening an independent investigation into CEO Jensen Huang’s relationship with Alice Huang, an executive at Megaspeed who media reports say was recruited by China’s Ministry of State Security to spy on the company. The board said it has initiated the probe in response to the reports; details about the scope and timeline of the review were not announced.\n\n## Why it matters\n\nNvidia is a leading supplier of AI chips and its leadership and business operations are central to the global AI supply chain. Any credible allegation that a senior executive or an external actor was recruited to gather information could raise national security and corporate-governance concerns for customers, partners, and regulators. The story also had a near-term market impact: Nvidia shares fell about 5% as the scrutiny surfaced.\n\n## The details\n\n- Nvidia’s board published a statement saying it has initiated an independent investigation into Jensen Huang’s relationship with Alice Huang.\n- Alice Huang is identified in coverage as an executive at Megaspeed; reports allege she was recruited by China’s Ministry of State Security. The Ministry of State Security is China’s civilian intelligence and security agency.\n- Media outlets reported the recruitment allegation; Nvidia’s board responded by opening the probe.\n- Nvidia shares dropped roughly 5% after the reports and the company’s announcement.\n- Public reporting has not disclosed the specific nature of the relationship between Jensen Huang and Alice Huang, the timeline of any contacts, or any findings from the board’s investigation.\n- Nvidia has not released details about who will conduct the independent review, the legal or forensic steps involved, or when the company expects to conclude the probe.\n\n## What to watch\n\nWatch for the investigator’s identity and whether the board names independent counsel or a special committee to lead the review — that will signal how thorough the process will be. Also look for any documentation or findings the board releases, and for statements or regulatory filings that address potential disclosures required by securities rules.\n\nSource: [The Verge](https://www.theverge.com/ai-artificial-intelligence/1029562/nvidia-investigating-jensen-huang-relationship-chinese-spy)",
+  "section": "ai",
+  "tags": [
+    "Nvidia",
+    "China",
+    "Corporate governance"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/STKP210_JENSEN_HUANG_A.jpg?quality=90&strip=all&crop=0,0,100,100",
+    "alt": "Nvidia is investigating Jensen Huang’s relationship with an alleged Chinese spy",
+    "credit": "The Verge"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Nvidia is investigating Jensen Huang’s relationship with an alleged Chinese spy",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1029562/nvidia-investigating-jensen-huang-relationship-chinese-spy",
+    "source": "The Verge"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-09T10:06:01.341Z",
+  "updatedAt": "2026-11-09T10:06:01.341Z",
+  "publishedAt": null
+}
