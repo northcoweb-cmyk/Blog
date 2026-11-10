@@ -1,5 +1,34 @@
 [
   {
+    "slug": "nvidia-opens-probe-into-ceo-over-reported-link-to-alleged-chinese-spy",
+    "title": "Nvidia opens probe into CEO over reported link to alleged Chinese spy",
+    "dek": "Board launches independent investigation after reports that Jensen Huang had an intimate relationship with a woman U.S. officials say was spying for China.",
+    "section": "policy",
+    "tags": [
+      "Nvidia",
+      "national security",
+      "AI policy"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://thehill.com/wp-content/uploads/sites/2/2026/09/AP26238747371061-e1790621169206.jpg?w=900",
+      "alt": "Nvidia investigates reports of CEO’s relationship with alleged Chinese spy",
+      "credit": "The Hill"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Nvidia investigates reports of CEO’s relationship with alleged Chinese spy",
+      "url": "https://thehill.com/policy/technology/6206971-nvidia-investigates-jensen-huang/",
+      "source": "The Hill"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-10T10:06:14.609Z",
+    "updatedAt": "2026-11-10T10:06:14.609Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "nvidia-opens-probe-into-ceo-s-ties-with-alleged-chinese-spy",
     "title": "Nvidia opens probe into CEO’s ties with alleged Chinese spy",
     "dek": "Board launches an independent investigation after reports link a Megaspeed executive to China’s intelligence agency",

@@ -1,0 +1,29 @@
+{
+  "slug": "nvidia-opens-probe-into-ceo-over-reported-link-to-alleged-chinese-spy",
+  "title": "Nvidia opens probe into CEO over reported link to alleged Chinese spy",
+  "dek": "Board launches independent investigation after reports that Jensen Huang had an intimate relationship with a woman U.S. officials say was spying for China.",
+  "body": "Nvidia’s board of directors has opened an independent investigation into founder and CEO Jensen Huang after reporting that he had an intimate relationship with a woman U.S. intelligence officials believe was spying for China.\n\n## Why it matters\n\nNvidia is one of the largest suppliers of chips used in artificial intelligence; any board-level investigation into its CEO raises questions about corporate governance, national-security exposure, and political scrutiny of U.S. AI policy. The story has already drawn attention from Democrats in Congress, who are asking for answers about the incident and its implications for administration policy on AI.\n\n## The details\n\n- The NVIDIA board announced it is initiating an independent investigation into founder and CEO Jensen Huang following recent reporting about his personal relationship.\n- The reporting says the woman involved is someone U.S. intelligence officials believe was spying for China.\n- Democrats have publicly demanded answers about U.S. AI policy in light of the reported spy plot and the connection to Nvidia’s CEO.\n- Coverage of the matter has been carried by multiple outlets, including The Hill, The New York Times, The Seattle Times, and the Hindustan Times.\n- Specifics about the allegations, the timeline of the relationship, any concrete security breaches, and findings from the board’s investigation have not been released in the reporting cited.\n\n## What to watch\n\nLook for the board’s independent-investigation report and whether it discloses findings about any security or compliance failures. Also watch congressional activity prompted by lawmakers’ requests for briefings or documents related to the incident and how the administration responds regarding AI policy oversight.\n\nSource: [The Hill](https://thehill.com/policy/technology/6206971-nvidia-investigates-jensen-huang/)",
+  "section": "policy",
+  "tags": [
+    "Nvidia",
+    "national security",
+    "AI policy"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://thehill.com/wp-content/uploads/sites/2/2026/09/AP26238747371061-e1790621169206.jpg?w=900",
+    "alt": "Nvidia investigates reports of CEO’s relationship with alleged Chinese spy",
+    "credit": "The Hill"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Nvidia investigates reports of CEO’s relationship with alleged Chinese spy",
+    "url": "https://thehill.com/policy/technology/6206971-nvidia-investigates-jensen-huang/",
+    "source": "The Hill"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-10T10:06:14.609Z",
+  "updatedAt": "2026-11-10T10:06:14.609Z",
+  "publishedAt": null
+}
