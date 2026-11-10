@@ -1,5 +1,35 @@
 [
   {
+    "slug": "anthropic-releases-claude-fable-5-2-and-claude-mythos-5-2",
+    "title": "Anthropic releases Claude Fable 5.2 and Claude Mythos 5.2",
+    "dek": "Two updated models claim faster outputs and improvements in coding, reasoning, and vision ahead of the company’s IPO plans.",
+    "section": "models",
+    "tags": [
+      "Anthropic",
+      "large models",
+      "product",
+      "AI economy"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/01/STK269_ANTHROPIC_2_B.jpg?quality=90&strip=all&crop=0,0,100,100",
+      "alt": "Anthropic launches new Claude Fable and Mythos 5.2 models",
+      "credit": "The Verge"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Anthropic launches new Claude Fable and Mythos 5.2 models",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1030005/anthropic-claude-fable-mythos-5-2",
+      "source": "The Verge"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-10T10:06:17.292Z",
+    "updatedAt": "2026-11-10T10:06:17.292Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "nvidia-opens-probe-into-ceo-over-reported-link-to-alleged-chinese-spy",
     "title": "Nvidia opens probe into CEO over reported link to alleged Chinese spy",
     "dek": "Board launches independent investigation after reports that Jensen Huang had an intimate relationship with a woman U.S. officials say was spying for China.",
