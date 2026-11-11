@@ -1,30 +1,30 @@
 [
   {
-    "slug": "openai-gives-veterans-a-year-of-chatgpt-plus",
-    "title": "OpenAI gives veterans a year of ChatGPT Plus",
-    "dek": "More than 20,000 veterans and transitioning service members have signed up for a free year of ChatGPT Plus to help with civilian career preparation.",
-    "section": "models",
+    "slug": "coreweave-stock-jumps-after-outlook-lift-eases-ai-slowdown-fears",
+    "title": "CoreWeave stock jumps after outlook lift eases AI-slowdown fears",
+    "dek": "CoreWeave rose about 13% when an outlook raise reduced investor concern about an AI demand slowdown; other neoclouds face scrutiny.",
+    "section": "markets",
     "tags": [
-      "OpenAI",
-      "veterans",
-      "ChatGPT Plus"
+      "CoreWeave",
+      "neoclouds",
+      "AI investing"
     ],
     "author": "Tensor Street Desk",
     "cover": {
-      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/1515_Third_Street.jpg/1280px-1515_Third_Street.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "alt": "ChatGPT Plus for veterans and servicemembers",
-      "credit": "OpenAI"
+      "url": "https://image.cnbcfm.com/api/v1/image/108223839-1762804083127-gettyimages-2206665095-COREWEAVE_IPO.jpeg?v=1776970332&w=1920&h=1080",
+      "alt": "CoreWeave stock pops 13% after outlook raise eases AI slowdown concerns",
+      "credit": "CNBC"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "ChatGPT Plus for veterans and servicemembers",
-      "url": "https://openai.com/index/chatgpt-plus-for-veterans",
-      "source": "OpenAI"
+      "title": "CoreWeave stock pops 13% after outlook raise eases AI slowdown concerns",
+      "url": "https://www.cnbc.com/2026/11/11/coreweave-crwv-outlook-earnings-ai.html",
+      "source": "CNBC"
     },
     "aiAssisted": true,
-    "createdAt": "2026-11-11T10:06:07.684Z",
-    "updatedAt": "2026-11-11T10:06:07.684Z",
+    "createdAt": "2026-11-11T10:06:07.957Z",
+    "updatedAt": "2026-11-11T10:06:07.957Z",
     "publishedAt": null,
     "readingTime": 1
   },
