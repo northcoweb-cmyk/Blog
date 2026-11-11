@@ -1,0 +1,29 @@
+{
+  "slug": "openai-gives-veterans-a-year-of-chatgpt-plus",
+  "title": "OpenAI gives veterans a year of ChatGPT Plus",
+  "dek": "More than 20,000 veterans and transitioning service members have signed up for a free year of ChatGPT Plus to help with civilian career preparation.",
+  "body": "OpenAI is offering a free year of ChatGPT Plus to veterans and transitioning service members, and more than 20,000 people have claimed the benefit. The company says recipients are using the paid tier of ChatGPT to prepare for civilian careers.\n\n## Why it matters\n\nThis is a direct, product-level intervention aimed at a specific workforce group. ChatGPT Plus is the paid subscription of OpenAI’s conversational AI model; it provides access to features beyond the free tier. Providing a year of the subscription to veterans and people leaving the military signals a targeted push to support career transitions with AI tools. That could affect how quickly some service members adapt to civilian job searches, interviews, skill-building, and related tasks — though outcome data are not provided.\n\n## The details\n\n- OpenAI offered a free year of ChatGPT Plus to veterans and transitioning service members.\n- More than 20,000 veterans and transitioning service members have claimed the free year.\n- OpenAI says recipients are using ChatGPT Plus to prepare for civilian careers.\n- The program and uptake are documented by OpenAI on its website.\n\nSpecifics that are not disclosed yet\n\n- OpenAI has not provided a breakdown of which services within ChatGPT Plus veterans use most often, such as resume drafting, interview practice, or technical upskilling.\n- The demographic or geographic distribution of the 20,000-plus recipients is not specified.\n- There is no public data from OpenAI about outcomes such as job placement rates, time to hire, or measurable skill gains tied to the program.\n- Details on eligibility criteria, verification processes, or the exact start and end dates of the offer are not included in the announcement.\n\n## What to watch\n\nLook for follow-up reporting or open data from OpenAI that shows how recipients used the tool and whether the program affected job outcomes. Also watch whether similar offers appear from other AI companies or government and nonprofit actors working with veterans.\n\nSource: [OpenAI](https://openai.com/index/chatgpt-plus-for-veterans)",
+  "section": "models",
+  "tags": [
+    "OpenAI",
+    "veterans",
+    "ChatGPT Plus"
+  ],
+  "author": "Tensor Street Desk",
+  "cover": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/1515_Third_Street.jpg/1280px-1515_Third_Street.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "alt": "ChatGPT Plus for veterans and servicemembers",
+    "credit": "OpenAI"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "ChatGPT Plus for veterans and servicemembers",
+    "url": "https://openai.com/index/chatgpt-plus-for-veterans",
+    "source": "OpenAI"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-11T10:06:07.684Z",
+  "updatedAt": "2026-11-11T10:06:07.684Z",
+  "publishedAt": null
+}
