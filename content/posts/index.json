@@ -1,5 +1,34 @@
 [
   {
+    "slug": "nvidia-stock-drops-as-board-debates-ceo-s-future",
+    "title": "Nvidia stock drops as board debates CEO’s future",
+    "dek": "Investors pushed Nvidia down about 6% after the company’s board met to discuss whether to remove CEO Jensen Huang.",
+    "section": "markets",
+    "tags": [
+      "Nvidia",
+      "Leadership",
+      "Markets"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://image.cnbcfm.com/api/v1/image/108549797-1794473558680-gettyimages-2300707653-261019_KBMW_PHT102.jpeg?v=1794473568&w=1920&h=1080",
+      "alt": "Nvidia stock falls 6% as investors await Jensen Huang’s fate",
+      "credit": "CNBC"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Nvidia stock falls 6% as investors await Jensen Huang’s fate",
+      "url": "https://www.cnbc.com/2026/11/12/nvidia-nvda-jensen-huang-second-affair.html",
+      "source": "CNBC"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-12T10:06:11.993Z",
+    "updatedAt": "2026-11-12T10:06:11.993Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "coreweave-stock-jumps-after-outlook-lift-eases-ai-slowdown-fears",
     "title": "CoreWeave stock jumps after outlook lift eases AI-slowdown fears",
     "dek": "CoreWeave rose about 13% when an outlook raise reduced investor concern about an AI demand slowdown; other neoclouds face scrutiny.",
