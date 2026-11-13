@@ -1,4 +1,4 @@
-/* Kelvane — Newsroom (admin) */
+/* Kelvane Club — Newsroom (admin) */
 body { background: var(--bg); }
 .adm { display: grid; grid-template-columns: 248px minmax(0, 1fr); min-height: 100vh; }
 .adm-side { background: var(--tape); color: #c4c4c4; padding: 20px 14px; display: flex; flex-direction: column; gap: 4px; position: sticky; top: 0; height: 100vh; overflow-y: auto; }

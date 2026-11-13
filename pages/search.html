@@ -3,23 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#04070b">
+<meta name="theme-color" content="#000000">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/brand/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="alternate" type="application/rss+xml" title="Kelvane" href="/rss.xml">
+<link rel="alternate" type="application/rss+xml" title="Kelvane Club" href="/rss.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..800&family=Geist+Mono:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/fonts/bbh-bogle.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="/assets/css/app.css">
 <script>try{var t=localStorage.getItem('ts-theme');document.documentElement.dataset.theme=t||'dark'}catch(e){document.documentElement.dataset.theme='dark'}</script>
-<title>Search · Kelvane</title>
-<meta name="description" content="Kelvane is a free daily briefing on artificial intelligence: model launches, AI stocks and markets, policy, startups, and how small businesses are putting AI to work. Updated all day.">
+<title>Search · Kelvane Club</title>
+<meta name="description" content="Kelvane Club is a free daily briefing on artificial intelligence: model launches, AI stocks and markets, policy, startups, and how small businesses are putting AI to work. Updated all day.">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Kelvane">
-<meta property="og:title" content="Search · Kelvane">
-<meta property="og:description" content="Kelvane is a free daily briefing on artificial intelligence: model launches, AI stocks and markets, policy, startups, and how small businesses are putting AI to work. Updated all day.">
+<meta property="og:site_name" content="Kelvane Club">
+<meta property="og:title" content="Search · Kelvane Club">
+<meta property="og:description" content="Kelvane Club is a free daily briefing on artificial intelligence: model launches, AI stocks and markets, policy, startups, and how small businesses are putting AI to work. Updated all day.">
 <meta property="og:image" content="/assets/brand/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -27,7 +28,7 @@
 <div id="site-top"></div>
 <main id="main"><div class="wrap">
   <header class="page-head"><div class="crumbs"><a href="/">Home</a> / <span>Search</span></div><h1>Search</h1>
-  <form id="search-form" style="display:flex;gap:8px;max-width:640px;margin-top:16px"><input name="q" id="q" class="input" style="flex:1;height:48px;border-radius:12px;border:1px solid var(--line);background:var(--surface);padding:0 16px;font-size:16px" placeholder="Search stories, companies, models…" autocomplete="off"><button class="btn btn-primary" style="height:48px">Search</button></form></header>
+  <form id="search-form" class="search-big" role="search"><input name="q" id="q" type="search" placeholder="Search companies, models, people, tickers…" autocomplete="off" aria-label="Search"><button class="btn btn-primary">Search</button></form></header>
   <div id="results"></div>
 </div></main>
 <div id="site-foot"></div>

@@ -5,7 +5,7 @@ const date = location.pathname.split('/').filter(Boolean)[1];
 const root = $('#archive');
 
 async function list() {
-  document.title = 'Daily archive · Kelvane';
+  document.title = 'Daily archive · Kelvane Club';
   root.innerHTML = `<header class="page-head"><div class="crumbs"><a href="/">Home</a> / <span>Archive</span></div><h1>The daily archive</h1><p>Every edition of The Brief, saved each morning.</p></header><div id="eds"><div class="sk sk-line"></div><div class="sk sk-line"></div></div>`;
   const { editions = [] } = await api('/api/editions').catch(() => ({}));
   $('#eds').innerHTML = editions.length
@@ -20,7 +20,7 @@ async function one() {
   try {
     const { edition: e } = await api(`/api/editions?date=${encodeURIComponent(date)}`);
     const nice = fmtDate(e.date + 'T12:00:00', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
-    document.title = `${nice} · Kelvane`;
+    document.title = `${nice} · Kelvane Club`;
     root.innerHTML = `<header class="page-head"><div class="crumbs"><a href="/">Home</a> / <a href="/archive">Archive</a> / <span>${esc(e.date)}</span></div><h1>${esc(nice)}</h1><p>${esc(e.intro || '')}</p></header>
       <div class="brief" style="margin-bottom:40px"><div class="kicker"><span class="dot"></span>The Brief · ${esc(e.title)}</div><div class="brief-grid" style="margin-top:18px">${e.items
         .map((s, i) => `<a class="brief-item" href="${storyHref(s)}"><div class="n"><span>${String(i + 1).padStart(2, '0')}</span><span class="chip" data-sec="${esc(s.section)}">${esc(sectionById(s.section).name)}</span></div><h3>${esc(s.headline || s.title)}</h3><p>${esc(s.aiSummary || s.summary || '')}</p><div class="why"><b>Why it matters</b>${esc(s.why)}</div></a>`)

@@ -1,11 +1,11 @@
-# Kelvane
+# Kelvane Club
 
 **The daily briefing on the AI economy.** A free news site that fills itself with AI, markets, policy, startup and small-business news around the clock, plus a newsroom where you publish your own articles, draft with AI, and make Instagram posts.
 
 - **Live wire:** 31 free news sources (TechCrunch, The Verge, Ars Technica, MIT Tech Review, CNBC, Yahoo Finance, OpenAI, Google DeepMind, NVIDIA and more). Stories are filtered so everything ties back to AI, grouped when several outlets cover the same thing, ranked, and refreshed every few minutes.
 - **Breaking news:** stories picked up by several outlets within a few hours get a red banner on every page.
 - **The Brief:** a morning, midday or evening edition with the top stories and a "Why it matters" line for each. Written by AI if you add a free key.
-- **AI markets tape:** live prices for Nvidia, Microsoft, Alphabet and other AI leaders, plus the Kelvane AI Index.
+- **AI markets tape:** live prices for Nvidia, Microsoft, Alphabet and other AI leaders, plus the Kelvane Club AI Index.
 - **Eight desks:** AI, Models & Launches, Markets, Policy, Startups, **Main Street AI** (small businesses), Research, Tech.
 - **From the Desk:** your own articles, with photos, scheduling and proper link previews on Google, iMessage and social media.
 - **Newsroom (`/admin`):** editor, image uploads, "Draft with AI" from any headline, an Instagram post maker, a newsletter preview and a setup checklist.
@@ -96,8 +96,8 @@ Every page is built on the server with real text, a title, a description, a cano
 - The article editor has a live **Search preview and SEO score**. Aim for green.
 
 **Do this once (free, about 10 minutes)**
-1. Set `SITE_URL` in Vercel to your real domain (for example `https://yourdomain.com`), then redeploy.
-2. Go to search.google.com/search-console, add your domain, verify it, then submit `sitemap.xml` and `news-sitemap.xml`.
+1. The site already tells Google its address is `https://kelvane.club`. Add the domain in Vercel (Settings → Domains).
+2. Go to search.google.com/search-console, add `kelvane.club`, and verify it. Easiest: pick "HTML tag", copy the code inside `content="…"`, add it in Vercel as `GOOGLE_SITE_VERIFICATION`, redeploy, click Verify. Then submit `sitemap.xml` and `news-sitemap.xml`.
 3. Go to bing.com/webmasters, sign in, import from Google Search Console.
 4. Put your domain in the Instagram bio and link to your best articles. Links from other sites are the biggest ranking factor.
 
@@ -110,7 +110,7 @@ Check the whole site any time: `node dev/server.js` then `node dev/seo-check.mjs
 
 ## Brand
 
-- **Name:** Kelvane. A made-up word, so searching it finds only you. Black and white design, one font family (Geist).
+- **Name:** Kelvane Club, at kelvane.club. Logo: a K whose upper arm is a rising arrow, next to KELVANE / CLUB in BBH Bogle. Black and white only; green and red are used just for prices.
 - **Brand kit:** open `/brand` on your site for logos, colors, fonts, voice rules, the Instagram profile picture and post templates, all downloadable.
 - **Instagram:** upload `public/assets/brand/instagram-profile.png` as your avatar and `ig-launch.png` as your first post. The bio and posting rhythm are on the `/brand` page.
 - **To rename:** change `SITE` in `public/assets/js/site.js` and `lib/site.js`.

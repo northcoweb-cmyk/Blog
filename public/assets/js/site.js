@@ -2,7 +2,7 @@
 // (ticker tape, header, footer, search). Every page imports this.
 
 export const SITE = {
-  name: 'Kelvane',
+  name: 'Kelvane Club',
   tagline: 'The daily briefing on the AI economy',
   instagram: 'tensorstreet',
 };
@@ -289,9 +289,9 @@ export const ICON = {
   mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
 };
 
-export const LOGO_MARK = `<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 5v22M25 5L10.5 16 25 27" fill="none" style="stroke:var(--ink)" stroke-width="3.4" stroke-linecap="square" stroke-linejoin="miter"/></svg>`;
+export const LOGO_MARK = `<svg class="mk" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" style="fill:var(--ink)"/><path d="M15 12h10.5v40H15z M25.5 30.5 39 17 34 12h19v19l-7-7-20.5 20.5z M35 35 52 52H37.86l-9.93-9.93z" style="fill:var(--bg)"/></svg>`;
 
-export const logoHtml = () => `<a class="logo" href="/" aria-label="${SITE.name} home">${LOGO_MARK}<span>Kelvane</span></a>`;
+export const logoHtml = () => `<a class="logo" href="/" aria-label="Kelvane Club home">${LOGO_MARK}<span class="wm"><span>kelvane</span><span>club</span></span></a>`;
 
 // ── Theme ────────────────────────────────────────────────────────────────
 
@@ -419,7 +419,7 @@ export function initChrome({ active = '' } = {}) {
             <div class="socials"><a href="https://instagram.com/${SITE.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${ICON.instagram}</a><a href="/rss.xml" aria-label="RSS">${ICON.rss}</a><a href="#subscribe" data-subscribe aria-label="Newsletter" hidden>${ICON.mail}</a></div></div>
           <div><h4>Desks</h4><ul>${SECTIONS.slice(0, 4).map((s) => `<li><a href="/section/${s.id}">${s.long}</a></li>`).join('')}</ul></div>
           <div><h4>More desks</h4><ul>${SECTIONS.slice(4).map((s) => `<li><a href="/section/${s.id}">${s.long}</a></li>`).join('')}</ul></div>
-          <div><h4>Kelvane</h4><ul><li><a href="/about">About</a></li><li><a href="/topics">Companies &amp; topics</a></li><li><a href="/learn">Learn AI: Glossary</a></li><li><a href="/archive">Daily archive</a></li><li><a href="/search">Search</a></li><li><a href="/rss.xml">RSS</a></li></ul></div>
+          <div><h4>Kelvane Club</h4><ul><li><a href="/about">About</a></li><li><a href="/topics">Companies &amp; topics</a></li><li><a href="/learn">Learn AI: Glossary</a></li><li><a href="/archive">Daily archive</a></li><li><a href="/search">Search</a></li><li><a href="/rss.xml">RSS</a></li></ul></div>
         </div>
         <div class="foot-mega" aria-hidden="true">${esc(SITE.name)}</div>
         <div class="foot-note"><span>© ${new Date().getFullYear()} ${SITE.name}. Headlines and summaries link to the original publishers.</span><span>Not investment advice. Market data may be delayed.</span></div>
@@ -434,6 +434,7 @@ export function initChrome({ active = '' } = {}) {
     <div class="search-overlay" id="search-overlay"><div class="search-box" role="dialog" aria-label="Search">
       <form action="/search" method="get">${ICON.search.replace('<svg', '<svg width="20" height="20" style="color:var(--muted)"')}<input name="q" placeholder="Search AI news, companies, models…" autocomplete="off" aria-label="Search"><kbd>esc</kbd></form>
       <div class="hint">Try: <a href="/search?q=nvidia">Nvidia</a><a href="/search?q=openai">OpenAI</a><a href="/search?q=anthropic">Anthropic</a><a href="/search?q=small+business">Small business</a><a href="/search?q=regulation">Regulation</a></div>
+      <div id="sr"></div>
     </div></div>`;
   }
 
@@ -471,6 +472,7 @@ export function initChrome({ active = '' } = {}) {
     }
   });
 
+  wireInstantSearch();
   tickClock();
   setInterval(tickClock, 30_000);
   loadTape();
@@ -492,6 +494,47 @@ function openSearch() {
 function closeSearch() {
   $('#search-overlay')?.classList.remove('open');
 }
+
+// Instant results while typing in the search box.
+let srTimer = 0;
+let srSeq = 0;
+export const markTerms = (text, q) => {
+  let out = esc(text);
+  for (const t of String(q).toLowerCase().split(/\s+/).filter((x) => x.length > 1).slice(0, 5)) {
+    out = out.replace(new RegExp(`(${t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi'), '<mark>$1</mark>');
+  }
+  return out;
+};
+function wireInstantSearch() {
+  const o = $('#search-overlay');
+  const input = o?.querySelector('input');
+  const box = $('#sr');
+  if (!input || !box) return;
+  input.addEventListener('input', () => {
+    clearTimeout(srTimer);
+    const q = input.value.trim();
+    o.querySelector('.hint').hidden = !!q;
+    if (q.length < 2) return (box.innerHTML = '');
+    srTimer = setTimeout(async () => {
+      const seq = ++srSeq;
+      try {
+        const r = await api(`/api/search?q=${encodeURIComponent(q)}`);
+        if (seq !== srSeq) return;
+        const items = [...r.posts.map((p) => ({ href: postHref(p), title: p.title, sub: `Kelvane Club Desk · ${timeAgo(p.publishedAt)}`, item: { ...p, id: p.slug } })), ...r.stories.map((s) => ({ href: storyHref(s), title: s.title, sub: `${sectionById(s.section).name} · ${timeAgo(s.date)}`, item: s }))].slice(0, 7);
+        const total = r.posts.length + r.stories.length;
+        box.innerHTML = `${r.topics.length ? `<div class="sr-topic" style="padding:6px 10px 0">${r.topics.map((t) => `<a href="/topic/${esc(t.slug)}">${esc(t.name)}</a>`).join('')}</div>` : ''}
+          ${items.length ? `<ul class="sr-list">${items.map((i) => `<li><a href="${i.href}"><span class="th">${thumbHtml(i.item)}</span><span><b>${markTerms(i.title, q)}</b><small>${esc(i.sub)}</small></span></a></li>`).join('')}</ul>` : `<div class="sr-empty">Nothing on the wire for “${esc(q)}” yet. Press Enter to search everything.</div>`}
+          ${total > items.length ? `<a class="btn btn-sm" style="margin:6px 10px 14px" href="/search?q=${encodeURIComponent(q)}">See all ${total} results ${ICON.arrow}</a>` : ''}`;
+      } catch {
+        if (seq === srSeq) box.innerHTML = '<div class="sr-empty">Search is reconnecting. Press Enter to try again.</div>';
+      }
+    }, 160);
+  });
+}
+const thumbHtml = (item) => {
+  const src = item.cover?.url || item.image;
+  return src ? `<img src="${esc(src)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : '';
+};
 
 function tickClock() {
   const el = $('#tape-clock');

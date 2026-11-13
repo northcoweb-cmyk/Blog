@@ -7,11 +7,11 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const HEAD = await fs.readFile(path.join(ROOT, 'dev/partials/head.html'), 'utf8');
-const DESC = 'Kelvane is a free daily briefing on artificial intelligence: model launches, AI stocks and markets, policy, startups, and how small businesses are putting AI to work. Updated all day.';
+const DESC = 'Kelvane Club is a free daily briefing on artificial intelligence: model launches, AI stocks and markets, policy, startups, and how small businesses are putting AI to work. Updated all day.';
 
 const og = (title, desc = DESC) => `<meta name="description" content="${desc}">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Kelvane">
+<meta property="og:site_name" content="Kelvane Club">
 <meta property="og:title" content="${title}">
 <meta property="og:description" content="${desc}">
 <meta property="og:image" content="/assets/brand/og-image.png">
@@ -34,12 +34,12 @@ ${main}
 
 const pages = {
   'index.html': {
-    title: 'Kelvane · The daily briefing on the AI economy',
+    title: 'Kelvane Club · The daily briefing on the AI economy',
     script: 'home',
     active: 'home',
     main: `<div class="dateline"><div class="wrap dateline-row"><span id="dateline-left"><b>&nbsp;</b></span><span class="dl-right"><span class="live" id="updated"><span class="dot"></span>Live</span><a class="hide-sm" href="/archive">Archive</a><a class="hide-sm" href="/learn">New to AI? Start here</a></span></div></div>
 <main id="main"><div class="wrap">
-  <h1 class="sr-only">Kelvane: today's AI news</h1>
+  <h1 class="sr-only">Kelvane Club: today’s AI news, AI stocks and startup funding</h1>
   <section class="grid" id="top-grid" aria-label="Top stories">
     <div class="col-8" id="lead"><div class="hero"><div class="media sk"></div><div class="hero-body"><div class="sk sk-title" style="width:85%;height:40px"></div><div class="sk sk-line"></div></div></div></div>
     <aside class="col-4" id="markets-panel" aria-label="AI markets"></aside>
@@ -58,78 +58,76 @@ const pages = {
     <aside class="col-4 stack" id="rail" aria-label="More">
       <div class="panel panel-pad"><div class="sec-head"><h2><span class="bar" style="--sec:var(--live)"></span>Trending now</h2></div><ol class="hl-list" id="trending"></ol></div>
       <div id="subscribe">SIGNUP</div>
-      <div class="panel panel-pad" id="desk-rail"></div>
       <a class="promo" href="/learn"><span class="chip" data-sec="research">Learn AI</span><h3>AI, explained in plain English</h3><p>The glossary for everything you'll read on this site, from LLMs to inference to agents.</p><div class="terms"><span>LLM</span><span>Agent</span><span>Inference</span><span>GPU</span><span>Tokens</span><span>RAG</span></div></a>
     </aside>
   </section>
-  <div id="desk-feature"></div>
   <div id="sections"></div>
 </div></main>`,
   },
   'section.html': {
-    title: 'Section · Kelvane',
+    title: 'Section · Kelvane Club',
     script: 'section',
     main: `<main id="main"><div class="wrap">
   <header class="page-head" id="page-head"><div class="crumbs"><a href="/">Home</a> / <span>Section</span></div><h1>&nbsp;</h1><p>&nbsp;</p></header>
   <section class="grid" id="sec-top"></section>
   <section class="grid" style="margin-top:36px"><div class="col-8"><div class="sec-head"><h2><span class="bar"></span>All stories</h2><span class="meta" id="sec-count"></span></div><div class="panel panel-pad" id="sec-list"></div></div>
-  <aside class="col-4 stack"><div id="sec-desk"></div><div id="subscribe">SIGNUP</div><div class="panel panel-pad"><div class="sec-head"><h2>Other desks</h2></div><div class="tags" id="other-desks"></div></div></aside></section>
+  <aside class="col-4 stack"><div id="subscribe">SIGNUP</div><div class="panel panel-pad"><div class="sec-head"><h2>Other desks</h2></div><div class="tags" id="other-desks"></div></div></aside></section>
 </div></main>`,
   },
   'story.html': {
-    title: 'Story · Kelvane',
+    title: 'Story · Kelvane Club',
     script: 'story',
     main: `<main id="main"><div class="wrap"><article class="article" id="story"><div class="sk sk-line" style="width:20%"></div><div class="sk sk-title" style="height:44px"></div><div class="sk sk-title" style="height:44px;width:70%"></div><div class="media sk" style="margin-top:24px"></div></article>
   <section id="more" style="margin-top:56px"></section></div></main>`,
   },
   'post.html': {
-    title: 'Kelvane',
+    title: 'Kelvane Club',
     script: 'post',
     extraHead: '<!--POST_META-->',
     main: `<!--POST_JSON-->
 <main id="main"><div class="wrap"><article class="article" id="post"><!--POST_BODY--></article><section id="more" style="margin-top:56px"></section></div></main>`,
   },
   'search.html': {
-    title: 'Search · Kelvane',
+    title: 'Search · Kelvane Club',
     script: 'search',
     active: 'search',
     main: `<main id="main"><div class="wrap">
   <header class="page-head"><div class="crumbs"><a href="/">Home</a> / <span>Search</span></div><h1>Search</h1>
-  <form id="search-form" style="display:flex;gap:8px;max-width:640px;margin-top:16px"><input name="q" id="q" class="input" style="flex:1;height:48px;border-radius:12px;border:1px solid var(--line);background:var(--surface);padding:0 16px;font-size:16px" placeholder="Search stories, companies, models…" autocomplete="off"><button class="btn btn-primary" style="height:48px">Search</button></form></header>
+  <form id="search-form" class="search-big" role="search"><input name="q" id="q" type="search" placeholder="Search companies, models, people, tickers…" autocomplete="off" aria-label="Search"><button class="btn btn-primary">Search</button></form></header>
   <div id="results"></div>
 </div></main>`,
   },
   'archive.html': {
-    title: 'Archive · Kelvane',
+    title: 'Archive · Kelvane Club',
     script: 'archive',
     active: 'archive',
     main: `<main id="main"><div class="wrap"><div id="archive"></div></div></main>`,
   },
   'learn.html': {
-    title: 'Learn AI: The plain-English glossary · Kelvane',
+    title: 'Learn AI: The plain-English glossary · Kelvane Club',
     desc: 'Plain-English definitions of the AI terms in the news: LLMs, agents, inference, GPUs, tokens, RAG, fine-tuning and more.',
     script: 'learn',
     active: 'learn',
     main: `<main id="main"><div class="wrap">
-  <header class="page-head"><div class="crumbs"><a href="/">Home</a> / <span>Learn AI</span></div><span class="chip" data-sec="research" style="margin-top:14px">AI 101</span><h1>AI, in plain English</h1><p>Every term you'll run into on Kelvane, explained in a sentence or two, with an example of how it shows up in the news.</p>
+  <header class="page-head"><div class="crumbs"><a href="/">Home</a> / <span>Learn AI</span></div><span class="chip" data-sec="research" style="margin-top:14px">AI 101</span><h1>AI, in plain English</h1><p>Every term you'll run into on Kelvane Club, explained in a sentence or two, with an example of how it shows up in the news.</p>
   <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;align-items:center"><input id="gloss-filter" placeholder="Filter terms…" style="height:42px;border-radius:10px;border:1px solid var(--line);background:var(--surface);padding:0 14px;min-width:240px"><div class="tabs" id="gloss-tabs"></div></div></header>
   <div class="gloss" id="gloss"></div>
 </div></main>`,
   },
   'about.html': {
-    title: 'About · Kelvane',
+    title: 'About · Kelvane Club',
     script: 'about',
     active: 'about',
     main: `<main id="main"><div class="wrap"><article class="article">
   <div class="crumbs"><a href="/">Home</a> / <span>About</span></div>
-  <div class="article-head"><h1>The AI economy, one briefing a day.</h1><p class="dek">Kelvane is a free news desk for people who want to understand how AI is changing business, markets and everyday work, without the hype.</p></div>
+  <div class="article-head"><h1>Kelvane Club: the AI economy, one briefing a day.</h1><p class="dek">Kelvane Club is a free news desk for people who want to understand how AI is changing business, markets and everyday work, without the hype.</p></div>
   <div class="prose">
-    <p>AI news moves fast and comes from everywhere: lab blogs, earnings calls, court filings, startup announcements, and the small business down the street that quietly automated its bookkeeping. Kelvane pulls it into one place and keeps it updated from morning to night.</p>
+    <p>AI news moves fast and comes from everywhere: lab blogs, earnings calls, court filings, startup announcements, and the small business down the street that quietly automated its bookkeeping. Kelvane Club pulls it into one place and keeps it updated from morning to night.</p>
     <h2>What you'll find here</h2>
     <ul>
       <li><strong>The Brief.</strong> The handful of stories that matter today, with a line on why each one matters.</li>
       <li><strong>The live wire.</strong> Headlines from dozens of trusted newsrooms and AI labs, ranked by how important and how fresh they are, updated around the clock.</li>
-      <li><strong>AI markets.</strong> A live tape of the companies at the center of the AI build-out, plus the Kelvane AI Index.</li>
+      <li><strong>AI markets.</strong> A live tape of the companies at the center of the AI build-out, plus the Kelvane Club AI Index.</li>
       <li><strong>Main Street AI.</strong> A desk devoted to how small businesses are actually using AI, and what's working.</li>
       <li><strong>From the Desk.</strong> Original explainers and analysis from our editors.</li>
     </ul>
@@ -144,24 +142,24 @@ const pages = {
 </article></div></main>`,
   },
   'brand.html': {
-    title: 'Brand kit · Kelvane',
+    title: 'Brand kit · Kelvane Club',
     script: 'about',
     active: 'brand',
     extraHead: '<meta name="robots" content="noindex">',
     main: `<main id="main"><div class="wrap">
-  <header class="page-head"><div class="crumbs"><a href="/">Home</a> / <span>Brand kit</span></div><h1>Brand kit</h1><p>Everything you need to keep Kelvane looking the same on the site, Instagram and anywhere else. Click any asset to download it.</p></header>
+  <header class="page-head"><div class="crumbs"><a href="/">Home</a> / <span>Brand kit</span></div><h1>Brand kit</h1><p>Everything you need to keep Kelvane Club looking the same on the site, Instagram and anywhere else. Click any asset to download it.</p></header>
   <section class="grid">
-    <div class="col-6 panel panel-pad"><div class="sec-head"><h2>Logo</h2></div><div style="background:var(--surface-2);border-radius:12px;padding:40px;display:grid;place-items:center"><img src="/assets/brand/logo-wordmark.svg" alt="Kelvane logo" style="width:320px"></div><div style="background:#000000;border-radius:12px;padding:40px;display:grid;place-items:center;margin-top:12px"><img src="/assets/brand/logo-wordmark-light.svg" alt="Kelvane logo, light" style="width:320px"></div>
+    <div class="col-6 panel panel-pad"><div class="sec-head"><h2>Logo</h2></div><div style="background:var(--surface-2);border-radius:12px;padding:40px;display:grid;place-items:center"><img src="/assets/brand/logo-wordmark.svg" alt="Kelvane Club logo" style="width:320px"></div><div style="background:#000000;border-radius:12px;padding:40px;display:grid;place-items:center;margin-top:12px"><img src="/assets/brand/logo-wordmark-light.svg" alt="Kelvane Club logo, light" style="width:320px"></div>
       <div class="tags" style="margin-top:14px"><a href="/assets/brand/logo-wordmark.svg" download>Wordmark (dark text) SVG</a><a href="/assets/brand/logo-wordmark-light.svg" download>Wordmark (light text) SVG</a><a href="/assets/brand/logo-mark.svg" download>Mark SVG</a><a href="/assets/brand/icon-512.png" download>App icon PNG</a></div>
-      <p class="meta" style="margin-top:14px">The mark is a K cut from two lines: a stem and a rising arm. Always black on white, or white on black. No gradients.</p></div>
+      <p class="meta" style="margin-top:14px">The wordmark is KELVANE stacked over CLUB in BBH Bogle. CLUB is always mint (#3EE8B5). On dark backgrounds only.</p></div>
     <div class="col-6 panel panel-pad"><div class="sec-head"><h2>Color</h2></div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
         ${[['Black', '#09090B', '#fff'], ['White', '#FFFFFF', '#09090b'], ['Gray 100', '#F4F4F5', '#09090b'], ['Gray 300', '#D4D4D8', '#09090b'], ['Gray 500', '#71717A', '#fff'], ['Gray 700', '#3F3F46', '#fff'], ['Up', '#059669', '#fff'], ['Down', '#DC2626', '#fff'], ['Live', '#DC2626', '#fff']].map(([n, h, t]) => `<div style="background:${h};color:${t};border-radius:12px;padding:16px;min-height:96px;display:flex;flex-direction:column;justify-content:flex-end;border:1px solid var(--line)"><b style="font-size:14px">${n}</b><span class="mono" style="font-size:12px;opacity:.8">${h}</span></div>`).join('')}
       </div>
       <p class="meta" style="margin-top:18px">Black and white only. Green and red are used for one thing: prices going up or down.</p></div>
     <div class="col-6 panel panel-pad"><div class="sec-head"><h2>Type</h2></div>
-      <div style="font-size:44px;font-weight:700;letter-spacing:-.04em;line-height:1">Geist Bold <span style="font-weight:400;color:var(--muted)">and Geist Mono</span></div>
-      <p style="margin:12px 0;color:var(--muted)">Headlines: Geist 650–700, tight tracking. Body: Geist 400. Numbers and labels: Geist Mono. All free on Google Fonts.</p>
+      <div style="font-size:44px;font-weight:700;letter-spacing:-.04em;line-height:1"><span style="font-family:var(--display)">BBH BOGLE FOR HEADLINES</span> <span style="font-size:20px;color:var(--muted)">and Geist for reading</span></div>
+      <p style="margin:12px 0;color:var(--muted)">Logo, headlines, navigation and labels: BBH Bogle (all caps by design). Paragraphs: Geist 400. Numbers: Geist Mono. All free on Google Fonts.</p>
       <div class="mono" style="font-size:22px">NVDA 182.40 <span class="up">+2.40%</span></div></div>
     <div class="col-6 panel panel-pad"><div class="sec-head"><h2>Voice</h2></div>
       <ul style="margin:0;padding-left:18px;color:var(--ink-2);display:grid;gap:8px"><li><b>Clear over clever.</b> Say what happened in the first sentence.</li><li><b>Numbers beat adjectives.</b> “Up 12%” instead of “soared”.</li><li><b>Always answer “so what?”</b> Every story gets a “Why it matters”.</li><li><b>No hype words:</b> revolutionary, game-changer, unleash, delve.</li><li><b>Friendly, not cute.</b> Write for a smart friend who doesn’t work in tech.</li></ul></div>
@@ -174,30 +172,30 @@ const pages = {
       <a class="story" href="/assets/brand/ig-template-market.png" download><div class="media" style="aspect-ratio:4/5"><img src="/assets/brand/ig-template-market.png" alt="Market template"></div><h3>By the Numbers</h3><p class="sum">For market-moving stories.</p></a>
     </div>
     <div class="panel panel-pad" style="margin-top:24px"><div class="sec-head"><h2>Instagram playbook</h2></div><div class="grid">
-      <div class="col-4"><h3 style="margin:0 0 6px;font-size:16px">Bio</h3><p style="margin:0;color:var(--ink-2);font-size:14.5px;white-space:pre-line">Kelvane 📈
+      <div class="col-4"><h3 style="margin:0 0 6px;font-size:16px">Bio</h3><p style="margin:0;color:var(--ink-2);font-size:14.5px;white-space:pre-line">Kelvane Club 📈
 The daily briefing on the AI economy
 Models · Markets · Main Street AI
 👇 Today’s Brief</p></div>
       <div class="col-4"><h3 style="margin:0 0 6px;font-size:16px">Weekly rhythm</h3><p style="margin:0;color:var(--ink-2);font-size:14.5px">Daily: one headline post from the Social Studio (Newsroom → Social studio). Mon: “5 things this week” carousel. Wed: Main Street AI spotlight. Fri: “By the Numbers” market recap. Stories: share each new desk article.</p></div>
-      <div class="col-4"><h3 style="margin:0 0 6px;font-size:16px">Hashtags</h3><p class="mono" style="margin:0;color:var(--ink-2);font-size:13px">#Kelvane #AI #ArtificialIntelligence #AINews #TechNews #AIStocks #SmallBusiness #FutureOfWork</p></div>
+      <div class="col-4"><h3 style="margin:0 0 6px;font-size:16px">Hashtags</h3><p class="mono" style="margin:0;color:var(--ink-2);font-size:13px">#Kelvane Club #AI #ArtificialIntelligence #AINews #TechNews #AIStocks #SmallBusiness #FutureOfWork</p></div>
     </div></div>
   </section>
 </div></main>`,
   },
   'page.html': {
-    title: 'Kelvane',
+    title: 'Kelvane Club',
     script: 'about',
     main: `<main id="main"><div class="wrap"><!--CONTENT--></div></main>`,
   },
   '404.html': {
-    title: 'Page not found · Kelvane',
+    title: 'Page not found · Kelvane Club',
     script: 'about',
     main: `<main id="main"><div class="wrap"><div class="page-head" style="border:0;text-align:center;padding:80px 0"><span class="mono" style="color:var(--muted)">ERROR 404</span><h1>This page went off the wire.</h1><p style="margin:0 auto 24px">The link may be old or mistyped. Today's news is right this way.</p><a class="btn btn-primary" href="/">Back to the front page</a></div></div></main>`,
   },
   'admin.html': {
-    title: 'Newsroom · Kelvane',
+    title: 'Newsroom · Kelvane Club',
     script: 'admin',
-    extraHead: '<meta name="robots" content="noindex, nofollow"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Kelvane Newsroom"><link rel="stylesheet" href="/assets/css/admin.css">',
+    extraHead: '<meta name="robots" content="noindex, nofollow"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Kelvane Club Newsroom"><link rel="stylesheet" href="/assets/css/admin.css">',
     main: `<div id="admin-root"></div>`,
   },
 };

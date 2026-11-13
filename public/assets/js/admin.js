@@ -1,4 +1,4 @@
-// Kelvane Newsroom — the admin app (/admin).
+// Kelvane Club Newsroom — the admin app (/admin).
 import { $, $$, esc, api, SECTIONS, sectionById, timeAgo, fmtDate, mediaHtml, LOGO_MARK, logoHtml, toast, ICON } from './site.js';
 import { renderMarkdown } from './md.js';
 import { FORMATS, STYLES, renderCard, caption } from './social-render.js';
@@ -256,7 +256,7 @@ async function editor(view, slug) {
       <div class="panel panel-pad" style="display:grid;gap:14px">
         <div class="field"><label>Desk</label><select class="sel" id="f-section">${SECTIONS.map((s) => `<option value="${s.id}"${s.id === p.section ? ' selected' : ''}>${esc(s.long)}</option>`).join('')}</select></div>
         <div class="field"><label>Tags</label><input class="in" id="f-tags" value="${esc((p.tags || []).join(', '))}" placeholder="OpenAI, Chips, Jobs"><span class="hint">Comma separated</span></div>
-        <div class="field"><label>Author</label><input class="in" id="f-author" value="${esc(p.author || '')}" placeholder="Kelvane Desk"></div>
+        <div class="field"><label>Author</label><input class="in" id="f-author" value="${esc(p.author || '')}" placeholder="Kelvane Club Desk"></div>
         <div class="field"><label>URL slug</label><input class="in" id="f-slug" value="${esc(p.slug || '')}" placeholder="auto from headline"></div>
         <div class="field"><label>Publish date</label><input class="in" type="datetime-local" id="f-date" value="${pubLocal}"><span class="hint">Leave empty for “now”. A future date schedules it.</span></div>
         <label class="switch">Feature on homepage<input type="checkbox" id="f-featured"${p.featured ? ' checked' : ''}></label>
@@ -364,7 +364,7 @@ async function editor(view, slug) {
       [!!main && has(text.slice(0, 400)), main ? `“${main}” appears in the first paragraph.` : 'Name the company in the first paragraph.'],
       [words >= 300, `At least 300 words (${words}). Longer, original articles rank better.`],
       [(text.match(/^##\s/gm) || []).length >= 2, 'Has 2 or more ## subheadings.'],
-      [(text.match(/\]\(https?:\/\//g) || []).length >= 1, 'Links out to at least one source.'],
+      [/source|according to|reported/i.test(text), 'Names where the news came from (e.g. “according to TechCrunch”). No links needed.'],
       [!!(cover || coverUpload) && ($('#f-alt').value.trim().length > 5), 'Cover image has a caption/alt text describing it.'],
       [tags.length >= 3, `3 or more tags (${tags.length}). Each tag gets its own topic page.`],
       [slugVal.length > 0 && slugVal.length <= 60 && (!main || slugVal.includes(main.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''))), `URL contains the name: /p/${slugVal || '…'}`],
@@ -421,7 +421,7 @@ async function editor(view, slug) {
     const d = collect(p.status);
     if (coverUpload) d.cover = { ...(d.cover || {}), url: coverUpload.data };
     d.publishedAt ||= new Date().toISOString();
-    d.author ||= 'Kelvane Desk';
+    d.author ||= 'Kelvane Club Desk';
     sessionStorage.setItem('ts-preview', JSON.stringify(d));
     window.open('/post?preview=1', '_blank');
   };
@@ -663,7 +663,7 @@ let drawToken = 0;
 async function draw(cv, st) {
   const token = ++drawToken;
   const [W, H] = FORMATS[st.fmt];
-  await Promise.all([document.fonts.load('700 80px Geist'), document.fonts.load('500 30px "Geist Mono"'), document.fonts.load('italic 400 60px Newsreader')]).catch(() => {});
+  await Promise.all([document.fonts.load('700 80px Geist'), document.fonts.load('500 30px "Geist Mono"'), document.fonts.load('400 80px "BBH Bogle"')]).catch(() => {});
   // Photo: your upload → the article's photo → the topic photo → none.
   let img = st.customImg;
   let from = 'your photo';
@@ -763,7 +763,7 @@ async function instagram(view) {
   const hours = (sel) => Array.from({ length: 24 }, (_, h) => `<option value="${h}"${h === sel ? ' selected' : ''}>${((h + 11) % 12) + 1}:00 ${h < 12 ? 'AM' : 'PM'}</option>`).join('');
   const steps = `<ol style="margin:0;padding-left:18px;display:grid;gap:8px;font-size:14px;color:var(--ink-2)">
       <li>In the Instagram app: <b>Settings → Account type and tools → Switch to professional account</b> → pick <b>Creator</b> (or Business). Category: <i>News &amp; Media Website</i>.</li>
-      <li>Go to <a href="https://developers.facebook.com/apps/creation/" target="_blank" style="color:var(--brand)">developers.facebook.com → Create app</a>. Use case: <b>Manage messaging &amp; content on Instagram</b>. App type: Business. Name it “Kelvane”.</li>
+      <li>Go to <a href="https://developers.facebook.com/apps/creation/" target="_blank" style="color:var(--brand)">developers.facebook.com → Create app</a>. Use case: <b>Manage messaging &amp; content on Instagram</b>. App type: Business. Name it “Kelvane Club”.</li>
       <li>In the app: <b>Instagram → API setup with Instagram login</b>. Under <b>Generate access tokens</b> click <b>Add account</b> and log in as <b>@tensorstreet</b>. Allow content publishing.</li>
       <li>Click <b>Generate token</b> next to @tensorstreet, copy it (it starts with <code>IG</code>) and paste it below.</li>
     </ol>`;

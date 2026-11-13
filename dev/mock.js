@@ -85,6 +85,14 @@ export function mockResponse(url) {
       return new Response(readFileSync(`${process.env.MOCK_IMAGE_DIR}/mock-${im[1]}.jpg`), { headers: { 'content-type': 'application/octet-stream' } });
     } catch {}
   }
+  // Wikipedia page images: a few distinct sample photos per topic.
+  if (u.startsWith('https://en.wikipedia.org/w/api.php')) {
+    const title = new URL(u).searchParams.get('titles') || '';
+    const seed = [...title].reduce((a, c) => a + c.charCodeAt(0), 0);
+    const pages = Array.from({ length: 6 }, (_, i) => ({ title: `File:${title} photo ${i}.jpg`, imageinfo: [{ mime: 'image/jpeg', width: 1600, height: 1000, thumburl: img(1000 + ((seed * 7 + i) % 900)) }] }));
+    pages.push({ title: `File:${title} logo.jpg`, imageinfo: [{ mime: 'image/jpeg', width: 1600, height: 1000, thumburl: img(1) }] });
+    return new Response(JSON.stringify({ query: { pages } }), { headers: { 'content-type': 'application/json' } });
+  }
   if (u.includes('finance.yahoo.com/v8/finance/spark')) {
     const syms = decodeURIComponent(u.match(/symbols=([^&]+)/)[1]).split(',');
     const body = {};

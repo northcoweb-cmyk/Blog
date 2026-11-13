@@ -1,4 +1,4 @@
-name: Instagram autopilot
+name: Hourly autopilot (Instagram + article warm-up)
 
 # Vercel's free plan only runs its own timer once a day, so GitHub calls the
 # site every hour instead. The site decides whether it's time to post.
@@ -25,4 +25,7 @@ jobs:
             echo "SITE_URL / CRON_SECRET secrets not set yet: skipping."; exit 0
           fi
           curl -sS --max-time 120 -H "Authorization: Bearer $CRON_SECRET" "${SITE_URL%/}/api/cron/instagram"
+          echo
+          # Pre-write full articles for the top stories so readers never wait.
+          curl -sS --max-time 70 -H "Authorization: Bearer $CRON_SECRET" "${SITE_URL%/}/api/cron/warm" || true
           echo

@@ -46,7 +46,7 @@ for (const [name, opts] of DEVICES) {
   // Find a real story link to test the story page.
   await page.goto(BASE + '/', { waitUntil: 'networkidle' });
   const storyHref = await page.$eval('a[href^="/story/"]', (a) => a.getAttribute('href')).catch(() => null);
-  const pages = ['/', '/section/models', '/section/mainstreet', storyHref, '/p/welcome-to-tensor-street', '/learn', '/about', '/archive', '/search?q=ai', '/brand', '/this-page-does-not-exist'].filter(Boolean);
+  const pages = ['/', '/section/models', '/section/mainstreet', storyHref, '/learn', '/about', '/archive', '/search?q=ai', '/brand', '/this-page-does-not-exist'].filter(Boolean);
 
   for (const path of pages) {
     errors.length = 0;
@@ -153,7 +153,22 @@ for (const [name, opts] of DEVICES) {
     await page.waitForSelector('.toast.show', { timeout: 2000 });
     return (await page.evaluate(() => navigator.clipboard.readText())).includes('/story/');
   });
-  await check('"Continue reading" opens the source', async () => (await page.$eval('.readout a', (a) => a.target === '_blank' && /^https?:/.test(a.href))));
+  await check('story names its source but never links out', async () => {
+    const src = await page.$eval('.src-line', (e) => e.textContent);
+    const out = await page.$$eval('#story a[href^="http"]', (as) => as.map((a) => a.href).filter((h) => !/instagram|x\.com|twitter|linkedin/.test(h) && !h.startsWith(location.origin)));
+    return /Source:/.test(src) && out.length === 0;
+  });
+  await page.goto(BASE + '/', { waitUntil: 'networkidle' });
+  await check('instant search shows results while typing', async () => {
+    await page.click('[data-search]');
+    await page.keyboard.type('nvidia');
+    await page.waitForSelector('.sr-list a', { timeout: 4000 });
+    const n = await page.$$eval('.sr-list a', (e) => e.length);
+    await page.keyboard.press('Enter');
+    await page.waitForURL(/\/search\?q=nvidia/, { timeout: 4000 });
+    await page.waitForSelector('#results .row-story, #results .pcard', { timeout: 6000 });
+    return n > 0;
+  });
   await page.goto(BASE + '/learn', { waitUntil: 'networkidle' });
   await check('glossary filter + categories', async () => {
     await page.fill('#gloss-filter', 'gpu');

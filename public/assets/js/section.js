@@ -8,7 +8,7 @@ const head = $('#page-head');
 if (!sec) {
   head.innerHTML = `<h1>Desk not found</h1><p><a href="/">Back to the front page</a></p>`;
 } else {
-  document.title = `${sec.long} · Kelvane`;
+  document.title = `${sec.long} · Kelvane Club`;
   head.dataset.sec = sec.id;
   head.innerHTML = `<div class="crumbs"><a href="/">Home</a> / <span>${esc(sec.long)}</span></div><span class="chip solid" style="margin-top:16px">${esc(sec.name)} desk</span><h1>${esc(sec.long)}</h1><p>${esc(sec.blurb)}</p>`;
   $('#other-desks').innerHTML = SECTIONS.filter((s) => s.id !== id)
@@ -35,8 +35,4 @@ async function load() {
   } catch {
     $('#sec-top').innerHTML = `<div class="col-12 empty">The wire is reconnecting. Refresh in a moment.</div>`;
   }
-  try {
-    const { posts } = await api(`/api/posts?section=${id}&limit=5`);
-    if (posts.length) $('#sec-desk').innerHTML = `<div class="panel panel-pad"><div class="sec-head"><h2><span class="bar"></span>From the Desk</h2></div>${posts.map(deskRow).join('')}</div>`;
-  } catch {}
 }

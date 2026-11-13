@@ -57,11 +57,8 @@ export function renderCard(x, st) {
   }
 
   // Brand header
-  drawMark(x, P, 72, 56);
-  x.fillStyle = ink;
-  x.font = '700 38px Geist, sans-serif';
+  drawWordmark(x, P, 64, 46, ink);
   x.textBaseline = 'middle';
-  x.fillText('Kelvane', P + 76, 100);
   x.font = '500 24px "Geist Mono", monospace';
   x.fillStyle = dark ? 'rgba(255,255,255,.7)' : 'rgba(9,9,11,.6)';
   x.textAlign = 'right';
@@ -70,33 +67,33 @@ export function renderCard(x, st) {
 
   // Headline block (bottom-anchored)
   const maxW = W - P * 2;
-  let size = st.fmt === 'story' ? 92 : 80;
+  let size = st.fmt === 'story' ? 128 : 112;
   let lines;
-  const headline = (st.headline || '').trim();
-  for (; size >= 44; size -= 4) {
-    x.font = `700 ${size}px Geist, sans-serif`;
+  const headline = (st.headline || '').trim().toUpperCase();
+  for (; size >= 56; size -= 4) {
+    x.font = `400 ${size}px "BBH Bogle", Geist, sans-serif`;
     lines = wrap(x, headline, maxW);
     if (lines.length <= (st.fmt === 'square' ? 5 : 6)) break;
   }
-  const lh = size * 1.06;
+  const lh = size * 0.94;
   const footerY = H - P - 10;
   const blockBottom = footerY - 70;
   let y = blockBottom - lines.length * lh;
 
   // Kicker / section chip
   const kick = (st.kicker || (st.style === 'breaking' ? 'BREAKING' : (SECTION_LONG[st.item.section] || 'Artificial Intelligence'))).toUpperCase();
-  x.font = '600 26px "Geist Mono", monospace';
+  x.font = '400 32px "BBH Bogle", "Geist Mono", monospace';
   const kw = x.measureText(kick).width + 44;
   const ky = y - 70;
-  x.fillStyle = st.style === 'breaking' ? '#ff3b30' : accent;
+  x.fillStyle = st.style === 'breaking' ? '#ff3b30' : dark ? '#ffffff' : '#000000';
   roundRect(x, P, ky, kw, 46, 10);
   x.fill();
-  x.fillStyle = st.style === 'breaking' ? '#fff' : dark ? '#09090b' : '#fff';
+  x.fillStyle = st.style === 'breaking' ? '#fff' : dark ? '#000000' : '#ffffff';
   x.textBaseline = 'middle';
   x.fillText(kick, P + 22, ky + 24);
 
   x.fillStyle = ink;
-  x.font = `700 ${size}px Geist, sans-serif`;
+  x.font = `400 ${size}px "BBH Bogle", Geist, sans-serif`;
   x.textBaseline = 'alphabetic';
   lines.forEach((l, i) => x.fillText(l, P, y + (i + 1) * lh - size * 0.18));
 
@@ -141,6 +138,33 @@ export function roundRect(x, rx, ry, w, h, r) {
   x.arcTo(rx, ry, rx + w, ry, r);
   x.closePath();
 }
+const MINT = '#ffffff';
+/** Stacked KELVANE / CLUB wordmark in BBH Bogle. */
+const K_PATH = 'M15 12h10.5v40H15z M25.5 30.5 39 17 34 12h19v19l-7-7-20.5 20.5z M35 35 52 52H37.86l-9.93-9.93z';
+export function drawWordmark(x, left, top, size, ink = '#fff') {
+  x.save();
+  // The mark: a K whose upper arm is a rising arrow.
+  const m = size * 1.6;
+  x.save();
+  x.translate(left, top);
+  x.scale(m / 64, m / 64);
+  x.fillStyle = ink;
+  roundRect(x, 0, 0, 64, 64, 14);
+  x.fill();
+  x.fillStyle = ink === '#fff' || ink === '#ffffff' ? '#000' : '#fff';
+  x.fill(new Path2D(K_PATH));
+  x.restore();
+  left += m + size * 0.35;
+  x.textBaseline = 'top';
+  x.textAlign = 'left';
+  x.font = `400 ${size}px "BBH Bogle", Geist, sans-serif`;
+  x.fillStyle = ink;
+  x.fillText('KELVANE', left, top);
+  x.fillStyle = '#8f8f8f';
+  x.fillText('CLUB', left, top + size * 0.8);
+  x.restore();
+}
+
 export function drawMark(x, mx, my, s) {
   const k = s / 32;
   x.save();
@@ -171,5 +195,5 @@ const TAGS = { ai: '#AI #ArtificialIntelligence', models: '#AI #LLM #AIModels', 
 
 /** Instagram caption. The first line is always the headline (the autopilot uses it to avoid repeats). */
 export function caption(item, headline) {
-  return `${headline}\n\n${item.summary ? item.summary + '\n\n' : ''}Get the full story and today's AI briefing at the link in bio.\n\n${item.kind === 'wire' && item.source ? `Source: ${item.source}\n\n` : ''}#Kelvane ${TAGS[item.section] || '#AI'} #TechNews #FutureOfWork`;
+  return `${headline}\n\n${item.summary ? item.summary + '\n\n' : ''}Get the full story and today's AI briefing at the link in bio.\n\n${item.kind === 'wire' && item.source ? `Source: ${item.source}\n\n` : ''}#Kelvane Club ${TAGS[item.section] || '#AI'} #TechNews #FutureOfWork`;
 }

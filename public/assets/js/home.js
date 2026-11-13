@@ -12,7 +12,7 @@ $('#dateline-left').innerHTML = `<b>${now.toLocaleDateString('en-US', { weekday:
 function renderMarkets(m) {
   const el = $('#markets-panel');
   if (!m || !m.ok) {
-    el.innerHTML = `<div class="panel"><div class="mkt-head"><div><div class="label">Kelvane AI Index</div><div class="big num">—</div><div class="sub">Market data unavailable right now</div></div></div><div class="mkt-foot">Prices refresh automatically.</div></div>`;
+    el.innerHTML = `<div class="panel"><div class="mkt-head"><div><div class="label">Kelvane Club AI Index</div><div class="big num">—</div><div class="sub">Market data unavailable right now</div></div></div><div class="mkt-foot">Prices refresh automatically.</div></div>`;
     return;
   }
   const idx = m.aiIndex;
@@ -23,7 +23,7 @@ function renderMarkets(m) {
   const status = marketStatus();
   el.innerHTML = `<div class="panel">
     <div class="mkt-head">
-      <div class="label"><span class="dot${status.open ? '' : ' closed'}"></span>Kelvane AI Index · ${esc(status.label)}</div>
+      <div class="label"><span class="dot${status.open ? '' : ' closed'}"></span>Kelvane Club AI Index · ${esc(status.label)}</div>
       <div class="row"><div class="big num ${dirCls(idx?.changePct)}">${fmtPct(idx?.changePct)}</div>${sparkline(idxSpark, { w: 96, h: 40 })}</div>
       <div class="sub">Equal-weight basket of ${idx?.members || 0} AI leaders, today</div>
     </div>
@@ -168,28 +168,8 @@ async function loadBrief() {
   }
 }
 
-// ── From the Desk (your own posts) ───────────────────────────────────────
-async function loadDesk() {
-  try {
-    const { posts } = await api('/api/posts?limit=8');
-    const rail = $('#desk-rail');
-    if (!posts.length) {
-      rail.remove();
-      return;
-    }
-    rail.innerHTML = `<div class="sec-head"><h2><span class="bar"></span>From the Desk</h2></div>${posts.slice(0, 4).map(deskRow).join('')}`;
-    const featured = posts.find((p) => p.featured) || posts[0];
-    const others = posts.filter((p) => p !== featured).slice(0, 3);
-    $('#desk-feature').innerHTML = `<section style="margin-top:48px" aria-label="From the Desk"><div class="sec-head"><h2><span class="bar"></span>From the Desk · Original reporting & analysis</h2></div>
-      <div class="grid"><div class="col-6">${deskCard(featured)}</div><div class="col-6"><div class="cards-3" style="grid-template-columns:1fr;gap:0">${others.map((p) => `<div style="border-top:1px solid var(--line)">${deskRow(p)}</div>`).join('')}</div></div></div></section>`;
-  } catch {
-    $('#desk-rail')?.remove();
-  }
-}
-
 load();
 loadBrief();
-loadDesk();
 // Keep the page fresh for people who leave it open all day.
 setInterval(() => location.pathname === '/' && document.visibilityState === 'visible' && fetch('/api/news').then((r) => r.json()).then((n) => {
   if (n.stories?.[0]?.id !== stories[0]?.id) $('#updated').innerHTML = `<span class="dot red"></span><a href="/" style="color:var(--live);font-weight:600">New stories. Refresh</a>`;
