@@ -4,7 +4,7 @@
 export const SITE = {
   name: 'Kelvane Club',
   tagline: 'The daily briefing on the AI economy',
-  instagram: 'tensorstreet',
+  instagram: 'kelvaneclub',
 };
 
 export const SECTIONS = [

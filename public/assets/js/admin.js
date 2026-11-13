@@ -370,7 +370,7 @@ async function editor(view, slug) {
       [slugVal.length > 0 && slugVal.length <= 60 && (!main || slugVal.includes(main.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''))), `URL contains the name: /p/${slugVal || '…'}`],
     ];
     const score = checks.filter((c) => c[0]).length;
-    $('#serp').innerHTML = `<div style="font-family:Arial,sans-serif;background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px"><div style="font-size:12px;color:#202124">tensorstreet.com › p › ${esc(slugVal)}</div><div style="font-size:18px;line-height:1.25;color:#1a0dab;margin:2px 0">${esc((title || 'Your headline').slice(0, 62))}</div><div style="font-size:13px;line-height:1.4;color:#4d5156">${esc((dek || 'Your subheadline shows here as the description.').slice(0, 158))}</div></div>`;
+    $('#serp').innerHTML = `<div style="font-family:Arial,sans-serif;background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px"><div style="font-size:12px;color:#202124">kelvane.club › p › ${esc(slugVal)}</div><div style="font-size:18px;line-height:1.25;color:#1a0dab;margin:2px 0">${esc((title || 'Your headline').slice(0, 62))}</div><div style="font-size:13px;line-height:1.4;color:#4d5156">${esc((dek || 'Your subheadline shows here as the description.').slice(0, 158))}</div></div>`;
     $('#seo-list').innerHTML = `<li style="font-weight:700">${score}/${checks.length} ${score >= 9 ? '🟢 Great' : score >= 6 ? '🟡 Getting there' : '🔴 Needs work'}</li>` + checks.map(([ok, msg]) => `<li style="display:flex;gap:8px"><span aria-hidden="true">${ok ? '✅' : '⬜'}</span><span style="color:${ok ? 'var(--muted)' : 'var(--ink)'}">${esc(msg)}</span></li>`).join('');
   };
   ['f-title', 'f-dek', 'f-tags', 'f-slug', 'f-alt', 'f-body'].forEach((id) => $('#' + id).addEventListener('input', seoCheck));
@@ -685,7 +685,7 @@ async function draw(cv, st) {
   st.file = null;
   try {
     cv.toBlob((b) => {
-      if (b && token === drawToken) st.file = new File([b], `tensorstreet-${st.fmt}-${Date.now()}.jpg`, { type: 'image/jpeg' });
+      if (b && token === drawToken) st.file = new File([b], `kelvaneclub-${st.fmt}-${Date.now()}.jpg`, { type: 'image/jpeg' });
     }, 'image/jpeg', 0.92);
   } catch {
     /* photo couldn't be exported (blocked by its host) */
@@ -723,7 +723,7 @@ function wirePack(pack, rerender) {
   for (const p of pack) {
     p._file ||= fetch(p.card)
       .then((r) => r.blob())
-      .then((b) => (p._ready = new File([b], `tensorstreet-${today}-${p.id}.jpg`, { type: 'image/jpeg' })));
+      .then((b) => (p._ready = new File([b], `kelvaneclub-${today}-${p.id}.jpg`, { type: 'image/jpeg' })));
   }
   box.onclick = async (e) => {
     const b = e.target.closest('[data-pk]');
@@ -764,8 +764,8 @@ async function instagram(view) {
   const steps = `<ol style="margin:0;padding-left:18px;display:grid;gap:8px;font-size:14px;color:var(--ink-2)">
       <li>In the Instagram app: <b>Settings → Account type and tools → Switch to professional account</b> → pick <b>Creator</b> (or Business). Category: <i>News &amp; Media Website</i>.</li>
       <li>Go to <a href="https://developers.facebook.com/apps/creation/" target="_blank" style="color:var(--brand)">developers.facebook.com → Create app</a>. Use case: <b>Manage messaging &amp; content on Instagram</b>. App type: Business. Name it “Kelvane Club”.</li>
-      <li>In the app: <b>Instagram → API setup with Instagram login</b>. Under <b>Generate access tokens</b> click <b>Add account</b> and log in as <b>@tensorstreet</b>. Allow content publishing.</li>
-      <li>Click <b>Generate token</b> next to @tensorstreet, copy it (it starts with <code>IG</code>) and paste it below.</li>
+      <li>In the app: <b>Instagram → API setup with Instagram login</b>. Under <b>Generate access tokens</b> click <b>Add account</b> and log in as <b>@kelvaneclub</b>. Allow content publishing.</li>
+      <li>Click <b>Generate token</b> next to @kelvaneclub, copy it (it starts with <code>IG</code>) and paste it below.</li>
     </ol>`;
   if (!st.connected) {
     view.innerHTML = `<div class="stack">${packHtml(st.pack, false)}<div class="grid"><div class="col-8 stack">

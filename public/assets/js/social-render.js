@@ -103,7 +103,7 @@ export function renderCard(x, st) {
   x.font = '500 26px "Geist Mono", monospace';
   x.fillStyle = dark ? 'rgba(255,255,255,.8)' : 'rgba(9,9,11,.7)';
   x.textBaseline = 'middle';
-  x.fillText('@' + (st.handle || 'tensorstreet'), P, footerY + 6);
+  x.fillText('@' + (st.handle || 'kelvaneclub'), P, footerY + 6);
   x.textAlign = 'right';
   x.fillText(st.item.kind === 'wire' ? `via ${st.item.source}`.slice(0, 32) : 'Link in bio →', W - P, footerY + 6);
   x.textAlign = 'left';

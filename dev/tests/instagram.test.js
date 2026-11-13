@@ -14,7 +14,7 @@ globalThis.fetch = async (url, opts = {}) => {
   calls.push({ method, path: u.pathname, params: Object.fromEntries(params) });
   const J = (b) => new Response(JSON.stringify(b), { headers: { 'content-type': 'application/json' } });
   if (u.hostname === 'graph.instagram.com') {
-    if (u.pathname === '/me') return J({ user_id: '1789', username: 'tensorstreet', account_type: 'MEDIA_CREATOR' });
+    if (u.pathname === '/me') return J({ user_id: '1789', username: 'kelvaneclub', account_type: 'MEDIA_CREATOR' });
     if (u.pathname === '/1789/media' && method === 'GET') return J({ data: media });
     if (u.pathname === '/1789/media' && method === 'POST') {
       pendingCaption = params.get('caption');

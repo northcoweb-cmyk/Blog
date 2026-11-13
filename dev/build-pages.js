@@ -136,7 +136,7 @@ const pages = {
     <h2>Our standards</h2>
     <p>We separate reporting from opinion. Anything written with AI assistance is labeled and reviewed by an editor before it's published. Market data is for information only and may be delayed; nothing here is investment advice.</p>
     <h2>Get in touch</h2>
-    <p>Tips, corrections and partnership ideas are welcome. Follow along on <a href="https://instagram.com/tensorstreet">Instagram</a> for the day's headlines.</p>
+    <p>Tips, corrections and partnership ideas are welcome. Follow along on <a href="https://instagram.com/kelvaneclub">Instagram</a> for the day's headlines.</p>
   </div>
   <div id="subscribe" style="margin-top:40px">SIGNUP</div>
 </article></div></main>`,

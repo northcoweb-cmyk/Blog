@@ -52,7 +52,7 @@ This turns on the AI-written Brief, "Why it matters" notes on every story, **Dra
 Signup boxes start collecting emails, and each morning a newsletter draft is waiting in Buttondown. Set `NEWSLETTER_AUTOSEND=true` to send it automatically. Until this is connected, signup boxes point readers to Instagram and RSS instead.
 
 ### 6. Connect your domain
-Vercel → **Project → Settings → Domains → Add** your domain, then follow the DNS instructions it shows. Add `SITE_URL=https://yourdomain.com` as a variable so links in the RSS feed and newsletter use it.
+Vercel → **Project → Settings → Domains → Add** your domain, then follow the DNS instructions it shows. Add `SITE_URL=https://kelvane.club` as a variable so links in the RSS feed and newsletter use it.
 
 **Check everything:** the newsroom's **Setup & status** page shows a green check for each piece, plus which news sources are online.
 
@@ -62,11 +62,11 @@ Vercel → **Project → Settings → Domains → Add** your domain, then follow
 
 Posts 5–8 of the day's top stories to Instagram automatically, using the Social studio designs with each article's photo.
 
-1. **Make @tensorstreet a professional account:** Instagram app → Settings → Account type and tools → Switch to professional → Creator.
-2. **Get a token:** [developers.facebook.com → Create app](https://developers.facebook.com/apps/creation/) → use case *Manage messaging & content on Instagram* → Instagram → *API setup with Instagram login* → Add account (log in as @tensorstreet) → **Generate token** → copy it.
+1. **Make @kelvaneclub a professional account:** Instagram app → Settings → Account type and tools → Switch to professional → Creator.
+2. **Get a token:** [developers.facebook.com → Create app](https://developers.facebook.com/apps/creation/) → use case *Manage messaging & content on Instagram* → Instagram → *API setup with Instagram login* → Add account (log in as @kelvaneclub) → **Generate token** → copy it.
 3. **Connect:** Admin → **Instagram autopilot** → paste the token → Connect. Turn Autopilot on, pick posts per day and hours → Save. The token is stored encrypted and renews itself.
 4. **Turn on the hourly timer:** GitHub repo → Settings → Secrets and variables → Actions → New repository secret:
-   - `SITE_URL` = your site address (e.g. `https://tensorstreet.com`)
+   - `SITE_URL` = your site address (e.g. `https://kelvane.club`)
    - `CRON_SECRET` = the same value as in Vercel
 
 That's it. Every hour GitHub pings the site; the site posts when it's time, never repeats a story, and stays inside your posting hours. You can also post any design by hand with **Post to Instagram** in the Social studio.
@@ -135,10 +135,10 @@ Check the whole site any time: `node dev/server.js` then `node dev/seo-check.mjs
 | `AUTO_DRAFT_COUNT` | optional | AI drafts per morning (default 2, `0` turns them off) |
 | `AUTO_PUBLISH` | optional | `true` publishes AI drafts without review. Not recommended |
 | `SITE_URL` | optional | Your domain, for RSS and email links |
-| `INSTAGRAM_HANDLE` | optional | Defaults to `tensorstreet` |
+| `INSTAGRAM_HANDLE` | optional | Defaults to `kelvaneclub` |
 | `FINNHUB_API_KEY` | optional | Backup source for stock prices |
 | `INSTAGRAM_ACCESS_TOKEN` | optional | Instagram token (easier: paste it in Admin → Instagram autopilot) |
-| `INSTAGRAM_HANDLE` | optional | Defaults to `tensorstreet` |
+| `INSTAGRAM_HANDLE` | optional | Defaults to `kelvaneclub` |
 | `SITE_TIMEZONE` | optional | Edition times (default `America/New_York`) |
 
 ---
