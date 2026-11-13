@@ -3,7 +3,7 @@ name: Instagram autopilot
 # Vercel's free plan only runs its own timer once a day, so GitHub calls the
 # site every hour instead. The site decides whether it's time to post.
 # Needs two repository secrets (Settings → Secrets and variables → Actions):
-#   SITE_URL     e.g. https://tensorstreet.com
+#   SITE_URL     e.g. https://yourdomain.com
 #   CRON_SECRET  the same value as CRON_SECRET in Vercel
 
 on:

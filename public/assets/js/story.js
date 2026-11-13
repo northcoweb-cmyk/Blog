@@ -31,7 +31,7 @@ async function main() {
   const { story: s, more, aiAvailable } = data;
   const sec = sectionById(s.section);
   initChrome({ active: s.section });
-  document.title = `${s.title} · Tensor Street`;
+  document.title = `${s.title} · Kelvane`;
   document.querySelector('meta[name=description]')?.setAttribute('content', s.summary || s.title);
 
   const initials = (s.source || '?').replace(/^The /, '').slice(0, 1).toUpperCase();
@@ -48,7 +48,7 @@ async function main() {
     </div>
     <figure class="article-figure">${mediaHtml(s)}${s.image ? `<figcaption>Image via ${esc(s.source)}</figcaption>` : ''}</figure>
     ${aiAvailable ? `<div class="credit">Originally reported by <a href="${esc(s.url)}" target="_blank" rel="noopener"><b>${esc(s.source)}</b> ${ICON.ext}</a></div>
-    <div id="full" aria-live="polite"><p class="meta" style="margin-bottom:12px">The Tensor Street desk is writing this story up…</p><div class="sk sk-line"></div><div class="sk sk-line"></div><div class="sk sk-line" style="width:85%"></div><div class="sk sk-line"></div><div class="sk sk-line" style="width:70%"></div></div>` : ''}
+    <div id="full" aria-live="polite"><p class="meta" style="margin-bottom:12px">The Kelvane desk is writing this story up…</p><div class="sk sk-line"></div><div class="sk sk-line"></div><div class="sk sk-line" style="width:85%"></div><div class="sk sk-line"></div><div class="sk sk-line" style="width:70%"></div></div>` : ''}
     <section class="takebox" id="take"${aiAvailable ? ' hidden' : ''}>
       <div class="takebox-head"><span>The Brief</span><span>${aiAvailable ? 'Desk analysis' : esc(sec.long)}</span></div>
       <div class="takebox-body">
@@ -80,12 +80,12 @@ async function main() {
       if (!a) throw new Error('none');
       root.querySelector('.article-head h1').textContent = a.headline;
       if (a.dek) root.querySelector('.article-head h1').insertAdjacentHTML('afterend', `<p class="dek">${esc(a.dek)}</p>`);
-      document.title = `${a.headline} · Tensor Street`;
-      root.querySelector('.byline .who').innerHTML = `Tensor Street Desk <span style="color:var(--muted);font-weight:400">· based on reporting by ${esc(s.source)}</span>`;
-      root.querySelector('.byline .avatar').textContent = 'TS';
+      document.title = `${a.headline} · Kelvane`;
+      root.querySelector('.byline .who').innerHTML = `Kelvane Desk <span style="color:var(--muted);font-weight:400">· based on reporting by ${esc(s.source)}</span>`;
+      root.querySelector('.byline .avatar').textContent = 'K';
       full.innerHTML = `${a.keyPoints?.length ? `<section class="takebox"><div class="takebox-head"><span>Key points</span><span>${esc(sec.long)}</span></div><div class="takebox-body"><ul>${a.keyPoints.map((k) => `<li>${esc(k)}</li>`).join('')}</ul></div></section>` : ''}
         <div class="prose">${a.html}</div>
-        <div class="ai-note" style="margin:28px 0">${ICON.spark.replace('<svg', '<svg width="15" height="15" style="flex:none;margin-top:2px"')}<span>Written by the Tensor Street desk with AI assistance, based on <a href="${esc(s.url)}" target="_blank" rel="noopener" style="text-decoration:underline">original reporting by ${esc(s.source)}</a>${s.related?.length ? ' and other outlets' : ''}. Facts are theirs; the words are ours.</span></div>`;
+        <div class="ai-note" style="margin:28px 0">${ICON.spark.replace('<svg', '<svg width="15" height="15" style="flex:none;margin-top:2px"')}<span>Written by the Kelvane desk with AI assistance, based on <a href="${esc(s.url)}" target="_blank" rel="noopener" style="text-decoration:underline">original reporting by ${esc(s.source)}</a>${s.related?.length ? ' and other outlets' : ''}. Facts are theirs; the words are ours.</span></div>`;
     } catch {
       // No AI article right now → show the short brief instead.
       full.remove();

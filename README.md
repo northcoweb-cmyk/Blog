@@ -1,11 +1,11 @@
-# Tensor Street
+# Kelvane
 
 **The daily briefing on the AI economy.** A free news site that fills itself with AI, markets, policy, startup and small-business news around the clock, plus a newsroom where you publish your own articles, draft with AI, and make Instagram posts.
 
 - **Live wire:** 31 free news sources (TechCrunch, The Verge, Ars Technica, MIT Tech Review, CNBC, Yahoo Finance, OpenAI, Google DeepMind, NVIDIA and more). Stories are filtered so everything ties back to AI, grouped when several outlets cover the same thing, ranked, and refreshed every few minutes.
 - **Breaking news:** stories picked up by several outlets within a few hours get a red banner on every page.
 - **The Brief:** a morning, midday or evening edition with the top stories and a "Why it matters" line for each. Written by AI if you add a free key.
-- **AI markets tape:** live prices for Nvidia, Microsoft, Alphabet and other AI leaders, plus the Tensor Street AI Index.
+- **AI markets tape:** live prices for Nvidia, Microsoft, Alphabet and other AI leaders, plus the Kelvane AI Index.
 - **Eight desks:** AI, Models & Launches, Markets, Policy, Startups, **Main Street AI** (small businesses), Research, Tech.
 - **From the Desk:** your own articles, with photos, scheduling and proper link previews on Google, iMessage and social media.
 - **Newsroom (`/admin`):** editor, image uploads, "Draft with AI" from any headline, an Instagram post maker, a newsletter preview and a setup checklist.
@@ -110,7 +110,7 @@ Check the whole site any time: `node dev/server.js` then `node dev/seo-check.mjs
 
 ## Brand
 
-- **Name:** Tensor Street. "Tensor" is the basic building block of AI math; "Street" as in Wall Street. AI meets the market.
+- **Name:** Kelvane. A made-up word, so searching it finds only you. Black and white design, one font family (Geist).
 - **Brand kit:** open `/brand` on your site for logos, colors, fonts, voice rules, the Instagram profile picture and post templates, all downloadable.
 - **Instagram:** upload `public/assets/brand/instagram-profile.png` as your avatar and `ig-launch.png` as your first post. The bio and posting rhythm are on the `/brand` page.
 - **To rename:** change `SITE` in `public/assets/js/site.js` and `lib/site.js`.

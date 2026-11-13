@@ -107,4 +107,4 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, () => console.log(`\n  Tensor Street running at http://localhost:${PORT}\n  Admin: http://localhost:${PORT}/admin  (local password: ${process.env.ADMIN_PASSWORD ? '[ADMIN_PASSWORD]' : 'tensor'})\n`));
+server.listen(PORT, () => console.log(`\n  Kelvane running at http://localhost:${PORT}\n  Admin: http://localhost:${PORT}/admin  (local password: ${process.env.ADMIN_PASSWORD ? '[ADMIN_PASSWORD]' : 'tensor'})\n`));

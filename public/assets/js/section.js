@@ -8,7 +8,7 @@ const head = $('#page-head');
 if (!sec) {
   head.innerHTML = `<h1>Desk not found</h1><p><a href="/">Back to the front page</a></p>`;
 } else {
-  document.title = `${sec.long} · Tensor Street`;
+  document.title = `${sec.long} · Kelvane`;
   head.dataset.sec = sec.id;
   head.innerHTML = `<div class="crumbs"><a href="/">Home</a> / <span>${esc(sec.long)}</span></div><span class="chip solid" style="margin-top:16px">${esc(sec.name)} desk</span><h1>${esc(sec.long)}</h1><p>${esc(sec.blurb)}</p>`;
   $('#other-desks').innerHTML = SECTIONS.filter((s) => s.id !== id)

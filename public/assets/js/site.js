@@ -2,7 +2,7 @@
 // (ticker tape, header, footer, search). Every page imports this.
 
 export const SITE = {
-  name: 'Tensor Street',
+  name: 'Kelvane',
   tagline: 'The daily briefing on the AI economy',
   instagram: 'tensorstreet',
 };
@@ -19,7 +19,7 @@ export const SECTIONS = [
 ];
 export const sectionById = (id) => SECTIONS.find((s) => s.id === id) || { id: 'desk', name: 'The Desk', long: 'From the Desk' };
 
-const SEC_COLORS = { ai: ['#2f54ff', '#0b1a66'], models: ['#7a4dff', '#22106b'], markets: ['#0c9a68', '#05382a'], policy: ['#e08a0b', '#4a2a02'], startups: ['#0891b2', '#053342'], mainstreet: ['#e8590c', '#4a1b04'], research: ['#d6336c', '#4a0b22'], tech: ['#5b6b86', '#141b2a'], desk: ['#2f54ff', '#0a0e1a'] };
+const SEC_COLORS = Object.fromEntries(['ai', 'models', 'markets', 'policy', 'startups', 'mainstreet', 'research', 'tech', 'desk'].map((k) => [k, ['#27272a', '#09090b']]));
 
 // ── Utilities ────────────────────────────────────────────────────────────
 
@@ -127,7 +127,7 @@ export function coverSvg(key, section = 'ai', label = '') {
     }
   }
   const id = `g${hash(key + 'g')}`;
-  return `<svg class="cover" viewBox="0 0 ${W} ${Hh}" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(label || sectionById(section).name)}"><defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient><pattern id="${id}p" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".06"/></pattern></defs><rect width="${W}" height="${Hh}" fill="url(#${id})"/><rect width="${W}" height="${Hh}" fill="url(#${id}p)"/>${art}<text x="72" y="${Hh - 64}" font-family="Geist Mono, monospace" font-size="30" letter-spacing="4" fill="#fff" fill-opacity=".75">TENSOR STREET · ${esc(sectionById(section).name.toUpperCase())}</text></svg>`;
+  return `<svg class="cover" viewBox="0 0 ${W} ${Hh}" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(label || sectionById(section).name)}"><defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient><pattern id="${id}p" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".06"/></pattern></defs><rect width="${W}" height="${Hh}" fill="url(#${id})"/><rect width="${W}" height="${Hh}" fill="url(#${id}p)"/>${art}<text x="72" y="${Hh - 64}" font-family="Geist Mono, monospace" font-size="30" letter-spacing="4" fill="#fff" fill-opacity=".75">KELVANE · ${esc(sectionById(section).name.toUpperCase())}</text></svg>`;
 }
 
 /** Image with automatic fallbacks: publisher photo → topic photo → generated cover art. */
@@ -163,14 +163,33 @@ export function metaHtml(s, { related = false } = {}) {
   return `<div class="meta"><span class="src">${esc(s.source || s.author || '')}</span><span class="sep"></span><time datetime="${esc(s.date || s.publishedAt)}">${timeAgo(s.date || s.publishedAt)}</time>${related && s.coverage > 1 ? `<span class="sep"></span><span>${s.coverage} sources</span>` : ''}</div>`;
 }
 
+/** Colors the middle of a headline in the accent color: "OpenAI releases a <em>faster reasoning</em> model". */
+export function accentTitle(title) {
+  const w = String(title).trim().split(/\s+/);
+  if (w.length < 5) return esc(title);
+  const start = Math.round(w.length * 0.37);
+  return w.map((x, i) => (i === start ? `<em>${esc(x)}` : i === start + 1 ? `${esc(x)}</em>` : esc(x))).join(' ');
+}
+
 export function leadCard(s) {
-  const also = s.related?.length ? `<div class="also">Also covered by ${s.related.slice(0, 3).map((r) => `<span class="pill">${esc(r.source)}</span>`).join('')}</div>` : '';
-  return `<a class="lead" href="${storyHref(s)}" data-sec="${esc(s.section)}">
+  const sources = s.coverage > 1 ? `<span class="sep"></span><span>${s.coverage} sources</span>` : '';
+  return `<a class="hero" href="${storyHref(s)}" data-sec="${esc(s.section)}">
     ${mediaHtml(s, { badge: s.breaking ? '<span class="badge pill live"><span class="dot red"></span>Developing</span>' : '' })}
-    <div>${chip(s.section)}<h2>${esc(s.title)}</h2></div>
-    ${s.summary ? `<p class="sum">${esc(s.summary)}</p>` : ''}
-    ${metaHtml(s, { related: true })}
-    ${also}
+    <div class="hero-body">
+      <span class="chip-pill">${esc(sectionById(s.section).name)}</span>
+      <h2>${accentTitle(s.title)}</h2>
+      ${s.summary ? `<p class="sum">${esc(s.summary)}</p>` : ''}
+      <div class="hero-cta"><span class="read"><i>${ICON.arrow}</i>Read full story</span><span class="sep"></span><span>${esc(s.source || '')} · ${timeAgo(s.date)}${s.coverage > 1 ? ` · ${s.coverage} sources` : ''}</span></div>
+    </div>
+  </a>`;
+}
+
+/** Photo card with the headline over the picture. */
+export function photoCard(s) {
+  return `<a class="pcard" href="${storyHref(s)}" data-sec="${esc(s.section)}">
+    ${mediaHtml(s)}
+    <span class="tagpill">${esc(sectionById(s.section).name)}</span>
+    <div class="pcard-body"><h3>${esc(s.title)}</h3>${s.summary ? `<p class="sum">${esc(s.summary)}</p>` : ''}<div class="meta"><span class="src">${esc(s.source || '')}</span><span class="sep"></span><time datetime="${esc(s.date)}">${timeAgo(s.date)}</time></div></div>
   </a>`;
 }
 
@@ -270,16 +289,16 @@ export const ICON = {
   mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
 };
 
-export const LOGO_MARK = `<svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lm" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#5b7bff"/><stop offset="1" stop-color="#2ee6c5"/></linearGradient></defs><rect width="32" height="32" rx="9" fill="#0a0e1a"/><rect x=".5" y=".5" width="31" height="31" rx="8.5" fill="none" stroke="#fff" stroke-opacity=".1"/><path d="M7 24.5h18" stroke="#fff" stroke-opacity=".18" stroke-width="1.4" stroke-linecap="round"/><polyline points="7,20.5 12.5,14.5 17.5,17.5 25,8.5" fill="none" stroke="url(#lm)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="20.5" r="2.1" fill="#fff"/><circle cx="12.5" cy="14.5" r="2.1" fill="#fff"/><circle cx="17.5" cy="17.5" r="2.1" fill="#fff"/><circle cx="25" cy="8.5" r="2.6" fill="#2ee6c5"/></svg>`;
+export const LOGO_MARK = `<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 5v22M25 5L10.5 16 25 27" fill="none" style="stroke:var(--ink)" stroke-width="3.4" stroke-linecap="square" stroke-linejoin="miter"/></svg>`;
 
-export const logoHtml = () => `<a class="logo" href="/" aria-label="${SITE.name} home">${LOGO_MARK}<span>Tensor<span class="street">Street</span></span></a>`;
+export const logoHtml = () => `<a class="logo" href="/" aria-label="${SITE.name} home">${LOGO_MARK}<span>Kelvane</span></a>`;
 
 // ── Theme ────────────────────────────────────────────────────────────────
 
 function currentTheme() {
   const set = document.documentElement.dataset.theme;
   if (set) return set;
-  return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  return 'dark';
 }
 function toggleTheme() {
   const next = currentTheme() === 'dark' ? 'light' : 'dark';
@@ -400,8 +419,9 @@ export function initChrome({ active = '' } = {}) {
             <div class="socials"><a href="https://instagram.com/${SITE.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${ICON.instagram}</a><a href="/rss.xml" aria-label="RSS">${ICON.rss}</a><a href="#subscribe" data-subscribe aria-label="Newsletter" hidden>${ICON.mail}</a></div></div>
           <div><h4>Desks</h4><ul>${SECTIONS.slice(0, 4).map((s) => `<li><a href="/section/${s.id}">${s.long}</a></li>`).join('')}</ul></div>
           <div><h4>More desks</h4><ul>${SECTIONS.slice(4).map((s) => `<li><a href="/section/${s.id}">${s.long}</a></li>`).join('')}</ul></div>
-          <div><h4>Tensor Street</h4><ul><li><a href="/about">About</a></li><li><a href="/topics">Companies &amp; topics</a></li><li><a href="/learn">Learn AI: Glossary</a></li><li><a href="/archive">Daily archive</a></li><li><a href="/search">Search</a></li><li><a href="/rss.xml">RSS</a></li></ul></div>
+          <div><h4>Kelvane</h4><ul><li><a href="/about">About</a></li><li><a href="/topics">Companies &amp; topics</a></li><li><a href="/learn">Learn AI: Glossary</a></li><li><a href="/archive">Daily archive</a></li><li><a href="/search">Search</a></li><li><a href="/rss.xml">RSS</a></li></ul></div>
         </div>
+        <div class="foot-mega" aria-hidden="true">${esc(SITE.name)}</div>
         <div class="foot-note"><span>© ${new Date().getFullYear()} ${SITE.name}. Headlines and summaries link to the original publishers.</span><span>Not investment advice. Market data may be delayed.</span></div>
       </div>
     </footer>
@@ -489,7 +509,7 @@ export async function loadTape() {
     const m = await api('/api/markets', { timeout: 12000 });
     if (!m.ok) throw new Error('no data');
     const q = (x, cls = '') => `<span class="tq ${cls}"><span class="sym">${esc(x.name && cls ? x.name : x.symbol)}</span><span class="px">${fmtPrice(x.price)}</span><span class="${dirCls(x.changePct)}">${fmtPct(x.changePct)}</span>${sparkline(x.spark, { w: 44, h: 16, color: x.changePct >= 0 ? '#2fd08f' : '#ff6b71' })}</span>`;
-    const ai = m.aiIndex ? `<span class="tq index"><span class="sym">TS AI INDEX</span><span class="${dirCls(m.aiIndex.changePct)}">${fmtPct(m.aiIndex.changePct)}</span></span>` : '';
+    const ai = m.aiIndex ? `<span class="tq index"><span class="sym">KELVANE AI INDEX</span><span class="${dirCls(m.aiIndex.changePct)}">${fmtPct(m.aiIndex.changePct)}</span></span>` : '';
     const once = ai + m.indexes.filter((x) => x.price != null).map((x) => q(x, 'index')).join('') + m.stocks.filter((x) => x.price != null).map((x) => q(x)).join('');
     rail.innerHTML = once + once; // duplicated for a seamless loop
     document.dispatchEvent(new CustomEvent('markets', { detail: m }));

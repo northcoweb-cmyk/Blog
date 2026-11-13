@@ -1,8 +1,8 @@
 {
-  "name": "tensor-street",
+  "name": "kelvane",
   "version": "1.0.0",
   "private": true,
-  "description": "Tensor Street — the daily briefing on the AI economy. Auto-updating AI news, markets and analysis.",
+  "description": "Kelvane — the daily briefing on the AI economy. Auto-updating AI news, markets and analysis.",
   "type": "module",
   "engines": {
     "node": "22.x"

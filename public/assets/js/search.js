@@ -11,7 +11,7 @@ async function run() {
     out.innerHTML = `<div class="empty">Search every story on the live wire and every article from the desk.</div>`;
     return;
   }
-  document.title = `${q} · Search · Tensor Street`;
+  document.title = `${q} · Search · Kelvane`;
   out.innerHTML = `<div class="sk sk-title" style="width:40%"></div><div class="sk sk-line"></div><div class="sk sk-line" style="width:70%"></div>`;
   const terms = q.toLowerCase().split(/\s+/).filter(Boolean);
   const [news, posts] = await Promise.all([api(`/api/news?q=${encodeURIComponent(q)}&limit=60`).catch(() => ({ stories: [] })), api('/api/posts?limit=100').catch(() => ({ posts: [] }))]);

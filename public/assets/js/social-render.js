@@ -4,7 +4,7 @@
 
 export const FORMATS = { post: [1080, 1350, 'Feed post 4:5'], square: [1080, 1080, 'Square 1:1'], story: [1080, 1920, 'Story / Reel 9:16'] };
 export const STYLES = { photo: 'Photo', ink: 'Ink', paper: 'Paper', breaking: 'Breaking' };
-export const SEC_HEX = { ai: '#5b7bff', models: '#9b7bff', markets: '#2fd08f', policy: '#f5a524', startups: '#22c3e6', mainstreet: '#ff7a33', research: '#ff5c93', tech: '#94a3b8', desk: '#5b7bff' };
+export const SEC_HEX = { ai: '#ffffff', models: '#ffffff', markets: '#ffffff', policy: '#ffffff', startups: '#ffffff', mainstreet: '#ffffff', research: '#ffffff', tech: '#ffffff', desk: '#ffffff' };
 const SECTION_LONG = { ai: 'Artificial Intelligence', models: 'Models & Launches', markets: 'AI & Markets', policy: 'Policy & Politics', startups: 'Startups & Funding', mainstreet: 'Main Street AI', research: 'Research & Science', tech: 'Tech', desk: 'From the Desk' };
 
 /**
@@ -15,34 +15,34 @@ export function renderCard(x, st) {
   const [W, H] = FORMATS[st.fmt] || FORMATS.post;
   const img = st.img || null;
   const focus = typeof st.focus === 'number' ? st.focus : { top: 0, center: 0.5, bottom: 1 }[st.focus] ?? 0.5;
-  const accent = SEC_HEX[st.item.section] || '#5b7bff';
   const dark = st.style !== 'paper';
-  const ink = dark ? '#ffffff' : '#0a0e1a';
+  const accent = dark ? '#ffffff' : '#09090b';
+  const ink = dark ? '#ffffff' : '#09090b';
   const P = 72;
 
   // Background
   if ((st.style === 'photo' || st.style === 'breaking') && img) {
     cover(x, img, 0, 0, W, H, focus);
     const g = x.createLinearGradient(0, H * 0.25, 0, H);
-    g.addColorStop(0, 'rgba(5,8,15,0)');
-    g.addColorStop(0.55, 'rgba(5,8,15,.78)');
-    g.addColorStop(1, 'rgba(5,8,15,.96)');
+    g.addColorStop(0, 'rgba(0,0,0,0)');
+    g.addColorStop(0.55, 'rgba(0,0,0,.78)');
+    g.addColorStop(1, 'rgba(0,0,0,.96)');
     x.fillStyle = g;
     x.fillRect(0, 0, W, H);
     const t = x.createLinearGradient(0, 0, 0, 260);
-    t.addColorStop(0, 'rgba(5,8,15,.55)');
-    t.addColorStop(1, 'rgba(5,8,15,0)');
+    t.addColorStop(0, 'rgba(0,0,0,.55)');
+    t.addColorStop(1, 'rgba(0,0,0,0)');
     x.fillStyle = t;
     x.fillRect(0, 0, W, 260);
   } else {
-    x.fillStyle = dark ? '#070a12' : '#f4f2ec';
+    x.fillStyle = dark ? '#000000' : '#ffffff';
     x.fillRect(0, 0, W, H);
     const rg = x.createRadialGradient(W, 0, 0, W, 0, W * 0.9);
-    rg.addColorStop(0, dark ? accent + '55' : accent + '22');
+    rg.addColorStop(0, dark ? '#ffffff22' : '#09090b0d');
     rg.addColorStop(1, 'rgba(0,0,0,0)');
     x.fillStyle = rg;
     x.fillRect(0, 0, W, H);
-    x.strokeStyle = dark ? 'rgba(255,255,255,.05)' : 'rgba(10,14,26,.06)';
+    x.strokeStyle = dark ? 'rgba(255,255,255,.05)' : 'rgba(9,9,11,.06)';
     x.lineWidth = 1;
     for (let gx = 0; gx < W; gx += 54) (x.beginPath(), x.moveTo(gx, 0), x.lineTo(gx, H), x.stroke());
     for (let gy = 0; gy < H; gy += 54) (x.beginPath(), x.moveTo(0, gy), x.lineTo(W, gy), x.stroke());
@@ -61,12 +61,9 @@ export function renderCard(x, st) {
   x.fillStyle = ink;
   x.font = '700 38px Geist, sans-serif';
   x.textBaseline = 'middle';
-  x.fillText('Tensor', P + 76, 100);
-  const tw = x.measureText('Tensor').width;
-  x.fillStyle = dark ? '#8ea2ff' : '#2f54ff';
-  x.fillText('Street', P + 76 + tw + 2, 100);
+  x.fillText('Kelvane', P + 76, 100);
   x.font = '500 24px "Geist Mono", monospace';
-  x.fillStyle = dark ? 'rgba(255,255,255,.7)' : 'rgba(10,14,26,.6)';
+  x.fillStyle = dark ? 'rgba(255,255,255,.7)' : 'rgba(9,9,11,.6)';
   x.textAlign = 'right';
   x.fillText((st.date || new Date()).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: st.timeZone || undefined }).toUpperCase(), W - P, 100);
   x.textAlign = 'left';
@@ -94,7 +91,7 @@ export function renderCard(x, st) {
   x.fillStyle = st.style === 'breaking' ? '#ff3b30' : accent;
   roundRect(x, P, ky, kw, 46, 10);
   x.fill();
-  x.fillStyle = st.style === 'breaking' || dark ? '#fff' : '#fff';
+  x.fillStyle = st.style === 'breaking' ? '#fff' : dark ? '#09090b' : '#fff';
   x.textBaseline = 'middle';
   x.fillText(kick, P + 22, ky + 24);
 
@@ -104,10 +101,10 @@ export function renderCard(x, st) {
   lines.forEach((l, i) => x.fillText(l, P, y + (i + 1) * lh - size * 0.18));
 
   // Footer
-  x.fillStyle = dark ? 'rgba(255,255,255,.18)' : 'rgba(10,14,26,.15)';
+  x.fillStyle = dark ? 'rgba(255,255,255,.18)' : 'rgba(9,9,11,.15)';
   x.fillRect(P, footerY - 34, W - P * 2, 2);
   x.font = '500 26px "Geist Mono", monospace';
-  x.fillStyle = dark ? 'rgba(255,255,255,.8)' : 'rgba(10,14,26,.7)';
+  x.fillStyle = dark ? 'rgba(255,255,255,.8)' : 'rgba(9,9,11,.7)';
   x.textBaseline = 'middle';
   x.fillText('@' + (st.handle || 'tensorstreet'), P, footerY + 6);
   x.textAlign = 'right';
@@ -149,28 +146,23 @@ export function drawMark(x, mx, my, s) {
   x.save();
   x.translate(mx, my);
   x.scale(k, k);
-  x.fillStyle = '#0a0e1a';
-  roundRect(x, 0, 0, 32, 32, 9);
+  x.fillStyle = '#09090b';
+  roundRect(x, 0, 0, 32, 32, 8);
   x.fill();
-  x.strokeStyle = 'rgba(255,255,255,.15)';
+  x.strokeStyle = 'rgba(255,255,255,.28)';
   x.lineWidth = 1;
   x.stroke();
-  const g = x.createLinearGradient(7, 20, 25, 8);
-  g.addColorStop(0, '#5b7bff');
-  g.addColorStop(1, '#2ee6c5');
-  x.strokeStyle = g;
-  x.lineWidth = 2.4;
+  x.strokeStyle = '#ffffff';
+  x.lineWidth = 2.8;
   x.lineCap = 'round';
   x.lineJoin = 'round';
   x.beginPath();
-  [[7, 20.5], [12.5, 14.5], [17.5, 17.5], [25, 8.5]].forEach(([a, b], i) => (i ? x.lineTo(a, b) : x.moveTo(a, b)));
+  x.moveTo(11, 8);
+  x.lineTo(11, 24);
+  x.moveTo(22, 8);
+  x.lineTo(11.5, 16);
+  x.lineTo(22, 24);
   x.stroke();
-  x.fillStyle = '#fff';
-  [[7, 20.5], [12.5, 14.5], [17.5, 17.5]].forEach(([a, b]) => (x.beginPath(), x.arc(a, b, 2.1, 0, 7), x.fill()));
-  x.fillStyle = '#2ee6c5';
-  x.beginPath();
-  x.arc(25, 8.5, 2.6, 0, 7);
-  x.fill();
   x.restore();
 }
 
@@ -179,5 +171,5 @@ const TAGS = { ai: '#AI #ArtificialIntelligence', models: '#AI #LLM #AIModels', 
 
 /** Instagram caption. The first line is always the headline (the autopilot uses it to avoid repeats). */
 export function caption(item, headline) {
-  return `${headline}\n\n${item.summary ? item.summary + '\n\n' : ''}Get the full story and today's AI briefing at the link in bio.\n\n${item.kind === 'wire' && item.source ? `Source: ${item.source}\n\n` : ''}#TensorStreet ${TAGS[item.section] || '#AI'} #TechNews #FutureOfWork`;
+  return `${headline}\n\n${item.summary ? item.summary + '\n\n' : ''}Get the full story and today's AI briefing at the link in bio.\n\n${item.kind === 'wire' && item.source ? `Source: ${item.source}\n\n` : ''}#Kelvane ${TAGS[item.section] || '#AI'} #TechNews #FutureOfWork`;
 }

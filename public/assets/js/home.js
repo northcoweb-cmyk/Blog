@@ -1,6 +1,6 @@
 import {
-  $, esc, cachedApi, api, initChrome, leadCard, storyCard, rowStory, hlItem, deskCard, deskRow, storyHref,
-  SECTIONS, sectionById, timeAgo, sparkline, fmtPrice, fmtPct, dirCls, marketStatus, editionName, greeting, ICON,
+  $, esc, cachedApi, api, initChrome, leadCard, photoCard, getConfig, signupHtml, wireSignups, storyCard, rowStory, hlItem, deskCard, deskRow, storyHref,
+  SECTIONS, SITE, sectionById, timeAgo, sparkline, fmtPrice, fmtPct, dirCls, marketStatus, editionName, greeting, ICON,
 } from './site.js';
 
 initChrome({ active: 'home' });
@@ -12,7 +12,7 @@ $('#dateline-left').innerHTML = `<b>${now.toLocaleDateString('en-US', { weekday:
 function renderMarkets(m) {
   const el = $('#markets-panel');
   if (!m || !m.ok) {
-    el.innerHTML = `<div class="panel"><div class="mkt-head"><div><div class="label">TS AI Index</div><div class="big num">—</div><div class="sub">Market data unavailable right now</div></div></div><div class="mkt-foot">Prices refresh automatically.</div></div>`;
+    el.innerHTML = `<div class="panel"><div class="mkt-head"><div><div class="label">Kelvane AI Index</div><div class="big num">—</div><div class="sub">Market data unavailable right now</div></div></div><div class="mkt-foot">Prices refresh automatically.</div></div>`;
     return;
   }
   const idx = m.aiIndex;
@@ -23,7 +23,7 @@ function renderMarkets(m) {
   const status = marketStatus();
   el.innerHTML = `<div class="panel">
     <div class="mkt-head">
-      <div class="label"><span class="dot${status.open ? '' : ' closed'}"></span>TS AI Index · ${esc(status.label)}</div>
+      <div class="label"><span class="dot${status.open ? '' : ' closed'}"></span>Kelvane AI Index · ${esc(status.label)}</div>
       <div class="row"><div class="big num ${dirCls(idx?.changePct)}">${fmtPct(idx?.changePct)}</div>${sparkline(idxSpark, { w: 96, h: 40 })}</div>
       <div class="sub">Equal-weight basket of ${idx?.members || 0} AI leaders, today</div>
     </div>
@@ -72,8 +72,11 @@ async function load() {
   const lead = stories.slice(0, 5).find((s) => s.image) || stories[0];
   used.add(lead.id);
   $('#lead').innerHTML = leadCard(lead);
-  const second = take((s) => s.section !== lead.section || s.image, 3);
-  $('#second').innerHTML = second.map((s, i) => (i === 0 ? storyCard(s, { summary: false }) : rowStory(s))).join('');
+  const second = take((s) => s.image, 3);
+  if (second.length < 3) second.push(...take(() => true, 3 - second.length));
+  $('#second').innerHTML = second.map(photoCard).join('');
+  renderPromo();
+  renderTopicsBar();
 
   $('#trending').innerHTML = [...stories]
     .filter((s) => s.id !== lead.id)
@@ -84,6 +87,27 @@ async function load() {
 
   renderLatest('all');
   renderSections(used);
+}
+
+// Right of the photo cards: email signup if it's connected, otherwise a link into the topic pages.
+async function renderPromo() {
+  const cfg = await getConfig();
+  const el = $('#promo');
+  if (cfg.features?.newsletter) {
+    el.innerHTML = `<div class="promo-card"><span class="ic">${ICON.mail}</span><h3>Stay ahead.</h3><p>Five stories. Every morning. Free.</p>${signupHtml()}</div>`;
+    wireSignups(el);
+  } else {
+    el.innerHTML = `<a class="promo-card" href="/topics"><span class="ic">${ICON.spark}</span><h3>Follow the names.</h3><p>Every company, model and startup in the news, each with its own page.</p><span class="btn">Browse topics</span></a>`;
+  }
+}
+
+// Trending topics: the tags that show up most across today's stories.
+function renderTopicsBar() {
+  const counts = new Map();
+  for (const s of stories) for (const t of s.tags || []) counts.set(t, (counts.get(t) || 0) + 1);
+  const top = [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 6).map(([t]) => t);
+  const slug = (t) => String(t).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  $('#topics-bar').innerHTML = `<span class="lbl">${ICON.arrow.replace('<svg', '<svg style="transform:rotate(-45deg)"')}Trending topics</span>${top.map((t) => `<a class="t" href="/topic/${esc(slug(t))}">${esc(t)}</a>`).join('')}<span class="follow">Follow us<a href="https://instagram.com/${esc(SITE.instagram)}" target="_blank" rel="noopener" aria-label="Instagram">${ICON.instagram}</a><a href="/rss.xml" aria-label="RSS">${ICON.rss}</a></span>`;
 }
 
 // Latest feed with desk tabs

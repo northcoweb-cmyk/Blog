@@ -6,8 +6,8 @@ import { topicPage, sitemapXml, robotsTxt, postTopics, storyPage } from '../../l
 const O = 'https://example.com';
 
 test('titles stay short and brand only when it fits', () => {
-  assert.equal(fitTitle('NorthCo raises $10M'), 'NorthCo raises $10M | Tensor Street');
-  assert.ok(!fitTitle('A very long headline about NorthCo that goes on and on forever and ever').endsWith('Tensor Street'));
+  assert.equal(fitTitle('NorthCo raises $10M'), 'NorthCo raises $10M | Kelvane');
+  assert.ok(!fitTitle('A very long headline about NorthCo that goes on and on forever and ever').endsWith('Kelvane'));
   assert.ok(trunc('word '.repeat(80), 158).length <= 158);
 });
 
