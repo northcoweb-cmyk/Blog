@@ -1,5 +1,34 @@
 [
   {
+    "slug": "nvidia-s-ceo-jensen-huang-resigns-amid-personal-scandal",
+    "title": "Nvidia’s CEO Jensen Huang resigns amid personal scandal",
+    "dek": "Huang stepped down Thursday after scrutiny over two extramarital affairs; investors are still processing the news and the stock ticked up.",
+    "section": "markets",
+    "tags": [
+      "Nvidia",
+      "corporate governance",
+      "markets"
+    ],
+    "author": "Tensor Street Desk",
+    "cover": {
+      "url": "https://image.cnbcfm.com/api/v1/image/108550021-1794492334597-gettyimages-2224669758-AFP_66W349F.jpeg?v=1794492360&w=1920&h=1080",
+      "alt": "Nvidia stock inches higher as investors continue to weigh Jensen Huang’s departure",
+      "credit": "CNBC"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Nvidia stock inches higher as investors continue to weigh Jensen Huang’s departure",
+      "url": "https://www.cnbc.com/2026/11/13/nvidia-nvda-stock-jensen-huang-transition.html",
+      "source": "CNBC"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-13T10:06:09.741Z",
+    "updatedAt": "2026-11-13T10:06:09.741Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "nvidia-s-jensen-huang-scandal-risks-the-ai-boom",
     "title": "Nvidia’s Jensen Huang: scandal risks the AI boom",
     "dek": "Allegations around Nvidia’s founder threaten a company that built much of the modern AI supply chain.",
