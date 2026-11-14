@@ -1,0 +1,29 @@
+{
+  "slug": "google-links-wallet-to-gemini-app-for-spending-informed-answers",
+  "title": "Google links Wallet to Gemini app for spending-informed answers",
+  "dek": "U.S. Gemini users can now connect Google Wallet so Gemini’s responses reflect their Wallet spending data.",
+  "body": "Google is letting Gemini app users in the U.S. connect Google Wallet so the assistant’s responses can be informed by their spending history. The company says the feature is available to all Gemini app users in the United States.\n\n## Why it matters\n\nThis change brings personal finance data directly into an AI assistant used for conversational queries, shifting how consumers might get budgeting and spending guidance. That matters for money , users could receive answers tailored to their actual transactions , and for customers — it ties more daily financial interaction to Google’s AI ecosystem. It also affects competition: other AI assistants and fintech apps will face a visible integration between a major search-and-ads company and a mainstream payments product. What isn’t yet public are specifics on data scope, retention, and how Google will handle privacy or regulatory questions.\n\n## The details\n\n- All Gemini app users in the U.S. can connect Google Wallet so Gemini responses are informed by their Wallet spending, according to Google’s announcement.  \n- Google characterizes the integration as enabling Gemini to use spending information when generating answers.  \n- Coverage of the launch appears in Google’s product blog and has been reported by outlets including Small Business Trends.  \n- Google’s announcement does not disclose detailed limits on what Wallet data Gemini can access, how long that data is kept, or the exact controls available to users.  \n- The company has not made public how the integration will interact with financial regulations or sector-specific privacy rules.\n\n## What to watch\n\nWatch for Google to publish user controls and privacy details that specify which transaction fields Gemini can access and how users can opt in or out. Follow reporting from privacy and consumer protection groups for any regulatory interest or complaints. Also track competitor moves from other AI assistant vendors and fintech firms responding to a large platform linking payments history to conversational AI.\n\nSource: reporting by Google.",
+  "section": "models",
+  "tags": [
+    "Google",
+    "Gemini",
+    "personal finance"
+  ],
+  "author": "Kelvane Club Desk",
+  "cover": {
+    "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Personal_Intelligence_Wallet_27.max-600x600.format-webp.webp",
+    "alt": "Connect Google Wallet to Gemini for personal finance insights",
+    "credit": "Google"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Connect Google Wallet to Gemini for personal finance insights",
+    "url": "https://blog.google/innovation-and-ai/products/gemini-app/google-wallet-gemini-app/",
+    "source": "Google"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-14T10:06:19.570Z",
+  "updatedAt": "2026-11-14T10:06:19.570Z",
+  "publishedAt": null
+}

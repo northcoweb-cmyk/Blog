@@ -1,30 +1,30 @@
 [
   {
-    "slug": "runway-open-sources-praxis-1-to-steer-robots-from-video-training",
-    "title": "Runway open-sources Praxis-1 to steer robots from video training",
-    "dek": "Praxis-1 publishes weights and code under Apache 2.0 and leads Nvidia’s RoboLab-120 World Action Model ranking.",
+    "slug": "google-links-wallet-to-gemini-app-for-spending-informed-answers",
+    "title": "Google links Wallet to Gemini app for spending-informed answers",
+    "dek": "U.S. Gemini users can now connect Google Wallet so Gemini’s responses reflect their Wallet spending data.",
     "section": "models",
     "tags": [
-      "Runway",
-      "robotics",
-      "open-source"
+      "Google",
+      "Gemini",
+      "personal finance"
     ],
     "author": "Kelvane Club Desk",
     "cover": {
-      "url": "https://the-decoder.com/wp-content/uploads/2026/11/Runway-Praxis-1.jpg",
-      "alt": "Runway's open-source Praxis-1 turns video AI into a robot controller",
-      "credit": "The Decoder"
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Personal_Intelligence_Wallet_27.max-600x600.format-webp.webp",
+      "alt": "Connect Google Wallet to Gemini for personal finance insights",
+      "credit": "Google"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Runway's open-source Praxis-1 turns video AI into a robot controller",
-      "url": "https://the-decoder.com/runways-open-source-praxis-1-turns-video-ai-into-a-robot-controller/",
-      "source": "The Decoder"
+      "title": "Connect Google Wallet to Gemini for personal finance insights",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/google-wallet-gemini-app/",
+      "source": "Google"
     },
     "aiAssisted": true,
-    "createdAt": "2026-11-14T10:06:18.911Z",
-    "updatedAt": "2026-11-14T10:06:18.911Z",
+    "createdAt": "2026-11-14T10:06:19.570Z",
+    "updatedAt": "2026-11-14T10:06:19.570Z",
     "publishedAt": null,
     "readingTime": 1
   },
