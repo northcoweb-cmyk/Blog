@@ -1403,7 +1403,11 @@
     "title": "TryGTM: AI-Powered Outreach That Turns Prospects Into Meetings",
     "dek": "An automated approach to finding leads, starting conversations, and booking sales calls.",
     "section": "startups",
-    "tags": [],
+    "tags": [
+      "TryGTM",
+      "Sales",
+      "AI Agents"
+    ],
     "author": "Kelvane Club Desk",
     "cover": {
       "url": "/media/2026/09/mulw4ycc-2fmb5x.webp",
@@ -1411,7 +1415,7 @@
       "credit": "https://trygtm.com/"
     },
     "featured": true,
-    "status": "draft",
+    "status": "published",
     "aiAssisted": false,
     "createdAt": "2026-09-28T23:40:48.732Z",
     "updatedAt": "2026-09-28T23:40:48.732Z",
