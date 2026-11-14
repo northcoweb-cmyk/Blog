@@ -135,10 +135,8 @@ Check the whole site any time: `node dev/server.js` then `node dev/seo-check.mjs
 | `AUTO_DRAFT_COUNT` | optional | AI drafts per morning (default 2, `0` turns them off) |
 | `AUTO_PUBLISH` | optional | `true` publishes AI drafts without review. Not recommended |
 | `SITE_URL` | optional | Your domain, for RSS and email links |
-| `INSTAGRAM_HANDLE` | optional | Defaults to `kelvaneclub` |
 | `FINNHUB_API_KEY` | optional | Backup source for stock prices |
 | `INSTAGRAM_ACCESS_TOKEN` | optional | Instagram token (easier: paste it in Admin → Instagram autopilot) |
-| `INSTAGRAM_HANDLE` | optional | Defaults to `kelvaneclub` |
 | `SITE_TIMEZONE` | optional | Edition times (default `America/New_York`) |
 
 ---
