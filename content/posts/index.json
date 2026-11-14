@@ -1,5 +1,34 @@
 [
   {
+    "slug": "runway-open-sources-praxis-1-to-steer-robots-from-video-training",
+    "title": "Runway open-sources Praxis-1 to steer robots from video training",
+    "dek": "Praxis-1 publishes weights and code under Apache 2.0 and leads Nvidia’s RoboLab-120 World Action Model ranking.",
+    "section": "models",
+    "tags": [
+      "Runway",
+      "robotics",
+      "open-source"
+    ],
+    "author": "Kelvane Club Desk",
+    "cover": {
+      "url": "https://the-decoder.com/wp-content/uploads/2026/11/Runway-Praxis-1.jpg",
+      "alt": "Runway's open-source Praxis-1 turns video AI into a robot controller",
+      "credit": "The Decoder"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Runway's open-source Praxis-1 turns video AI into a robot controller",
+      "url": "https://the-decoder.com/runways-open-source-praxis-1-turns-video-ai-into-a-robot-controller/",
+      "source": "The Decoder"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-14T10:06:18.911Z",
+    "updatedAt": "2026-11-14T10:06:18.911Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "google-debuts-gemini-4-hydrogen-for-agentic-workflows",
     "title": "Google debuts Gemini 4 Hydrogen for agentic workflows",
     "dek": "Google and DeepMind have published Gemini 4 Hydrogen as a new model positioned for multi-step, agent-driven tasks.",

@@ -1,0 +1,29 @@
+{
+  "slug": "runway-open-sources-praxis-1-to-steer-robots-from-video-training",
+  "title": "Runway open-sources Praxis-1 to steer robots from video training",
+  "dek": "Praxis-1 publishes weights and code under Apache 2.0 and leads Nvidia’s RoboLab-120 World Action Model ranking.",
+  "body": "Runway has released Praxis-1, an open-source robotics model whose weights and source code are available under the Apache 2.0 license. The company says the model converts knowledge learned from video training into controls for robots, and it currently tops the World Action Model category on Nvidia’s RoboLab-120 benchmark. Praxis-1 nonetheless cannot yet plan complex multi-step action sequences autonomously.\n\n## Why it matters\n\nOpen access to model weights and source code accelerates adoption among researchers and companies that build robot control stacks, because Apache 2.0 permits broad commercial and research use. Runway’s approach , reusing representations learned from video for physical control , aims to shorten the gap between perception models trained on internet-scale video and motor controllers that run robots in the real world.\n\nPerformance on a public benchmark matters to customers and investors: Praxis-1 leading the World Action Model category on Nvidia’s RoboLab-120 gives Runway a measurable claim when pitching performance to robotics teams and integrators. At the same time, the model’s current inability to plan long action sequences limits immediate application to tasks that require extended, multi-step autonomy.\n\n## The details\n\n- Product: Praxis-1, a robotics model released by Runway.\n- License: weights and source code released under the Apache 2.0 license.\n- Method: the model uses knowledge from video training to inform robot control , applying visual learning to action outputs.\n- Benchmark: Praxis-1 ranks first in the World Action Model category on Nvidia’s RoboLab-120 benchmark.\n- Limitation: Praxis-1 cannot yet plan complex action sequences on its own.\n- Coverage: reported by The Decoder.\n\n## What to watch\n\nWatch for external adopters publishing replication results or integration notes — open-source releases live or die on third-party validation and tooling. Also watch Nvidia’s RoboLab-120 leaderboard and follow updates from Runway for improvements on sequence planning capabilities or demonstrations of longer-horizon tasks.\n\nSource: reporting by The Decoder.",
+  "section": "models",
+  "tags": [
+    "Runway",
+    "robotics",
+    "open-source"
+  ],
+  "author": "Kelvane Club Desk",
+  "cover": {
+    "url": "https://the-decoder.com/wp-content/uploads/2026/11/Runway-Praxis-1.jpg",
+    "alt": "Runway's open-source Praxis-1 turns video AI into a robot controller",
+    "credit": "The Decoder"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Runway's open-source Praxis-1 turns video AI into a robot controller",
+    "url": "https://the-decoder.com/runways-open-source-praxis-1-turns-video-ai-into-a-robot-controller/",
+    "source": "The Decoder"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-14T10:06:18.911Z",
+  "updatedAt": "2026-11-14T10:06:18.911Z",
+  "publishedAt": null
+}
