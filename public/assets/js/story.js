@@ -1,4 +1,4 @@
-import { $, esc, api, initChrome, mediaHtml, photoCard, sectionById, timeAgo, fmtDate, shareButtons, signupHtml, wireSignups, ICON } from './site.js';
+import { $, esc, api, initChrome, LOGO_MARK, mediaHtml, photoCard, sectionById, timeAgo, fmtDate, shareButtons, signupHtml, wireSignups, ICON } from './site.js';
 import { readingProgress } from './progress.js';
 
 const slugTopic = (t) => String(t).toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80);
@@ -44,7 +44,7 @@ async function main() {
       ${s.summary ? `<p class="dek" id="dek">${esc(s.summary)}</p>` : '<p class="dek" id="dek" hidden></p>'}
     </header>
     <div class="byline">
-      <div class="avatar" aria-hidden="true">K</div>
+      <div class="avatar logo-av" aria-hidden="true">${LOGO_MARK}</div>
       <div><div class="who">Kelvane Club Desk</div><div class="when">${fmtDate(s.date, { month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' })} · ${timeAgo(s.date)}<span id="rt"></span></div></div>
       <div class="share">${shareButtons(location.origin + location.pathname + location.search, s.title)}</div>
     </div>

@@ -1,4 +1,4 @@
-import { $, esc, api, initChrome, mediaHtml, deskCard, sectionById, fmtDate, shareButtons, signupHtml, wireSignups, ICON } from './site.js';
+import { $, esc, api, initChrome, LOGO_MARK, mediaHtml, deskCard, sectionById, fmtDate, shareButtons, signupHtml, wireSignups, ICON } from './site.js';
 const slugTopic = (t) => String(t).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80);
 import { renderMarkdown } from './md.js';
 import { readingProgress } from './progress.js';
@@ -34,7 +34,7 @@ async function main() {
     ${preview ? '<div class="pill brand" style="margin-bottom:16px">Preview · not published</div>' : ''}
     <div class="crumbs"><a href="/">Home</a> / <a href="/section/${esc(post.section)}">${esc(sec.long)}</a></div>
     <header class="article-head" style="margin-top:18px"><span class="chip solid" data-sec="desk">From the Desk · ${esc(sec.name)}</span><h1>${esc(post.title)}</h1>${post.dek ? `<p class="dek">${esc(post.dek)}</p>` : ''}</header>
-    <div class="byline"><div class="avatar" aria-hidden="true">${esc(initials)}</div><div><div class="who">${esc(post.author)}</div><div class="when">${fmtDate(post.publishedAt || post.updatedAt)} · ${post.readingTime || 3} min read</div></div><div class="share">${shareButtons(location.origin + '/p/' + post.slug, post.title)}</div></div>
+    <div class="byline">${/kelvane|desk/i.test(post.author || '') ? `<div class="avatar logo-av" aria-hidden="true">${LOGO_MARK}</div>` : `<div class="avatar" aria-hidden="true">${esc(initials)}</div>`}<div><div class="who">${esc(post.author)}</div><div class="when">${fmtDate(post.publishedAt || post.updatedAt)} · ${post.readingTime || 3} min read</div></div><div class="share">${shareButtons(location.origin + '/p/' + post.slug, post.title)}</div></div>
     ${post.cover?.url ? `<figure class="article-figure">${mediaHtml({ ...post, id: post.slug })}${post.cover.credit || post.cover.alt ? `<figcaption>${esc(post.cover.alt || '')}${post.cover.credit ? ` <span style="opacity:.75">Image: ${esc(post.cover.credit)}</span>` : ''}</figcaption>` : ''}</figure>` : ''}
     <div class="prose">${post.html || renderMarkdown(post.body || '')}</div>
     ${post.sourceStory?.source ? `<div class="src-line"><span class="dot"></span><span>Source: reporting by <b>${esc(post.sourceStory.source)}</b>.</span></div>` : ''}

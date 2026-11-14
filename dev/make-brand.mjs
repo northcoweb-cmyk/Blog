@@ -29,7 +29,8 @@ const jobs = {
   'icon-192.png': [192, 192, icon(192)],
   'apple-touch-icon.png': [180, 180, icon(180)],
   'favicon-32.png': [32, 32, favicon(32)],
-  'instagram-profile.png': [1080, 1080, icon(1080)],
+  // Instagram crops to a circle: keep the K well inside it.
+  'instagram-profile.png': [1080, 1080, `<div style="width:1080px;height:1080px;background:#000;display:grid;place-items:center"><svg width="560" height="585" viewBox="12 9 44 46"><path d="${KP}" fill="#fff"/></svg></div>`],
   'og-image.png': [1200, 630, `<div style="width:1200px;height:630px;position:relative;padding:76px;display:flex;flex-direction:column;justify-content:space-between"><div class="glow"></div>
     <div style="position:relative">${lockup(64)}</div>
     <div style="position:relative;font-size:118px;line-height:.86">THE AI ECONOMY,<br><span style="color:${MINT}">EVERY DAY.</span></div>
