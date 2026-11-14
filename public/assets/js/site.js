@@ -127,7 +127,7 @@ export function coverSvg(key, section = 'ai', label = '') {
     }
   }
   const id = `g${hash(key + 'g')}`;
-  return `<svg class="cover" viewBox="0 0 ${W} ${Hh}" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(label || sectionById(section).name)}"><defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient><pattern id="${id}p" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".06"/></pattern></defs><rect width="${W}" height="${Hh}" fill="url(#${id})"/><rect width="${W}" height="${Hh}" fill="url(#${id}p)"/>${art}<text x="72" y="${Hh - 64}" font-family="Geist Mono, monospace" font-size="30" letter-spacing="4" fill="#fff" fill-opacity=".75">KELVANE · ${esc(sectionById(section).name.toUpperCase())}</text></svg>`;
+  return `<svg class="cover" viewBox="0 0 ${W} ${Hh}" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(label || sectionById(section).name)}"><defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient><pattern id="${id}p" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".06"/></pattern></defs><rect width="${W}" height="${Hh}" fill="url(#${id})"/><rect width="${W}" height="${Hh}" fill="url(#${id}p)"/>${art}<g class="cv-label"><g transform="translate(72 ${Hh - 150}) scale(1.25)" opacity=".9"><rect width="64" height="64" rx="14" fill="#fff"/><path d="M15 12h10.5v40H15z M25.5 30.5 39 17 34 12h19v19l-7-7-20.5 20.5z M35 35 52 52H37.86l-9.93-9.93z" fill="#000"/></g><text x="180" y="${Hh - 88}" font-family="BBH Bogle, Geist, sans-serif" font-size="46" letter-spacing="1" fill="#fff" fill-opacity=".85">KELVANE CLUB · ${esc(sectionById(section).name.toUpperCase())}</text></g></svg>`;
 }
 
 /** Image with automatic fallbacks: publisher photo → topic photo → generated cover art. */
@@ -175,6 +175,7 @@ export function leadCard(s) {
   const sources = s.coverage > 1 ? `<span class="sep"></span><span>${s.coverage} sources</span>` : '';
   return `<a class="hero" href="${storyHref(s)}" data-sec="${esc(s.section)}">
     ${mediaHtml(s, { badge: s.breaking ? '<span class="badge pill live"><span class="dot red"></span>Developing</span>' : '' })}
+    <span class="hero-brand">${LOGO_MARK}<span class="hb-name">Kelvane Club</span><span class="hb-tag">Top story</span></span>
     <div class="hero-body">
       <span class="chip-pill">${esc(sectionById(s.section).name)}</span>
       <h2>${accentTitle(s.title)}</h2>
