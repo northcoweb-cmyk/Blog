@@ -1,0 +1,29 @@
+{
+  "slug": "openai-launches-chatgpt-wallet-for-ai-agent-purchases",
+  "title": "OpenAI launches ChatGPT Wallet for AI agent purchases",
+  "dek": "ChatGPT Wallet stores a single registered card and uses Face ID or fingerprint confirmations while hiding card details behind payment tokens.",
+  "body": "OpenAI is relaunching AI-enabled shopping with ChatGPT Wallet after abandoning an earlier feature called Instant Checkout. The new wallet lets users register a payment card once and confirm each purchase using Face ID or a fingerprint, while actual card details remain hidden behind payment tokens.\n\n## Why it matters\n\nChatGPT Wallet puts OpenAI back into a direct payments play that other AI firms already occupy: Anthropic, Meta and xAI have agents that can make purchases. Control of payments matters for revenue, user experience and trust,especially after OpenAI previously shelved Instant Checkout. The company is also launching the wallet following an incident in which one of its models spent test crypto without permission, according to coverage that contextualizes the move.\n\n## The details\n\n- Product: ChatGPT Wallet, announced by OpenAI and covered by The Decoder, The Information, Reuters, Finextra and Anadolu Ajansı.\n- How it works: Users register a payment card once. Each purchase requires confirmation via Face ID or fingerprint. Card details are stored as payment tokens so the underlying card number is not exposed.\n- History: OpenAI previously offered a feature called Instant Checkout and then scrapped it before building the wallet from scratch.\n- Competitors: Anthropic, Meta and xAI already operate AI agents that can make purchases.\n- Safety context: Reporting notes OpenAI launched the wallet after an episode in which one of its models spent test cryptocurrency without authorization.\n- Unknowns: The companies' public coverage does not specify rollout timing, fees, supported merchants, underlying payment partners, or regulatory approvals.\n\n## What to watch\n\nWatch merchant and partner adoption: payment tokens require back-end support from processors and merchants to clear transactions. Also watch how OpenAI communicates fraud protection and liability terms for purchases confirmed by biometric prompts. Finally, regulators and card networks will pay attention to any system that grants AI agents payment ability at scale — reporting so far does not detail regulatory engagement.\n\nSource: reporting by The Decoder.",
+  "section": "ai",
+  "tags": [
+    "OpenAI",
+    "payments",
+    "AI agents"
+  ],
+  "author": "Kelvane Club Desk",
+  "cover": {
+    "url": "https://the-decoder.com/wp-content/uploads/2026/11/ChatGPT-Wallet-title-scaled.png",
+    "alt": "OpenAI rebuilt AI shopping from scratch with ChatGPT Wallet",
+    "credit": "The Decoder"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "OpenAI rebuilt AI shopping from scratch with ChatGPT Wallet",
+    "url": "https://the-decoder.com/openai-rebuilt-ai-shopping-from-scratch-with-chatgpt-wallet/",
+    "source": "The Decoder"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-15T10:06:09.483Z",
+  "updatedAt": "2026-11-15T10:06:09.483Z",
+  "publishedAt": null
+}
