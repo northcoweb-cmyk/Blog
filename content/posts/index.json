@@ -1,5 +1,34 @@
 [
   {
+    "slug": "megaspeed-opens-probe-after-reports-tying-nvidia-s-jensen-huang-to-ex-exec",
+    "title": "Megaspeed opens probe after reports tying Nvidia’s Jensen Huang to ex-exec",
+    "dek": "Singapore cloud provider says Alice Huang left in 2025 and has launched an internal investigation after recent reports.",
+    "section": "markets",
+    "tags": [
+      "cloud",
+      "corporate governance",
+      "Nvidia"
+    ],
+    "author": "Kelvane Club Desk",
+    "cover": {
+      "url": "https://image.cnbcfm.com/api/v1/image/108547469-1794318020972-gettyimages-2303987004-AFP_D6ZC9G8.jpeg?v=1794318066&w=1920&h=1080",
+      "alt": "Megaspeed says Alice Huang left in 2025 as it launches internal probe into reports about its business",
+      "credit": "CNBC"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Megaspeed says Alice Huang left in 2025 as it launches internal probe into reports about its business",
+      "url": "https://www.cnbc.com/2026/11/15/megaspeed-alice-huang-probe-nvidia-scandal.html",
+      "source": "CNBC"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-15T10:06:11.490Z",
+    "updatedAt": "2026-11-15T10:06:11.490Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "openai-launches-chatgpt-wallet-for-ai-agent-purchases",
     "title": "OpenAI launches ChatGPT Wallet for AI agent purchases",
     "dek": "ChatGPT Wallet stores a single registered card and uses Face ID or fingerprint confirmations while hiding card details behind payment tokens.",
