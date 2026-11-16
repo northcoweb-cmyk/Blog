@@ -1,5 +1,34 @@
 [
   {
+    "slug": "lvmh-media-division-partners-with-openai-to-bring-publications-to-chatgpt",
+    "title": "LVMH Media Division partners with OpenAI to bring publications to ChatGPT",
+    "dek": "LVMH’s Media Division and OpenAI announce a collaboration to support journalism with AI and increase accessibility of LVMH publications through ChatGPT.",
+    "section": "models",
+    "tags": [
+      "OpenAI",
+      "LVMH",
+      "journalism"
+    ],
+    "author": "Kelvane Club Desk",
+    "cover": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Pioneer_Building%2C_San_Francisco_%282019%29_-1.jpg/1280px-Pioneer_Building%2C_San_Francisco_%282019%29_-1.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "alt": "LVMH’s Media Division announces strategic partnership with OpenAI",
+      "credit": "OpenAI"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "LVMH’s Media Division announces strategic partnership with OpenAI",
+      "url": "https://openai.com/index/lvmh-media-division-partnership",
+      "source": "OpenAI"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-16T10:06:23.306Z",
+    "updatedAt": "2026-11-16T10:06:23.306Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "openai-launches-dedicated-science-blog-for-researchers",
     "title": "OpenAI launches dedicated science blog for researchers",
     "dek": "OpenAI has started a science blog to publish findings, methods and researcher accounts about AI-assisted scientific work.",
