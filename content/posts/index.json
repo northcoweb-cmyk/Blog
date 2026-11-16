@@ -1,5 +1,34 @@
 [
   {
+    "slug": "openai-launches-dedicated-science-blog-for-researchers",
+    "title": "OpenAI launches dedicated science blog for researchers",
+    "dek": "OpenAI has started a science blog to publish findings, methods and researcher accounts about AI-assisted scientific work.",
+    "section": "models",
+    "tags": [
+      "OpenAI",
+      "research",
+      "science blog"
+    ],
+    "author": "Kelvane Club Desk",
+    "cover": {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Raspberry_Pi_AI_Kit_for_Raspberry_Pi_5_complete_Kit_07.jpg/1280px-Raspberry_Pi_AI_Kit_for_Raspberry_Pi_5_complete_Kit_07.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "alt": "Our new blog for science",
+      "credit": "OpenAI"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Our new blog for science",
+      "url": "https://openai.com/index/our-new-blog-for-science",
+      "source": "OpenAI"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-16T10:06:16.620Z",
+    "updatedAt": "2026-11-16T10:06:16.620Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "megaspeed-opens-probe-after-reports-tying-nvidia-s-jensen-huang-to-ex-exec",
     "title": "Megaspeed opens probe after reports tying Nvidia’s Jensen Huang to ex-exec",
     "dek": "Singapore cloud provider says Alice Huang left in 2025 and has launched an internal investigation after recent reports.",

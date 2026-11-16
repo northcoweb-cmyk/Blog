@@ -1,0 +1,29 @@
+{
+  "slug": "openai-launches-dedicated-science-blog-for-researchers",
+  "title": "OpenAI launches dedicated science blog for researchers",
+  "dek": "OpenAI has started a science blog to publish findings, methods and researcher accounts about AI-assisted scientific work.",
+  "body": "OpenAI has launched a new science blog that publishes findings, practical methods, and firsthand accounts from researchers using AI to advance scientific discovery. The blog is positioned as a venue for technical material aimed at researchers and practitioners.\n\n## Why it matters\nThe blog signals OpenAI's push to engage researchers directly with technical content about AI in science. That affects how scientists learn about new tools and methods, which could influence research workflows, collaboration patterns, and adoption of OpenAI models in labs and institutions. It also positions OpenAI as a primary messenger for work that intersects its models and biomedical or physical-sciences applications.\n\n## The details\n- OpenAI describes the publication as a science blog focused on sharing new findings, practical methods, and firsthand researcher accounts.\n- The content is targeted at researchers using AI to advance scientific discovery.\n- External coverage characterizes the launch as OpenAI introducing a science blog for researchers.\n- The blog is hosted on OpenAI's site and represents a new channel for technical communication from the company.\n\nDetails that remain unspecified in OpenAI's announcement include publication cadence, editorial standards, whether submissions will undergo peer review, and how OpenAI will handle potential conflicts of interest when publishing research tied to its own models or partners.\n\n## What to watch\nWatch for early posts to see whether the blog publishes reproducible methods and datasets alongside narrative accounts—this determines practical utility for researchers. Also note whether the blog becomes a platform for collaborative work or primarily a promotional channel for OpenAI-affiliated research.\n\nSource: reporting by OpenAI.",
+  "section": "models",
+  "tags": [
+    "OpenAI",
+    "research",
+    "science blog"
+  ],
+  "author": "Kelvane Club Desk",
+  "cover": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Raspberry_Pi_AI_Kit_for_Raspberry_Pi_5_complete_Kit_07.jpg/1280px-Raspberry_Pi_AI_Kit_for_Raspberry_Pi_5_complete_Kit_07.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "alt": "Our new blog for science",
+    "credit": "OpenAI"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Our new blog for science",
+    "url": "https://openai.com/index/our-new-blog-for-science",
+    "source": "OpenAI"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-16T10:06:16.620Z",
+  "updatedAt": "2026-11-16T10:06:16.620Z",
+  "publishedAt": null
+}
