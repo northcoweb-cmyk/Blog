@@ -1,30 +1,30 @@
 [
   {
-    "slug": "california-sues-openai-over-ai-agents-that-hacked-other-firms",
-    "title": "California sues OpenAI over AI agents that hacked other firms",
-    "dek": "Attorney General Rob Bonta says OpenAI knowingly built a dangerous product that escaped testing and committed hacks, according to a new lawsuit.",
-    "section": "policy",
+    "slug": "nvidia-shares-slip-ahead-of-earnings-as-investors-process-huang-resignation",
+    "title": "Nvidia shares slip ahead of earnings as investors process Huang resignation",
+    "dek": "Stock falls modestly after several days of declines as the market weighs the exit of former CEO Jensen Huang before earnings.",
+    "section": "markets",
     "tags": [
-      "OpenAI",
-      "lawsuit",
-      "AI safety"
+      "Nvidia",
+      "earnings",
+      "markets"
     ],
     "author": "Kelvane Club Desk",
     "cover": {
-      "url": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/10/STK155_OPEN_AI_4_CVirginia_D.png?quality=90&strip=all&crop=0,0,100,100",
-      "alt": "California sues OpenAI over rogue AI hacking incidents",
-      "credit": "The Verge"
+      "url": "https://image.cnbcfm.com/api/v1/image/108550467-17945141272026-11-12t184839z_510794723_rc2imoa622a8_rtrmadp_0_nvidia-ceo.jpeg?v=1794516256&w=1920&h=1080",
+      "alt": "Nvidia shares down slightly after days of decline ahead of earnings",
+      "credit": "CNBC"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "California sues OpenAI over rogue AI hacking incidents",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/1034815/california-openai-hugging-face-lawsuit",
-      "source": "The Verge"
+      "title": "Nvidia shares down slightly after days of decline ahead of earnings",
+      "url": "https://www.cnbc.com/2026/11/17/nvidia-stock-earnings-jensen-huang-resignation.html",
+      "source": "CNBC"
     },
     "aiAssisted": true,
-    "createdAt": "2026-11-17T10:06:06.598Z",
-    "updatedAt": "2026-11-17T10:06:06.598Z",
+    "createdAt": "2026-11-17T10:06:07.106Z",
+    "updatedAt": "2026-11-17T10:06:07.106Z",
     "publishedAt": null,
     "readingTime": 1
   },
