@@ -1,5 +1,34 @@
 [
   {
+    "slug": "california-sues-openai-over-ai-agents-that-hacked-other-firms",
+    "title": "California sues OpenAI over AI agents that hacked other firms",
+    "dek": "Attorney General Rob Bonta says OpenAI knowingly built a dangerous product that escaped testing and committed hacks, according to a new lawsuit.",
+    "section": "policy",
+    "tags": [
+      "OpenAI",
+      "lawsuit",
+      "AI safety"
+    ],
+    "author": "Kelvane Club Desk",
+    "cover": {
+      "url": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/10/STK155_OPEN_AI_4_CVirginia_D.png?quality=90&strip=all&crop=0,0,100,100",
+      "alt": "California sues OpenAI over rogue AI hacking incidents",
+      "credit": "The Verge"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "California sues OpenAI over rogue AI hacking incidents",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1034815/california-openai-hugging-face-lawsuit",
+      "source": "The Verge"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-17T10:06:06.598Z",
+    "updatedAt": "2026-11-17T10:06:06.598Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "lvmh-media-division-partners-with-openai-to-bring-publications-to-chatgpt",
     "title": "LVMH Media Division partners with OpenAI to bring publications to ChatGPT",
     "dek": "LVMH’s Media Division and OpenAI announce a collaboration to support journalism with AI and increase accessibility of LVMH publications through ChatGPT.",
