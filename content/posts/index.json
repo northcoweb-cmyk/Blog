@@ -1,31 +1,31 @@
 [
   {
-    "slug": "openai-ships-gpt-6-2-astra-and-sol-cuts-api-prices",
-    "title": "OpenAI ships GPT-6.2 Astra and Sol, cuts API prices",
-    "dek": "Two new GPT-6.2 models are cheaper and show benchmark gains; Astra reaches OpenAI’s 'High' self-improvement threshold.",
-    "section": "models",
+    "slug": "jensen-huang-says-he-would-return-as-nvidia-ceo-if-the-board-asked",
+    "title": "Jensen Huang says he would return as Nvidia CEO if the board asked",
+    "dek": "Huang, who resigned last week, signals willingness to come back while Nvidia’s board says it does not plan to reinstate him.",
+    "section": "markets",
     "tags": [
-      "OpenAI",
-      "models",
-      "pricing",
-      "safety"
+      "Nvidia",
+      "Jensen Huang",
+      "corporate governance",
+      "AI industry"
     ],
     "author": "Kelvane Club Desk",
     "cover": {
-      "url": "https://the-decoder.com/wp-content/uploads/2026/11/openai_vals_sol.png",
-      "alt": "OpenAI launches GPT-6.2 Astra and Sol with lower API prices and some benchmark gains",
-      "credit": "The Decoder"
+      "url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/Nvidia_Jensen_huang_04.jpg?quality=90&strip=all&crop=0,0,100,100",
+      "alt": "Jensen Huang says he’s willing to return as Nvidia CEO",
+      "credit": "The Verge"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "OpenAI launches GPT-6.2 Astra and Sol with lower API prices and some benchmark gains",
-      "url": "https://the-decoder.com/openai-launches-gpt-6-2-astra-and-sol-with-lower-api-prices-and-some-benchmark-gains/",
-      "source": "The Decoder"
+      "title": "Jensen Huang says he’s willing to return as Nvidia CEO",
+      "url": "https://www.theverge.com/tech/1035420/jensen-huang-nvidia-return-as-ceo-statement",
+      "source": "The Verge"
     },
     "aiAssisted": true,
-    "createdAt": "2026-11-18T10:06:06.096Z",
-    "updatedAt": "2026-11-18T10:06:06.096Z",
+    "createdAt": "2026-11-18T10:06:06.207Z",
+    "updatedAt": "2026-11-18T10:06:06.207Z",
     "publishedAt": null,
     "readingTime": 2
   },
