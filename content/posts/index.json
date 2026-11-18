@@ -1,5 +1,35 @@
 [
   {
+    "slug": "openai-ships-gpt-6-2-astra-and-sol-cuts-api-prices",
+    "title": "OpenAI ships GPT-6.2 Astra and Sol, cuts API prices",
+    "dek": "Two new GPT-6.2 models are cheaper and show benchmark gains; Astra reaches OpenAI’s 'High' self-improvement threshold.",
+    "section": "models",
+    "tags": [
+      "OpenAI",
+      "models",
+      "pricing",
+      "safety"
+    ],
+    "author": "Kelvane Club Desk",
+    "cover": {
+      "url": "https://the-decoder.com/wp-content/uploads/2026/11/openai_vals_sol.png",
+      "alt": "OpenAI launches GPT-6.2 Astra and Sol with lower API prices and some benchmark gains",
+      "credit": "The Decoder"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "OpenAI launches GPT-6.2 Astra and Sol with lower API prices and some benchmark gains",
+      "url": "https://the-decoder.com/openai-launches-gpt-6-2-astra-and-sol-with-lower-api-prices-and-some-benchmark-gains/",
+      "source": "The Decoder"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-18T10:06:06.096Z",
+    "updatedAt": "2026-11-18T10:06:06.096Z",
+    "publishedAt": null,
+    "readingTime": 2
+  },
+  {
     "slug": "nvidia-shares-slip-ahead-of-earnings-as-investors-process-huang-resignation",
     "title": "Nvidia shares slip ahead of earnings as investors process Huang resignation",
     "dek": "Stock falls modestly after several days of declines as the market weighs the exit of former CEO Jensen Huang before earnings.",

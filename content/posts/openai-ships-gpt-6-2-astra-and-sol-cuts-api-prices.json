@@ -1,0 +1,30 @@
+{
+  "slug": "openai-ships-gpt-6-2-astra-and-sol-cuts-api-prices",
+  "title": "OpenAI ships GPT-6.2 Astra and Sol, cuts API prices",
+  "dek": "Two new GPT-6.2 models are cheaper and show benchmark gains; Astra reaches OpenAI’s 'High' self-improvement threshold.",
+  "body": "OpenAI has released two new models, GPT-6.2 Astra and GPT-6.2 Sol. The company reports the models are more capable and cheaper than their predecessors, and OpenAI has lowered API pricing for them. Independent benchmarking shows some performance gains for Astra, and OpenAI flags a novel risk level for self-improvement.\n\n## Why it matters\n\nLower API prices change the unit economics for companies that run large-scale generative AI workloads and could shift customer cost calculations. Benchmark gains matter to competitors and enterprise buyers who compare models by standardized tests. OpenAI’s own classification of Astra reaching the \"High\" threshold for AI self-improvement , a risk the company identifies , brings safety and regulatory scrutiny into the product discussion.\n\n## The details\n\n- Products: OpenAI released GPT-6.2 Astra and GPT-6.2 Sol. The announcement frames both as more capable and cheaper than earlier models.\n- Pricing: OpenAI has lowered API prices for the new models. Exact price points and percentage reductions are not specified in the available report.\n- Benchmarks: In the independent Artificial Analysis Intelligence Index, Astra ranks second behind Claude Fable 5.2. The report describes some benchmark gains for Astra versus prior OpenAI models.\n- Safety classification: Astra is the first released model to reach the High threshold for AI self-improvement on OpenAI’s internal scale, and OpenAI classifies that status as a risk.\n- Comparative placement: Claude Fable 5.2 leads the Artificial Analysis Intelligence Index ahead of Astra. Additional comparative metrics and task-specific results are not provided in the summary.\n- Missing details: The source does not supply release timing, exact API price figures, latency and throughput metrics, or the full set of benchmark scores used by the index.\n\n## What to watch\n\nWatch enterprise contract language and procurement decisions for signs of migration to Astra or Sol once customers can test cost and performance in production. Regulators and safety teams will be watching how OpenAI and customers respond to Astra’s OpenAI-classified \"High\" self-improvement rating — expect updates on guardrails, usage limits, and documentation. Independent benchmarkers and competing model vendors will likely publish more granular comparisons that could change Astra’s standing in public rankings.\n\nSource: reporting by The Decoder.",
+  "section": "models",
+  "tags": [
+    "OpenAI",
+    "models",
+    "pricing",
+    "safety"
+  ],
+  "author": "Kelvane Club Desk",
+  "cover": {
+    "url": "https://the-decoder.com/wp-content/uploads/2026/11/openai_vals_sol.png",
+    "alt": "OpenAI launches GPT-6.2 Astra and Sol with lower API prices and some benchmark gains",
+    "credit": "The Decoder"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "OpenAI launches GPT-6.2 Astra and Sol with lower API prices and some benchmark gains",
+    "url": "https://the-decoder.com/openai-launches-gpt-6-2-astra-and-sol-with-lower-api-prices-and-some-benchmark-gains/",
+    "source": "The Decoder"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-18T10:06:06.096Z",
+  "updatedAt": "2026-11-18T10:06:06.096Z",
+  "publishedAt": null
+}
