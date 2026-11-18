@@ -2321,3 +2321,63 @@ mark { background: none; color: var(--brand); }
 /* Kelvane Club articles: the logo is the author picture */
 .byline .avatar.logo-av { background: none; border-radius: 10px; overflow: hidden; width: 40px; height: 40px; }
 .byline .avatar.logo-av svg { width: 100%; height: 100%; display: block; }
+/* About Kelvane Club (homepage + about page) */
+.brand-faq { margin-top: 56px; }
+.faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.faq { border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; background: var(--surface); }
+.faq h3 { margin: 0 0 8px; font-size: 22px; line-height: 1; }
+.faq p { margin: 0; color: var(--ink-2); font-size: 15px; line-height: 1.55; }
+
+/* ==========================================================================
+   Light mode: every surface that was designed on black gets readable colors.
+   ========================================================================== */
+/* Text over photos is always white (the photos sit under a dark shade in both modes) */
+.hero, .pcard { color: #fff; }
+.hero h2, .pcard h3, .hero .read { color: #fff; }
+.hero .sum, .pcard .sum, .hero .hero-cta { color: rgba(255, 255, 255, 0.82); }
+.pcard .meta, .pcard .meta .src { color: rgba(255, 255, 255, 0.7); }
+.hero .chip-pill, .pcard .tagpill { color: #fff; border-color: rgba(255, 255, 255, 0.45); }
+.hero .read i { border-color: rgba(255, 255, 255, 0.6); color: #fff; }
+.pcard:hover h3, .hero:hover h2 { color: #fff; }
+:root[data-theme='light'] .hero, :root[data-theme='light'] .pcard { border-color: transparent; }
+
+/* Ticker and the Brief stay black slabs in light mode */
+:root[data-theme='light'] .tape { background: #000; color: #fafafa; }
+:root[data-theme='light'] .brief { background: #0a0a0a; color: #f2f2f2; border-color: #0a0a0a; }
+:root[data-theme='light'] .brief .kicker, :root[data-theme='light'] .brief h2 { color: #fff; }
+:root[data-theme='light'] .brief .chip, :root[data-theme='light'] .brief .why b { color: #fff; }
+:root[data-theme='light'] .brief .why, :root[data-theme='light'] .brief p { color: #c9c9c9; }
+
+/* Breaking bar */
+:root[data-theme='light'] .breaking-row { background: #f4f4f5; border-color: #e4e4e7; }
+:root[data-theme='light'] .breaking-tag { color: #000; border-right-color: #d4d4d8; }
+:root[data-theme='light'] .breaking a.bk-title { color: #000; }
+:root[data-theme='light'] .breaking .icon-btn { color: #000; }
+
+/* Pills, buttons, panels and boxes that used white-on-black borders */
+:root[data-theme='light'] .topics-bar a.t, :root[data-theme='light'] .also-list li { background: #f4f4f5; border-color: #e4e4e7; color: #27272a; }
+:root[data-theme='light'] .topics-bar a.t:hover { background: #e4e4e7; color: #000; }
+:root[data-theme='light'] .promo-card { background: #f4f4f5; border-color: #e4e4e7; }
+:root[data-theme='light'] .promo-card .btn, :root[data-theme='light'] .btn-primary { background: #000; border-color: #000; color: #fff; }
+:root[data-theme='light'] .promo-card .ic { background: #000; color: #fff; }
+:root[data-theme='light'] .panel { background: #fff; border-color: #e4e4e7; }
+:root[data-theme='light'] .src-line, :root[data-theme='light'] .keypoints, :root[data-theme='light'] .search-big { background: #f7f7f8; border-color: #e4e4e7; }
+:root[data-theme='light'] .src-line .dot { background: #000; }
+:root[data-theme='light'] .read-progress { background: #000; }
+:root[data-theme='light'] .masthead, :root[data-theme='light'] .dateline { border-color: #e4e4e7; }
+:root[data-theme='light'] .nav a:hover, :root[data-theme='light'] .nav a[aria-current='page'] { background: #f0f0f1; color: #000; }
+:root[data-theme='light'] .chip.solid { background: #f0f0f1; color: #000; }
+:root[data-theme='light'] .sr-list a:hover, :root[data-theme='light'] .sr-list a.on { background: #f4f4f5; }
+:root[data-theme='light'] .sr-topic a { border-color: #000; color: #000; }
+:root[data-theme='light'] .badge.live { background: rgba(0, 0, 0, 0.6) !important; }
+:root[data-theme='light'] .hero-brand .hb-tag { color: #d4d4d4; }
+:root[data-theme='light'] .site-footer { background: #000; color: #b5b5b5; border-top: 0; }
+:root[data-theme='light'] .site-footer .logo .wm span:first-child, :root[data-theme='light'] .site-footer h4, :root[data-theme='light'] .site-footer a:hover { color: #fff; }
+:root[data-theme='light'] .site-footer a { color: #b5b5b5; }
+:root[data-theme='light'] .site-footer .socials a { border-color: #333; color: #fff; }
+.term-page .prose > p:first-of-type::first-letter { float: none; font: inherit; color: inherit; margin: 0; padding: 0; line-height: inherit; }
+/* Glossary: the whole card opens the term page (big tap target on phones) */
+.gloss .term { position: relative; }
+.gloss .term h3 a { color: inherit; }
+.gloss .term h3 a { display: flex; align-items: center; min-height: 44px; margin: -10px 0; }
+.gloss .term:hover h3 a { text-decoration: underline; text-underline-offset: 3px; }

@@ -422,8 +422,7 @@ export function initChrome({ active = '' } = {}) {
           <div><h4>More desks</h4><ul>${SECTIONS.slice(4).map((s) => `<li><a href="/section/${s.id}">${s.long}</a></li>`).join('')}</ul></div>
           <div><h4>Kelvane Club</h4><ul><li><a href="/about">About</a></li><li><a href="/topics">Companies &amp; topics</a></li><li><a href="/learn">Learn AI: Glossary</a></li><li><a href="/archive">Daily archive</a></li><li><a href="/search">Search</a></li><li><a href="/rss.xml">RSS</a></li></ul></div>
         </div>
-        <div class="foot-mega" aria-hidden="true">${esc(SITE.name)}</div>
-        <div class="foot-note"><span>© ${new Date().getFullYear()} ${SITE.name}. Headlines and summaries link to the original publishers.</span><span>Not investment advice. Market data may be delayed.</span></div>
+        <div class="foot-note"><span>© ${new Date().getFullYear()} ${SITE.name}. Every story credits its original reporting.</span><span>Not investment advice. Market data may be delayed.</span></div>
       </div>
     </footer>
     <div class="drawer" id="drawer"><div class="drawer-bg" data-close></div><div class="drawer-panel" role="dialog" aria-label="Menu">

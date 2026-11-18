@@ -5,6 +5,8 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { BRAND_FAQ } from '../lib/site.js';
+const faqHtml = () => `<section class="brand-faq" aria-label="About Kelvane Club"><div class="sec-head"><h2><span class="bar"></span>About Kelvane Club</h2></div><div class="faq-grid">${BRAND_FAQ.map(([q, a]) => `<div class="faq"><h3>${q}</h3><p>${a}</p></div>`).join('')}</div></section>`;
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const HEAD = await fs.readFile(path.join(ROOT, 'dev/partials/head.html'), 'utf8');
 const DESC = 'Kelvane Club is a free daily briefing on artificial intelligence: model launches, AI stocks and markets, policy, startups, and how small businesses are putting AI to work. Updated all day.';
@@ -62,6 +64,7 @@ const pages = {
     </aside>
   </section>
   <div id="sections"></div>
+  ${faqHtml()}
 </div></main>`,
   },
   'section.html': {
@@ -138,6 +141,7 @@ const pages = {
     <h2>Get in touch</h2>
     <p>Tips, corrections and partnership ideas are welcome. Follow along on <a href="https://instagram.com/kelvaneclub">Instagram</a> for the day's headlines.</p>
   </div>
+  <div style="margin-top:48px">${faqHtml()}</div>
   <div id="subscribe" style="margin-top:40px">SIGNUP</div>
 </article></div></main>`,
   },
