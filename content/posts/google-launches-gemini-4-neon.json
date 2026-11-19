@@ -1,0 +1,29 @@
+{
+  "slug": "google-launches-gemini-4-neon",
+  "title": "Google launches Gemini 4 Neon",
+  "dek": "Google and DeepMind announce Gemini 4 Neon as the fourth Gemini update in a month, signaling rapid product iteration.",
+  "body": "Google today introduces Gemini 4 Neon, a new entry in its Gemini family of large AI models.\n\nGoogle and DeepMind both published posts announcing the model, and industry coverage notes this is the fourth new Gemini model Google has shipped in the past month.\n\n## Why it matters\n\nFrequent model updates matter to customers and competitors because they change which capabilities and versions developers and enterprises choose to deploy. Rapid releases also affect how cloud providers and AI platform partners plan integrations and pricing. For Google, keeping a steady cadence of Gemini releases is a direct play for developer mindshare and enterprise contracts against other cloud and AI vendors.\n\nRegulators and corporate buyers are paying attention to release pace and versioning because those factors influence safety reviews, compliance checks and procurement timelines.\n\n## The details\n\n- Google published an announcement titled “Introducing Gemini 4 Neon.”\n- DeepMind posted its own announcement of Gemini 4 Neon.\n- The Decoder reports that Gemini 4 Neon is the fourth new Gemini model Google has shipped in a single month.\n- Public posts confirm Google and DeepMind are the organizations releasing the model.\n- The announcements do not disclose model architecture, size, pricing, enterprise availability, or specific capability benchmarks.\n\n## What to watch\n\nWatch for technical documentation, benchmark results and availability details from Google and DeepMind; those will determine how customers migrate or adopt the new model. Also monitor cloud partners and enterprise customers for integration timelines and any updates to pricing or safety controls.\n\nSource: reporting by Google.",
+  "section": "models",
+  "tags": [
+    "Google",
+    "AI models",
+    "DeepMind"
+  ],
+  "author": "Kelvane Club Desk",
+  "cover": {
+    "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-4-neon__blog-header__sm.max-600x600.format-webp.webp",
+    "alt": "Introducing Gemini 4 Neon",
+    "credit": "Google"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Introducing Gemini 4 Neon",
+    "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+    "source": "Google"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-19T10:06:09.859Z",
+  "updatedAt": "2026-11-19T10:06:09.859Z",
+  "publishedAt": null
+}

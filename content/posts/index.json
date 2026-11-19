@@ -1,5 +1,34 @@
 [
   {
+    "slug": "google-launches-gemini-4-neon",
+    "title": "Google launches Gemini 4 Neon",
+    "dek": "Google and DeepMind announce Gemini 4 Neon as the fourth Gemini update in a month, signaling rapid product iteration.",
+    "section": "models",
+    "tags": [
+      "Google",
+      "AI models",
+      "DeepMind"
+    ],
+    "author": "Kelvane Club Desk",
+    "cover": {
+      "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-4-neon__blog-header__sm.max-600x600.format-webp.webp",
+      "alt": "Introducing Gemini 4 Neon",
+      "credit": "Google"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Introducing Gemini 4 Neon",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+      "source": "Google"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-19T10:06:09.859Z",
+    "updatedAt": "2026-11-19T10:06:09.859Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "jensen-huang-says-he-would-return-as-nvidia-ceo-if-the-board-asked",
     "title": "Jensen Huang says he would return as Nvidia CEO if the board asked",
     "dek": "Huang, who resigned last week, signals willingness to come back while Nvidia’s board says it does not plan to reinstate him.",
