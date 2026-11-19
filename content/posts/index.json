@@ -1,5 +1,35 @@
 [
   {
+    "slug": "anthropic-completes-biggest-ipo-ever-raises-over-81-billion",
+    "title": "Anthropic completes biggest IPO ever, raises over $81 billion",
+    "dek": "Anthropic’s stock will begin trading on Nasdaq under the ticker ANT after the offering topped SpaceX as the largest on record.",
+    "section": "markets",
+    "tags": [
+      "Anthropic",
+      "IPO",
+      "AI",
+      "markets"
+    ],
+    "author": "Kelvane Club Desk",
+    "cover": {
+      "url": "https://image.cnbcfm.com/api/v1/image/108554572-1795033463943-108554572-1795033101955-gettyimages-2305196401-ANTHROPIC_IPO.jpg?v=1795033477&w=1920&h=1080",
+      "alt": "Anthropic IPO raises over $81 billion in largest offering on record, topping SpaceX",
+      "credit": "CNBC"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Anthropic IPO raises over $81 billion in largest offering on record, topping SpaceX",
+      "url": "https://www.cnbc.com/2026/11/18/anthropic-ipo-ai-offering-price.html",
+      "source": "CNBC"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-19T10:06:14.401Z",
+    "updatedAt": "2026-11-19T10:06:14.401Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "google-launches-gemini-4-neon",
     "title": "Google launches Gemini 4 Neon",
     "dek": "Google and DeepMind announce Gemini 4 Neon as the fourth Gemini update in a month, signaling rapid product iteration.",
