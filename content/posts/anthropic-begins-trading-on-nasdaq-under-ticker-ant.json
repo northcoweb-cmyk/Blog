@@ -1,0 +1,29 @@
+{
+  "slug": "anthropic-begins-trading-on-nasdaq-under-ticker-ant",
+  "title": "Anthropic begins trading on Nasdaq under ticker ANT",
+  "dek": "The AI startup started trading at $111.50 a share after pricing its IPO at $83, implying roughly a $1.5 trillion valuation.",
+  "body": "Anthropic has started trading publicly on the Nasdaq under the ticker symbol ANT, opening at $111.50 per share. The company had priced the offering at $83 per share, a price that implied a company valuation of about $1.5 trillion. The listing follows an announcement about plans to go public roughly a month earlier.\n\n## Why it matters\n\nThe market has re-rated Anthropic sharply on day one — the opening price contrasts with the IPO price and signals substantial investor demand for the company's public shares. That valuation figure places Anthropic among the largest publicly traded companies by implied market value, which has implications for competition among large AI firms and for investors reallocating capital into AI-focused equities. Regulatory scrutiny, customer contracts, and how Anthropic converts investor capital into product and compute investments will shape whether public markets sustain this valuation.\n\n## The details\n\n- Ticker: ANT, listed on the Nasdaq.\n- Opening price: $111.50 per share.\n- IPO price: $83 per share.\n- Implied valuation at IPO price: about $1.5 trillion.\n- Timing: Listing comes nearly a month after Anthropic revealed plans to go public.\n- Filing: The company submitted a lengthy S-1 registration statement ahead of the offering.\n\nDetails not disclosed in the initial reports include the total number of shares sold in the offering, gross proceeds to the company, and the identities of lead underwriters or major shareholders involved in the sale.\n\n## What to watch\n\nMonitor Anthropic's trading post-open to see whether the early premium holds and how volatile the stock is as more market participants price in the company’s growth prospects. Track subsequent filings and investor presentations for specifics on capital allocation, customer revenue, and the compute or model investments that will determine how the company uses IPO proceeds.\n\nSource: reporting by The Verge.",
+  "section": "markets",
+  "tags": [
+    "Anthropic",
+    "IPO",
+    "AI"
+  ],
+  "author": "Kelvane Club Desk",
+  "cover": {
+    "url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/gettyimages-2305334560.jpg?quality=90&strip=all&crop=0,0,100,100",
+    "alt": "Anthropic starts trading on Wall Street",
+    "credit": "The Verge"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Anthropic starts trading on Wall Street",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1035384/anthropic-ipo-trading-nasdaq",
+    "source": "The Verge"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-20T10:06:15.617Z",
+  "updatedAt": "2026-11-20T10:06:15.617Z",
+  "publishedAt": null
+}

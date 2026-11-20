@@ -1,5 +1,34 @@
 [
   {
+    "slug": "anthropic-begins-trading-on-nasdaq-under-ticker-ant",
+    "title": "Anthropic begins trading on Nasdaq under ticker ANT",
+    "dek": "The AI startup started trading at $111.50 a share after pricing its IPO at $83, implying roughly a $1.5 trillion valuation.",
+    "section": "markets",
+    "tags": [
+      "Anthropic",
+      "IPO",
+      "AI"
+    ],
+    "author": "Kelvane Club Desk",
+    "cover": {
+      "url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/gettyimages-2305334560.jpg?quality=90&strip=all&crop=0,0,100,100",
+      "alt": "Anthropic starts trading on Wall Street",
+      "credit": "The Verge"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Anthropic starts trading on Wall Street",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1035384/anthropic-ipo-trading-nasdaq",
+      "source": "The Verge"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-20T10:06:15.617Z",
+    "updatedAt": "2026-11-20T10:06:15.617Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "anthropic-completes-biggest-ipo-ever-raises-over-81-billion",
     "title": "Anthropic completes biggest IPO ever, raises over $81 billion",
     "dek": "Anthropic’s stock will begin trading on Nasdaq under the ticker ANT after the offering topped SpaceX as the largest on record.",
