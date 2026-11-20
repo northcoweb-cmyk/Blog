@@ -1,5 +1,34 @@
 [
   {
+    "slug": "anthropic-stock-slips-nearly-6-in-premarket-after-17-debut-jump",
+    "title": "Anthropic stock slips nearly 6% in premarket after 17% debut jump",
+    "dek": "Shares of Anthropic fall in early trading as Nvidia and AMD also retreat in an AI sector selloff.",
+    "section": "markets",
+    "tags": [
+      "Anthropic",
+      "AI Stocks",
+      "Market"
+    ],
+    "author": "Kelvane Club Desk",
+    "cover": {
+      "url": "https://image.cnbcfm.com/api/v1/image/108556066-1795129874503-108556066-1795129228984-gettyimages-2305354070-ANTHROPIC_IPO.jpeg?v=1795144010&w=1920&h=1080",
+      "alt": "Anthropic shares fall nearly 6% in premarket amid AI selloff as Nvidia, AMD shares drop",
+      "credit": "CNBC"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Anthropic shares fall nearly 6% in premarket amid AI selloff as Nvidia, AMD shares drop",
+      "url": "https://www.cnbc.com/2026/11/20/anthropic-stock-ai-amd-nvidia.html",
+      "source": "CNBC"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-20T10:06:18.454Z",
+    "updatedAt": "2026-11-20T10:06:18.454Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "anthropic-begins-trading-on-nasdaq-under-ticker-ant",
     "title": "Anthropic begins trading on Nasdaq under ticker ANT",
     "dek": "The AI startup started trading at $111.50 a share after pricing its IPO at $83, implying roughly a $1.5 trillion valuation.",
