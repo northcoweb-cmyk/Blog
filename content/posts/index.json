@@ -1,5 +1,34 @@
 [
   {
+    "slug": "trump-threatens-tremendous-tax-on-firms-that-build-data-centers-abroad",
+    "title": "Trump threatens 'tremendous tax' on firms that build data centers abroad",
+    "dek": "President Donald Trump says he will tax companies that locate data centers outside the US as states and cities move to curb new builds.",
+    "section": "policy",
+    "tags": [
+      "policy",
+      "data centers",
+      "AI"
+    ],
+    "author": "Kelvane Club Desk",
+    "cover": {
+      "url": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/09/STK466_ELECTION_2024_CVirginia_E.jpg?quality=90&strip=all&crop=0,0,100,100",
+      "alt": "Trump threatens ‘tremendous tax’ for moving AI data centers outside the US",
+      "credit": "The Verge"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Trump threatens ‘tremendous tax’ for moving AI data centers outside the US",
+      "url": "https://www.theverge.com/policy/1038892/trump-foreign-data-centers-tax",
+      "source": "The Verge"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-21T10:06:06.366Z",
+    "updatedAt": "2026-11-21T10:06:06.366Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "anthropic-stock-slips-nearly-6-in-premarket-after-17-debut-jump",
     "title": "Anthropic stock slips nearly 6% in premarket after 17% debut jump",
     "dek": "Shares of Anthropic fall in early trading as Nvidia and AMD also retreat in an AI sector selloff.",

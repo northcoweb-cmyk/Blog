@@ -1,0 +1,29 @@
+{
+  "slug": "trump-threatens-tremendous-tax-on-firms-that-build-data-centers-abroad",
+  "title": "Trump threatens 'tremendous tax' on firms that build data centers abroad",
+  "dek": "President Donald Trump says he will tax companies that locate data centers outside the US as states and cities move to curb new builds.",
+  "body": "President Donald Trump says he will impose a \"tremendous tax\" on companies that build data centers outside the United States. He added, \"We're not going to allow our companies to build data centers outside of our country,\" and framed the move alongside growing local restrictions on new data center applications.\n\n## Why it matters\n\nThe comments aim at an industry that underpins cloud computing and AI services; data centers store and process the large datasets these services rely on. Taxes or other penalties on cross-border infrastructure choices would affect corporate capital allocation and where providers locate capacity. That has implications for competition among cloud providers, the cost of serving enterprise and consumer customers, and how local, state and federal regulation interacts with corporate infrastructure strategy.\n\n## The details\n\n- Trump publicly threatened a \"tremendous tax\" on companies that build data centers outside the US and said US companies will not be allowed to build data centers abroad.  \n- The statement came as states and cities across the country are placing restrictions on new applications for data center construction.  \n- Coverage of the remarks appears in The Verge, CNBC and The Hill.\n\n## What to watch\n\nWatch for federal policy text or executive action that would create the tax Trump described — the remarks are a public threat but specifics and implementation details are not yet available. Expect companies and trade groups to respond if federal proposals would change how they site infrastructure or raise cross-border costs. State and local permitting trends will continue to influence where companies choose to build capacity in the near term.\n\nSource: reporting by The Verge.",
+  "section": "policy",
+  "tags": [
+    "policy",
+    "data centers",
+    "AI"
+  ],
+  "author": "Kelvane Club Desk",
+  "cover": {
+    "url": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/09/STK466_ELECTION_2024_CVirginia_E.jpg?quality=90&strip=all&crop=0,0,100,100",
+    "alt": "Trump threatens ‘tremendous tax’ for moving AI data centers outside the US",
+    "credit": "The Verge"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Trump threatens ‘tremendous tax’ for moving AI data centers outside the US",
+    "url": "https://www.theverge.com/policy/1038892/trump-foreign-data-centers-tax",
+    "source": "The Verge"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-21T10:06:06.366Z",
+  "updatedAt": "2026-11-21T10:06:06.366Z",
+  "publishedAt": null
+}
