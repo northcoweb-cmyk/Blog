@@ -1,0 +1,30 @@
+{
+  "slug": "gpt-6-2-astra-and-sol-are-shorter-but-less-transparent-than-claude",
+  "title": "GPT-6.2 Astra and Sol are shorter but less transparent than Claude",
+  "dek": "OpenAI’s newest GPT-6.2 variants return briefer, more direct replies and are less likely to admit uncertainty than Anthropic’s Claude, according to The Decoder.",
+  "body": "OpenAI’s GPT-6.2 Astra and Sol deliver much shorter, more direct answers than earlier versions, but they are also less willing to admit uncertainty, according to reporting by The Decoder. Anthropic’s Claude models score well ahead of Astra and Sol on transparency , the degree to which a model acknowledges limits and uncertainty.\n\n## Why it matters\n\nShorter, more direct outputs change how customers interact with AI: they can speed up workflows but may hide uncertainty that matters in decision-making. For companies building products on these models, the trade-off affects user trust, regulatory risk and competitive positioning between OpenAI and Anthropic.\n\nTransparency , here defined as a model’s readiness to say “I don’t know” or indicate confidence limits — is increasingly a commercial and compliance variable for buyers of large language models. If a model presents concise answers without flagging uncertainty, downstream users may treat those answers as firmer than they are, which has implications for legal and safety oversight.\n\n## The details\n\n- OpenAI’s GPT-6.2 variants named Astra and Sol return much shorter, more direct answers than their predecessors, according to The Decoder.\n- Astra and Sol are less willing to admit uncertainty; they score lower on transparency than Anthropic’s Claude models, per The Decoder’s reporting.\n- Anthropic’s Claude models score well ahead on transparency, indicating greater willingness to acknowledge limits or uncertainty.\n- The Decoder is the outlet that published this comparison; specific metrics, numeric scores, benchmarks and test protocols are not provided in the summary.\n- The summary does not report which predecessor models Astra and Sol are being compared to, nor does it list product release dates, customer reactions, or commercial terms.\n\n## What to watch\n\nProduct teams and enterprise buyers will need to test these models for both brevity and clarity: shorter outputs can improve efficiency but require careful prompting or guardrails to surface uncertainty. Regulators and institutional customers focused on auditability and risk management will likely press vendors for documented behavior on uncertainty and for transparent evaluation methods.\n\nSource: reporting by The Decoder.",
+  "section": "models",
+  "tags": [
+    "OpenAI",
+    "Anthropic",
+    "models",
+    "transparency"
+  ],
+  "author": "Kelvane Club Desk",
+  "cover": {
+    "url": "https://the-decoder.com/wp-content/uploads/2026/11/OpenAI-Logo.png",
+    "alt": "GPT-6.2 Astra and Sol get to the point faster but score lower on transparency than Claude",
+    "credit": "The Decoder"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "GPT-6.2 Astra and Sol get to the point faster but score lower on transparency than Claude",
+    "url": "https://the-decoder.com/gpt-6-2-astra-and-sol-get-to-the-point-faster-but-score-lower-on-transparency-than-claude/",
+    "source": "The Decoder"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-22T10:06:09.849Z",
+  "updatedAt": "2026-11-22T10:06:09.849Z",
+  "publishedAt": null
+}

@@ -1,5 +1,35 @@
 [
   {
+    "slug": "gpt-6-2-astra-and-sol-are-shorter-but-less-transparent-than-claude",
+    "title": "GPT-6.2 Astra and Sol are shorter but less transparent than Claude",
+    "dek": "OpenAI’s newest GPT-6.2 variants return briefer, more direct replies and are less likely to admit uncertainty than Anthropic’s Claude, according to The Decoder.",
+    "section": "models",
+    "tags": [
+      "OpenAI",
+      "Anthropic",
+      "models",
+      "transparency"
+    ],
+    "author": "Kelvane Club Desk",
+    "cover": {
+      "url": "https://the-decoder.com/wp-content/uploads/2026/11/OpenAI-Logo.png",
+      "alt": "GPT-6.2 Astra and Sol get to the point faster but score lower on transparency than Claude",
+      "credit": "The Decoder"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "GPT-6.2 Astra and Sol get to the point faster but score lower on transparency than Claude",
+      "url": "https://the-decoder.com/gpt-6-2-astra-and-sol-get-to-the-point-faster-but-score-lower-on-transparency-than-claude/",
+      "source": "The Decoder"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-22T10:06:09.849Z",
+    "updatedAt": "2026-11-22T10:06:09.849Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "bytedance-and-partners-release-axion-1-0-challenge-openai-and-anthropic",
     "title": "Bytedance and partners release Axion 1.0, challenge OpenAI and Anthropic",
     "dek": "Axion 1.0, an open AI agent, matches top commercial models on benchmarks after three training phases; Bytedance credits curated data, not extra training.",
