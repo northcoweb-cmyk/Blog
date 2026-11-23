@@ -1,5 +1,34 @@
 [
   {
+    "slug": "oracle-rolls-out-ai-enhancements-for-construction-projects",
+    "title": "Oracle rolls out AI enhancements for construction projects",
+    "dek": "Oracle announces AI-driven features intended to streamline operations and optimize resource management in construction projects.",
+    "section": "mainstreet",
+    "tags": [
+      "Oracle",
+      "construction",
+      "AI"
+    ],
+    "author": "Kelvane Club Desk",
+    "cover": {
+      "url": "https://media.smallbiztrends.com/2026/11/oracle-news-oracle-unveils-ai-driven-enhancements-to-boost-construction-project-efficiency-100x100.jpg",
+      "alt": "Oracle Unveils AI-Driven Enhancements to Boost Construction Project Efficiency",
+      "credit": "Small Business Trends"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Oracle Unveils AI-Driven Enhancements to Boost Construction Project Efficiency",
+      "url": "https://smallbiztrends.com/oracle-unveils-ai-driven-enhancements-to-boost-construction-project-efficiency/",
+      "source": "Small Business Trends"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-23T10:06:19.338Z",
+    "updatedAt": "2026-11-23T10:06:19.338Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "anthropic-says-claude-proved-the-riemann-hypothesis-stanford-files-rival-human-p",
     "title": "Anthropic says Claude proved the Riemann hypothesis; Stanford files rival human proof",
     "dek": "Anthropic researcher Levent Alpöge says he used Claude to generate a Lean-formalized proof of the 167-year-old Riemann hypothesis; hours later Stanford posted an independent all-human draft.",
