@@ -1,30 +1,30 @@
 [
   {
-    "slug": "oracle-rolls-out-ai-enhancements-for-construction-projects",
-    "title": "Oracle rolls out AI enhancements for construction projects",
-    "dek": "Oracle announces AI-driven features intended to streamline operations and optimize resource management in construction projects.",
-    "section": "mainstreet",
+    "slug": "wired-publishes-essay-titled-goodbye-world-the-end-of-programmers",
+    "title": "WIRED publishes essay titled ‘Goodbye, World: The End of Programmers’",
+    "dek": "WIRED ran an essay called 'Goodbye, World: The End of Programmers' described as the author's final piece on the craft of coding.",
+    "section": "ai",
     "tags": [
-      "Oracle",
-      "construction",
-      "AI"
+      "WIRED",
+      "programming",
+      "opinion"
     ],
     "author": "Kelvane Club Desk",
     "cover": {
-      "url": "https://media.smallbiztrends.com/2026/11/oracle-news-oracle-unveils-ai-driven-enhancements-to-boost-construction-project-efficiency-100x100.jpg",
-      "alt": "Oracle Unveils AI-Driven Enhancements to Boost Construction Project Efficiency",
-      "credit": "Small Business Trends"
+      "url": "https://media.wired.com/photos/6afb501c3f280c58f990fcf3/master/pass/WIRED-MREnglish-AaronFernandez-01.png",
+      "alt": "Goodbye, World: The End of Programmers",
+      "credit": "WIRED"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Oracle Unveils AI-Driven Enhancements to Boost Construction Project Efficiency",
-      "url": "https://smallbiztrends.com/oracle-unveils-ai-driven-enhancements-to-boost-construction-project-efficiency/",
-      "source": "Small Business Trends"
+      "title": "Goodbye, World: The End of Programmers",
+      "url": "https://www.wired.com/story/goodbye-world-the-end-of-programmers/",
+      "source": "WIRED"
     },
     "aiAssisted": true,
-    "createdAt": "2026-11-23T10:06:19.338Z",
-    "updatedAt": "2026-11-23T10:06:19.338Z",
+    "createdAt": "2026-11-23T10:06:21.483Z",
+    "updatedAt": "2026-11-23T10:06:21.483Z",
     "publishedAt": null,
     "readingTime": 1
   },

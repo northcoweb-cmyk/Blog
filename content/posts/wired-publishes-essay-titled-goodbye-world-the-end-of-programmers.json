@@ -1,0 +1,29 @@
+{
+  "slug": "wired-publishes-essay-titled-goodbye-world-the-end-of-programmers",
+  "title": "WIRED publishes essay titled ‘Goodbye, World: The End of Programmers’",
+  "dek": "WIRED ran an essay called 'Goodbye, World: The End of Programmers' described as the author's final piece on the craft of coding.",
+  "body": "WIRED has published an essay titled \"Goodbye, World: The End of Programmers.\" The one-line summary of the piece reads: \"The last thing you should ever read,and the last thing I may ever write,about the craft of coding.\" Beyond that headline and tagline, the publicly available summary does not provide the essay's arguments, evidence, or author attribution.\n\n## Why it matters\nThis is a prominent outlet framing the end of software programming as a subject worthy of a final essay. How WIRED positions coding matters because the magazine reaches technologists, managers, investors, and policymakers who pay attention to its cover stories and long-form commentary. That framing could shape conversations about skills, hiring, training, and technology coverage , but the specific claims and supporting evidence are not visible in the summary information at hand.\n\n## The details\n- Publication: WIRED published an essay carrying the title \"Goodbye, World: The End of Programmers.\" \n- Tagline: The summary line is: \"The last thing you should ever read,and the last thing I may ever write,about the craft of coding.\" \n- Content unknown: The summary provides no details about the essay's arguments, data, named people, products, dates, or policy recommendations. \n- Attribution unknown: The author of the essay is not identified in the available summary.\n- Reactions unknown: There is no summary detail about industry, academic, or public response to the essay.\n\n## What to watch\nRead the full WIRED essay to see the claims, evidence, and who is making them. Watch for follow-up reporting that cites the essay and for responses from major developer communities, technology employers, and policy bodies — those reactions will reveal whether the piece shifts debate or is mainly rhetorical.\n\nSource: reporting by WIRED.",
+  "section": "ai",
+  "tags": [
+    "WIRED",
+    "programming",
+    "opinion"
+  ],
+  "author": "Kelvane Club Desk",
+  "cover": {
+    "url": "https://media.wired.com/photos/6afb501c3f280c58f990fcf3/master/pass/WIRED-MREnglish-AaronFernandez-01.png",
+    "alt": "Goodbye, World: The End of Programmers",
+    "credit": "WIRED"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Goodbye, World: The End of Programmers",
+    "url": "https://www.wired.com/story/goodbye-world-the-end-of-programmers/",
+    "source": "WIRED"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-23T10:06:21.483Z",
+  "updatedAt": "2026-11-23T10:06:21.483Z",
+  "publishedAt": null
+}
