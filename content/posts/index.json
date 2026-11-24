@@ -1,32 +1,33 @@
 [
   {
-    "slug": "anthropic-launches-claude-ship-to-automate-pull-request-approvals",
-    "title": "Anthropic launches Claude Ship to automate pull request approvals",
-    "dek": "Claude Ship lets AI agents review, fix, and approve code changes to reduce manual sign-off work",
-    "section": "models",
+    "slug": "jensen-huang-reinstated-as-nvidia-ceo-after-brief-resignation",
+    "title": "Jensen Huang reinstated as Nvidia CEO after brief resignation",
+    "dek": "Huang resigned on November 12 amid scrutiny over alleged affairs, then returned; markets reacted positively.",
+    "section": "ai",
     "tags": [
-      "Anthropic",
-      "developer-tools",
-      "AI-agents"
+      "Nvidia",
+      "Jensen Huang",
+      "markets",
+      "AI"
     ],
     "author": "Kelvane Club Desk",
     "cover": {
-      "url": "https://techcrunch.com/wp-content/uploads/2026/10/GettyImages-2295579000.jpg?resize=1200,800",
-      "alt": "Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes",
-      "credit": "TechCrunch"
+      "url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/Nvidia_Jensen_huang_04.jpg?quality=90&strip=all&crop=0,0,100,100",
+      "alt": "How Jensen Huang ended up as Nvidia CEO again",
+      "credit": "The Verge"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes",
-      "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/",
-      "source": "TechCrunch"
+      "title": "How Jensen Huang ended up as Nvidia CEO again",
+      "url": "https://www.theverge.com/tech/1040428/nvidia-jensen-huang-ceo-return",
+      "source": "The Verge"
     },
     "aiAssisted": true,
-    "createdAt": "2026-11-24T10:06:14.166Z",
-    "updatedAt": "2026-11-24T10:06:14.166Z",
+    "createdAt": "2026-11-24T10:06:15.758Z",
+    "updatedAt": "2026-11-24T10:06:15.758Z",
     "publishedAt": null,
-    "readingTime": 1
+    "readingTime": 2
   },
   {
     "slug": "wired-publishes-essay-titled-goodbye-world-the-end-of-programmers",
