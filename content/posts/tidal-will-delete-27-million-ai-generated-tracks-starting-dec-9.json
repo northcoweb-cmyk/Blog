@@ -1,0 +1,29 @@
+{
+  "slug": "tidal-will-delete-27-million-ai-generated-tracks-starting-dec-9",
+  "title": "Tidal will delete 27 million AI-generated tracks starting Dec. 9",
+  "dek": "Streaming service says fully AI-generated music will be removed, shrinking its catalog by 6.3 percent.",
+  "body": "Tidal is removing fully AI-generated music from its platform and will delete about 27 million tracks on December 9. The company says those songs represent 6.3 percent of its catalog, which will drop to zero for fully AI-generated material after the purge.\n\n## Why it matters\n\nThis is a direct move by a major streaming service to police AI-created content at scale. The decision affects licensing, artist earnings, and the catalog choices subscribers and partners see — and it comes as platforms across media wrestle with how to treat material produced by generative models (software that produces content such as audio or text from prompts).\n\nTidal’s action sets a commercial precedent for how rights holders and distributors might treat purely synthetic tracks, and it arrives in a moment when AI tools have made producing music faster and cheaper. That combination has already changed the supply side of streaming catalogs, and Tidal’s removal will reduce available inventory and streams tied to those tracks.\n\n## The details\n\n- Tidal will ban and remove fully AI-generated tracks from its service on December 9, according to Ars Technica, The Verge, TechCrunch, and Engadget reporting.\n- The company expects to delete about 27 million tracks, which its count represents 6.3 percent of Tidal’s current catalog.\n- The policy targets fully AI-generated music; the public reporting does not detail whether music that is partly AI-assisted will remain allowed.\n- Coverage from TechCrunch and Engadget frames the move as a response to an influx of low-quality or mass-produced AI music on streaming platforms, but precise thresholds Tidal will use to identify offending tracks are not publicly described.\n- Reports do not specify how the removals will affect payouts to artists or rights holders for streams that already occurred, or whether there will be an appeal or review process for flagged content.\n\n## What to watch\n\nWatch for clarity from Tidal on enforcement mechanics: how it determines a track is fully AI-generated, how many users or accounts are affected, and whether there will be a dispute resolution process. Rights holders and labels will press for specifics on royalties and historical accounting for removed streams.\n\nAlso track responses from other streaming services and major labels; Tidal’s move could prompt coordinated policy changes or legal challenges if rights holders or creators object. Finally, expect monitoring of catalog metrics and subscriber feedback to see whether removing 6.3 percent of content changes listening patterns or churn.\n\nSource: reporting by Ars Technica.",
+  "section": "policy",
+  "tags": [
+    "music",
+    "ai",
+    "streaming"
+  ],
+  "author": "Kelvane Club Desk",
+  "cover": {
+    "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/GettyImages-1083228790-1152x648.jpg",
+    "alt": "Tidal announces ban on AI-generated music; 27 million tracks will be deleted",
+    "credit": "Ars Technica"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "Tidal announces ban on AI-generated music; 27 million tracks will be deleted",
+    "url": "https://arstechnica.com/ai/2026/11/tidal-will-ban-fully-ai-generated-music-on-december-9/",
+    "source": "Ars Technica"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-25T10:06:15.166Z",
+  "updatedAt": "2026-11-25T10:06:15.166Z",
+  "publishedAt": null
+}

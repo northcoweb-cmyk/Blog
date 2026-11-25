@@ -1,32 +1,32 @@
 [
   {
-    "slug": "jensen-huang-returns-nvidia-stock-rises",
-    "title": "Jensen Huang Returns; Nvidia Stock Rises",
-    "dek": "Nvidia’s CEO has re-emerged and the company’s shares have climbed, raising questions about why and what comes next.",
-    "section": "markets",
+    "slug": "tidal-will-delete-27-million-ai-generated-tracks-starting-dec-9",
+    "title": "Tidal will delete 27 million AI-generated tracks starting Dec. 9",
+    "dek": "Streaming service says fully AI-generated music will be removed, shrinking its catalog by 6.3 percent.",
+    "section": "policy",
     "tags": [
-      "Nvidia",
-      "Jensen Huang",
-      "markets"
+      "music",
+      "ai",
+      "streaming"
     ],
     "author": "Kelvane Club Desk",
     "cover": {
-      "url": "https://media.wired.com/photos/6b0467fb5f8e6c0d7b84afc9/master/pass/Business_Nvidia%20Is%20Worth%20$1%20Trillion%20More%20Than%20It%20Was%20Yesterday.jpg",
-      "alt": "Jensen Huang Is Back, and So Is Nvidia’s Stock",
-      "credit": "WIRED"
+      "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/GettyImages-1083228790-1152x648.jpg",
+      "alt": "Tidal announces ban on AI-generated music; 27 million tracks will be deleted",
+      "credit": "Ars Technica"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Jensen Huang Is Back, and So Is Nvidia’s Stock",
-      "url": "https://www.wired.com/story/jensens-back-stocks-up-what-the-hell-sure/",
-      "source": "WIRED"
+      "title": "Tidal announces ban on AI-generated music; 27 million tracks will be deleted",
+      "url": "https://arstechnica.com/ai/2026/11/tidal-will-ban-fully-ai-generated-music-on-december-9/",
+      "source": "Ars Technica"
     },
     "aiAssisted": true,
-    "createdAt": "2026-11-25T10:06:14.496Z",
-    "updatedAt": "2026-11-25T10:06:14.496Z",
+    "createdAt": "2026-11-25T10:06:15.166Z",
+    "updatedAt": "2026-11-25T10:06:15.166Z",
     "publishedAt": null,
-    "readingTime": 1
+    "readingTime": 2
   },
   {
     "slug": "jensen-huang-reinstated-as-nvidia-ceo-after-brief-resignation",
