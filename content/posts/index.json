@@ -1,5 +1,34 @@
 [
   {
+    "slug": "jensen-huang-returns-nvidia-stock-rises",
+    "title": "Jensen Huang Returns; Nvidia Stock Rises",
+    "dek": "Nvidia’s CEO has re-emerged and the company’s shares have climbed, raising questions about why and what comes next.",
+    "section": "markets",
+    "tags": [
+      "Nvidia",
+      "Jensen Huang",
+      "markets"
+    ],
+    "author": "Kelvane Club Desk",
+    "cover": {
+      "url": "https://media.wired.com/photos/6b0467fb5f8e6c0d7b84afc9/master/pass/Business_Nvidia%20Is%20Worth%20$1%20Trillion%20More%20Than%20It%20Was%20Yesterday.jpg",
+      "alt": "Jensen Huang Is Back, and So Is Nvidia’s Stock",
+      "credit": "WIRED"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Jensen Huang Is Back, and So Is Nvidia’s Stock",
+      "url": "https://www.wired.com/story/jensens-back-stocks-up-what-the-hell-sure/",
+      "source": "WIRED"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-25T10:06:14.496Z",
+    "updatedAt": "2026-11-25T10:06:14.496Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "jensen-huang-reinstated-as-nvidia-ceo-after-brief-resignation",
     "title": "Jensen Huang reinstated as Nvidia CEO after brief resignation",
     "dek": "Huang resigned on November 12 amid scrutiny over alleged affairs, then returned; markets reacted positively.",
