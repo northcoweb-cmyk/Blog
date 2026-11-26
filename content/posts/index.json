@@ -1,5 +1,34 @@
 [
   {
+    "slug": "global-stocks-rally-as-investors-shrug-off-new-u-s-tariffs",
+    "title": "Global stocks rally as investors shrug off new U.S. tariffs",
+    "dek": "Markets rise as traders look for bargains after the White House announces tariffs on more than a dozen trading partners",
+    "section": "policy",
+    "tags": [
+      "markets",
+      "trade",
+      "investing"
+    ],
+    "author": "Kelvane Club Desk",
+    "cover": {
+      "url": "https://image.cnbcfm.com/api/v1/image/108094148-1738167165694-gettyimages-2195902460-JAPAN_STOCKS.jpeg?v=1758691768&w=1920&h=1080",
+      "alt": "Global stocks rally as investors shrug off U.S. tariffs and AI jitters to 'fish for bargains'",
+      "credit": "CNBC"
+    },
+    "featured": false,
+    "status": "draft",
+    "sourceStory": {
+      "title": "Global stocks rally as investors shrug off U.S. tariffs and AI jitters to 'fish for bargains'",
+      "url": "https://www.cnbc.com/2026/11/26/stock-markets-today-.html",
+      "source": "CNBC"
+    },
+    "aiAssisted": true,
+    "createdAt": "2026-11-26T10:06:10.452Z",
+    "updatedAt": "2026-11-26T10:06:10.452Z",
+    "publishedAt": null,
+    "readingTime": 1
+  },
+  {
     "slug": "tidal-will-delete-27-million-ai-generated-tracks-starting-dec-9",
     "title": "Tidal will delete 27 million AI-generated tracks starting Dec. 9",
     "dek": "Streaming service says fully AI-generated music will be removed, shrinking its catalog by 6.3 percent.",
