@@ -1,32 +1,33 @@
 [
   {
-    "slug": "global-stocks-rally-as-investors-shrug-off-new-u-s-tariffs",
-    "title": "Global stocks rally as investors shrug off new U.S. tariffs",
-    "dek": "Markets rise as traders look for bargains after the White House announces tariffs on more than a dozen trading partners",
-    "section": "policy",
+    "slug": "42-state-ags-move-to-block-sale-of-character-ai-chat-histories",
+    "title": "42 state AGs move to block sale of Character.AI chat histories",
+    "dek": "A coalition of attorneys general says Character.AI may auction private chats from more than 21 million U.S. accounts as the company navigates Chapter 11.",
+    "section": "ai",
     "tags": [
-      "markets",
-      "trade",
-      "investing"
+      "privacy",
+      "bankruptcy",
+      "ai",
+      "regulation"
     ],
     "author": "Kelvane Club Desk",
     "cover": {
-      "url": "https://image.cnbcfm.com/api/v1/image/108094148-1738167165694-gettyimages-2195902460-JAPAN_STOCKS.jpeg?v=1758691768&w=1920&h=1080",
-      "alt": "Global stocks rally as investors shrug off U.S. tariffs and AI jitters to 'fish for bargains'",
-      "credit": "CNBC"
+      "url": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25557391/STK278_character_ai_B.jpg?quality=90&strip=all&crop=0,0,100,100",
+      "alt": "42 state AGs are trying to stop Character.AI from selling users’ chats",
+      "credit": "The Verge"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Global stocks rally as investors shrug off U.S. tariffs and AI jitters to 'fish for bargains'",
-      "url": "https://www.cnbc.com/2026/11/26/stock-markets-today-.html",
-      "source": "CNBC"
+      "title": "42 state AGs are trying to stop Character.AI from selling users’ chats",
+      "url": "https://www.theverge.com/policy/1042620/character-ai-sale-state-ags-block-selling-users-chats",
+      "source": "The Verge"
     },
     "aiAssisted": true,
-    "createdAt": "2026-11-26T10:06:10.452Z",
-    "updatedAt": "2026-11-26T10:06:10.452Z",
+    "createdAt": "2026-11-26T10:06:12.848Z",
+    "updatedAt": "2026-11-26T10:06:12.848Z",
     "publishedAt": null,
-    "readingTime": 1
+    "readingTime": 2
   },
   {
     "slug": "tidal-will-delete-27-million-ai-generated-tracks-starting-dec-9",

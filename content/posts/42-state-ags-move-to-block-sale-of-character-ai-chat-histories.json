@@ -1,0 +1,30 @@
+{
+  "slug": "42-state-ags-move-to-block-sale-of-character-ai-chat-histories",
+  "title": "42 state AGs move to block sale of Character.AI chat histories",
+  "dek": "A coalition of attorneys general says Character.AI may auction private chats from more than 21 million U.S. accounts as the company navigates Chapter 11.",
+  "body": "Character.AI faces a coordinated legal push from 42 state attorneys general seeking to stop the company from selling users’ chat histories as it goes through Chapter 11 bankruptcy proceedings.\n\nThe attorneys general say the company plans to auction off what they call the private chat histories of more than 21 million U.S. accounts, and they issued a deluge of nearly identical press releases to announce the effort.\n\n## Why it matters\n\nThe dispute ties together money, user privacy and bankruptcy law. The potentially affected data includes private conversations from millions of U.S. users , a material asset in a Chapter 11 process where a company liquidates or sells assets to satisfy creditors.\n\nState AG involvement signals a multi-jurisdictional enforcement posture on consumer privacy tied to AI services, and it could influence how bankruptcy courts treat user data as an asset. That has implications for buyers, other AI companies with user-generated training material, and regulators weighing consumer protections against creditors’ rights.\n\n## The details\n\n- 42 state attorneys general have publicly acted to try to prevent Character.AI from selling users’ chat histories, according to The Verge.\n- The AGs claim the company plans to auction private chat histories belonging to more than 21 million U.S. accounts.\n- The AGs communicated the effort through a large number of nearly identical press releases, per The Verge reporting.\n- Character.AI is in Chapter 11 bankruptcy proceedings at the time of the reports.\n- Engadget also covered the state AGs’ attempt to block an auction of users’ chat histories.\n- Specifics about any proposed sale, including potential buyers, sale price, or assets listed for auction, were not disclosed in the reporting.\n\n## What to watch\n\nWatch for filings in the Chapter 11 case that describe proposed asset sales and for any formal objections by the attorneys general in bankruptcy court. Pay attention to any statement from Character.AI clarifying whether it has an active plan to sell chat histories and what legal basis it will cite for treating user data as an asset.\n\nAlso monitor whether the attorneys general coordinate a single legal filing or pursue separate actions in state or federal court — that choice will affect timing and the range of remedies they can seek.\n\nSource: reporting by The Verge.",
+  "section": "ai",
+  "tags": [
+    "privacy",
+    "bankruptcy",
+    "ai",
+    "regulation"
+  ],
+  "author": "Kelvane Club Desk",
+  "cover": {
+    "url": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25557391/STK278_character_ai_B.jpg?quality=90&strip=all&crop=0,0,100,100",
+    "alt": "42 state AGs are trying to stop Character.AI from selling users’ chats",
+    "credit": "The Verge"
+  },
+  "featured": false,
+  "status": "draft",
+  "sourceStory": {
+    "title": "42 state AGs are trying to stop Character.AI from selling users’ chats",
+    "url": "https://www.theverge.com/policy/1042620/character-ai-sale-state-ags-block-selling-users-chats",
+    "source": "The Verge"
+  },
+  "aiAssisted": true,
+  "createdAt": "2026-11-26T10:06:12.848Z",
+  "updatedAt": "2026-11-26T10:06:12.848Z",
+  "publishedAt": null
+}
