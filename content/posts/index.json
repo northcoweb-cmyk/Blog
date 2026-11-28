@@ -1,33 +1,32 @@
 [
   {
-    "slug": "restricted-nvidia-chips-found-in-shanghai-data-center-tied-to-alice-huang",
-    "title": "Restricted Nvidia chips found in Shanghai data center tied to Alice Huang",
-    "dek": "Bloomberg/Engadget reporting says high-end Nvidia hardware and a GB300 rack traced to Gigabyte appeared in a facility linked to Alice Huang.",
-    "section": "tech",
+    "slug": "tech-selloff-trims-gains-anthropic-s-ipo-price-becomes-a-flashpoint",
+    "title": "Tech selloff trims gains; Anthropic's IPO price becomes a flashpoint",
+    "dek": "Nvidia and AI-linked stocks fell as investors weigh AI spending, inflation and higher-rate risks; coverage diverges on Anthropic's IPO status.",
+    "section": "markets",
     "tags": [
-      "Nvidia",
-      "China",
-      "hardware",
-      "investigation"
+      "markets",
+      "AI",
+      "Anthropic"
     ],
     "author": "Kelvane Club Desk",
     "cover": {
-      "url": "https://www.engadget.com/img/gallery/restricted-nvidia-chips-were-installed-at-a-chinese-data-center-linked-to-alice-huang/l-intro-1795804126.jpg",
-      "alt": "Restricted NVIDIA chips were installed at a Chinese data center linked to Alice Huang",
-      "credit": "Engadget"
+      "url": "https://image.cnbcfm.com/api/v1/image/108549914-1794489742468-108549914-1794487406211-gettyimages-2299714527-UK_HUANG.jpg?v=1795450267&w=1920&h=1080",
+      "alt": "Tech stocks sink but close well off the lows, Anthropic struggles to rebound above IPO price",
+      "credit": "CNBC"
     },
     "featured": false,
     "status": "draft",
     "sourceStory": {
-      "title": "Restricted NVIDIA chips were installed at a Chinese data center linked to Alice Huang",
-      "url": "https://www.engadget.com/2329748/restricted-nvidia-chips-were-installed-at-a-chinese-data-center-linked-to-alice-huang/",
-      "source": "Engadget"
+      "title": "Tech stocks sink but close well off the lows, Anthropic struggles to rebound above IPO price",
+      "url": "https://www.cnbc.com/2026/11/25/nvidia-ai-stock-tech-selloff.html",
+      "source": "CNBC"
     },
     "aiAssisted": true,
-    "createdAt": "2026-11-28T10:06:04.595Z",
-    "updatedAt": "2026-11-28T10:06:04.595Z",
+    "createdAt": "2026-11-28T10:06:04.907Z",
+    "updatedAt": "2026-11-28T10:06:04.907Z",
     "publishedAt": null,
-    "readingTime": 2
+    "readingTime": 1
   },
   {
     "slug": "sap-weighing-at-least-10-000-job-cuts-as-it-refocuses-on-ai",
